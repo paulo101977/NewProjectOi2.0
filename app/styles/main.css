@@ -1,83 +1,150 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+
+
+body, html {
+    height: 100%;
 }
 
-body {
-  padding: 0;
+.container-fluid{
+    margin: 0vh !important;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.mask {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #ea288c, #ff6d00 70%, #ffff00);
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+.img-mask{
+    margin-left: 50px;
+    margin-top: 60px
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.item-row{
+    height: 33.33vh;
+    margin-left: 0px !important;
+    border: solid 1px #dddddd;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
+.item-last{
+  background-color: #f5f5f5;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+.your_password {
+  margin-top: 43px;
+  margin-left: 50px;
+  width: 266px;
+  height: 126px;
+  font-family: SimplonOi-Headline;
+  font-size: 70px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  color: #ffffff;
 }
-.jumbotron .btn {
+
+
+input{
+    border-width:0px !important;
+    border:none !important;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+
+.password{
+  font-family: SimplonBP-Light;
+  font-size: 42px;
+  font-weight: 300;
+  margin-left: 87px !important;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 7;
+  letter-spacing: -2px;
+  color: #dddddd;
+}
+
+.enter-text{
+  margin-left: 87px !important;
+  font-family: SimplonBP-Light;
+  font-size: 42px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 7;
+  letter-spacing: -2px;
+  color: #cccccc;
+}
+
+.email-name{
+  position: absolute !important;
+  margin-top: 78.1px;
+  margin-left: 87px !important;
+  font-family: SimplonBP-Regular;
+  font-size: 14px;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  letter-spacing: -0.5px;
+  color: #777777;
+}
+
+.email{
+  font-family: SimplonBP-Light;
+  font-size: 42px;
+  font-weight: 300 !important;
+  font-style: normal;
+  margin-left: 87px !important;
+  font-stretch: normal;
+  line-height: 7;
+  letter-spacing: -2px;
+  color: #777777;
+}
+
+.check{
+  font-family: SimplonBP-Light;
+  font-size: 42px;
+  object-fit: contain;
+  border-radius: 2px;
+  background-color: #ffffff;
+  border: solid 1px #dddddd;
+  width: 21px;
+  height: 21px;
+  margin-top: 125px !important;
+  margin-right: 11px !important;
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.4); /* IE */
+  -moz-transform: scale(1.4); /* FF */
+  -webkit-transform: scale(1.4); /* Safari and Chrome */
+  -o-transform: scale(1.4); /* Opera */
+  padding: 10px;
+}
+
+.text-show{
+  margin-top: 120px;
+  font-family: SimplonBP-Light;
   font-size: 21px;
-  padding: 14px 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.6px;
+  color: #dddddd;
+  margin-right: 76px !important;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
 }
-.marketing p + h4 {
-  margin-top: 28px;
-}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+  
 }
