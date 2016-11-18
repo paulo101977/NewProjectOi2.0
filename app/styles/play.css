@@ -1,0 +1,80 @@
+.main{
+    width:  355px;
+    height:  385px;
+    
+    /* browsers that dont render gradient */
+    background: #00ceff; 
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(-45deg, #00ceff, #9f24ff); /* Standard syntax */
+}
+
+.oi_play_logo{
+    position: absolute;
+    margin-top: 20px;
+    margin-left:  31px;
+}
+
+.acesse_com_login{
+    position: absolute;
+    font-family: "SimplonBP-Regular";
+    font-size: 14px;
+    text-align: left;
+    color: white;
+    margin-top: 90px;
+    margin-left:  31px;
+    font-weight: 1;
+}
+
+.email-cpf-input{
+    position: absolute;
+    margin-top: 111.8px;
+    margin-left:  31px;
+}
+
+.password-input{
+    position: absolute;
+    margin-top: 167px;
+    margin-left:  31px;
+}
+
+.text-field{
+    width : 294px;
+    height: 56px;
+}
+
+
+/* change placeholder for input */
+::-webkit-input-placeholder {
+    margin-left: 20px;
+    padding-left: 20px;
+    font-family: "SimplonBP-Regular";
+    font-size: 14px;
+    color: #909090;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    margin-left: 20px;
+    padding-left: 20px;
+    font-family: "SimplonBP-Regular";
+    font-size: 14px;
+    color: #909090;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    margin-left: 20px;
+    padding-left: 20px;
+    font-family: "SimplonBP-Regular";
+    font-size: 14px;
+    color: #909090;  
+}
+
+:-ms-input-placeholder {  
+    margin-left: 20px;
+    padding-left: 20px;
+    font-family: "SimplonBP-Regular";
+    font-size: 14px;
+    color: #909090;  
+}
