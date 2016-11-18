@@ -153,15 +153,19 @@ input:focus {
     padding-left: 0px !important;
 }
 
-@media screen and (max-width: 1920px) {
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (max-width: 990px) {
     .sidebar{
-        height: 100vh;
+        height: 33.3vh;
     }
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+
+/* simple max-width query */
+@media screen and ( min-width: 990px ){
     .sidebar{
-        height: 33.3vh;
+        height: 100vh;
     }
 }
