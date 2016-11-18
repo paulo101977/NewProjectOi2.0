@@ -77,11 +77,6 @@ input:focus{
 }
 
 
-/* define default size of inputs */
-.default-size{
-    width : 272px;
-    height: 56px;
-}
 
 /* the button "Entrar" */
 .btn-start{
@@ -204,10 +199,54 @@ input.password-input:focus + button.btn_forgot {
 @media only screen 
 and (min-width : 1024px) {
     
-    body {
+    /* change the main containt width */
+    .main {
         width: 30%;
         margin: 1em auto;
     }
+    
+    
+    /* define default size of inputs */
+    .default-size{
+        width : calc(30% - 20px) !important;
+        height: 56px;
+    }
+    
+    
+    .btn-register,.btn-start{
+        width : 30% !important;
+    }
+    
+    .btn_forgot{
+        margin-left: calc(30% - 62px)
+    }
+    
+}
+
+@media only screen 
+and (max-width : 1024px) {
+    
+    
+    /* define default size of inputs */
+    .default-size{
+        width : calc(100% - 91px);
+        height: 56px;
+    }
+    
+    input{
+        width : calc(100% - 31px);
+        height: 56px;
+        margin-right: 31px;
+    }
+    
+    .btn-register,.btn-start{
+        width : calc(100% - 70px);
+    }
+    
+    .btn_forgot{
+        margin-left: calc(100% - 130px)
+    }
+    
 }
 
 
@@ -220,7 +259,5 @@ and (max-device-width : 480px) {
         margin: 0;
     }
     
-    form input[type="text"], form input[type="password"] {
-        width: 96%;
-    }
+    
 }
