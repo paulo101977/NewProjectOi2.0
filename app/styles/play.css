@@ -126,6 +126,19 @@ input:focus{
     border-width: 0px;
 }
 
+/* button to "esqueceu" */
+.btn_forgot{
+    position: absolute;
+    margin-left: 237px;
+    margin-top: 190.5px;
+    border: none;
+    background-color: white;
+    text-decoration: underline;
+    font-family: "SimplonBP-Light";
+    font-size: 11px;
+    color : #909090;
+}
+
 /* disable button border on focus, hover and active */
 button:hover {
     outline:none;
