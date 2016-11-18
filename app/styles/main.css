@@ -8,8 +8,7 @@ body, html {
     margin: 0vh !important;
 }
 
-.mask {
-  height: 100vh;
+.sidebar {
   background-image: linear-gradient(to bottom, #ea288c, #ff6d00 70%, #ffff00);
 }
 
@@ -51,17 +50,20 @@ input{
 }
 
 input[type="checkbox"]{
+      position: absolute;
+      top: calc(50% - 50px);
       width: 50px !important;
       height: 50px !important;
       padding: 10px !important;
       content: '&' !important;
-      background: url(../svg/check_box.svg);
+      background: url("../svg/check_box.svg") no-repeat 0 0;
       border-radius: 5px !important;
       border: 2px solid #ddd !important;
       display: inline-block !important;
       vertical-align: middle !important;
       margin-right: 10px !important;
       text-align: center !important;
+    z-index: 9999;
 }
 
 
@@ -151,8 +153,15 @@ input:focus {
     padding-left: 0px !important;
 }
 
+@media screen and (max-width: 1920px) {
+    .sidebar{
+        height: 100vh;
+    }
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  
+    .sidebar{
+        height: 33.3vh;
+    }
 }
