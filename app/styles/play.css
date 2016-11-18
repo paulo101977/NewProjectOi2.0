@@ -13,7 +13,7 @@ body{
     
     background-repeat: no-repeat; /* dont repeat the background gradient */
     
-    height: 100vh; /* full height */
+    min-height: 100%; /* full height */
 }
 
 /* main container */
@@ -202,7 +202,6 @@ and (min-width : 1024px) {
     /* change the main containt width */
     .main {
         width: 30%;
-        margin: 1em auto;
     }
     
     
@@ -251,8 +250,11 @@ and (max-width : 1024px) {
 
 
 @media only screen 
-and (min-device-width : 320px) 
 and (max-device-width : 480px) {
+    
+    .main {
+        width: 100%;
+    }
     
     body {
         width: 100%;
@@ -260,4 +262,11 @@ and (max-device-width : 480px) {
     }
     
     
+}
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
 }
