@@ -1,16 +1,28 @@
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(-45deg, #00ceff, #9f24ff); /* Standard syntax */
+    
+    background-repeat: no-repeat; /* dont repeat the background gradient */
+    
+    height: 100vh; /* full height */
+}
+
 /* main container */
 .main{
     width:  355px;
     height:  385px;
     
     /* browsers that dont render gradient */
-    background: #00ceff; 
-    /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(-45deg, #00ceff, #9f24ff); /* Standard syntax */
+    background-color: transparent; 
 }
 
 /* the logo on top screen */
@@ -187,4 +199,28 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 /* hide btn_forgot when password has focus */
 input.password-input:focus + button.btn_forgot {
   display: none;
+}
+
+@media only screen 
+and (min-width : 1024px) {
+    
+    body {
+        width: 30%;
+        margin: 1em auto;
+    }
+}
+
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    
+    body {
+        width: 100%;
+        margin: 0;
+    }
+    
+    form input[type="text"], form input[type="password"] {
+        width: 96%;
+    }
 }
