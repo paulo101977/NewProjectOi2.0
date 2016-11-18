@@ -1,3 +1,5 @@
+
+/* main container */
 .main{
     width:  355px;
     height:  385px;
@@ -11,12 +13,14 @@
     background: linear-gradient(-45deg, #00ceff, #9f24ff); /* Standard syntax */
 }
 
+/* the logo on top screen */
 .oi_play_logo{
     position: absolute;
     margin-top: 20px;
     margin-left:  31px;
 }
 
+/* first text on top */
 .acesse_com_login{
     position: absolute;
     font-family: "SimplonBP-Light";
@@ -28,6 +32,7 @@
     font-weight: 100;
 }
 
+/* input text to e-mail and cpf */
 .email-cpf-input{
     position: absolute;
     margin-top: 111.8px;
@@ -36,6 +41,7 @@
     font-weight: 100;
 }
 
+/* input text to password */
 .password-input{
     position: absolute;
     margin-top: 167px;
@@ -44,6 +50,7 @@
     font-weight: 100;
 }
 
+/* for the two inputs on screen */
 input[type=text],input[type=password]{
     border: 1px solid #909090 !important;
     padding-left: 20px !important;
@@ -52,12 +59,20 @@ input[type=text],input[type=password]{
     color: #222222;
 }
 
+/* disable border on focus */
+input:focus{
+    outline: none;
+}
+
+
+/* define default size of inputs */
 .default-size{
     width : 272px;
     height: 56px;
 }
 
-.button-start{
+/* the button "Entrar" */
+.btn-start{
     background-color: #ffa801;
     position: absolute;
     margin-left: 31px;
@@ -73,6 +88,11 @@ input[type=text],input[type=password]{
     font-weight: 100;
 }
 
+.btn-start:active,focus{
+    background-color: #ffb401;
+}
+
+/* the text Ainda nao tem cadastro */
 .no_record{
     position: absolute;
     width : 294px;
@@ -83,7 +103,7 @@ input[type=text],input[type=password]{
     font-size: 14px;
 }
 
-
+/* the button register */
 .btn-register{
     width : 294px;
     height: 40.8px;
@@ -100,6 +120,25 @@ input[type=text],input[type=password]{
     border-width: 1px;
 }
 
+.btn-register:active{
+    background-color: white;
+    color: #222222;
+    border-width: 0px;
+}
+
+/* disable button border on focus, hover and active */
+button:hover {
+    outline:none;
+}
+
+button:active {
+    outline:none;
+}
+
+button:focus {
+    outline:none;
+}
+
 
 /* change placeholder for input */
 ::-webkit-input-placeholder {
@@ -111,7 +150,7 @@ input[type=text],input[type=password]{
 :-moz-placeholder { /* Firefox 18- */
     font-family: "SimplonBP-Light";
     font-size: 14px;
-    color: #909090;  
+    color: #909090; 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
@@ -125,3 +164,9 @@ input[type=text],input[type=password]{
     font-size: 14px;
     color: #909090;  
 }
+
+/* hide placeholder on focus */
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
