@@ -19,61 +19,108 @@
 
 .acesse_com_login{
     position: absolute;
-    font-family: "SimplonBP-Regular";
+    font-family: "SimplonBP-Light";
     font-size: 14px;
     text-align: left;
     color: white;
     margin-top: 90px;
     margin-left:  31px;
-    font-weight: 1;
+    font-weight: 100;
 }
 
 .email-cpf-input{
     position: absolute;
     margin-top: 111.8px;
     margin-left:  31px;
+    padding: 0;
+    font-weight: 100;
 }
 
 .password-input{
     position: absolute;
     margin-top: 167px;
     margin-left:  31px;
+    padding: 0;
+    font-weight: 100;
 }
 
-.text-field{
-    width : 294px;
+input[type=text],input[type=password]{
+    border: 1px solid #909090 !important;
+    padding-left: 20px !important;
+    font-family: "SimplonBP-Light";
+    font-size: 14px;
+    color: #222222;
+}
+
+.default-size{
+    width : 272px;
     height: 56px;
+}
+
+.button-start{
+    background-color: #ffa801;
+    position: absolute;
+    margin-left: 31px;
+    margin-top: 230.2px;
+    padding: 0 !important;
+    border: "white" !important;
+    border-width: 0px !important;
+    width : 294px;
+    height: 54.9px;
+    font-family: "SimplonBP-Light";
+    font-size: 14px;
+    color: #222222;
+    font-weight: 100;
+}
+
+.no_record{
+    position: absolute;
+    width : 294px;
+    margin-left: 31px;
+    margin-top: 304px;
+    color: white !important;
+    font-family: "SimplonBP-Light";
+    font-size: 14px;
+}
+
+
+.btn-register{
+    width : 294px;
+    height: 40.8px;
+    margin-left: 31px;
+    background-color: transparent;
+    color: white;
+    font-family: "SimplonBP-Light";
+    font-size: 14px;
+    position: absolute;
+    margin-left: 31px;
+    margin-top: 325.2px;
+    border : white solid 1px;
+    border-color : white;
+    border-width: 1px;
 }
 
 
 /* change placeholder for input */
 ::-webkit-input-placeholder {
-    margin-left: 20px;
-    padding-left: 20px;
-    font-family: "SimplonBP-Regular";
+    font-family: "SimplonBP-Light";
     font-size: 14px;
     color: #909090;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-    margin-left: 20px;
-    padding-left: 20px;
-    font-family: "SimplonBP-Regular";
+    font-family: "SimplonBP-Light";
     font-size: 14px;
     color: #909090;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-    margin-left: 20px;
-    padding-left: 20px;
-    font-family: "SimplonBP-Regular";
+    font-family: "SimplonBP-Light";
     font-size: 14px;
     color: #909090;  
 }
 
 :-ms-input-placeholder {  
-    margin-left: 20px;
-    padding-left: 20px;
     font-family: "SimplonBP-Regular";
     font-size: 14px;
     color: #909090;  
