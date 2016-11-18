@@ -4,22 +4,40 @@
     padding: 0;
 }
 
-body{
-    /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(-45deg, #00ceff, #9f24ff); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(-45deg, #00ceff, #9f24ff); /* Standard syntax */
+html { 
+    height:100%; 
     
-    background-repeat: no-repeat; /* dont repeat the background gradient */
+    background: #431e9a;
+    background: -moz-linear-gradient(-45deg, #431e9a 0%, #9f24ff 0%, #9f24ff 0%, #00ceff 100%);
+    background: -webkit-linear-gradient(-45deg, #431e9a 0%,#9f24ff 0%,#9f24ff 0%,#00ceff 100%);
+    background: linear-gradient(135deg, #431e9a 0%,#9f24ff 0%,#9f24ff 0%,#00ceff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#431e9a', endColorstr='#00ceff',GradientType=1 );
+    
+    
+    background-position: left bottom;
+    background-size: 100% auto;
+    background-repeat: round;
+    
+}
+
+
+body{
     
     min-height: 100%; /* full height */
+    
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    right:0; 
+    left:0;
 }
 
 /* main container */
 .main{
     width:  355px;
     height:  385px;
+    
+    display: block;
     
     /* browsers that dont render gradient */
     background-color: transparent; 
@@ -224,7 +242,9 @@ and (min-width : 1024px) {
 
 @media only screen 
 and (max-width : 1024px) {
-    
+    .main {
+        width: 100%;
+    }
     
     /* define default size of inputs */
     .default-size{
@@ -264,9 +284,3 @@ and (max-device-width : 480px) {
     
 }
 
-html {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-}
