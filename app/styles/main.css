@@ -47,7 +47,24 @@ body, html {
 input{
     border-width:0px !important;
     border:none !important;
+    
 }
+
+input[type="checkbox"]{
+      width: 50px !important;
+      height: 50px !important;
+      padding: 10px !important;
+    content: '&' !important;
+  background: #fff !important;
+  border-radius: 5px !important;
+  border: 2px solid #ddd !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-right: 10px !important;
+  text-align: center !important;
+}
+
+
 
 input:focus {
     outline-width: 0;
@@ -116,15 +133,6 @@ input:focus {
   margin-right: 11px !important;
 }
 
-input[type=checkbox]
-{
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(1.4); /* IE */
-  -moz-transform: scale(1.4); /* FF */
-  -webkit-transform: scale(1.4); /* Safari and Chrome */
-  -o-transform: scale(1.4); /* Opera */
-  padding: 10px;
-}
 
 .text-show{
   margin-top: 120px;
