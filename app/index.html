@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md-4 sidebar">
                 <img class="img-mask" src="svg/oi_logo.svg" />
-                <div class="your_password">
+                <div class="sidebar_text">
                     CRIE SUA SENHA
                 </div>
             </div>
@@ -33,21 +33,24 @@
             <div class="col-sm-12 col-md-8">
                 <div class="col-md-12 item-row">
                     <div class="email-name">E-mail</div>
-                    <div class="email">washington_loureiro@gmail.com</div>
+                    <input class="email vertical-align-items" maxlength="255" value="washington_loureiro@gmail.com" disabled/>
                 </div>
                 <div class="col-md-12 item-row">
-                    <div class="col-md-8">
-                        <input type="password" class="password" placeholder="Senha" />
+                    <div class="col-md-8 vertical-align-items">
+                        <input class="password vertical-align-items" maxlength="255" type="password" placeholder="Senha" />
                     </div>
-                    <div class="col-md-2 text-right">
+                    <div class="col-md-2 input-container">
                         <input id="show" class="check" type="checkbox" />
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 vertical-align-items">
                         <label class="text-show" for="show">mostrar</label>
                     </div>
                 </div>
                 <div class="col-md-12 item-row item-last">
-                    <div class="enter-text">Entrar<img class="img-mask" src="svg/next.svg" /></div>
+                    <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
+                    <div class="img-container">
+                        <img class="arrow-continue" src="svg/next.svg" />
+                    </div>
                 </div>
             </div>
         </div>

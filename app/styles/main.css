@@ -5,7 +5,12 @@ body, html {
 }
 
 .container-fluid{
+    position: fixed !important;
     margin: 0vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .sidebar {
@@ -18,17 +23,8 @@ body, html {
     margin-top: 60px
 }
 
-.item-row{
-    height: 33.33vh;
-    margin-left: 0px !important;
-    border: solid 1px #dddddd;
-}
-
-.item-last{
-  background-color: #f5f5f5;
-}
-
-.your_password {
+/* text on side bar */
+.sidebar_text {
   margin-left: 50px;
   width: 266px;
   height: 126px;
@@ -42,19 +38,35 @@ body, html {
   color: #ffffff;
 }
 
+.item-row{
+    height: 33.33vh !important;
+    margin-left: 0px !important;
+    border: solid 1px #dddddd;
+}
 
+.item-last{
+  background-color: #f5f5f5;
+}
+
+
+
+/* remove the border for any input */
 input{
     border-width:0px !important;
     border:none !important;
     
 }
 
+.input-container{
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* below customize checkbox */
 input[type="checkbox"]{
-      width: 50px !important;
-      height: 50px !important;
-      padding: 10px !important;
-      content: '&' !important;
-      background: url("../svg/check_box.svg") no-repeat 0 0;
+      content : '';
+      width: 21px !important;
+      height: 100% !important; /* center */
       border-radius: 5px !important;
       border: 2px solid #ddd !important;
       display: inline-block !important;
@@ -64,40 +76,46 @@ input[type="checkbox"]{
       z-index: 9999;
 }
 
+input[type="checkbox"]:before {
+    content: ' ';
+    display: block;
+    width: 21px  !important;
+    height: 21px;
+    position: absolute;
+    border: 0.08rem solid #C72177;
+    background-color: #ffffff;
+    border-radius: 0.125rem;
+    top: calc(50% - 10.5px);
+}
+
+input[type="checkbox"]:checked:before {
+    border-color: #C72177;
+}
+
+input[type="checkbox"]:checked:after{
+    content: ' ';
+    display: inline-block;
+    position : absolute;
+    width: 14.7px;
+    height: 14.7px;
+    background-color: #C72177;
+    border-radius: 0.125rem;
+    top: calc(50% - 7.5px);
+    left : 3px;
+}
+
+
+
 
 
 input:focus {
     outline-width: 0;
 }
 
-
-.password{
-  font-family: SimplonBP-Light;
-  font-size: 42px;
-  font-weight: 300;
-  margin-left: 87px !important;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 7;
-  letter-spacing: -2px;
-  color: #dddddd;
-}
-
-.enter-text{
-  margin-left: 87px !important;
-  font-family: SimplonBP-Light;
-  font-size: 42px;
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 7;
-  letter-spacing: -2px;
-  color: #cccccc;
-}
-
+/* the above email input text */
 .email-name{
   position: absolute !important;
-  margin-top: 78.1px;
+  margin-top: 10vh;
   margin-left: 87px !important;
   font-family: SimplonBP-Regular;
   font-size: 14px;
@@ -108,6 +126,7 @@ input:focus {
   color: #777777;
 }
 
+/* email input */
 .email{
   font-family: SimplonBP-Light;
   font-size: 42px;
@@ -115,22 +134,50 @@ input:focus {
   font-style: normal;
   margin-left: 87px !important;
   font-stretch: normal;
-  line-height: 7;
   letter-spacing: -2px;
   color: #777777;
+  width: 100%;
 }
 
-.check{
+/* the password input */
+.password{
   font-family: SimplonBP-Light;
   font-size: 42px;
-  object-fit: contain;
-  border-radius: 2px;
-  background-color: #ffffff;
-  border: solid 1px #dddddd;
-  width: 21px;
-  height: 21px;
-  margin-top: 125px !important;
-  margin-right: 11px !important;
+  font-weight: 300;
+  margin-left: 87px !important;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -2px;
+  color: #dddddd;
+  width: 100%;
+}
+
+/* the button continue */
+.btn-continue{
+  margin-left: 87px !important;
+  font-family: SimplonBP-Light;
+  font-size: 42px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -2px;
+  color: #cccccc;
+}
+
+.arrow-continue{
+    float: right;
+    vertical-align: middle;
+}
+
+
+/* center child items on screen */
+.vertical-align-items{
+    height: 100% !important;
+}
+
+
+.img-container{
+    display: inline-block;
 }
 
 
@@ -153,8 +200,37 @@ input:focus {
 
 
 
+
+
+
+/* simple max-width query */
+@media screen and( min-width: 1025px ){
+    .sidebar{
+        height: 100vh !important; 
+    }
+    
+
+}
+
 /* Responsive: Portrait tablets and up */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .sidebar {
+        font-size: 4.375rem;
+        letter-spacing: -0.25rem;
+        padding: 0 10rem 1.0625rem;
+        text-align: right;
+        padding-right: 25px;
+        height: 33.3vh !important;
+    }
+    
+    .item-row{
+        height: 100vh;
+        max-height: 25vh;
+    }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (max-width: 767px) {
     .sidebar{
         height: 25vh !important;
     }
@@ -162,12 +238,21 @@ input:focus {
         height: 25vh;
         max-height: 25vh;
     }
-}
-
-
-/* simple max-width query */
-@media screen and( min-width: 1024px ){
-    .sidebar{
-        height: 100vh !important; 
+    
+    .email-name{
+      position: absolute !important;
+      margin-top: 7vh;
+    }
+    
+    .sidebar_text{
+        text-align: right;
+        font-size: 14px !important;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: -0.5px;
+        float: right;
+        margin-right: 21px;
+        height: 100%;
     }
 }
