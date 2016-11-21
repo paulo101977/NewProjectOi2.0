@@ -23,39 +23,36 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-md-4 sidebar">
-                <div class="col-xs-6 col-md-12">
+            <div class="col-xs-12 col-md-12 col-lg-4 sidebar">
+                <div class="col-xs-6 col-sm-12 col-md-12">
                     <img class="img-mask" src="svg/oi_logo.svg" />
                 </div>
-                <div class="col-xs-6 col-md-12">
+                <div class="col-xs-6 col-sm-12 col-md-12">
                     <div class="sidebar_text">
                         CRIE SUA SENHA
                     </div>
                 </div>
             </div>
             
-            <div class="col-xs-12 col-md-8">
+            <div class="col-xs-12 col-md-12 col-lg-8">
                 <div class="col-md-12 item-row">
                     <div class="email-name">E-mail</div>
                     <input class="email vertical-align-items" maxlength="255" value="washington_loureiro@gmail.com" disabled/>
                 </div>
                 <div class="col-sm-12 col-md-12 item-row">
-                    <div class="col-xs-8 col-md-8 vertical-align-items">
-                        <input class="password vertical-align-items" maxlength="255" type="password" placeholder="Senha" />
+                    <div class="col-xs-8 col-md-8 vertical-align-items inline">
+                        <input id="password" class="password vertical-align-items" maxlength="10" type="password" placeholder="Senha" />
                     </div>
-                    <div class="col-xs-4 col-md-4 input-container">
+                    <div class="col-xs-4 col-md-4 vertical-align-items checkbox-container inline">
                         <input id="show" class="check" type="checkbox" />
                         <label class="text-show" for="show">mostrar</label>
                     </div>
-                    <!-- div class="col-sm-2 col-md-2 vertical-align-items">
-                        <label class="text-show" for="show">mostrar</label>
-                    </div -->
                 </div>
                 <div class="col-xs-12 col-md-12 item-row item-last">
-                    <div class="col-md-11 vertical-align-items">
+                    <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
                         <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
                     </div>
-                    <div class="col-md-1 vertical-align-items">
+                    <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
                         <div class="img-container">
                             <img class="arrow-continue" src="svg/next.svg" />
                         </div>
@@ -77,9 +74,18 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
+    <!-- script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/about.js"></script -->
+    <script>
+        $(document).ready(function(){
+            $("#password").tooltip({
+                'trigger':'focus' ,
+                'placement' : 'bottom',
+                'title' : "Deve ter entre 6 e 10 caracteres, com letras e números"
+            })
+        })  
+    </script>
     <!-- endbuild -->
 </body>
 </html>

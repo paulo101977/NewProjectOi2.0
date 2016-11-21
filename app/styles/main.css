@@ -51,16 +51,13 @@ body, html {
 
 
 
-
-
 /* remove the border */
 input {
   border-width:0px !important;
   border:none !important;
 }
 
-.input-container{
-    height: 100%;
+.checkbox-container{
     vertical-align: middle;
 }
 
@@ -68,7 +65,7 @@ input {
 
 /* align label to checkbox */
 label {
-  display: inline-block;
+  display: block;
   padding-left: 15px;
   line-height: 19px;
   text-indent: 15px;
@@ -88,7 +85,7 @@ input[type="checkbox"] + label{
 
 input[type="checkbox"]:hover + label{
     content: ' ';
-    display: inline-block;
+    display: block;
     width: 21px  !important;
     height: 21px;
     border: 0.08rem solid #C72177;
@@ -99,12 +96,12 @@ input[type="checkbox"]:hover + label{
 
 input[type="checkbox"]:checked + label {
     content: ' ';
-    display: inline-block;
     width: 21px;
     height: 21px;
     background: url(../svg/checkbox_on.svg);
     background-repeat: no-repeat;
     border: none;
+    *overflow: hidden;
 }
 
 input[type="checkbox"]:checked + label{
@@ -187,7 +184,6 @@ input:focus {
 
 
 .text-show{
-  margin-top: 120px;
   font-family: SimplonBP-Light;
   font-size: 21px;
   font-weight: normal;
@@ -198,6 +194,13 @@ input:focus {
   margin-right: 76px !important;
 }
 
+/* align div in vertical center */
+.inline{
+    display: flex;
+    align-items: center;
+}
+
+/* remove padding in bootstrap */
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
     padding-right: 0px !important;
     padding-left: 0px !important;
@@ -209,7 +212,7 @@ input:focus {
 
 
 /* simple max-width query */
-@media screen and( min-width: 1025px ){
+@media screen and( min-width: 1200px ){
     .sidebar{
         height: 100vh !important; 
     }
@@ -218,70 +221,96 @@ input:focus {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) and (max-width: 1024px){
+@media screen and (min-width: 768px) and (max-width: 1199px){
     .sidebar {
         font-size: 4.375rem;
-        letter-spacing: -0.25rem;
-        padding: 0 10rem 1.0625rem;
-        text-align: right;
+        text-align: -webkit-auto;
         padding-right: 25px;
-        height: 33.3vh !important;
+        height: 20vh !important;
+    }
+    
+    .sidebar_text{
+        width: auto;
+        float: right;
+        text-align: right;
+        margin-top: -60px;
+        margin-right: 50px;
     }
     
     .item-row{
-        height: 100vh;
-        max-height: 25vh;
+        height: 26.66vh !important;
+        max-height: 26.66vh !important;
     }
     
     .email-name{
       position: absolute !important;
       margin-top: 5vh;
     }
+    
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (max-width: 767px) {
+    
+    /* the sidebar menu */
     .sidebar{
-        height: 25vh !important;
+        display: flex;
+        align-items: center;
+        height: 7vh;
+        max-height: 7vh !important;
     }
+    
+    /* the logo img */
+    .img-mask{
+        width: 90px;
+        height: 63px;
+        margin: 0 0 0 1.25rem !important;
+    }
+    
+    
+     /* text in sidebar */
+    .sidebar_text{
+        display: flex;
+        align-items: center;
+        width: auto;
+        float: right;
+        text-align: right;
+        font-size: 14px;
+        letter-spacing: -0.5px;
+        padding-top: 2vh;
+        margin: 0px 1.3125rem 1.5625rem auto;
+        box-sizing: border-box;
+    }
+    
+    /* each line */
     .item-row{
-        height: 25vh;
-        max-height: 25vh;
+        height: 31vh;
+        max-height: 31vh;
     }
     
     .email-name{
       position: absolute !important;
       margin-top: 5vh;
+      margin-left: 31px !important;
     }
     
-    /* the logo img */
-    .img-mask{
-        margin-left: 21px !important;
-    }
     
     /* the email input */
     .email{
         font-size: 18px;
         letter-spacing: -0.9px;
+        margin-left: 31px !important;
     }
     
     /* the password input and the button continue*/
     .password, .btn-continue{
       font-size: 21px;
       letter-spacing: -1px;
+      margin-left: 31px !important;
+    }
+    
+    label{
+        font-size: 14px !important;
     }
 
-    /* text in sidebar */
-    .sidebar_text{
-        margin-left: 0px !important;
-        padding-right: 21px !important;
-        text-align: right;
-        font-size: 14px !important;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        letter-spacing: -0.5px;
-        height: 100%;
-        width: 100%;
-    }
 }
