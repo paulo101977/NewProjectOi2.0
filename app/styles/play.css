@@ -239,7 +239,7 @@ and (min-width : 1024px) {
 }
 
 @media only screen 
-and (max-device-width : 1024px) {
+and (max-width : 1024px) {
     .main {
         width: 100%;
         margin: 1em auto;
@@ -269,7 +269,7 @@ and (max-device-width : 1024px) {
 
 
 @media only screen 
-and (max-device-width : 480px) {
+and (max-width : 480px) {
     
     .main {
         position:fixed; /* fix issues when screen is below of 480px */
