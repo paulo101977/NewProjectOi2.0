@@ -50,11 +50,13 @@ body, html {
 
 
 
-/* remove the border for any input */
-input{
-    border-width:0px !important;
-    border:none !important;
-    
+
+
+
+/* remove the border */
+input {
+  border-width:0px !important;
+  border:none !important;
 }
 
 .input-container{
@@ -63,48 +65,51 @@ input{
 }
 
 /* below customize checkbox */
-input[type="checkbox"]{
-      content : '';
-      width: 21px !important;
-      height: 100% !important; /* center */
-      border-radius: 5px !important;
-      border: 2px solid #ddd !important;
-      display: inline-block !important;
-      vertical-align: middle !important;
-      margin-right: 10px !important;
-      text-align: center !important;
-      z-index: 9999;
+
+/* align label to checkbox */
+label {
+  display: inline-block;
+  padding-left: 15px;
+  line-height: 19px;
+  text-indent: 15px;
 }
 
-input[type="checkbox"]:before {
-    content: ' ';
-    display: block;
+
+input[type="checkbox"]{
+    opacity: 0;
+}
+
+input[type="checkbox"] + label{
+    background-color: #fff;
+    border: 0.08rem solid #999999;
     width: 21px  !important;
     height: 21px;
-    position: absolute;
+}
+
+input[type="checkbox"]:hover + label{
+    content: ' ';
+    display: inline-block;
+    width: 21px  !important;
+    height: 21px;
     border: 0.08rem solid #C72177;
     background-color: #ffffff;
     border-radius: 0.125rem;
-    top: calc(50% - 10.5px);
+    margin-right: 11px;
 }
 
-input[type="checkbox"]:checked:before {
-    border-color: #C72177;
-}
-
-input[type="checkbox"]:checked:after{
+input[type="checkbox"]:checked + label {
     content: ' ';
     display: inline-block;
-    position : absolute;
-    width: 14.7px;
-    height: 14.7px;
-    background-color: #C72177;
-    border-radius: 0.125rem;
-    top: calc(50% - 7.5px);
-    left : 3px;
+    width: 21px;
+    height: 21px;
+    background: url(../svg/checkbox_on.svg);
+    background-repeat: no-repeat;
+    border: none;
 }
 
-
+input[type="checkbox"]:checked + label{
+    color : #C72177;
+}
 
 
 
@@ -227,6 +232,11 @@ input:focus {
         height: 100vh;
         max-height: 25vh;
     }
+    
+    .email-name{
+      position: absolute !important;
+      margin-top: 5vh;
+    }
 }
 
 /* Responsive: Portrait tablets and up */
@@ -241,18 +251,37 @@ input:focus {
     
     .email-name{
       position: absolute !important;
-      margin-top: 7vh;
+      margin-top: 5vh;
     }
     
+    /* the logo img */
+    .img-mask{
+        margin-left: 21px !important;
+    }
+    
+    /* the email input */
+    .email{
+        font-size: 18px;
+        letter-spacing: -0.9px;
+    }
+    
+    /* the password input and the button continue*/
+    .password, .btn-continue{
+      font-size: 21px;
+      letter-spacing: -1px;
+    }
+
+    /* text in sidebar */
     .sidebar_text{
+        margin-left: 0px !important;
+        padding-right: 21px !important;
         text-align: right;
         font-size: 14px !important;
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
         letter-spacing: -0.5px;
-        float: right;
-        margin-right: 21px;
         height: 100%;
+        width: 100%;
     }
 }
