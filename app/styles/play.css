@@ -6,17 +6,14 @@
 
 html { 
     height:100%; 
-    
+    width: 100%;
     background: #431e9a;
     background: -moz-linear-gradient(-45deg, #431e9a 0%, #9f24ff 0%, #9f24ff 0%, #00ceff 100%);
     background: -webkit-linear-gradient(-45deg, #431e9a 0%,#9f24ff 0%,#9f24ff 0%,#00ceff 100%);
     background: linear-gradient(135deg, #431e9a 0%,#9f24ff 0%,#9f24ff 0%,#00ceff 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#431e9a', endColorstr='#00ceff',GradientType=1 );
     
-    
-    background-position: left bottom;
-    background-size: 100% auto;
-    background-repeat: round;
+    background-repeat: no-repeat;
     
 }
 
@@ -242,7 +239,7 @@ and (min-width : 1024px) {
 }
 
 @media only screen 
-and (max-width : 1024px) {
+and (max-device-width : 1024px) {
     .main {
         width: 100%;
         margin: 1em auto;
@@ -275,6 +272,13 @@ and (max-width : 1024px) {
 and (max-device-width : 480px) {
     
     .main {
+        position:fixed; /* fix issues when screen is below of 480px */
+        padding:0;
+        margin:0;
+
+        top:0;
+        left:0;
+
         width: 100%;
     }
     
