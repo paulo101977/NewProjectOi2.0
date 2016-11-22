@@ -1,9 +1,18 @@
 
 @font-face {
     font-family: 'SimplonBP-Light';
-    src : url(../fonts/Simplon%20BP/OTF/SimplonBP-Light.otf);
+    src : url(../fonts/Simplon BP/OTF/SimplonBP-Light.otf);
 }
 
+@font-face {
+    font-family: 'SimplonBP-Regular';
+    src : url(../fonts/Simplon BP/OTF/SimplonBP-Regular.otf)
+}
+
+@font-face {
+    font-family: 'SimplonOi-Headline';
+    src : url(../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf)
+}
 
 * {
     margin: 0;
