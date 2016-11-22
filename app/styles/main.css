@@ -1,4 +1,18 @@
 
+@font-face {
+    font-family: 'SimplonBP-Light';
+    src : url(../fonts/Simplon BP/OTF/SimplonBP-Light.otf);
+}
+
+@font-face {
+    font-family: 'SimplonBP-Regular';
+    src : url(../fonts/Simplon BP/OTF/SimplonBP-Regular.otf)
+}
+
+@font-face {
+    font-family: 'SimplonOi-Headline';
+    src : url(../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf)
+}
 
 body, html {
     height: 100%;
@@ -28,7 +42,7 @@ body, html {
   margin-left: 50px;
   width: 266px;
   height: 126px;
-  font-family: SimplonOi-Headline;
+  font-family: 'SimplonOi-Headline';
   font-size: 70px;
   font-weight: normal;
   font-style: normal;
@@ -73,7 +87,7 @@ label {
 }
 
 
-input[type="checkbox"]{
+input[type="checkbox"].without-eye{
     opacity: 0;
 }
 
@@ -167,6 +181,8 @@ input:focus {
 .margin-right{
     margin-right: 76px !important;
     width: 4vw !important;
+    float: right !important;
+    clear: right !important;
 }
 
 /* the button continue */
@@ -182,7 +198,33 @@ input:focus {
 }
 
 
+/* eye input checkbox */
+input[type="checkbox"].eye_style{
+    display: none;
+    border: none;
+    border-width: 0px;
+}
 
+input[type="checkbox"].eye_style + label{
+    display: none;
+    width: 26px !important;
+    height: 26px;
+    background: url(../svg/eye_unchecked.svg);
+    background-image: url(../svg/eye_unchecked.svg);
+    background-repeat: no-repeat;
+    border: none;
+    border-width: 0px;
+    margin: 0px !important;
+}
+
+input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_style:checked + label{
+    display: none;
+    width: 26px !important;
+    opacity: 1;
+    background: url(../svg/eye_svg.svg);
+    background-image: url(../svg/eye_svg.svg);
+    background-repeat: no-repeat;
+}
 
 /* center child items on screen */
 .vertical-align-items{
@@ -197,9 +239,9 @@ input:focus {
 }
 
 .img-container{
-    display: inline-block;
-    float: right;
-    clear: right;
+    display: inline-block !important;;
+    float: right !important;
+    clear: right !important;;
     width: 100%;
     margin-right: 70px;
 }
@@ -216,19 +258,53 @@ input:focus {
   margin-right: 76px !important;
 }
 
+
+
 /* align div in vertical center */
 .inline{
     display: flex;
     align-items: center;
 }
 
-/* remove padding in bootstrap */
+/* remove default padding in bootstrap */
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
     padding-right: 0px !important;
     padding-left: 0px !important;
 }
 
+/* tooltip */
+.tooltip-inner{
+    background-color: white !important;
+    width: 364px !important;
+    max-width: 364px !important;
+    height: 57.5px !important;
+    color: #222222 !important;
+    font-size: 14px !important;
+    line-height: 21px;
+    padding: 9px !important;
+    font-family: 'SimplonBP-Regular';
+    border: #dbdbdb solid 2px !important;
+    border-radius: 2px !important;
+}
 
+.tooltip-arrow {
+    top: 0;
+    left: 11% !important;
+    margin-left: -5px;
+    border-width: 0 5px 5px;
+    border: #dbdbdb solid 2px !important;
+    border-bottom-color: #fff !important;
+    top: -12px !important;
+}
+
+.tooltip-arrow, tooltip-arrow:after {
+    position: absolute !important;
+    display: block !important;
+    width: 0;
+    height: 0;
+    border-style: solid !important;
+    border-width: 10px !important;
+}
 
 
 /* simple max-width query */
@@ -332,12 +408,42 @@ input:focus {
     label{
         font-size: 14px !important;
     }
+    
+    .eye_style{
+        display: block;
+    }
+    
+    input[type="checkbox"] + label {
+        display: none;
+    }
+    
+    label{
+        display: none;
+    }
+    
+    /* show eye input check box */
+    input[type="checkbox"].eye_style + label{
+        display: block;
+    }
+    
+    input[type="checkbox"].eye_style:active + label ,
+    input[type="checkbox"].eye_style:checked + label
+    {
+        display: block;
+    }
+    
+    .margin-right{
+        /* padding-right : 30px; */
+        float: right !important;
+        clear: right !important;
+        margin-right: 0px;
+    }
 
 }
 
 /* to manage the checkbox position */
 @media screen and (min-width: 1500px){
-    .margin-right{
+    .padding-right{
         width : 6vw !important;
     }
 }
@@ -351,24 +457,14 @@ input:focus {
 
 @media screen and (min-width: 1000px) and (max-width: 1199px){
     .margin-right{
-        width : 15vw !important;
+        width : 5vw !important;
+        margin-right: 70px !important;
     }
 }
 
-@media screen and (min-width: 600px) and (max-width: 999px){
+@media screen and (min-width: 768px) and (max-width: 999px){
     .margin-right{
-        width : 20vw !important;
+        margin-right: 70px !important;
     }
 }
 
-@media screen and (min-width: 500px) and (max-width: 600px){
-    .margin-right{
-        width : 17vw !important;
-    }
-}
-
-@media screen and (max-width: 499px){
-    .margin-right{
-        width : 14vw !important;
-    }
-}

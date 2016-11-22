@@ -1,4 +1,10 @@
 
+@font-face {
+    font-family: 'SimplonBP-Light';
+    src : url(../fonts/Simplon%20BP/OTF/SimplonBP-Light.otf);
+}
+
+
 * {
     margin: 0;
     padding: 0;

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+      
     <!-- endbuild -->
   </head>
   <body ng-app="projetoOiApp">
@@ -40,13 +41,17 @@
                     <input class="email vertical-align-items" maxlength="255" value="washington_loureiro@gmail.com" disabled/>
                 </div>
                 <div class="col-sm-12 col-md-12 item-row">
-                    <div class="col-xs-8 col-md-9 col-lg-10 vertical-align-items inline">
+                    <div class="col-xs-8 col-md-8 col-lg-8 vertical-align-items inline">
                         <input id="password" class="password vertical-align-items" maxlength="10" type="password" placeholder="Senha" />
                     </div>
-                    <div class="col-xs-2 col-md-3 col-lg-2 vertical-align-items checkbox-container inline margin-right">
+                    <div class="col-xs-4 col-md-8 col-lg-4 vertical-align-items checkbox-container inline margin-right">
                         <div class="float-right">
-                            <input id="show" class="check" type="checkbox" />
+                            <input id="show" class="check without-eye" type="checkbox" />
                             <label class="text-show" for="show">mostrar</label>
+                        </div>
+                        <div class="eye_visible">
+                            <input id="eye" type="checkbox" class="eye_style" />
+                            <label for="eye"></label>
                         </div>
                     </div>
                 </div>
@@ -56,7 +61,7 @@
                     </div>
                     <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
                         <div class="img-container">
-                            <img class="arrow-continue" src="svg/next.svg" />
+                            <img class="arrow-continue" alt="Entrar" src="svg/next.svg" />
                         </div>
                     </div>
                 </div>
@@ -82,9 +87,24 @@
     <script>
         $(document).ready(function(){
             $("#password").tooltip({
-                'trigger':'focus' ,
+                'trigger':'click' ,
                 'placement' : 'bottom',
-                'title' : "Deve ter entre 6 e 10 caracteres, com letras e números"
+                'target' : '#password',
+                'title' : "Deve ter entre 6 e 10 caracteres, com letras e números",
+                attachment: 'middle center',
+                targetAttachment: 'middle center',
+                offset : '100px 100px 100px 100px'
+            })
+            
+            $("#password").click(function(event){
+                $('.tooltip').ready(function(){
+                    var top = $('#password').position().top
+                    var left = $('#password').position().left
+                    var height = $('#password').height()
+                    console.log('ready' + top)
+                    $('.tooltip').css('top', (top + height/2 + parseInt($('.tooltip').css('height'))/2) + "px")
+                    $('.tooltip').css('left', 87 + "px")
+                })
             })
         })  
     </script>
