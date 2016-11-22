@@ -69,6 +69,7 @@ label {
   padding-left: 15px;
   line-height: 19px;
   text-indent: 15px;
+  margin-right: 70px !important;
 }
 
 
@@ -81,17 +82,18 @@ input[type="checkbox"] + label{
     border: 0.08rem solid #999999;
     width: 21px  !important;
     height: 21px;
+    float: right;
+    display: block;
+    margin-right: 70px !important;
 }
 
 input[type="checkbox"]:hover + label{
     content: ' ';
-    display: block;
     width: 21px  !important;
     height: 21px;
     border: 0.08rem solid #C72177;
     background-color: #ffffff;
     border-radius: 0.125rem;
-    margin-right: 11px;
 }
 
 input[type="checkbox"]:checked + label {
@@ -154,6 +156,19 @@ input:focus {
   width: 100%;
 }
 
+.float-right{
+    text-align: right;
+    display: block;
+    float: right !important;
+    clear: right !important;
+    width: 100%;
+}
+
+.margin-right{
+    margin-right: 76px !important;
+    width: 4vw !important;
+}
+
 /* the button continue */
 .btn-continue{
   margin-left: 87px !important;
@@ -166,10 +181,7 @@ input:focus {
   color: #cccccc;
 }
 
-.arrow-continue{
-    float: right;
-    vertical-align: middle;
-}
+
 
 
 /* center child items on screen */
@@ -178,8 +190,18 @@ input:focus {
 }
 
 
+/* arrow "Entrar" button */
+.arrow-continue{
+    float: right;
+    vertical-align: middle;
+}
+
 .img-container{
     display: inline-block;
+    float: right;
+    clear: right;
+    width: 100%;
+    margin-right: 70px;
 }
 
 
@@ -205,8 +227,6 @@ input:focus {
     padding-right: 0px !important;
     padding-left: 0px !important;
 }
-
-
 
 
 
@@ -313,4 +333,42 @@ input:focus {
         font-size: 14px !important;
     }
 
+}
+
+/* to manage the checkbox position */
+@media screen and (min-width: 1500px){
+    .margin-right{
+        width : 6vw !important;
+    }
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1499px){
+    .margin-right{
+        width : 4vw !important;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1199px){
+    .margin-right{
+        width : 15vw !important;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 999px){
+    .margin-right{
+        width : 20vw !important;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px){
+    .margin-right{
+        width : 17vw !important;
+    }
+}
+
+@media screen and (max-width: 499px){
+    .margin-right{
+        width : 14vw !important;
+    }
 }
