@@ -25,33 +25,56 @@
     <div class="container-fluid">
         <div class="row">
             <form name="formcpf">
+                
+                <!-- side bar -->
                 <div class="col-xs-12 col-md-12 col-lg-4 sidebar">
                     <!-- oi logo -->
                     <div class="col-xs-6 col-sm-12 col-md-12">
                         <img class="img-mask" src="svg/oi_logo.svg" />
                     </div>
                     <div class="col-xs-6 col-sm-12 col-md-12">
-                        <div class="sidebar_text">
-                            CRIE SUA SENHA
+                        <div class="sidebar_text in-cpf-page-text">
+                            DIGITE O CPF
                         </div>
                     </div>
                 </div>
 
+                <!-- content -->
                 <div class="col-xs-12 col-md-12 col-lg-8">
                     <!-- cpf -->
                     <div class="col-sm-12 col-md-12 item-row-cpf">
                         <input id="cpf" class="password vertical-align-items" 
                                placeholder="CPF" type="text" name="cpf" onBlur="ValidarCPF(formcpf.cpf);" 
                                onKeyPress="MascaraCPF(formcpf.cpf);" maxlength="14" />
+                        
+                        <!-- placeholder after -->
+                        <div class="cpf-after">
+                            CPF
+                        </div>
+                        
                     </div>
+                    
+                    
                     <!-- footer button -->
                     <div class="col-xs-12 col-md-12 item-row-cpf item-last">
                         <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
                             <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
+                            
+                            <!-- loading with message -->
+                            <div class="loading-container">
+                                <img class="loading" src="svg/loading.svg"/>
+                            </div>
+                            <div class="know-cpf">
+                                Reconhecendo CPF
+                            </div>
+                            
+                            <!-- sucess message -->
+                            
+                            <!-- error message -->
                         </div>
                         <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
                             <div class="img-container">
-                                <img class="arrow-continue"/>
+                                <img class="arrow-continue" src="svg/next.svg"/>
                             </div>
                         </div>
                     </div>
@@ -79,15 +102,15 @@
     <script>
         $(document).ready(function(){
             
+            $(".cpf-after").hide();
+            $('.loading').hide();
+            $('.know-cpf').hide();
             
             $("#cpf").tooltip({
                 'trigger':'click' ,
                 'placement' : 'bottom',
                 'target' : '#password',
-                'title' : "Digite o CPF do titular da conta. Apenas números",
-                attachment: 'middle center',
-                targetAttachment: 'middle center',
-                offset : '100px 100px 100px 100px'
+                'title' : "Digite o CPF do titular da conta. Apenas números."
             })
             
             $("#cpf").click(function(event){
@@ -95,10 +118,68 @@
                     var top = $('#cpf').position().top
                     var left = $('#cpf').position().left
                     var height = $('#cpf').height()
-                    console.log('ready' + top)
+
                     $('.tooltip').css('top', (top + height/2 + parseInt($('.tooltip').css('height'))/2) + "px")
                     $('.tooltip').css('left', 87 + "px")
                 })
+            })
+            
+            $('#cpf').on('input',function(event){
+                console.dir(event);
+                if(event && event.target && event.target.value){
+                   if(event.target.value.length > 0){
+                       $('.cpf-after').show();
+                       
+                       if(event.target.value.length >= 14){
+                           $('.arrow-continue').attr('src' , 'svg/next_active.svg');
+                           $('.btn-continue').css('color' , '#e03d6f');
+                       } else {
+                           $('.arrow-continue').attr('src' , 'svg/next.svg');
+                           $('.btn-continue').css('color' , '#cccccc');
+                       }
+                       
+                   } else {
+                       $('.cpf-after').hide();
+                       $('.arrow-continue').attr('src' , 'svg/next.svg');
+                       $('.btn-continue').css('color' , '#cccccc');
+                   }
+                } else {
+                    $('.cpf-after').hide();
+                    $('.arrow-continue').attr('src' , 'svg/next.svg');
+                    $('.btn-continue').css('color' , '#cccccc');
+                }
+            });
+            
+            function AnimateRotate(angle , time, el , callback){
+                var elem = $(el);
+                
+                var empty = function(){}
+                
+                //callback =  callback ? callback : empty
+
+                $({deg: 0}).animate({deg: angle}, {
+                    duration: time,
+                    step: function(now){
+                        elem.css({
+                             transform: "rotate(" + now + "deg)"
+                        });
+                    },
+                    done : callback //when animation ends
+                });
+            }
+            
+            function callback(){
+                console.log('loading done');
+            }
+
+            
+            $(".item-last").click(function(){
+                //window.location.replace("cpf.html");
+                //alert("clicked");
+                $('.btn-continue').hide();
+                $('.loading').show();
+                $('.know-cpf').show();
+                AnimateRotate(1080 , 2000 , ".loading-container" , callback);
             })
         })  
     </script>

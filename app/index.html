@@ -162,19 +162,6 @@
             });
 
             
-            $('#password').change(function(event){
-                console.dir(event);
-                if(event && event.target && event.target.value){
-                   if(event.target.value.length > 0){
-                       $('.password-after').show();
-                   } else {
-                       $('.password-after').hide();
-                   }
-                } else {
-                    $('.password-after').hide();
-                }
-            })
-            
             $(".item-last").click(function(){
                 window.location.replace("cpf.html");
             })

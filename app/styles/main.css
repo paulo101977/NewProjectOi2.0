@@ -171,10 +171,14 @@ input:focus {
 .password , .cpf {
     color: #222222;
 }
+
+.in-cpf-page-text{
+    width: 204px !important;
+}
 /* end */
 
 /* placeholder password after */
-.password-after{
+.password-after, .cpf-after{
     font-family: 'SimplonBP-Light';
     position: absolute;
     margin-top: 7vh;
@@ -185,6 +189,14 @@ input:focus {
     letter-spacing: -0.5px;
     color: #777777;
     margin-left: 87px !important;
+    /* display: none; */
+}
+
+/* placeholder password after */
+.cpf-after{
+    margin-top: -35vh !important;
+    margin-left: 87px !important;
+    z-index: 100;
     /* display: none; */
 }
 
@@ -217,7 +229,7 @@ input:focus {
 }
 
 /* the button continue */
-.btn-continue{
+.btn-continue, .loading{
   margin-left: 87px !important;
   font-family: SimplonBP-Light;
   font-size: 42px;
@@ -226,6 +238,28 @@ input:focus {
   font-stretch: normal;
   letter-spacing: -2px;
   color: #cccccc;
+}
+
+/* loading img */
+.loading{
+    background: url(../svg/loading.svg) !important;
+    background-repeat: no-repeat;
+    margin: 0px !important;
+}
+
+.loading-container{
+    margin-left: 87px !important;
+}
+
+.know-cpf{
+  font-family: 'SimplonBP-Light';
+  margin-left: 15px;
+  font-size: 21px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: -0.7px;
+  color: #4a4a4a;
 }
 
 .btn-continue:active{
@@ -280,15 +314,6 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
     outline: none !important;
 }
 
-.btn-continue:active + .arrow-continue , 
-.btn-continue:checked + .arrow-continue
-.btn-continue:focus + .arrow-continue
-{
-    background: url(../svg/next_active.svg);
-    background-repeat: no-repeat;
-    width: 10px;
-    height: 23px;
-}
 
 .img-container{
     display: inline-block !important;;
@@ -378,8 +403,8 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
     }
     
     
-    .sidebar_text{
-        width: auto;
+    .sidebar_text, .in-cpf-page-text{
+        width: auto !important;
         float: right;
         text-align: right;
         margin-top: -60px;
@@ -401,6 +426,9 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
       margin-top: 5vh;
     }
     
+    .in-cpf-page-text{
+        width: auto !important;
+    }
 }
 
 /* Responsive: Portrait tablets and up */
@@ -423,10 +451,10 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
     
     
      /* text in sidebar */
-    .sidebar_text{
+    .sidebar_text , .in-cpf-page-text{
         display: flex;
         align-items: center;
-        width: auto;
+        width: auto !important;
         float: right;
         text-align: right;
         font-size: 14px;
@@ -480,11 +508,17 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
       font-size: 21px !important;   
     }
     
-    .password-after , .error-message{
+    .password-after , .error-message , .cpf-after{
         font-size: 12px;
-        margin-left: 31px !important;
-        margin-top: 5vh !important;
+        margin-left: 11px !important;
+        margin-top: -40vh !important;
     }
+    
+    .cpf-after, .loading-container{
+        margin-left: 31px !important;
+    }
+    
+    
     
     label{
         font-size: 14px !important;
@@ -519,7 +553,6 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
         clear: right !important;
         margin-right: 0px;
     }
-    
 
 }
 
@@ -528,12 +561,20 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
     .padding-right{
         width : 6vw !important;
     }
+    
+    .sidebar_text{
+        margin-top: 43px !important;
+    }
 }
 
 
 @media screen and (min-width: 1200px) and (max-width: 1499px){
     .margin-right{
         width : 4vw !important;
+    }
+    
+    .sidebar_text{
+        margin-top: 43px !important;
     }
 }
 
