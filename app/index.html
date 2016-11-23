@@ -24,17 +24,24 @@
     
     <div class="container-fluid">
         <div class="row">
+            
+            <!-- side bar -->
             <div class="col-xs-12 col-md-12 col-lg-4 sidebar">
+                <!-- logo -->
                 <div class="col-xs-6 col-sm-12 col-md-12">
                     <img class="img-mask" src="svg/oi_logo.svg" />
                 </div>
+                
+                <!-- text -->
                 <div class="col-xs-6 col-sm-12 col-md-12">
                     <div class="sidebar_text">
                         CRIE SUA SENHA
                     </div>
                 </div>
             </div>
+            <!-- end side bar -->
             
+            <!-- content -->
             <div class="col-xs-12 col-md-12 col-lg-8">
                 <!-- Email -->
                 <div class="col-md-12 item-row">
@@ -58,8 +65,15 @@
                             <label for="eye"></label>
                         </div>
                     </div>
+                    
+                    <!-- placeholder after -->
                     <div class="password-after">
                         Senha
+                    </div>
+                    
+                    <!-- error message -->
+                    <div class="error-message">
+                        Mensagem de erro
                     </div>
                 </div>
                 <!-- end password -->
@@ -125,6 +139,7 @@
                 if(event && event.target && event.target.value){
                    if(event.target.value.length > 0){
                        $('.password-after').show();
+                       $('.error-message').hide();
                        
                        if(event.target.value.length >= 6){
                            $('.arrow-continue').attr('src' , 'svg/next_active.svg');
@@ -142,6 +157,7 @@
                     $('.password-after').hide();
                     $('.arrow-continue').attr('src' , 'svg/next.svg');
                     $('.btn-continue').css('color' , '#cccccc');
+                    $('.error-message').show();
                 }
             });
 
