@@ -1,3 +1,6 @@
+@import url(../fonts/Simplon BP/OTF/SimplonBP-Light.otf)
+@import url(../ffonts/Simplon BP/OTF/SimplonBP-Regular.otf)
+@import url(../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf)
 
 @font-face {
     font-family: 'SimplonBP-Light';
@@ -240,18 +243,40 @@ input:focus {
   color: #cccccc;
 }
 
-/* loading img */
-.loading{
-    background: url(../svg/loading.svg) !important;
+/* cpf img */
+.loading, .sucess_img , .error_img{
     background-repeat: no-repeat;
     margin: 0px !important;
 }
 
+.error_cpf{
+    display: none;
+}
+
+.sucess_cpf, .error_cpf{
+    display: flex;
+    align-items: center;
+}
+
+.sucess_text, .error_txt{
+    margin-right: 14px;
+    font-family: 'SimplonBP-Light' !important;
+    font-size: 21px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: -0.7px;
+    color: #4a4a4a;
+}
+
+
+/* container to img loading */
 .loading-container{
     margin-left: 87px !important;
 }
 
-.know-cpf{
+/* text on cpf page */
+.know-cpf , .sucess_text , .error_text{
   font-family: 'SimplonBP-Light';
   margin-left: 15px;
   font-size: 21px;
