@@ -24,48 +24,38 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-md-12 col-lg-4 sidebar">
-                <div class="col-xs-6 col-sm-12 col-md-12">
-                    <img class="img-mask" src="svg/oi_logo.svg" />
-                </div>
-                <div class="col-xs-6 col-sm-12 col-md-12">
-                    <div class="sidebar_text">
-                        CRIE SUA SENHA
+            <form name="formcpf">
+                <div class="col-xs-12 col-md-12 col-lg-4 sidebar">
+                    <div class="col-xs-6 col-sm-12 col-md-12">
+                        <img class="img-mask" src="svg/oi_logo.svg" />
                     </div>
-                </div>
-            </div>
-            
-            <div class="col-xs-12 col-md-12 col-lg-8">
-                <div class="col-md-12 item-row">
-                    <div class="email-name">E-mail</div>
-                    <input class="email vertical-align-items" maxlength="255" value="washington_loureiro@gmail.com" disabled/>
-                </div>
-                <div class="col-sm-12 col-md-12 item-row">
-                    <div class="col-xs-8 col-md-8 col-lg-8 vertical-align-items inline">
-                        <input id="password" class="password vertical-align-items" maxlength="10" type="password" placeholder="Senha" />
-                    </div>
-                    <div class="col-xs-4 col-md-8 col-lg-4 vertical-align-items checkbox-container inline margin-right">
-                        <div class="float-right">
-                            <input id="show" class="check without-eye" type="checkbox" />
-                            <label class="text-show" for="show">mostrar</label>
-                        </div>
-                        <div class="eye_visible">
-                            <input id="eye" type="checkbox" class="eye_style" />
-                            <label for="eye"></label>
+                    <div class="col-xs-6 col-sm-12 col-md-12">
+                        <div class="sidebar_text">
+                            CRIE SUA SENHA
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-12 item-row item-last">
-                    <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
-                        <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
+
+                <div class="col-xs-12 col-md-12 col-lg-8">
+                    <!-- cpf -->
+                    <div class="col-sm-12 col-md-12 item-row-cpf">
+                        <input id="cpf" class="password vertical-align-items" 
+                               placeholder="CPF" type="text" name="cpf" onBlur="ValidarCPF(formcpf.cpf);" 
+                               onKeyPress="MascaraCPF(formcpf.cpf);" maxlength="14" />
                     </div>
-                    <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
-                        <div class="img-container">
-                            <img class="arrow-continue"/>
+                    <!-- foot button -->
+                    <div class="col-xs-12 col-md-12 item-row-cpf item-last">
+                        <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
+                            <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
+                        </div>
+                        <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
+                            <div class="img-container">
+                                <img class="arrow-continue"/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     
     </div>
@@ -79,6 +69,7 @@
     <!-- endbuild -->
 
     <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/validation.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!-- script src="scripts/app.js"></script>
@@ -86,21 +77,23 @@
     <script src="scripts/controllers/about.js"></script -->
     <script>
         $(document).ready(function(){
-            $("#password").tooltip({
+            
+            
+            $("#cpf").tooltip({
                 'trigger':'click' ,
                 'placement' : 'bottom',
                 'target' : '#password',
-                'title' : "Deve ter entre 6 e 10 caracteres, com letras e números",
+                'title' : "Digite o CPF do titular da conta. Apenas números",
                 attachment: 'middle center',
                 targetAttachment: 'middle center',
                 offset : '100px 100px 100px 100px'
             })
             
-            $("#password").click(function(event){
+            $("#cpf").click(function(event){
                 $('.tooltip').ready(function(){
-                    var top = $('#password').position().top
-                    var left = $('#password').position().left
-                    var height = $('#password').height()
+                    var top = $('#cpf').position().top
+                    var left = $('#cpf').position().left
+                    var height = $('#cpf').height()
                     console.log('ready' + top)
                     $('.tooltip').css('top', (top + height/2 + parseInt($('.tooltip').css('height'))/2) + "px")
                     $('.tooltip').css('left', 87 + "px")

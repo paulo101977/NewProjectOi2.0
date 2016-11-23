@@ -36,10 +36,14 @@
             </div>
             
             <div class="col-xs-12 col-md-12 col-lg-8">
+                <!-- Email -->
                 <div class="col-md-12 item-row">
                     <div class="email-name">E-mail</div>
                     <input class="email vertical-align-items" maxlength="255" value="washington_loureiro@gmail.com" disabled/>
                 </div>
+                <!-- End email -->
+                
+                <!-- password -->
                 <div class="col-sm-12 col-md-12 item-row">
                     <div class="col-xs-8 col-md-8 col-lg-8 vertical-align-items inline">
                         <input id="password" class="password vertical-align-items" maxlength="10" type="password" placeholder="Senha" />
@@ -54,17 +58,24 @@
                             <label for="eye"></label>
                         </div>
                     </div>
+                    <div class="password-after">
+                        Senha
+                    </div>
                 </div>
+                <!-- end password -->
+                
+                <!-- btn continue -->
                 <div class="col-xs-12 col-md-12 item-row item-last">
                     <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
                         <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
                     </div>
                     <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
                         <div class="img-container">
-                            <img class="arrow-continue"/>
+                            <img class="arrow-continue" src="svg/next.svg"/>
                         </div>
                     </div>
                 </div>
+                <!-- end -->
             </div>
         </div>
     
@@ -86,6 +97,8 @@
     <script src="scripts/controllers/about.js"></script -->
     <script>
         $(document).ready(function(){
+            $('.password-after').hide();
+            
             $("#password").tooltip({
                 'trigger':'click' ,
                 'placement' : 'bottom',
@@ -105,6 +118,45 @@
                     $('.tooltip').css('top', (top + height/2 + parseInt($('.tooltip').css('height'))/2) + "px")
                     $('.tooltip').css('left', 87 + "px")
                 })
+            })
+            
+            $('#password').on('input',function(event){
+                console.dir(event);
+                if(event && event.target && event.target.value){
+                   if(event.target.value.length > 0){
+                       $('.password-after').show();
+                       
+                       if(event.target.value.length >= 6){
+                           $('.arrow-continue').attr('src' , 'svg/next_active.svg');
+                           $('.btn-continue').css('color' , '#e03d6f');
+                       } else {
+                           $('.arrow-continue').attr('src' , 'svg/next.svg');
+                           $('.btn-continue').css('color' , '#cccccc');
+                       }
+                   } else {
+                       $('.password-after').hide();
+                       $('.arrow-continue').attr('src' , 'svg/next.svg');
+                       $('.btn-continue').css('color' , '#cccccc');
+                   }
+                } else {
+                    $('.password-after').hide();
+                    $('.arrow-continue').attr('src' , 'svg/next.svg');
+                    $('.btn-continue').css('color' , '#cccccc');
+                }
+            });
+
+            
+            $('#password').change(function(event){
+                console.dir(event);
+                if(event && event.target && event.target.value){
+                   if(event.target.value.length > 0){
+                       $('.password-after').show();
+                   } else {
+                       $('.password-after').hide();
+                   }
+                } else {
+                    $('.password-after').hide();
+                }
             })
             
             $(".item-last").click(function(){
