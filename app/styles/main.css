@@ -56,10 +56,11 @@ body, html {
     height: 33.33vh !important;
     margin-left: 0px !important;
     border: solid 1px #dddddd;
+    background-color: white !important;
 }
 
 .item-last{
-  background-color: #f5f5f5;
+  background-color: #f5f5f5 !important;
 }
 
 /* items on cpf page */
@@ -370,39 +371,34 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
     padding-left: 0px !important;
 }
 
-/* tooltip */
-.tooltip-inner{
+/* popover */
+.popover{
     background-color: white !important;
     width: 364px !important;
     max-width: 364px !important;
-    height: 57.5px !important;
+    height: 50px !important;
     color: #222222 !important;
     font-size: 14px !important;
-    line-height: 21px;
-    padding: 9px !important;
-    font-family: 'SimplonBP-Regular';
+    padding-left 7px !important;
+    font-family: 'SimplonBP-Regular' !important;
     border: #dbdbdb solid 2px !important;
     border-radius: 2px !important;
+    -webkit-box-shadow: 0 0 0 white !important;
+    box-shadow: 0 0 0 white !important;
 }
 
-.tooltip-arrow {
-    top: 0;
+.popover-content{
+    width: 364px !important;
+    max-width: 364px !important;
+    height: 50px !important;
+}
+
+.popover > .arrow {
+    top: -21px !important;
     left: 11% !important;
-    margin-left: -5px;
-    border-width: 0 5px 5px;
-    border: #dbdbdb solid 2px !important;
-    border-bottom-color: #fff !important;
-    top: -12px !important;
-}
-
-.tooltip-arrow, tooltip-arrow:after {
-    position: absolute !important;
-    display: block !important;
-    width: 0;
-    height: 0;
-    border-style: solid !important;
     border-width: 10px !important;
 }
+
 
 
 /*
@@ -599,8 +595,8 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
     
     .password-after , .error-message , .cpf-after{
         font-size: 12px;
-        margin-left: 11px !important;
-        margin-top: -40vh !important;
+        margin-left: 31px !important;
+        margin-top: 5vh !important;
     }
     
     .cpf-after, .loading-container{
@@ -641,6 +637,29 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
         float: right !important;
         clear: right !important;
         margin-right: 0px;
+    }
+    
+    /* popover */
+    .popover{
+        background-color: white !important;
+        width: 85vw !important;
+        max-width: 85vw !important;
+        height: 32px !important;
+        font-size: 12px !important;
+        padding-left 0px !important;
+        border-left-width: 0px !important;
+        border-right-width: 0px !important;
+        border-bottom-width: 0px !important;
+    }
+
+    .popover-content{
+        width: 85vw !important;
+        max-width: 85vw !important;
+        height: 32px !important;
+    }
+
+    .popover > .arrow {
+        border-width: 0px !important;
     }
 
 }

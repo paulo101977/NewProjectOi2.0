@@ -113,25 +113,26 @@
         $(document).ready(function(){
             $('.password-after').hide();
             
-            $("#password").tooltip({
+            $('[data-toggle="popover"]').popover()
+            
+            $("#password").popover({
                 'trigger':'click' ,
                 'placement' : 'bottom',
                 'target' : '#password',
-                'title' : "Deve ter entre 6 e 10 caracteres, com letras e números",
-                attachment: 'middle center',
-                targetAttachment: 'middle center',
-                offset : '100px 100px 100px 100px'
+                'content' : "Deve ter entre 6 e 10 caracteres, com letras e números"
             })
             
             $("#password").click(function(event){
-                $('.tooltip').ready(function(){
+                $('.popover').ready(function(){
                     var top = $('#password').position().top
                     var left = $('#password').position().left
                     var height = $('#password').height()
-                    console.log('ready' + top)
-                    $('.tooltip').css('top', (top + height/2 + parseInt($('.tooltip').css('height'))/2) + "px")
-                    $('.tooltip').css('left', 87 + "px")
+                    var margin = $(document).width() > 768 ? 87 : 31 
+                    $('.popover').css('top', (top + height/2 +  parseInt($('.popover').css('height'))/2) + "px")
+                    $('.popover').css('left', margin + "px")
                 })
+                
+                $('#password').popover('toggle')
             })
             
             $('#password').on('input',function(event){
