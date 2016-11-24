@@ -122,21 +122,22 @@
             $('.sucess_cpf').hide();
             $('.error_cpf').hide();
             
-            $("#cpf").tooltip({
+            $("#cpf").popover({
                 'trigger':'click' ,
                 'placement' : 'bottom',
                 'target' : '#password',
-                'title' : "Digite o CPF do titular da conta. Apenas números."
+                'content' : "Digite o CPF do titular da conta. Apenas números."
             })
             
             $("#cpf").click(function(event){
-                $('.tooltip').ready(function(){
+                $('.popover').ready(function(){
                     var top = $('#cpf').position().top
                     var left = $('#cpf').position().left
                     var height = $('#cpf').height()
 
-                    $('.tooltip').css('top', (top + height/2 + parseInt($('.tooltip').css('height'))/2) + "px")
-                    $('.tooltip').css('left', 87 + "px")
+                    var margin = $(document).width() > 768 ? 87 : 31 
+                    $('.popover').css('top', (top + height/2 +  parseInt($('.popover').css('height'))/2) + "px")
+                    $('.popover').css('left', margin + "px")
                 })
             })
             
