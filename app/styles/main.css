@@ -71,17 +71,18 @@ body, html {
 }
 
 
+
 /* remove the border */
 input {
   border-width:0px !important;
   border:none !important;
 }
 
+
+/* below customize checkbox */
 .checkbox-container{
     vertical-align: middle;
 }
-
-/* below customize checkbox */
 
 /* align label to checkbox */
 label {
@@ -97,7 +98,8 @@ input[type="checkbox"].without-eye{
     opacity: 0;
 }
 
-input[type="checkbox"] + label{
+input[type="checkbox"] + label
+{
     background-color: #fff;
     border: 0.08rem solid #999999;
     width: 21px  !important;
@@ -105,15 +107,7 @@ input[type="checkbox"] + label{
     float: right;
     display: block;
     margin-right: 70px !important;
-}
-
-input[type="checkbox"]:hover + label{
-    content: ' ';
-    width: 21px  !important;
-    height: 21px;
-    border: 0.08rem solid #C72177;
-    background-color: #ffffff;
-    border-radius: 0.125rem;
+    background: none;
 }
 
 input[type="checkbox"]:checked + label {
@@ -124,14 +118,26 @@ input[type="checkbox"]:checked + label {
     background-repeat: no-repeat;
     border: none;
     *overflow: hidden;
-}
-
-input[type="checkbox"]:checked + label{
     color : #C72177;
 }
 
 
+input[type="checkbox"]:hover + label{
+    content: ' ';
+    width: 21px  !important;
+    height: 21px;
+    border: 0.08rem solid #C72177;
+    background-color: #ffffff;
+    float: right;
+    display: block;
+    margin-right: 70px !important;
+    *overflow: hidden;
+}
 
+
+
+
+/* remove outline border */
 input:focus {
     outline-width: 0;
 }
@@ -385,6 +391,7 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
     border-radius: 2px !important;
     -webkit-box-shadow: 0 0 0 white !important;
     box-shadow: 0 0 0 white !important;
+    left: 87px !important;
 }
 
 .popover-content{
@@ -520,6 +527,7 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
 
 /* Responsive: Portrait tablets and up */
 @media screen and (max-width: 767px) {
+    
     
     /* the sidebar menu */
     .sidebar{
@@ -661,6 +669,7 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
         border-left-width: 0px !important;
         border-right-width: 0px !important;
         border-bottom-width: 0px !important;
+        left: 31px !important;
     }
 
     .popover-content{

@@ -135,9 +135,9 @@
                     var left = $('#cpf').position().left
                     var height = $('#cpf').height()
 
-                    var margin = $(document).width() > 768 ? 87 : 31 
+                    var margin = $(window).width() > 768 ? 87 : 31 
                     $('.popover').css('top', (top + height/2 +  parseInt($('.popover').css('height'))/2) + "px")
-                    $('.popover').css('left', margin + "px")
+                    //$('.popover').css('left', margin + "px")
                 })
             })
             
