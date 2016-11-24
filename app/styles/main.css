@@ -123,15 +123,12 @@ input[type="checkbox"]:checked + label {
 
 
 input[type="checkbox"]:hover + label{
-    content: ' ';
-    width: 21px  !important;
-    height: 21px;
     border: 0.08rem solid #C72177;
-    background-color: #ffffff;
-    float: right;
     display: block;
-    margin-right: 70px !important;
-    *overflow: hidden;
+}
+
+input[type="checkbox"]:checked:hover + label{
+    border: none;
 }
 
 
