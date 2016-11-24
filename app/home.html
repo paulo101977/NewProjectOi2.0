@@ -23,77 +23,97 @@
     <![endif]-->
     
     <div class="container-fluid">
-        <div class="row">
-            <form name="formcpf">
-                
-                <!-- side bar -->
-                <div class="col-xs-12 col-md-12 col-lg-4 sidebar">
-                    <!-- oi logo -->
-                    <div class="col-xs-6 col-sm-12 col-md-12">
-                        <img class="img-mask" src="svg/oi_logo.svg" />
+        <div class="row"> 
+            <!-- side bar -->
+            <div class="col-xs-12 col-md-12 col-lg-2 sidebar sidebar-home">
+                <!-- oi logo -->
+                <div class="col-xs-6 col-sm-12 col-md-12">
+                    <img class="home_logo" src="svg/oi_logo.svg" />
+                </div>
+                <div class="exit_text">
+                    Sair
+                </div>
+            </div>
+            
+            <!-- menu scrollable -->
+            <div class="col-xs-12 col-md-12 col-lg-2 sidebar sidebar-home sidebar-menu scrollable-menu">
+                <!-- oi logo -->
+                <div class="col-xs-6 col-sm-12 col-md-12">
+                    <div class="menu-item">
+                        <img class="menu-img" src="svg/home.svg" />
                     </div>
-                    <div class="col-xs-6 col-sm-12 col-md-12">
-                        <div class="sidebar_text in-cpf-page-text">
-                            DIGITE O CPF
-                        </div>
+                    <div class="menu-item">
+                        <img class="menu-img" src="svg/telephone.svg" />
                     </div>
+                    <div class="menu-item">
+                        <img class="menu-img" src="svg/wifi.svg" />
+                    </div>
+                    <div class="menu-item">
+                        <img class="menu-img" src="svg/oiplay.svg" />
+                    </div>
+                    <div class="menu-item">
+                        <img class="menu-img" src="svg/recharge.svg" />
+                    </div>
+                    <div class="menu-item">
+                        <img class="menu-img" src="svg/asks.svg" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- content -->
+            <div class="col-xs-12 col-md-12 col-lg-8">
+                <!-- cpf -->
+                <div class="col-sm-12 col-md-12 item-row-cpf">
+                    <input id="cpf" class="password vertical-align-items" 
+                           placeholder="CPF" type="text" name="cpf" onBlur="ValidarCPF(formcpf.cpf);" 
+                           onKeyPress="MascaraCPF(formcpf.cpf);" maxlength="14" />
+
+                    <!-- placeholder after -->
+                    <div class="cpf-after">
+                        CPF
+                    </div>
+
                 </div>
 
-                <!-- content -->
-                <div class="col-xs-12 col-md-12 col-lg-8">
-                    <!-- cpf -->
-                    <div class="col-sm-12 col-md-12 item-row-cpf">
-                        <input id="cpf" class="password vertical-align-items" 
-                               placeholder="CPF" type="text" name="cpf" onBlur="ValidarCPF(formcpf.cpf);" 
-                               onKeyPress="MascaraCPF(formcpf.cpf);" maxlength="14" />
-                        
-                        <!-- placeholder after -->
-                        <div class="cpf-after">
-                            CPF
+
+                <!-- footer button -->
+                <div class="col-xs-12 col-md-12 item-row-cpf item-last">
+                    <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
+                        <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
+
+                        <!-- loading with message -->
+                        <div class="loading-container">
+                            <img class="loading" src="svg/loading.svg"/>
                         </div>
-                        
+                        <div class="know-cpf">
+                            Reconhecendo CPF
+                        </div>
+
+                        <!-- sucess message -->
+                        <div class="sucess_cpf">
+                            <img class="sucess_img" src="svg/ok.svg"/>
+                            <div class="sucess_text">
+                                Tudo certo!
+                            </div>
+                        </div>
+
+                        <!-- error message -->
+                        <div class="error_cpf">
+                            <img class="error_img" src="svg/fail.svg"/>
+                            <div class="error_text">
+                                Mensagem de erro
+                                <br>em duas linhas
+                            </div>
+                        </div>
+
                     </div>
-                    
-                    
-                    <!-- footer button -->
-                    <div class="col-xs-12 col-md-12 item-row-cpf item-last">
-                        <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
-                            <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
-                            
-                            <!-- loading with message -->
-                            <div class="loading-container">
-                                <img class="loading" src="svg/loading.svg"/>
-                            </div>
-                            <div class="know-cpf">
-                                Reconhecendo CPF
-                            </div>
-                            
-                            <!-- sucess message -->
-                            <div class="sucess_cpf">
-                                <img class="sucess_img" src="svg/ok.svg"/>
-                                <div class="sucess_text">
-                                    Tudo certo!
-                                </div>
-                            </div>
-                            
-                            <!-- error message -->
-                            <div class="error_cpf">
-                                <img class="error_img" src="svg/fail.svg"/>
-                                <div class="error_text">
-                                    Mensagem de erro
-                                    <br>em duas linhas
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
-                            <div class="img-container">
-                                <img class="arrow-continue" src="svg/next.svg"/>
-                            </div>
+                    <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
+                        <div class="img-container">
+                            <img class="arrow-continue" src="svg/next.svg"/>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     
     </div>
@@ -193,10 +213,6 @@
                 setTimeout(function(){
                     $('.sucess_cpf').hide();
                     $('.error_cpf').show();
-                    
-                    setTimeout(function(){
-                        window.location.replace("home.html")}
-                    ,1000)
                 },1000);
             }
 

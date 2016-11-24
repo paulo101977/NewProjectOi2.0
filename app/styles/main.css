@@ -1,20 +1,16 @@
-@import url(../fonts/Simplon BP/OTF/SimplonBP-Light.otf)
-@import url(../ffonts/Simplon BP/OTF/SimplonBP-Regular.otf)
-@import url(../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf)
-
 @font-face {
     font-family: 'SimplonBP-Light';
-    src : url(../fonts/Simplon BP/OTF/SimplonBP-Light.otf);
+    src : url("../fonts/Simplon BP/OTF/SimplonBP-Light.otf");
 }
 
 @font-face {
     font-family: 'SimplonBP-Regular';
-    src : url(../fonts/Simplon BP/OTF/SimplonBP-Regular.otf)
+    src : url("../fonts/Simplon BP/OTF/SimplonBP-Regular.otf")
 }
 
 @font-face {
     font-family: 'SimplonOi-Headline';
-    src : url(../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf)
+    src : url("../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf")
 }
 
 body, html {
@@ -409,17 +405,85 @@ input[type="checkbox"].eye_style:active + label, input[type="checkbox"].eye_styl
 }
 
 
+/*
+*
+*   Home
+*
+*
+*/
+
+
+.home_logo{
+    margin-left: 36px;
+    margin-top: 60px;
+}
+
+.sidebar-menu{
+    background-color: white;
+    background: white;
+}
+
+.exit_text{
+  position: absolute;
+  top: 90vh;
+  width: 31px;
+  height: 21px;
+  font-family: SimplonBP-Light;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.8px;
+  color: #ffffff;
+  margin-left: 31px;
+  margin-bottom: 60px !important;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 100vh !important;
+    overflow-x: hidden;
+}
+
+.menu-item{
+    border: solid 2px #dddddd;
+    min-height: 25vh;
+    display: flex;
+    align-items: center;
+}
+
+.menu-img{
+    margin-bottom: 7px;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
 /* simple max-width query */
-@media screen and( min-width: 1200px ){
+@media ( min-width: 1200px ){
     .sidebar{
         height: 100vh !important; 
     }
     
+    /* home */
+    /*.sidebar-home{
+        max-width: 10vw !important;
+        min-width: 10vw !important;
+    }*/
+    
+    .home_logo{
+        max-width: 10vw !important;
+        min-width: 10vw !important;
+    }
+     /* end home */
 
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) and (max-width: 1199px){
+    
+
+    
     .sidebar {
         font-size: 4.375rem;
         text-align: -webkit-auto;
