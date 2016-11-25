@@ -431,11 +431,11 @@ input[type="checkbox"].eye_style:hover{
 
 
 /*
-*
-*   Home
-*
-*
-*/
+ *
+ *   Home
+ *   CSS
+ *
+ */
 
 
 .home_logo{
@@ -470,18 +470,45 @@ input[type="checkbox"].eye_style:hover{
     overflow-x: hidden;
 }
 
+/* hide the scroll bar */
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 .menu-item{
     border: solid 2px #dddddd;
     min-height: 25vh;
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /*align-items: center;*/
+    background-color: white !important;
+    text-align: center !important;
+}
+
+.menu-item-align{
+    display: table-cell;
+    vertical-align: middle;
+    height: 25vh;
+    /* width: 100% !important; */
+    min-width: 17vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .menu-img{
     margin-bottom: 7px;
-    display: block !important;
+    /*display: flex !important;
+    align-content: center !important;
+    justify-content: flex-start !important;
     margin-left: auto !important;
-    margin-right: auto !important;
+    margin-right: auto !important;*/
+}
+
+.menu-item-text{
+    /*display: flex!important;
+    align-content: center !important;
+    justify-content: flex-start !important;
+    margin-left: auto !important;
+    margin-right: auto !important;*/
 }
 
 /* simple max-width query */
@@ -561,8 +588,7 @@ input[type="checkbox"].eye_style:hover{
     
     /* the logo img */
     .img-mask{
-        width: 90px;
-        height: 63px;
+        height: 5vh;
         margin: 0 0 0 1.25rem !important;
     }
     
@@ -574,11 +600,11 @@ input[type="checkbox"].eye_style:hover{
         width: auto !important;
         float: right;
         text-align: right;
-        font-size: 14px;
+        font-size: 2vh;
         letter-spacing: -0.5px;
-        padding-top: 2vh;
-        margin: 0px 1.3125rem 1.5625rem auto;
+        margin-right: 1.3125rem !important;
         box-sizing: border-box;
+        line-height: normal;
     }
     
     /* each line */
