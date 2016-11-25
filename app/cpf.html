@@ -64,7 +64,7 @@
                             <div class="loading-container">
                                 <img class="loading" src="svg/loading.svg"/>
                             </div>
-                            <div class="know-cpf">
+                            <div class="know_cpf">
                                 Reconhecendo CPF
                             </div>
                             
@@ -93,10 +93,10 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> <!-- end form -->
         </div>
     
-    </div>
+    </div><!-- end container -->
 
 
     
@@ -117,10 +117,6 @@
         $(document).ready(function(){
             
             $(".cpf-after").hide();
-            $('.loading').hide();
-            $('.know-cpf').hide();
-            $('.sucess_cpf').hide();
-            $('.error_cpf').hide();
             
             $("#cpf").popover({
                 'trigger':'click' ,
@@ -135,7 +131,6 @@
                     var left = $('#cpf').position().left
                     var height = $('#cpf').height()
 
-                    var margin = $(window).width() > 768 ? 87 : 31 
                     $('.popover').css('top', (top + height/2 +  parseInt($('.popover').css('height'))/2) + "px")
                     //$('.popover').css('left', margin + "px")
                 })
@@ -187,13 +182,13 @@
             
             function callback(){
                 //console.log('loading done');
-                $('.loading').hide();
-                $('.know-cpf').hide();
-                $('.sucess_cpf').show();
+                $('.loading-container').removeClass('visible');
+                $('.know_cpf').removeClass('visible');
+                $('.sucess_cpf').addClass('visible');
                 $('.error_cpf').hide();
                 setTimeout(function(){
-                    $('.sucess_cpf').hide();
-                    $('.error_cpf').show();
+                    $('.sucess_cpf').removeClass('visible');
+                    $('.error_cpf').addClass('visible');
                     
                     setTimeout(function(){
                         window.location.replace("home.html")}
@@ -205,9 +200,9 @@
             $(".item-last").click(function(){
                 //window.location.replace("cpf.html");
                 //alert("clicked");
-                $('.btn-continue').hide();
-                $('.loading').show();
-                $('.know-cpf').show();
+                $('.btn-continue').addClass('invisible');
+                $('.loading-container').addClass('visible');
+                $('.know_cpf').addClass('visible');
                 AnimateRotate(1080 , 2000 , ".loading-container" , callback);
             })
         })  

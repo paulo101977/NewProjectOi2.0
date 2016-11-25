@@ -43,53 +43,55 @@
             
             <!-- content -->
             <div class="col-xs-12 col-md-12 col-lg-8">
-                <!-- Email -->
-                <div class="col-md-12 item-row">
-                    <div class="email-name">E-mail</div>
-                    <input class="email vertical-align-items" maxlength="255" value="washington_loureiro@gmail.com" disabled/>
-                </div>
-                <!-- End email -->
-                
-                <!-- password -->
-                <div class="col-sm-12 col-md-12 item-row">
-                    <div class="col-xs-8 col-md-8 col-lg-8 vertical-align-items inline">
-                        <input id="password" class="password vertical-align-items" maxlength="10" type="password" placeholder="Senha" />
+                <form name="form_login">
+                    <!-- Email -->
+                    <div class="col-md-12 item-row">
+                        <div class="email-name">E-mail</div>
+                        <input name="email" class="email vertical-align-items" maxlength="255" value="washington_loureiro@gmail.com" disabled/>
                     </div>
-                    <div class="col-xs-4 col-md-8 col-lg-4 vertical-align-items checkbox-container inline margin-right">
-                        <div class="float-right">
-                            <input id="show" class="check without-eye" type="checkbox" />
-                            <label class="text-show" for="show">mostrar</label>
+                    <!-- End email -->
+
+                    <!-- password -->
+                    <div class="col-sm-12 col-md-12 item-row">
+                        <div class="col-xs-8 col-md-8 col-lg-8 vertical-align-items inline">
+                            <input id="password" name="password" class="password vertical-align-items" maxlength="10" type="password" placeholder="Senha" />
                         </div>
-                        <div class="eye_visible">
-                            <input id="eye" type="checkbox" class="eye_style" />
-                            <label for="eye"></label>
+                        <div class="col-xs-4 col-md-8 col-lg-4 vertical-align-items checkbox-container inline margin-right">
+                            <div class="float-right">
+                                <input id="show" class="check without-eye" type="checkbox" />
+                                <label class="text-show" for="show">mostrar</label>
+                            </div>
+                            <div class="eye_visible">
+                                <input id="eye" type="checkbox" class="eye_style" />
+                                <label for="eye"></label>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- placeholder after -->
-                    <div class="password-after">
-                        Senha
-                    </div>
-                    
-                    <!-- error message -->
-                    <div class="error-message">
-                        Mensagem de erro
-                    </div>
-                </div>
-                <!-- end password -->
-                
-                <!-- btn continue -->
-                <div class="col-xs-12 col-md-12 item-row item-last">
-                    <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
-                        <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
-                    </div>
-                    <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
-                        <div class="img-container">
-                            <img class="arrow-continue" src="svg/next.svg"/>
+
+                        <!-- placeholder after -->
+                        <div class="password-after">
+                            Senha
+                        </div>
+
+                        <!-- error message -->
+                        <div class="error-message">
+                            Mensagem de erro
                         </div>
                     </div>
-                </div>
-                <!-- end -->
+                    <!-- end password -->
+
+                    <!-- btn continue -->
+                    <div class="col-xs-12 col-md-12 item-row item-last">
+                        <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
+                            <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
+                        </div>
+                        <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
+                            <div class="img-container">
+                                <img class="arrow-continue" src="svg/next.svg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end -->
+                </form>
             </div>
         </div>
     
