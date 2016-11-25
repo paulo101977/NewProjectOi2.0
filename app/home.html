@@ -22,7 +22,11 @@
       
     <!-- endbuild -->
   </head>
-  <body ng-app="projetoOiApp" data-spy="scroll" data-target="#navbar-dashboard">
+  <body ng-app="projetoOiApp" 
+        data-spy="scroll" 
+        data-target="#navbar-dashboard"
+        data-role="main" class="ui-content"
+        data-role="page">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -244,17 +248,20 @@
             
             $('.scrollable-menu').scroll(function(event){
                 event.stopPropagation();
+                event.preventDefault();
                 
                 console.log("scroll")
                 //disable scroll on fullpage
                 $('#fullpage').css({
-                    overflow: 'hidden',
+                    overflow: 'hidden !important',
                     height: '100%'
                 });
+                
+                $(document).delegate(".ui-content", "scrollstart", false);
             })
             
             $('.scrollable-menu').on("scrollstop",function(){
-                //enable scroll on fullpage
+                alert("Stopped scrolling!");
                 
                 console.log("scroll stop")
                 $('#fullpage').css({
@@ -262,6 +269,7 @@
                     height: 'auto'
                 });
             });
+            
         })  
     </script>
     <!-- endbuild -->
