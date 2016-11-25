@@ -29,7 +29,7 @@ body, html {
 
 .sidebar {
   height: 100vh !important;
-  background-image: linear-gradient(to bottom, #ea288c, #ff6d00 70%, #ffff00);
+  background-image: linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
 }
 
 .img-mask{
