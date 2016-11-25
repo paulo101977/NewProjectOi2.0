@@ -11,6 +11,8 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    
+    <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -188,7 +190,8 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery-2.x.x.min.js"></script>
+    <script src="js/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/validation.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -238,6 +241,27 @@
                 // do something…
                 console.log('enter')
             })
+            
+            $('.scrollable-menu').scroll(function(event){
+                event.stopPropagation();
+                
+                console.log("scroll")
+                //disable scroll on fullpage
+                $('#fullpage').css({
+                    overflow: 'hidden',
+                    height: '100%'
+                });
+            })
+            
+            $('.scrollable-menu').on("scrollstop",function(){
+                //enable scroll on fullpage
+                
+                console.log("scroll stop")
+                $('#fullpage').css({
+                    overflow: 'auto',
+                    height: 'auto'
+                });
+            });
         })  
     </script>
     <!-- endbuild -->
