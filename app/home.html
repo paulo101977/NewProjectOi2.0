@@ -20,7 +20,7 @@
       
     <!-- endbuild -->
   </head>
-  <body ng-app="projetoOiApp">
+  <body ng-app="projetoOiApp" data-spy="scroll" data-target="#navbar-dashboard">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -41,58 +41,74 @@
             <!-- menu scrollable -->
             <div class="col-xs-12 col-md-12 col-lg-2 sidebar sidebar-home sidebar-menu scrollable-menu">
                 <!-- oi logo -->
-                <div class="col-xs-6 col-sm-12 col-md-12">
-                    <div class="section section-menu">
-                        <div class="start">
-                            <div class="slide menu-item">
-                                <div class="menu-item-align">
-                                    <img class="menu-img" src="svg/home.svg" />
-                                    <div class="menu-item-text">INICÍO</div>
+                <div id="navbar-dashboard" class="col-xs-6 col-sm-12 col-md-12">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <div class="section section-menu">
+                            <li class="start" role="presentation">
+                                <div class="start">
+                                    <div class="slide menu-item selected">
+                                        <div class="menu-item-align">
+                                            <a href="#start">
+                                                <img class="menu-img" src="svg/home.svg" />
+                                                <div class="menu-item-text">INICÍO</div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="telephone">
-                            <div class="slide menu-item">
-                                <div class="menu-item-align">
-                                    <img class="menu-img" src="svg/telephone.svg" />
-                                    <div class="menu-item-text">FIXO</div>
+                            </li>
+                            <li class="telephone" role="presentation">
+                                <div class="telephone">
+                                    <div class="slide menu-item">
+                                        <div class="menu-item-align">
+                                            <img class="menu-img" src="svg/telephone.svg" />
+                                            <div class="menu-item-text">FIXO</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="wifi">
-                            <div class="slide menu-item">
-                                <div class="menu-item-align">
-                                    <img class="menu-img" src="svg/wifi.svg" />
-                                    <div class="menu-item-text">OI WIFI</div>
+                            </li>
+                            <li class="wifi" role="presentation">
+                                <div class="wifi">
+                                    <div class="slide menu-item">
+                                        <div class="menu-item-align">
+                                            <img class="menu-img" src="svg/wifi.svg" />
+                                            <div class="menu-item-text">OI WIFI</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="oiplay">
-                            <div class="slide menu-item">
-                                <div class="menu-item-align">
-                                    <img class="menu-img" src="svg/oiplay.svg" />
-                                    <div class="menu-item-text">OI PLAY</div>
+                            </li>
+                            <li class="oiplay" role="presentation">
+                                <div class="oiplay">
+                                    <div class="slide menu-item">
+                                        <div class="menu-item-align">
+                                            <img class="menu-img" src="svg/oiplay.svg" />
+                                            <div class="menu-item-text">OI PLAY</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="recharge">
-                            <div class="slide menu-item">
-                                <div class="menu-item-align">
-                                    <img class="menu-img" src="svg/recharge.svg" />
-                                    <div class="menu-item-text">RECARGA</div>
+                            </li>
+                            <li class="recharge" role="presentation">
+                                <div class="recharge">
+                                    <div class="slide menu-item">
+                                        <div class="menu-item-align">
+                                            <img class="menu-img" src="svg/recharge.svg" />
+                                            <div class="menu-item-text">RECARGA</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="help">
-                            <div class="slide menu-item">
-                                <div class="menu-item-align">
-                                    <img class="menu-img" src="svg/asks.svg" />
-                                    <div class="menu-item-text">DÚVIDAS FREQUENTES</div>
+                            </li>
+                            <li class="wifi" role="presentation">
+                                <div class="help">
+                                    <div class="slide menu-item">
+                                        <div class="menu-item-align">
+                                            <img class="menu-img" src="svg/asks.svg" />
+                                            <div class="menu-item-text">DÚVIDAS FREQUENTES</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
                         </div>
-                    </div>
-                </div>
+                    </ul>
+                </div><!-- end oi logo -->
             </div>
             <!-- end menu -->
             
@@ -179,6 +195,9 @@
     <script>
         $(document).ready(function(){
             
+            //the scroll spy
+            //$('body').scrollspy({ target: '#navbar-dashboard' })
+            
             //fullpage active
             $('#fullpage').fullpage({
                 anchors:
@@ -191,7 +210,7 @@
                 verticalCentered : false
             });
             
-            $('.section-menu').children('div').each(function(index, el){
+            $('.section-menu').children('li').each(function(index, el){
                 var name = el.className;
                 $(el).click(function(event){
                     event.preventDefault();

@@ -18,6 +18,10 @@ body, html {
     font-family: 'SimplonBP-Regular' !important;
 }
 
+body {
+  position: relative;
+}
+
 .container-fluid{
     position: fixed !important;
     margin: 0vh !important;
@@ -439,10 +443,10 @@ input[type="checkbox"].eye_style:hover{
 
 /* full page vertical align */
 .start, .telephone, .wifi, .oiplay, .recharge, .help{
-    display: flex;
+    display:   flex;
     -webkit-flex-direction: column; /* Safari */
-    flex-direction:         column;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-wrap:  nowrap;
     text-align: left;
     justify-content: center;
 }
@@ -494,6 +498,15 @@ input[type="checkbox"].eye_style:hover{
     text-align: center !important;
 }
 
+/* selected item */
+.menu-item.selected{
+    background-image:
+      linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%);
+    background-size: 6px 100%;
+    background-position: calc(100%) 0, 100% 0; 
+    background-repeat: no-repeat; 
+}
+
 .menu-item-align{
     display: table-cell;
     vertical-align: middle;
@@ -528,6 +541,7 @@ input[type="checkbox"].eye_style:hover{
     font-stretch: normal;
     color: #222222;
     text-align: left;
+    overflow-y: scroll;
 }
 
 #fullpage > .section > .content > p{
@@ -587,6 +601,7 @@ input[type="checkbox"].eye_style:hover{
 }
 
 
+/* wifi */
 .wifi > .title{
   font-size: 42px;
   letter-spacing: -1.5px;
@@ -618,6 +633,43 @@ input[type="checkbox"].eye_style:hover{
 
 .wifi > .footer{
   width : 518px;
+  font-size: 21px;
+  line-height: 1.43;
+  letter-spacing: -0.8px;
+  color: #222222;
+}
+
+.oiplay > .title{
+  font-size: 42px;
+  letter-spacing: -1.5px;
+  color: #222222;
+  margin-bottom: 36px;
+}
+
+.oiplay > .content{
+  width: 640px;
+  font-size: 28px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: -1.1px;
+  color: #222222;
+}
+
+.oiplay > .btn_oiplay{
+  width: 270px;
+  height: 70px;
+  border-radius: 3px;
+  font-size: 21px;
+  letter-spacing: -0.5px;
+  background-color: #ffffff;
+  border: solid 1px #e03d6f;
+  text-align: center;
+  color: #e03d6f;
+  margin-bottom: 20px;
+}
+
+.oiplay > .footer{
   font-size: 21px;
   line-height: 1.43;
   letter-spacing: -0.8px;
