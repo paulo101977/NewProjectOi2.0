@@ -437,6 +437,16 @@ input[type="checkbox"].eye_style:hover{
  *
  */
 
+/* full page vertical align */
+.start, .telephone, .wifi, .oiplay, .recharge, .help{
+    display: flex;
+    -webkit-flex-direction: column; /* Safari */
+    flex-direction:         column;
+    flex-wrap: nowrap;
+    text-align: left;
+    justify-content: center;
+}
+
 
 .home_logo{
     margin-left: 36px;
@@ -476,7 +486,7 @@ input[type="checkbox"].eye_style:hover{
 }
 
 .menu-item{
-    border: solid 2px #dddddd;
+    border-bottom: solid 2px #dddddd;
     min-height: 25vh;
     /* display: flex; */
     /*align-items: center;*/
@@ -496,19 +506,122 @@ input[type="checkbox"].eye_style:hover{
 
 .menu-img{
     margin-bottom: 7px;
-    /*display: flex !important;
-    align-content: center !important;
-    justify-content: flex-start !important;
-    margin-left: auto !important;
-    margin-right: auto !important;*/
 }
 
 .menu-item-text{
-    /*display: flex!important;
-    align-content: center !important;
-    justify-content: flex-start !important;
-    margin-left: auto !important;
-    margin-right: auto !important;*/
+    font-family: SimplonOi-Headline;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+    text-align: center;
+    color: #999999;
+}
+
+#fullpage{
+    font-family: SimplonBP-Light;
+    background-color: #f5f5f5;
+    padding-left: 98px;
+    font-style: normal;
+    font-stretch: normal;
+    color: #222222;
+    text-align: left;
+}
+
+#fullpage > .section > .content > p{
+    margin-bottom: 5vh !important;
+}
+
+                    
+.start > .title{
+    font-size: 63px;
+    font-weight: 300;
+    line-height: 1.11;
+    letter-spacing: -2.2px;
+}
+
+.start > .content{
+    width: 640px;
+    margin-top: 38px;
+    font-size: 28px;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+}
+/* phone */
+#telephone{
+    padding-bottom: 30vh !important;
+}
+
+.telephone > .title{
+  font-size: 42px;
+  letter-spacing: -1.5px;
+  color: #222222; 
+  margin-bottom: 32px;
+}
+
+
+.telephone > .content{
+  width: 640px !important;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: -1.1px;
+  color: #222222;
+}
+
+.telephone > .btn_installation{
+  width: 270px;
+  height: 70px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e03d6f;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: #e03d6f;
+}
+
+
+.wifi > .title{
+  font-size: 42px;
+  letter-spacing: -1.5px;
+  color: #222222;
+  margin-bottom: 36px;
+}
+
+
+.wifi > .content{
+  width: 640px !important;
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  color: #222222;
+}
+
+.wifi > .btn_connection{
+  width: 270px;
+  height: 70px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e03d6f;
+  font-size: 21px;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: #e03d6f;
+  margin-bottom: 20px;
+}
+
+.wifi > .footer{
+  width : 518px;
+  font-size: 21px;
+  line-height: 1.43;
+  letter-spacing: -0.8px;
+  color: #222222;
 }
 
 /* simple max-width query */

@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    
+    <!-- fullPage.js plugin -->
+    <link rel="stylesheet" type="text/css" href="js/fullPage.js/jquery.fullPage.css" />
       
     <!-- endbuild -->
   </head>
@@ -39,97 +42,112 @@
             <div class="col-xs-12 col-md-12 col-lg-2 sidebar sidebar-home sidebar-menu scrollable-menu">
                 <!-- oi logo -->
                 <div class="col-xs-6 col-sm-12 col-md-12">
-                    <div class="menu-item">
-                        <div class="menu-item-align">
-                            <img class="menu-img" src="svg/home.svg" />
-                            <div class="menu-item-text">INICÍO</div>
+                    <div class="section section-menu">
+                        <div class="start">
+                            <div class="slide menu-item">
+                                <div class="menu-item-align">
+                                    <img class="menu-img" src="svg/home.svg" />
+                                    <div class="menu-item-text">INICÍO</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-align">
-                            <img class="menu-img" src="svg/telephone.svg" />
-                            <div class="menu-item-text">FIXO</div>
+                        <div class="telephone">
+                            <div class="slide menu-item">
+                                <div class="menu-item-align">
+                                    <img class="menu-img" src="svg/telephone.svg" />
+                                    <div class="menu-item-text">FIXO</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-align">
-                            <img class="menu-img" src="svg/wifi.svg" />
-                            <div class="menu-item-text">OI WIFI</div>
+                        <div class="wifi">
+                            <div class="slide menu-item">
+                                <div class="menu-item-align">
+                                    <img class="menu-img" src="svg/wifi.svg" />
+                                    <div class="menu-item-text">OI WIFI</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-align">
-                            <img class="menu-img" src="svg/oiplay.svg" />
-                            <div class="menu-item-text">OI PLAY</div>
+                        <div class="oiplay">
+                            <div class="slide menu-item">
+                                <div class="menu-item-align">
+                                    <img class="menu-img" src="svg/oiplay.svg" />
+                                    <div class="menu-item-text">OI PLAY</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-align">
-                            <img class="menu-img" src="svg/recharge.svg" />
-                            <div class="menu-item-text">RECARGA</div>
+                        <div class="recharge">
+                            <div class="slide menu-item">
+                                <div class="menu-item-align">
+                                    <img class="menu-img" src="svg/recharge.svg" />
+                                    <div class="menu-item-text">RECARGA</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-align">
-                            <img class="menu-img" src="svg/asks.svg" />
-                            <div class="menu-item-text">DÚVIDAS FREQUENTES</div>
+                        <div class="help">
+                            <div class="slide menu-item">
+                                <div class="menu-item-align">
+                                    <img class="menu-img" src="svg/asks.svg" />
+                                    <div class="menu-item-text">DÚVIDAS FREQUENTES</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <!-- end menu -->
+            
             <!-- content -->
             <div class="col-xs-12 col-md-12 col-lg-8">
-                <!-- cpf -->
-                <div class="col-sm-12 col-md-12 item-row-cpf">
-                    <input id="cpf" class="password vertical-align-items" 
-                           placeholder="CPF" type="text" name="cpf" onBlur="ValidarCPF(formcpf.cpf);" 
-                           onKeyPress="MascaraCPF(formcpf.cpf);" maxlength="14" />
+                <div id="fullpage">
+                    <!-- start -->
+                    <div id="start" class="section start">
+                        <div class="title">Oi, Washington</div>
+                        <div class="content">
+                            <p>Seu novo serviço ainda não está cadastrado no sistema.</p>
 
-                    <!-- placeholder after -->
-                    <div class="cpf-after">
-                        CPF
-                    </div>
-
-                </div>
-
-
-                <!-- footer button -->
-                <div class="col-xs-12 col-md-12 item-row-cpf item-last">
-                    <div class="col-xs-10  col-md-10 col-lg-11 vertical-align-items inline">
-                        <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
-
-                        <!-- loading with message -->
-                        <div class="loading-container">
-                            <img class="loading" src="svg/loading.svg"/>
-                        </div>
-                        <div class="know-cpf">
-                            Reconhecendo CPF
-                        </div>
-
-                        <!-- sucess message -->
-                        <div class="sucess_cpf">
-                            <img class="sucess_img" src="svg/ok.svg"/>
-                            <div class="sucess_text">
-                                Tudo certo!
-                            </div>
-                        </div>
-
-                        <!-- error message -->
-                        <div class="error_cpf">
-                            <img class="error_img" src="svg/fail.svg"/>
-                            <div class="error_text">
-                                Mensagem de erro
-                                <br>em duas linhas
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-xs-2 col-md-2 col-lg-1 vertical-align-items inline">
-                        <div class="img-container">
-                            <img class="arrow-continue" src="svg/next.svg"/>
+                            <p>Em breve, você terá acesso online a todos os serviços e facilidades da Minha Oi. Aproveite enquanto isso pra tirar suas dúvidas e descubra como a Oi pode te deixar mais conectado.</p> 
                         </div>
                     </div>
+                    
+                    <!-- oi fixo -->
+                    <div id="telephone" class="section telephone">
+                        <div class="title">Fixo</div>
+                        <div class="content">
+                            <p>Contratou um novo Fixo da Oi?  Então agora é só aguardar a sua instalação.</p>
+
+                            <p>Siga o passo a passo da sua visita técnica pra começar a falar ilimitado com qualquer Oi.</p>
+                        </div>
+                        <button class="btn_installation">Acompanhe a Instalação</button>
+                    </div>
+                    
+                    <!-- wifi -->
+                    <div id="wifi" class="section wifi">
+                        <div class="title">Oi WiFi</div>
+                        <div class="content">
+                            <p>Busque o hotspot mais perto de você pra se conectar em alta velocidade gratuitamente, sem consumir sua franquia de internet móvel ou celular.</p>
+
+                            <p>São mais de 2 milhões de pontos de acesso em todo o Brasil, entre aeroportos, hotéis, restaurantes, shoppings, cafés e outros locais. É só se cadastrar e aproveitar.</p>
+                        </div>
+                        <button class="btn_connection">Conectar-se</button>
+                        <div class="footer">
+                            <p>Pra acessar do seu tablet ou smartphone, você pode também baixar o aplicativo mobile nos sistemas Android e iOS.</p>
+                        </div>
+                    </div>
+                    <div id="oiplay" class="section oiplay">
+                        <div class="title">Oi Play</div>
+                        <div class="content">
+                            <p>Clientes TV HD podem assistir ao melhor do nosso conteúdo no Oi Play.</p>
+
+                            <p>Quando e onde quiser, direto do seu computador, tablet ou smartphone, podendo acessar de mais de um dispositivo ao mesmo tempo. Divirta-se!</p>
+                        </div>
+                        <button class="btn_oiplay">Conheça o Oi Play</button>
+                        <div class="footer">
+                            <p>Entre com seu login da Minha Oi.</p>
+                        </div>
+                    
+                    </div>
+                    <div id="recharge" class="section recharge">Some section</div>
+                    <div id="help" class="section help">Some section</div>
                 </div>
             </div>
         </div>
@@ -151,97 +169,34 @@
     <!-- script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script -->
+      
+    <!-- fullPage plugin -->
+    <!-- This following line is only necessary in the case of using the plugin option `scrollOverflow:true` -->
+    <script type="text/javascript" src="js/fullPage.js/vendors/scrolloverflow.min.js"></script>
+
+    <script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script>
+      
     <script>
         $(document).ready(function(){
             
-            $(".cpf-after").hide();
-            $('.loading').hide();
-            $('.know-cpf').hide();
-            $('.sucess_cpf').hide();
-            $('.error_cpf').hide();
-            
-            $("#cpf").tooltip({
-                'trigger':'click' ,
-                'placement' : 'bottom',
-                'target' : '#password',
-                'title' : "Digite o CPF do titular da conta. Apenas números."
-            })
-            
-            $("#cpf").click(function(event){
-                $('.tooltip').ready(function(){
-                    var top = $('#cpf').position().top
-                    var left = $('#cpf').position().left
-                    var height = $('#cpf').height()
-
-                    $('.tooltip').css('top', (top + height/2 + parseInt($('.tooltip').css('height'))/2) + "px")
-                    $('.tooltip').css('left', 87 + "px")
-                })
-            })
-            
-            $('#cpf').on('input',function(event){
-                console.dir(event);
-                if(event && event.target && event.target.value){
-                   if(event.target.value.length > 0){
-                       $('.cpf-after').show();
-                       
-                       if(event.target.value.length >= 14){
-                           $('.arrow-continue').attr('src' , 'svg/next_active.svg');
-                           $('.btn-continue').css('color' , '#e03d6f');
-                       } else {
-                           $('.arrow-continue').attr('src' , 'svg/next.svg');
-                           $('.btn-continue').css('color' , '#cccccc');
-                       }
-                       
-                   } else {
-                       $('.cpf-after').hide();
-                       $('.arrow-continue').attr('src' , 'svg/next.svg');
-                       $('.btn-continue').css('color' , '#cccccc');
-                   }
-                } else {
-                    $('.cpf-after').hide();
-                    $('.arrow-continue').attr('src' , 'svg/next.svg');
-                    $('.btn-continue').css('color' , '#cccccc');
-                }
+            //fullpage active
+            $('#fullpage').fullpage({
+                anchors:
+                    ['start', 
+                     'telephone', 
+                     'wifi',
+                     'oiplay', 
+                     'recharge', 
+                     'help'],
+                verticalCentered : false
             });
             
-            function AnimateRotate(angle , time, el , callback){
-                var elem = $(el);
-                
-                var empty = function(){}
-                
-                //callback =  callback ? callback : empty
-
-                $({deg: 0}).animate({deg: angle}, {
-                    duration: time,
-                    step: function(now){
-                        elem.css({
-                             transform: "rotate(" + now + "deg)"
-                        });
-                    },
-                    done : callback //when animation ends
-                });
-            }
-            
-            function callback(){
-                //console.log('loading done');
-                $('.loading').hide();
-                $('.know-cpf').hide();
-                $('.sucess_cpf').show();
-                $('.error_cpf').hide();
-                setTimeout(function(){
-                    $('.sucess_cpf').hide();
-                    $('.error_cpf').show();
-                },1000);
-            }
-
-            
-            $(".item-last").click(function(){
-                //window.location.replace("cpf.html");
-                //alert("clicked");
-                $('.btn-continue').hide();
-                $('.loading').show();
-                $('.know-cpf').show();
-                AnimateRotate(1080 , 2000 , ".loading-container" , callback);
+            $('.section-menu').children('div').each(function(index, el){
+                var name = el.className;
+                $(el).click(function(event){
+                    event.preventDefault();
+                    $.fn.fullpage.moveTo('' + name);
+                })
             })
         })  
     </script>
