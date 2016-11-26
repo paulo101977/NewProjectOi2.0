@@ -194,8 +194,8 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <script src="js/jquery-2.x.x.min.js"></script>
-    <script src="js/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script>
     <script src="js/validation.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -205,15 +205,14 @@
       
     <!-- fullPage plugin -->
     <!-- This following line is only necessary in the case of using the plugin option `scrollOverflow:true` -->
-    <script type="text/javascript" src="js/fullPage.js/vendors/scrolloverflow.min.js"></script>
+   <!-- script type="text/javascript" src="js/fullPage.js/vendors/scrolloverflow.min.js"></script -->
 
-    <script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script>
+    
       
     <script>
         $(document).ready(function(){
             
-            //the scroll spy
-            //$('body').scrollspy({ target: '#navbar-dashboard' })
+
             
             //fullpage active
             $('#fullpage').fullpage({
@@ -225,6 +224,9 @@
                      'recharge', 
                      'help'],
                 verticalCentered : false,
+                dragAndMove: true,
+                //fixedElements : '.scrollable-menu',
+                //menu: '.scrollable-menu',
                 onLeave: function(index, nextIndex, direction){
                     console.log("leave");
                     var active = $(".section .active")
@@ -232,6 +234,14 @@
                     console.dir(active);
                 }
             });
+            
+            //the scroll spy
+            //$('body').scrollspy({ target: '#navbar-dashboard' })
+            //disabling scrolling
+            $.fn.fullpage.setAllowScrolling(false);
+            //$.fn.fullpage.setFitToSection(false);
+            //$.fn.fullpage.setAutoScrolling(false);
+            console.dir($)
             
             $('.section-menu').children('li').each(function(index, el){
                 var name = el.className;
@@ -241,7 +251,7 @@
                 })
             })
             
-            $('#navbar-dashboard').on('activate.bs.scrollspy', function () {
+            $('.scrollable-menu').on('activate.bs.scrollspy', function () {
                 // do something…
                 console.log('enter')
             })

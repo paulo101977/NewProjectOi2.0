@@ -18,9 +18,6 @@ body, html {
     font-family: 'SimplonBP-Regular' !important;
 }
 
-body {
-  position: relative;
-}
 
 .container-fluid{
     position: fixed !important;
