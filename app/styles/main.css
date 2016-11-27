@@ -496,13 +496,13 @@ input[type="checkbox"].eye_style:hover{
 }
 
 /* selected item */
-.menu-item.selected{
+/*.menu-item.selected{
     background-image:
       linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%);
     background-size: 6px 100%;
     background-position: calc(100%) 0, 100% 0; 
     background-repeat: no-repeat; 
-}
+}*/
 
 .menu-item-align{
     display: table-cell;
