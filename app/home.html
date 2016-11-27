@@ -12,21 +12,19 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     
-    <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.min.css">
+    <!-- link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.min.css" -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     
     <!-- fullPage.js plugin -->
-    <link rel="stylesheet" type="text/css" href="js/fullPage.js/jquery.fullPage.css" />
+    <!-- link rel="stylesheet" type="text/css" href="js/fullPage.js/jquery.fullPage.css" / -->
       
     <!-- endbuild -->
   </head>
   <body ng-app="projetoOiApp" 
         data-spy="scroll" 
-        data-target="#navbar-dashboard"
-        data-role="main" class="ui-content"
-        data-role="page">
+        data-target="#navbar-dashboard">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -195,9 +193,9 @@
     <!-- endbuild -->
 
     <script src="js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script>
-    <script src="js/validation.js"></script>
+    <!-- script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!-- script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
@@ -212,10 +210,18 @@
     <script>
         $(document).ready(function(){
             
-
+            function  scrollEnd(callback){
+                clearTimeout($.data(this, 'scrollTimer'));
+                $.data(this, 'scrollTimer', setTimeout(function() {
+                    // do something
+                    console.log("Haven't scrolled in 250ms!");
+                    
+                    if(callback) callback();
+                }, 250));
+            }
             
-            //fullpage active
-            $('#fullpage').fullpage({
+            //starts fullpage plugin
+            /*$('#fullpage').fullpage({
                 anchors:
                     ['start', 
                      'telephone', 
@@ -223,9 +229,8 @@
                      'oiplay', 
                      'recharge', 
                      'help'],
-                verticalCentered : false,
-                dragAndMove: true,
-                //fixedElements : '.scrollable-menu',
+                verticalCentered : true,
+                fixedElements : '.scrollable-menu',
                 //menu: '.scrollable-menu',
                 onLeave: function(index, nextIndex, direction){
                     console.log("leave");
@@ -233,13 +238,13 @@
                     console.log("active");
                     console.dir(active);
                 }
-            });
+            });*/
             
             //the scroll spy
             //$('body').scrollspy({ target: '#navbar-dashboard' })
             //disabling scrolling
-            $.fn.fullpage.setAllowScrolling(false);
-            //$.fn.fullpage.setFitToSection(false);
+            //$.fn.fullpage.setAllowScrolling(false);
+            //$.fn.fullpage.setFitToSection(true);
             //$.fn.fullpage.setAutoScrolling(false);
             console.dir($)
             
@@ -247,7 +252,17 @@
                 var name = el.className;
                 $(el).click(function(event){
                     event.preventDefault();
-                    $.fn.fullpage.moveTo('' + name);
+                    //$.fn.fullpage.moveTo('' + name);
+                    
+                    var top = 100*parseInt(index);
+                    
+                    
+                    /*$('#fullpage').stop().animate({
+                        //scrollTop: $('.' + name).offset().top
+                        scrollTop: top + 'vh'
+                    }, 100);*/
+                    $('#fullpage').scrollTo('.' + name , 100);
+                    
                 })
             })
             
@@ -260,27 +275,29 @@
                 event.stopPropagation();
                 event.preventDefault();
                 
+                //disable scroll
+                //$.fn.fullpage.setAutoScrolling(false);
+                //$.fn.fullpage.setAllowScrolling(false);
+                
+                
                 console.log("scroll")
                 //disable scroll on fullpage
-                $('#fullpage').css({
+                /*$('#fullpage').css({
                     overflow: 'hidden !important',
                     height: '100%'
-                });
+                });*/
                 
-                $(document).delegate(".ui-content", "scrollstart", false);
+                //detect scroll stop and enable scroll
+                scrollEnd(
+                    function(){ 
+                        //$.fn.fullpage.setAutoScrolling(true);
+                        //$.fn.fullpage.setAllowScrolling(true); 
+                    }
+                )//end scrollEnd
+                
             })
-            
-            $('.scrollable-menu').on("scrollstop",function(){
-                alert("Stopped scrolling!");
-                
-                console.log("scroll stop")
-                $('#fullpage').css({
-                    overflow: 'auto',
-                    height: 'auto'
-                });
-            });
-            
-        })  
+             
+        })  //end jquery ready method
     </script>
     <!-- endbuild -->
 </body>

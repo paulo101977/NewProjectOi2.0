@@ -538,11 +538,19 @@ input[type="checkbox"].eye_style:hover{
     font-stretch: normal;
     color: #222222;
     text-align: left;
-    overflow-y: scroll;
+    height: 100vh;
+    max-height: 600vh !important;
+    overflow-x: hidden;
+    overflow: scroll !important;
 }
 
 #fullpage > .section > .content > p{
     margin-bottom: 5vh !important;
+}
+
+#fullpage > .section {
+	height: 100vh !important;
+    min-height: 100vh !important;
 }
 
                     
