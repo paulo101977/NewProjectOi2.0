@@ -48,10 +48,14 @@
                 <div id="navbar-dashboard" class="col-xs-6 col-sm-12 col-md-12">
                     <ul class="nav nav-tabs nav-stacked">
                         <div class="section section-menu">
+                            <!-- selected item -->
+                            <div class="menu-item selected"></div>
+                            
+                            <!-- start  item -->
                             <li class="start" role="presentation">
                                 <a href="#start">
                                     <div class="start">
-                                        <div class="slide menu-item selected">
+                                        <div class="slide menu-item">
                                             <div class="menu-item-align">
                                                 <img class="menu-img" src="svg/home.svg" />
                                                 <div class="menu-item-text">INICÍO</div>
@@ -262,6 +266,13 @@
                         scrollTop: top + 'vh'
                     }, 100);*/
                     $('#fullpage').scrollTo('.' + name , 100);
+                    
+                    //scroll selected
+                    $('.menu-item.selected')
+                        .animate({
+                            top: $(el).position().top
+                        } 
+                    , 100)
                     
                 })
             })

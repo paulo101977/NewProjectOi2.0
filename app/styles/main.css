@@ -496,13 +496,19 @@ input[type="checkbox"].eye_style:hover{
 }
 
 /* selected item */
-/*.menu-item.selected{
+.menu-item.selected{
+    position: absolute;
+    top: 0;
+    left: calc(100% - 6px);
+    min-height: 25vh;
     background-image:
       linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%);
     background-size: 6px 100%;
-    background-position: calc(100%) 0, 100% 0; 
+    background-position: 0 0, 100% 0; 
     background-repeat: no-repeat; 
-}*/
+    min-width: 6px !important;
+    background-color: transparent;
+}
 
 .menu-item-align{
     display: table-cell;
