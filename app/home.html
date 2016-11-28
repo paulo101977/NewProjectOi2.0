@@ -250,30 +250,118 @@
             //$.fn.fullpage.setAllowScrolling(false);
             //$.fn.fullpage.setFitToSection(true);
             //$.fn.fullpage.setAutoScrolling(false);
-            console.dir($)
+            //console.dir($)
+            
+            $(window).resize(function(){
+                
+                //current size of window
+                var containerWidth = $(window).width();
+                
+                //change the position of the element "selected"
+                if(containerWidth < 1200){
+                    
+                    $('.active').ready(function(){
+                        var el = $('.active')
+                        var left = $(el).position().left
+                        
+                        
+                        $('.menu-item.selected')
+                            .css({position : 'absolute'})
+                        
+                        $('.menu-item.selected').css({
+                            left: left
+                        });
+                    })
+                } else {
+                    $('.active').ready(function(){
+                        var el = $('.active')
+                        var top = $(el).position().top
+                        
+                        
+                        $('.menu-item.selected')
+                            .css({position : 'absolute'})
+                        
+                        $('.menu-item.selected')
+                            .css('cssText', 'left: calc(100% - 6px) !important');
+                        
+                        console.log(top)
+                        $('.menu-item.selected').css({
+                            top: top
+                        });
+                    })
+                }
+
+            });
             
             $('.section-menu').children('li').each(function(index, el){
-                var name = el.className;
+
+                //$(el).off('click'); //remove listener after resize
+
+
+                //bind click
                 $(el).click(function(event){
+                    
+                    var name = this.className;
+                    var self = this;
+                    
+                    console.log(name)
+
+                    containerWidth = $(window).width();
+
                     event.preventDefault();
                     //$.fn.fullpage.moveTo('' + name);
-                    
+
+                    //unselect all li
+                    $('.section-menu')
+                        .children('li')
+                        .removeClass('active');
+
+                    //set this el as active
+                    $(self).addClass('active');
+
                     var top = 100*parseInt(index);
-                    
-                    
+
+
                     /*$('#fullpage').stop().animate({
                         //scrollTop: $('.' + name).offset().top
                         scrollTop: top + 'vh'
                     }, 100);*/
-                    $('#fullpage').scrollTo('.' + name , 100);
-                    
-                    //scroll selected
-                    $('.menu-item.selected')
-                        .animate({
-                            top: $(el).position().top
-                        } 
-                    , 100)
-                    
+                    //$('#fullpage').scrollTo('.' + name , 100);
+
+
+                    //windows size
+                    if(containerWidth > 1200){
+                        
+                        $('#fullpage').scrollTo('.' + name , 100);
+                        
+                        //scroll selected
+                        $('.menu-item.selected')
+                            .animate({
+                                top: $(self).position().top
+                            } 
+                        , 100)
+                    } else {
+
+                        //change position of selected
+                        $('.menu-item.selected').css({position : 'absolute'})
+                        $('.menu-item.selected')
+                            .animate({
+                                left: $(self).position().left
+                            } 
+                        , 100)
+                        
+                        
+                        //scroll to element less the margin left
+                        /*$('.section.' + name).ready(function(){
+                            $('#fullpage').stop().animate({
+                                scrollLeft: $('.section.' + name)
+                                    .position().left - 87
+                            }, 100);
+                            
+                        })*/
+                        $('#fullpage').scrollTo('.' + name , 100 , 98);
+                        event.preventDefault();
+                    }
                 })
             })
             
