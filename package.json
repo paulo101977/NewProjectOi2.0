@@ -37,5 +37,8 @@
   },
   "scripts": {
     "test": "karma start test/karma.conf.js"
+  },
+  "dependencies": {
+    "fullpage.js": "^2.8.9"
   }
 }
