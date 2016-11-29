@@ -879,7 +879,9 @@ ol div li { display: block; }
         position: absolute;
         top: calc(100% - 6px) !important;
         left: 0;
-        min-height: 6px;
+        max-height: 6px !important;
+        height:auto !important;
+        height: 6px !important;
         background-image:
           linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%);
         background-size: 100% 6px !important; 

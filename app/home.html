@@ -367,6 +367,7 @@
     
       
     <script>
+        
         $(document).ready(function(){
             
             function  scrollEnd(callback){
@@ -413,6 +414,10 @@
                 var containerWidth = $(window).width();
                 
                 //change the position of the element "selected"
+                $('.menu-item.selected')
+                                .css({position : 'absolute'})
+                
+                
                 if(containerWidth < 1200){
                     
                     $('.active').ready(function(){
@@ -421,9 +426,6 @@
                         if(el && $(el).position()){
                             var left = $(el).position().left
                         
-                        
-                            $('.menu-item.selected')
-                                .css({position : 'absolute'})
 
                             $('.menu-item.selected').css({
                                 left: left
@@ -437,9 +439,6 @@
                         if(el && $(el).position()){
                             var top = $(el).position().top
                         
-                        
-                            $('.menu-item.selected')
-                                .css({position : 'absolute'})
 
                             $('.menu-item.selected')
                                 .css('cssText', 'left: calc(100% - 6px) !important');
@@ -477,17 +476,10 @@
                     //set this el as active
                     $(self).addClass('active');
 
-                    //var top = 100*parseInt(index);
-
-
-                    /*$('#fullpage').stop().animate({
-                        //scrollTop: $('.' + name).offset().top
-                        scrollTop: top + 'vh'
-                    }, 100);*/
-                    //$('#fullpage').scrollTo('.' + name , 100);
-
 
                     //windows size
+                    var el = $('#fullpage >.section.' + name);
+                    
                     if(containerWidth > 1200){
                         
                         $('#fullpage').scrollTo('.' + name , 300);
@@ -498,6 +490,37 @@
                                 top: $(self).position().top
                             } 
                         , 100)
+                        
+                        /* change position scroll and focus on the marker */
+                        /*if(el && el.offset()){
+                            var elOffset = el.offset().top;
+                            var elHeight = el.height();
+                            var windowHeight = $(window).height();
+                            var offset;
+                            
+                            offset = elOffset/3 - ((windowHeight - elHeight)/2);
+                            
+                            $('.scrollable-menu').scrollTo(offset , 300 , {axis : 'y'});
+     
+                        }*/
+                        //.start, .telephone, .wifi, .oiplay, .recharge, .help
+                        if(name.indexOf('start') !== -1 || name.indexOf('help') !== -1){
+                            $('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
+                        }
+                        else if(name.indexOf('telephone') !== -1){
+                            $('.scrollable-menu').scrollTo($(window).height()/7, 300 , {axis : 'y'});
+                        }
+                        else if(name.indexOf('wifi') !== -1){
+                            $('.scrollable-menu').scrollTo($(window).height()/4, 300 , {axis : 'y'});
+                        }
+                        else if(name.indexOf('oiplay') !== -1){
+                            $('.scrollable-menu').scrollTo($(window).height()/3, 300 , {axis : 'y'});
+                        }
+                        else if(name.indexOf('recharge') !== -1){
+                            $('.scrollable-menu').scrollTo($(window).height()/2, 300 , {axis : 'y'});
+                        }
+                        
+                        event.preventDefault();
                     } else {
 
                         //change position of selected
@@ -511,39 +534,35 @@
                         //scroll to element on page
                         $('#fullpage').scrollTo('.' + name , 300);
                         
-                        
-                        /*
-                        
-                        //try foccus menu item on center
-                        $('.scrollable-menu').scrollTo('.' + name 
-                            , 100 ,
-                            {
-                                margin : true,
-                                queue: true,
-                                onAfter(target, settings){
-                                    console.log('after')
-                                }
-                            }
-                        );*/
-                        
-                        var el = $('#fullpage >.section.' + name);
+                        /* change position scroll and focus on the marker */
+                        /*var el = $('#fullpage >.section.' + name);
                         if(el && el.offset()){
                             var elOffset = el.offset().left;
                             var elWidth = el.width();
                             var windowWidth = $(window).width();
                             var offset;
-
-                            if (elWidth < windowWidth) {
-                                offset = elOffset - ((windowWidth / 2) - (elWidth / 2));
-                            } else {
-                                offset = elOffset;
-                            }
-                            //$('html, body').animate({scrollTop:offset}, speed);
-                            $('.scrollable-menu').stop().animate({
-                                scrollLeft: offset
-                            }, 300);
-                            //$('.scrollable-menu').scrollTo(offset , 300);
                             
+                            offset = elOffset/3 - ((windowWidth - elWidth)/2);
+                            
+                            $('.scrollable-menu').scrollTo(offset , 300 , {axis : 'x'});
+     
+                        }*/
+                        
+                        //.start, .telephone, .wifi, .oiplay, .recharge, .help
+                        if(name.indexOf('start') !== -1 || name.indexOf('help') !== -1){
+                            $('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'x'});
+                        }
+                        else if(name.indexOf('telephone') !== -1){
+                            $('.scrollable-menu').scrollTo($(window).width()/7, 300 , {axis : 'x'});
+                        }
+                        else if(name.indexOf('wifi') !== -1){
+                            $('.scrollable-menu').scrollTo($(window).width()/4, 300 , {axis : 'x'});
+                        }
+                        else if(name.indexOf('oiplay') !== -1){
+                            $('.scrollable-menu').scrollTo($(window).width()/3, 300 , {axis : 'x'});
+                        }
+                        else if(name.indexOf('recharge') !== -1){
+                            $('.scrollable-menu').scrollTo($(window).width()/2, 300 , {axis : 'x'});
                         }
                         
                         event.preventDefault();
@@ -551,6 +570,7 @@
                 })
             })
             
+            //todo: bootstrap script dont work???
             $('.scrollable-menu').on('activate.bs.scrollspy', function () {
                 // do something…
                 console.log('enter')
