@@ -65,7 +65,7 @@
                                 <img class="loading" src="svg/loading.svg"/>
                             </div>
                             <div class="know_cpf">
-                                Reconhecendo CPF
+                                Reconhecendo CPF...
                             </div>
                             
                             <!-- sucess message -->
@@ -137,7 +137,6 @@
             })
             
             $('#cpf').on('input',function(event){
-                console.dir(event);
                 if(event && event.target && event.target.value){
                    if(event.target.value.length > 0){
                        $('.cpf-after').show();
@@ -191,7 +190,8 @@
                     $('.error_cpf').addClass('visible');
                     
                     setTimeout(function(){
-                        window.location.replace("home.html")}
+                        window.location.replace("home.html")
+                    }
                     ,1000)
                 },1000);
             }
