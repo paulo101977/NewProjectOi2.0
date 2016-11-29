@@ -352,7 +352,7 @@
     <!-- endbuild -->
 
     <script src="js/jquery-3.1.1.min.js"></script>
-    <!-- script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script -->
+    <script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/jquery.scrollTo.min.js"></script>
     <script src="js/jquery-scrollspy.js"></script>
@@ -372,7 +372,7 @@
         $(document).ready(function(){
             
             //test scroll spy
-            $('#fullpage').scrollspy({
+            /*$('#fullpage').scrollspy({
                 min: $('.section.start').offset().top,
                 onEnter: function(element, position) {
                     //$("#nav").addClass('fixed');
@@ -382,7 +382,7 @@
                     //$("#nav").removeClass('fixed');
                     console.log('leave position: ' + position)
                 }
-            });
+            });*/
             
             function  scrollEnd(callback){
                 clearTimeout($.data(this, 'scrollTimer'));
@@ -395,7 +395,7 @@
             }
             
             //starts fullpage plugin
-            /*$('#fullpage').fullpage({
+            $('#fullpage').fullpage({
                 anchors:
                     ['start', 
                      'telephone', 
@@ -404,7 +404,9 @@
                      'recharge', 
                      'help'],
                 verticalCentered : true,
-                fixedElements : '.scrollable-menu',
+                normalScrollElements: '.menu-item',
+                bigSectionsDestination : '#fullpage',
+                //fixedElements : '.scrollable-menu',
                 //menu: '.scrollable-menu',
                 onLeave: function(index, nextIndex, direction){
                     console.log("leave");
@@ -412,7 +414,7 @@
                     console.log("active");
                     console.dir(active);
                 }
-            });*/
+            });
             
             //the scroll spy
             //$('body').scrollspy({ target: '#navbar-dashboard' })
@@ -481,6 +483,8 @@
                     containerWidth = $(window).width();
 
                     console.log(name);
+                    
+                    $.fn.fullpage.moveTo(name);
 
                     //unselect all li
                     $('.section-menu')

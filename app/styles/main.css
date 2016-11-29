@@ -555,30 +555,40 @@ input[type="checkbox"].eye_style:hover{
     font-stretch: normal;
     color: #222222;
     text-align: left;
-    height: 100vh;
+    margin-bottom: auto;
+    margin-top: auto;
+    /*height: 100vh;
     max-height: 600vh !important;
     overflow-x: hidden;
-    overflow: scroll !important;
+    overflow: scroll !important;*/
 }
 
-#fullpage > .section > .content > p{
+#fullpage > .section > .fp-tableCell{
+    height: auto !important;
+}
+
+#fullpage > .section > .content > p ,
+#fullpage > .section > .fp-tableCell > .content > p{
     margin-bottom: 5vh !important;
 }
 
-#fullpage > .section {
+#fullpage > .section ,
+#fullpage > .fp-tableCell > .section {
 	height: 100vh !important;
     min-height: 100vh !important;
 }
 
                     
-.start > .title{
+.start > .title,
+.start > .fp-tableCell > .title{
     font-size: 63px;
     font-weight: 300;
     line-height: 1.11;
     letter-spacing: -2.2px;
 }
 
-.start > .content{
+.start > .content,
+.start > .fp-tableCell > .content{
     width: 640px;
     margin-top: 38px;
     font-size: 28px;
@@ -586,11 +596,13 @@ input[type="checkbox"].eye_style:hover{
     letter-spacing: -0.6px;
 }
 /* phone */
-#telephone{
+#telephone,
+#telephone > .fp-tableCell{
     padding-bottom: 30vh !important;
 }
 
-.telephone > .title{
+.telephone > .title,
+.telephone > .fp-tableCell > .title{
   font-size: 42px;
   letter-spacing: -1.5px;
   color: #222222; 
@@ -598,7 +610,8 @@ input[type="checkbox"].eye_style:hover{
 }
 
 
-.telephone > .content{
+.telephone > .content,
+.telephone > .fp-tableCell > .content{
   width: 640px !important;
   font-size: 28px;
   font-weight: 300;
@@ -607,7 +620,8 @@ input[type="checkbox"].eye_style:hover{
   color: #222222;
 }
 
-.telephone > .btn_installation{
+.telephone > .btn_installation,
+.telephone > .fp-tableCell > .btn_installation{
   width: 270px;
   height: 70px;
   border-radius: 3px;
