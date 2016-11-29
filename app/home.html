@@ -355,6 +355,7 @@
     <!-- script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jquery-scrollspy.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!-- script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
@@ -369,6 +370,19 @@
     <script>
         
         $(document).ready(function(){
+            
+            //test scroll spy
+            $('#fullpage').scrollspy({
+                min: $('.section.start').offset().top,
+                onEnter: function(element, position) {
+                    //$("#nav").addClass('fixed');
+                    console.log('enter position: ' + position)
+                },
+                onLeave: function(element, position) {
+                    //$("#nav").removeClass('fixed');
+                    console.log('leave position: ' + position)
+                }
+            });
             
             function  scrollEnd(callback){
                 clearTimeout($.data(this, 'scrollTimer'));
