@@ -463,6 +463,8 @@ input[type="checkbox"].eye_style:hover{
 .home_logo{
     margin-left: 36px;
     margin-top: 60px;
+    max-width: 10vw !important;
+    min-width: 10vw !important;
 }
 
 .sidebar-menu{
@@ -507,7 +509,7 @@ input[type="checkbox"].eye_style:hover{
 }
 
 /* selected item */
-.menu-item.selected{
+.selected{
     position: absolute;
     top: 0;
     left: calc(100% - 6px);
@@ -557,14 +559,16 @@ input[type="checkbox"].eye_style:hover{
     text-align: left;
     margin-bottom: auto;
     margin-top: auto;
-    /*height: 100vh;
-    max-height: 600vh !important;
-    overflow-x: hidden;
-    overflow: scroll !important;*/
+}
+
+#fullpage > .section{
+    display: table;
 }
 
 #fullpage > .section > .fp-tableCell{
-    height: auto !important;
+    display: table-cell !important;
+    vertical-align: middle !important;
+    display: inline-block; /* IE pollyfill */
 }
 
 #fullpage > .section > .content > p ,
@@ -574,11 +578,11 @@ input[type="checkbox"].eye_style:hover{
 
 #fullpage > .section ,
 #fullpage > .fp-tableCell > .section {
-	height: 100vh !important;
-    min-height: 100vh !important;
+	/* height: 100vh !important; */
+    /* min-height: 100vh !important;*/
 }
 
-                    
+/* start */                  
 .start > .title,
 .start > .fp-tableCell > .title{
     font-size: 63px;
@@ -595,6 +599,7 @@ input[type="checkbox"].eye_style:hover{
     line-height: 1.5;
     letter-spacing: -0.6px;
 }
+
 /* phone */
 #telephone,
 #telephone > .fp-tableCell{
@@ -638,7 +643,8 @@ input[type="checkbox"].eye_style:hover{
 
 
 /* wifi */
-.wifi > .title{
+.wifi > .title,
+.wifi > .fp-tableCell > .title{
   font-size: 42px;
   letter-spacing: -1.5px;
   color: #222222;
@@ -646,7 +652,8 @@ input[type="checkbox"].eye_style:hover{
 }
 
 
-.wifi > .content{
+.wifi > .content,
+.wifi > .fp-tableCell > .content{
   width: 640px !important;
   font-size: 28px;
   line-height: 1.25;
@@ -654,7 +661,8 @@ input[type="checkbox"].eye_style:hover{
   color: #222222;
 }
 
-.wifi > .btn_connection{
+.wifi > .btn_connection,
+.wifi > .fp-tableCell > .btn_connection{
   width: 270px;
   height: 70px;
   border-radius: 3px;
@@ -667,7 +675,8 @@ input[type="checkbox"].eye_style:hover{
   margin-bottom: 20px;
 }
 
-.wifi > .footer{
+.wifi > .footer,
+.wifi > .fp-tableCell > .footer{
   width : 518px;
   font-size: 21px;
   line-height: 1.43;
@@ -675,14 +684,27 @@ input[type="checkbox"].eye_style:hover{
   color: #222222;
 }
 
-.oiplay > .title , .recharge > .title{
+#recharge{
+    height: 100vh !important;
+}
+
+/* oiplay and recharge */
+
+.oiplay > .title , 
+.recharge > .title ,
+.oiplay > .fp-tableCell > .title , 
+.recharge > .fp-tableCell > .title 
+{
   font-size: 42px;
   letter-spacing: -1.5px;
   color: #222222;
   margin-bottom: 36px;
 }
 
-.oiplay > .content , .recharge > .content{
+.oiplay > .content , 
+.oiplay > .fp-tableCell > .content , 
+.recharge > .content ,
+.recharge > .fp-tableCell > .content{
   width: 640px;
   font-size: 28px;
   font-style: normal;
@@ -692,7 +714,10 @@ input[type="checkbox"].eye_style:hover{
   color: #222222;
 }
 
-.oiplay > .btn_oiplay , .recharge > .btn_recharge{
+.oiplay > .btn_oiplay ,
+.recharge > .btn_recharge,
+.oiplay > .fp-tableCell > .btn_oiplay ,
+.recharge > .fp-tableCell > .btn_recharge{
   width: 270px;
   height: 70px;
   border-radius: 3px;
@@ -705,7 +730,10 @@ input[type="checkbox"].eye_style:hover{
   margin-bottom: 20px;
 }
 
-.oiplay > .footer , .recharge > .footer{
+.oiplay > .footer ,
+.recharge > .footer
+.oiplay > .fp-tableCell > .footer ,
+.recharge > .fp-tableCell > .footer{
   font-size: 21px;
   line-height: 1.43;
   letter-spacing: -0.8px;
@@ -714,10 +742,11 @@ input[type="checkbox"].eye_style:hover{
 
 /* faq */
 .help{ /* enable scroll */
-    /* overflow-y: auto; */
+    * overflow-y: scroll;
 }
 
-.help > .title{
+.help > .title,
+.help > .fp-tableCell > .title{
   margin-top: 76px;
   font-size: 42px;
   letter-spacing: -1.5px;
@@ -726,7 +755,8 @@ input[type="checkbox"].eye_style:hover{
 }
 
 /* custom li */
-.help > .content > ol { 
+.help > .content > ol ,
+.help > .fp-tableCell > .content > ol{ 
     counter-reset: item;
     padding-left: 0px;
 }
@@ -753,7 +783,8 @@ ol div li { display: block; }
 }
 
 /* item */
-.help > .content > ol > .item{
+.help > .content > ol > .item,
+.help > .fp-tableCell > .content > ol > .item{
     border-top: solid 1px #dddddd;
     border-bottom: solid 1px #dddddd;
     padding-top: 33px;
@@ -764,7 +795,10 @@ ol div li { display: block; }
 /* internal intent content, inside collapse */
 .help > .content > ol > .item > .collapse,
 .help > .content > ol > .item > .collapsing,
-.help > .content > ol > .item > .collapse.in
+.help > .content > ol > .item > .collapse.in,
+.help > .fp-tableCell > .content > ol > .item > .collapse,
+.help > .fp-tableCell > .content > ol > .item > .collapsing,
+.help > .fp-tableCell > .content > ol > .item > .collapse.in
 {
     width: 640px;
     font-size: 18px;
@@ -776,7 +810,8 @@ ol div li { display: block; }
     margin-bottom: 42px;
 }
 
-.help > .footer{
+.help > .footer,
+.help > .fp-tableCell > .footer{
   font-size: 28px;
   line-height: 1.25;
   letter-spacing: -1.1px;
@@ -785,11 +820,13 @@ ol div li { display: block; }
   margin-bottom: 99px !important;
 }
 
-.help > .footer > span{
+.help > .footer > span,
+.help > .fp-tableCell > .footer > span{
     color: #e03d6f;
 }
 
-.help_item_center{
+.help_item_center,
+{
     height: 100%;
 }
 
@@ -889,12 +926,11 @@ ol div li { display: block; }
     }
     
     /* selected item */
-    .menu-item.selected{
+    .selected{
         position: absolute;
         top: calc(100% - 6px) !important;
         left: 0;
         max-height: 6px !important;
-        height:auto !important;
         height: 6px !important;
         background-image:
           linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%);
@@ -906,11 +942,12 @@ ol div li { display: block; }
         background-color: transparent;
     }
     
+    /* home */
     #fullpage{
         overflow-y: hidden !important;
         overflow-x: scroll !important;
         float: left !important;
-        height: 60vh;
+        height: 60vh !important;
         width: 100vw;
         display: flex; /* to align item side by side */
         margin-left: 0px !important;
@@ -923,6 +960,17 @@ ol div li { display: block; }
         /* float: left !important; */
         flex-grow: 1 !important; /* to align side by side item */
         padding-left:  98px !important;
+    }
+    
+    .logo-container{
+        
+    }
+    
+    .exit_text{
+        position: relative !important;
+        text-align: right;
+        top: 0;
+        margin: 0;
     }
 }
 
@@ -939,8 +987,8 @@ ol div li { display: block; }
     }*/
     
     .home_logo{
-        max-width: 10vw !important;
-        min-width: 10vw !important;
+        max-height: 10vw !important;
+        min-height: 10vw !important;
     }
      /* end home */
 
@@ -983,6 +1031,16 @@ ol div li { display: block; }
     .email-name{
       position: absolute !important;
       margin-top: 5vh;
+    }
+    
+    
+    .selected{
+        min-width: 25vw !important;
+        max-width: 25vw !important;
+        height: 6px !important;
+        min-height: 6px !important;
+        max-height: 6px !important;
+        background-size: 100% 6px !important; 
     }
     
 }
@@ -1139,7 +1197,110 @@ ol div li { display: block; }
         border-width: 0px !important;
     }
     
+    /* home */
+    .sidebar-home{
+        height: 20vh;
+        max-height: 20vh !important;
+        display: flex;
+        align-items: center;
+    }
+    
+    .home_logo{
+        margin: 2% auto auto 10% !important;
+        max-height: 20vw !important;
+        min-height: 20vw !important;
+        max-width: 30vw !important;
+        min-width: auto !important;
+        width: auto !important;
+    }
+    
+    #fullpage > .section {
+        height: 60vh !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        /* float: left !important; */
+        flex-grow: 1 !important; /* to align side by side item */
+        padding-left:  40px !important;
+        margin-right: 40px !important;
+        table-layout: auto;
+    }
+    
+    .fp-tableCell{
+        height: 60vh !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 40px !important;
+    }
+    
+    .section-menu , 
+    .item-align, 
+    .menu-item, 
+    .menu-item-align,
+    .section-menu > li {
+        height: 20vh !important;
+        max-height: 20vh !important;
+        min-width:  30vw !important;
+        max-width:  30vw !important;
+    }
+    
+    .selected{
+        width: 25vw;
+        min-width: 30vw !important;
+        max-width: 30vw !important;
+        height: 6px !important;
+        min-height: 6px !important;
+        max-height: 6px !important;
+        background-size: 30vw 6px !important; 
+    }
+    
+    .exit_text{
+        font-size: 10px;
+    }
+    
+    /* each page */
+    .start > .title,
+    .start > .fp-tableCell > .title{
+        margin-top : 0 !important;
+        font-size: 28px !important;
+        font-weight: bold !important;
+    }
 
+
+    .telephone > .title,
+    .telephone > .fp-tableCell > .title,
+    .wifi > .title,
+    .wifi > .fp-tableCell > .title,
+    .oiplay > .title , 
+    .recharge > .title ,
+    .oiplay > .fp-tableCell > .title , 
+    .recharge > .fp-tableCell > .title ,
+    .help > .title,
+    .help > .fp-tableCell > .title
+    {
+       margin-top : 0 !important;
+       font-size: 21px !important;
+       font-weight: bold !important;
+    }
+    
+    .start > .content,
+    .start > .fp-tableCell > .content,
+    .telephone > .content,
+    .telephone > .fp-tableCell > .content,
+    .wifi > .content,
+    .wifi > .fp-tableCell > .content,
+    .oiplay > .content , 
+    .recharge > .content ,
+    .oiplay > .fp-tableCell > .content , 
+    .recharge > .fp-tableCell > .content ,
+    .help > .content,
+    .help > .fp-tableCell > .content{
+        font-size: 14px !important;
+        margin: 13px 0px 0 0px !important;
+        line-height: 20px !important;
+        width: 80vw !important;
+    }
 }
 
 /* to manage the checkbox position */

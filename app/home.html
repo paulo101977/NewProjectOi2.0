@@ -34,10 +34,10 @@
             <!-- side bar -->
             <div class="col-xs-12 col-md-12 col-lg-2 sidebar sidebar-home">
                 <!-- oi logo -->
-                <div class="col-xs-6 col-sm-12 col-md-12">
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-1 logo-container">
                     <img class="home_logo" src="svg/oi_logo.svg" />
                 </div>
-                <div class="exit_text">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-1 exit_text">
                     Sair
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <ul class="nav nav-tabs nav-stacked">
                         <div class="section section-menu">
                             <!-- selected item -->
-                            <div class="menu-item selected"></div>
+                            <div class="selected"></div>
                             
                             <!-- start  item -->
                             <li class="start" role="presentation">
@@ -352,10 +352,10 @@
     <!-- endbuild -->
 
     <script src="js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="js/fullPage.js/jquery.fullPage.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/jquery.scrollTo.min.js"></script>
     <script src="js/jquery-scrollspy.js"></script>
+    <script src="js/fullPage.js/jquery.fullPage.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!-- script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
@@ -376,38 +376,40 @@
             var value = (direction === 'horizontal') ? 
                 $(window).width() : $(window).height();
             
+            if(direction === 'horizontal'){
+                $('.scrollable-menu')
+                        .css('cssText', 'overflow-x: scroll !important');
+                $('.scrollable-menu')
+                        .css('cssText', 'overflow-y: hidden !important');
+            } else {
+                $('.scrollable-menu')
+                        .css('cssText', 'overflow-x: hidden !important');
+                $('.scrollable-menu')
+                        .css('cssText', 'overflow-y: scroll !important');
+            }
+            
+            var axis = (direction === 'horizontal') ? 'x' : 'y';
+            
+            
             //.start, .telephone, .wifi, .oiplay, .recharge, .help
             if(elName.indexOf('start') !== -1 || elName.indexOf('help') !== -1){
-                $('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
+                $('.scrollable-menu').scrollTo('.' + elName , 300 , {axis : axis});
             }
             else if(elName.indexOf('telephone') !== -1){
-                $('.scrollable-menu').scrollTo(value/7, 300 , {axis : 'y'});
+                $('.scrollable-menu').scrollTo(value/7, 300 , {axis : axis});
             }
             else if(elName.indexOf('wifi') !== -1){
-                $('.scrollable-menu').scrollTo(value/4, 300 , {axis : 'y'});
+                $('.scrollable-menu').scrollTo(value/4, 300 , {axis : axis});
             }
             else if(elName.indexOf('oiplay') !== -1){
-                $('.scrollable-menu').scrollTo(value/3, 300 , {axis : 'y'});
+                $('.scrollable-menu').scrollTo(value/3, 300 , {axis : axis});
             }
             else if(elName.indexOf('recharge') !== -1){
-                $('.scrollable-menu').scrollTo(value/2, 300 , {axis : 'y'});
+                $('.scrollable-menu').scrollTo(value, 300 , {axis : axis});
             }
         }
         
         $(document).ready(function(){
-            
-            //test scroll spy
-            /*$('#fullpage').scrollspy({
-                min: $('.section.start').offset().top,
-                onEnter: function(element, position) {
-                    //$("#nav").addClass('fixed');
-                    console.log('enter position: ' + position)
-                },
-                onLeave: function(element, position) {
-                    //$("#nav").removeClass('fixed');
-                    console.log('leave position: ' + position)
-                }
-            });*/
             
             function  scrollEnd(callback){
                 clearTimeout($.data(this, 'scrollTimer'));
@@ -429,70 +431,39 @@
                      'recharge', 
                      'help'],
                 verticalCentered : true,
-                normalScrollElements: '.menu-item', //exclude itens
+                normalScrollElements: '.menu-item, .help, .help > .fp-tableCell' , //exclude itens
                 bigSectionsDestination : '#fullpage',
                 scrollHorizontally: true,
                 onLeave: function(index, nextIndex, direction){
-                    /*console.log("leave");
-                    var active = $(".section .active")
-                    console.log("active");
-                    console.dir(active);*/
                     
-                    console.log("direction" + direction);
+                },
+                //add after load event
+                //using anchorLink to scroll to new position
+                afterLoad: function(anchorLink, index){
                     
                     var containerWidth = $(window).width();
                     
+                    var el = $('.section-menu').children('li').find('.' + anchorLink)
                     
-                    var anchorLink = '';
-                    
-                    //.start, .telephone, .wifi, .oiplay, .recharge, .help
-                    switch(index){
-                        case 0:
-                            anchorLink = 'start';
-                            break;
-                        case 1:
-                            anchorLink = 'telephone';
-                            break;
-                        case 2:
-                            anchorLink = 'wifi';
-                            break;
-                        case 3:
-                            anchorLink = 'oiplay';
-                            break;
-                        case 4:
-                            anchorLink = 'recharge';
-                            break;
-                        case 5:
-                            anchorLink = 'help';
-                            break;
-                            
-                    }
-                    
-                    console.log("anchorLink:" + anchorLink );
-                    
+                    //small screens
                     if(containerWidth < 1200){
+                        //scroll selected
+                        $('.selected')
+                            .animate({
+                                left: $(el).position().left
+                            } 
+                        , 100)
+                        
                         changeMarkerPosition('horizontal' , anchorLink);
-                        //$('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
                     } else {
+                        $('.selected')
+                            .animate({
+                                top: $(el).position().top
+                            } 
+                        , 100)
+                        
                         changeMarkerPosition('vertical' , anchorLink);
-                        //$('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'x'});
                     }
-                },
-                //add after load event
-                afterLoad: function(anchorLink, index){
-                    //using anchorLink
-                    //$('.scrollable-menu').scrollTo('.' + anchorLink);
-                    /*var containerWidth = $(window).width();
-                    
-                    console.log("anchorLink:" + anchorLink );
-                    
-                    if(containerWidth < 1200){
-                        //changeMarkerPosition('vertical' , anchorLink);
-                        //$('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
-                    } else {
-                        //changeMarkerPosition('horizontal' , anchorLink);
-                        //$('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'x'});
-                    }*/
                     
                 }
             });
@@ -511,7 +482,7 @@
                 var containerWidth = $(window).width();
                 
                 //change the position of the element "selected"
-                $('.menu-item.selected')
+                $('.selected')
                                 .css({position : 'absolute'})
                 
                 
@@ -524,7 +495,7 @@
                             var left = $(el).position().left
                         
 
-                            $('.menu-item.selected').css({
+                            $('.selected').css({
                                 left: left
                             });
                         }
@@ -537,11 +508,11 @@
                             var top = $(el).position().top
                         
 
-                            $('.menu-item.selected')
+                            $('.selected')
                                 .css('cssText', 'left: calc(100% - 6px) !important');
 
                             console.log(top)
-                            $('.menu-item.selected').css({
+                            $('.selected').css({
                                 top: top
                             });
                         }
@@ -581,89 +552,32 @@
                     
                     if(containerWidth > 1200){
                         
-                        $('#fullpage').scrollTo('.' + name , 300);
+                        //$('#fullpage').scrollTo('.' + name , 300);
                         
                         //scroll selected
-                        $('.menu-item.selected')
+                        $('.selected')
                             .animate({
                                 top: $(self).position().top
                             } 
                         , 100)
                         
                         /* change position scroll and focus on the marker */
-                        /*if(el && el.offset()){
-                            var elOffset = el.offset().top;
-                            var elHeight = el.height();
-                            var windowHeight = $(window).height();
-                            var offset;
-                            
-                            offset = elOffset/3 - ((windowHeight - elHeight)/2);
-                            
-                            $('.scrollable-menu').scrollTo(offset , 300 , {axis : 'y'});
-     
-                        }*/
-                        //.start, .telephone, .wifi, .oiplay, .recharge, .help
-                        /*if(name.indexOf('start') !== -1 || name.indexOf('help') !== -1){
-                            $('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
-                        }
-                        else if(name.indexOf('telephone') !== -1){
-                            $('.scrollable-menu').scrollTo($(window).height()/7, 300 , {axis : 'y'});
-                        }
-                        else if(name.indexOf('wifi') !== -1){
-                            $('.scrollable-menu').scrollTo($(window).height()/4, 300 , {axis : 'y'});
-                        }
-                        else if(name.indexOf('oiplay') !== -1){
-                            $('.scrollable-menu').scrollTo($(window).height()/3, 300 , {axis : 'y'});
-                        }
-                        else if(name.indexOf('recharge') !== -1){
-                            $('.scrollable-menu').scrollTo($(window).height()/2, 300 , {axis : 'y'});
-                        }*/
                         changeMarkerPosition('horizontal' , name);
                         
                         event.preventDefault();
                     } else {
 
                         //change position of selected
-                        $('.menu-item.selected').css({position : 'absolute'})
-                        $('.menu-item.selected')
+                        $('.selected').css({position : 'absolute'})
+                        $('.selected')
                             .animate({
                                 left: $(self).position().left
                             } 
                         , 100)
                         
                         //scroll to element on page
-                        $('#fullpage').scrollTo('.' + name , 300);
+                        $('#fullpage').scrollTo('.' + name , 300 , {axis : 'x'} );
                         
-                        /* change position scroll and focus on the marker */
-                        /*var el = $('#fullpage >.section.' + name);
-                        if(el && el.offset()){
-                            var elOffset = el.offset().left;
-                            var elWidth = el.width();
-                            var windowWidth = $(window).width();
-                            var offset;
-                            
-                            offset = elOffset/3 - ((windowWidth - elWidth)/2);
-                            
-                            $('.scrollable-menu').scrollTo(offset , 300 , {axis : 'x'});
-     
-                        }*/
-                        
-                        //.start, .telephone, .wifi, .oiplay, .recharge, .help
-                        /*if(name.indexOf('start') !== -1 || name.indexOf('help') !== -1){
-                            $('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'x'});
-                        }
-                        else if(name.indexOf('telephone') !== -1){
-                            $('.scrollable-menu').scrollTo($(window).width()/7, 300 , {axis : 'x'});
-                        }
-                        else if(name.indexOf('wifi') !== -1){
-                            $('.scrollable-menu').scrollTo($(window).width()/4, 300 , {axis : 'x'});
-                        }
-                        else if(name.indexOf('oiplay') !== -1){
-                            $('.scrollable-menu').scrollTo($(window).width()/3, 300 , {axis : 'x'});
-                        }
-                        else if(name.indexOf('recharge') !== -1){
-                            $('.scrollable-menu').scrollTo($(window).width()/2, 300 , {axis : 'x'});
-                        }*/
                         changeMarkerPosition('vertical' , name);
                         
                         event.preventDefault();
