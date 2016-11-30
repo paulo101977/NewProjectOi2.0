@@ -404,13 +404,64 @@
             }
         }
         
+        function movePage(){
+            var curDown, curYPos,curXPos;
+              
+            $("#fullpage").mousemove(function(m){
+                if(curDown === true){
+                 //console.log("mouse move")
+                 //$("#fullpage").scrollTop($("#fullpage").scrollTop() + (curYPos - m.pageY)); 
+                 $("#fullpage").stop().animate({
+                     scrollLeft : $("#fullpage").scrollLeft() + (curXPos - m.pageX)
+                 }, 100)
+                 
+                 //scrollLeft($("#fullpage").scrollLeft() + (curXPos - m.pageX));
+                }
+              });
+
+              $("#fullpage").mousedown(function(event){
+                curDown = true;
+                curYPos = event.pageY;
+                curXPos = event.pageX;
+              });
+
+              $("#fullpage").mouseup(function(){
+                curDown = false;
+              });
+            /*var clicked = false, clickY;
+            $(document).on({
+                'mousemove': function(e) {
+                    clicked && updateScrollPos(e);
+                },
+                'mousedown': function(e) {
+                    clicked = true;
+                    clickY = e.pageY;
+                },
+                'mouseup': function() {
+                    clicked = false;
+                    $('html').css('cursor', 'auto');
+                }
+            });
+
+            var updateScrollPos = function(e) {
+                $('html').css('cursor', 'row-resize');
+                $(window).scrollTop($(window).scrollTop() + (clickY - e.pageY));
+            }*/
+        }
+        
         $(document).ready(function(){
+            
+            curDown = false,
+            curYPos = 0,
+            curXPos = 0;
+            
+            movePage()
             
             function  scrollEnd(callback){
                 clearTimeout($.data(this, 'scrollTimer'));
                 $.data(this, 'scrollTimer', setTimeout(function() {
                     // do something
-                    console.log("Haven't scrolled in 250ms!");
+                    //console.log("Haven't scrolled in 250ms!");
                     
                     if(callback) callback();
                 }, 250));
@@ -428,13 +479,14 @@
                 verticalCentered : true,
                 normalScrollElements: '.menu-item, .help, .help > .fp-tableCell' , //exclude itens
                 bigSectionsDestination : '#fullpage',
-                scrollHorizontally: true,
                 onLeave: function(index, nextIndex, direction){
                     
                 },
                 //add after load event
                 //using anchorLink to scroll to new position
                 afterLoad: function(anchorLink, index){
+                    
+                    console.log('after load');
                     
                     var containerWidth = $(window).width();
                     
@@ -482,7 +534,7 @@
                 
                 
                 if(containerWidth < 1200){
-                    
+                    $.fn.fullpage.destroy();
                     $('.active').ready(function(){
                         var el = $('.active')
                         
@@ -496,6 +548,7 @@
                         }
                     })
                 } else {
+                    $.fn.fullpage.reBuild();
                     $('.active').ready(function(){
                         var el = $('.active')
                         
@@ -580,12 +633,6 @@
                 })
             })
             
-            //todo: bootstrap script dont work???
-            $('.scrollable-menu').on('activate.bs.scrollspy', function () {
-                // do something…
-                console.log('enter')
-            })
-            
             $('.scrollable-menu').scroll(function(event){
                 event.stopPropagation();
                 event.preventDefault();
@@ -595,7 +642,7 @@
                 //$.fn.fullpage.setAllowScrolling(false);
                 
                 
-                console.log("scroll")
+                //console.log("scroll")
                 //disable scroll on fullpage
                 /*$('#fullpage').css({
                     overflow: 'hidden !important',

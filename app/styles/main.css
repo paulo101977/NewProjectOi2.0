@@ -738,13 +738,13 @@ input[type="checkbox"].eye_style:hover{
 
 /* faq */
 #help{ /* enable scroll */
-    overflow: scroll !important;
+    overflow-x: scroll !important;
 }
 
 .help > .fp-tableCell{
     height: 100vh !important;
     max-height: 100vh !important;
-    overflow: scroll !important;
+    overflow-x: scroll !important;
 }
 
 .help > .title,
@@ -1371,8 +1371,10 @@ ol div li { display: block; }
     .help > .fp-tableCell, 
     .help > .fp-tableCell > .content {
         height : auto !important;
-        overflow-x: hidden !important;
-        overflow-y: scroll !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        float: left;
+        clear:both;
     }
     
     .telephone > .btn_installation,
