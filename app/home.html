@@ -434,19 +434,15 @@
             
             
             $("#fullpage").on("swipeleft",function(){
-              $("#fullpage").scrollTo('help')
+              $("#fullpage").scrollTo('.help')
             });
             
             $("#fullpage").on("swiperight",function(){
-                $("#fullpage").scrollTo('start')
+                $("#fullpage").scrollTo('.start')
             });  
         }
         
-        $(document).on('pageinit', '#fullpage' , function(event){
-           console.log('pageinit')
-           movePage()
-        });
-        
+
         $(document).ready(function(){
             
             curDown = false,
