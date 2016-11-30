@@ -368,6 +368,31 @@
     
       
     <script>
+        /*
+        Change the position of marker accordily scroll direction
+        */
+        function changeMarkerPosition(direction , elName){
+            
+            var value = (direction === 'horizontal') ? 
+                $(window).width() : $(window).height();
+            
+            //.start, .telephone, .wifi, .oiplay, .recharge, .help
+            if(elName.indexOf('start') !== -1 || elName.indexOf('help') !== -1){
+                $('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
+            }
+            else if(elName.indexOf('telephone') !== -1){
+                $('.scrollable-menu').scrollTo(value/7, 300 , {axis : 'y'});
+            }
+            else if(elName.indexOf('wifi') !== -1){
+                $('.scrollable-menu').scrollTo(value/4, 300 , {axis : 'y'});
+            }
+            else if(elName.indexOf('oiplay') !== -1){
+                $('.scrollable-menu').scrollTo(value/3, 300 , {axis : 'y'});
+            }
+            else if(elName.indexOf('recharge') !== -1){
+                $('.scrollable-menu').scrollTo(value/2, 300 , {axis : 'y'});
+            }
+        }
         
         $(document).ready(function(){
             
@@ -404,16 +429,71 @@
                      'recharge', 
                      'help'],
                 verticalCentered : true,
-                normalScrollElements: '.menu-item',
+                normalScrollElements: '.menu-item', //exclude itens
                 bigSectionsDestination : '#fullpage',
                 scrollHorizontally: true,
-                //fixedElements : '.scrollable-menu',
-                //menu: '.scrollable-menu',
                 onLeave: function(index, nextIndex, direction){
-                    console.log("leave");
+                    /*console.log("leave");
                     var active = $(".section .active")
                     console.log("active");
-                    console.dir(active);
+                    console.dir(active);*/
+                    
+                    console.log("direction" + direction);
+                    
+                    var containerWidth = $(window).width();
+                    
+                    
+                    var anchorLink = '';
+                    
+                    //.start, .telephone, .wifi, .oiplay, .recharge, .help
+                    switch(index){
+                        case 0:
+                            anchorLink = 'start';
+                            break;
+                        case 1:
+                            anchorLink = 'telephone';
+                            break;
+                        case 2:
+                            anchorLink = 'wifi';
+                            break;
+                        case 3:
+                            anchorLink = 'oiplay';
+                            break;
+                        case 4:
+                            anchorLink = 'recharge';
+                            break;
+                        case 5:
+                            anchorLink = 'help';
+                            break;
+                            
+                    }
+                    
+                    console.log("anchorLink:" + anchorLink );
+                    
+                    if(containerWidth < 1200){
+                        changeMarkerPosition('horizontal' , anchorLink);
+                        //$('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
+                    } else {
+                        changeMarkerPosition('vertical' , anchorLink);
+                        //$('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'x'});
+                    }
+                },
+                //add after load event
+                afterLoad: function(anchorLink, index){
+                    //using anchorLink
+                    //$('.scrollable-menu').scrollTo('.' + anchorLink);
+                    /*var containerWidth = $(window).width();
+                    
+                    console.log("anchorLink:" + anchorLink );
+                    
+                    if(containerWidth < 1200){
+                        //changeMarkerPosition('vertical' , anchorLink);
+                        //$('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
+                    } else {
+                        //changeMarkerPosition('horizontal' , anchorLink);
+                        //$('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'x'});
+                    }*/
+                    
                 }
             });
             
@@ -479,7 +559,7 @@
                 $(el).click(function(event){
                     
                     var name = this.className;
-                    var self = this;
+                    var self = this , containerWidth;
                     
                     containerWidth = $(window).width();
 
@@ -523,7 +603,7 @@
      
                         }*/
                         //.start, .telephone, .wifi, .oiplay, .recharge, .help
-                        if(name.indexOf('start') !== -1 || name.indexOf('help') !== -1){
+                        /*if(name.indexOf('start') !== -1 || name.indexOf('help') !== -1){
                             $('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'y'});
                         }
                         else if(name.indexOf('telephone') !== -1){
@@ -537,7 +617,8 @@
                         }
                         else if(name.indexOf('recharge') !== -1){
                             $('.scrollable-menu').scrollTo($(window).height()/2, 300 , {axis : 'y'});
-                        }
+                        }*/
+                        changeMarkerPosition('horizontal' , name);
                         
                         event.preventDefault();
                     } else {
@@ -568,7 +649,7 @@
                         }*/
                         
                         //.start, .telephone, .wifi, .oiplay, .recharge, .help
-                        if(name.indexOf('start') !== -1 || name.indexOf('help') !== -1){
+                        /*if(name.indexOf('start') !== -1 || name.indexOf('help') !== -1){
                             $('.scrollable-menu').scrollTo('.' + name , 300 , {axis : 'x'});
                         }
                         else if(name.indexOf('telephone') !== -1){
@@ -582,7 +663,8 @@
                         }
                         else if(name.indexOf('recharge') !== -1){
                             $('.scrollable-menu').scrollTo($(window).width()/2, 300 , {axis : 'x'});
-                        }
+                        }*/
+                        changeMarkerPosition('vertical' , name);
                         
                         event.preventDefault();
                     }
