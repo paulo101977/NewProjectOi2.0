@@ -351,11 +351,13 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- script src="js/jquery-3.1.1.min.js"></script -->
+    <script src="js/jquery-2.x.x.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/jquery.scrollTo.min.js"></script>
     <script src="js/jquery-scrollspy.js"></script>
     <script src="js/fullPage.js/jquery.fullPage.js"></script>
+    <script src="js/jquery-mobile.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!-- script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
@@ -404,50 +406,46 @@
             }
         }
         
+        /* test drag and move events */
         function movePage(){
             var curDown, curYPos,curXPos;
               
-            $("#fullpage").mousemove(function(m){
+            /*$("#fullpage").mousemove(function(event){
                 if(curDown === true){
                  //console.log("mouse move")
                  //$("#fullpage").scrollTop($("#fullpage").scrollTop() + (curYPos - m.pageY)); 
                  $("#fullpage").stop().animate({
-                     scrollLeft : $("#fullpage").scrollLeft() + (curXPos - m.pageX)
+                     scrollLeft : $("#fullpage").scrollLeft() + (curXPos - event.pageX)
                  }, 100)
-                 
+
                  //scrollLeft($("#fullpage").scrollLeft() + (curXPos - m.pageX));
-                }
-              });
-
-              $("#fullpage").mousedown(function(event){
-                curDown = true;
-                curYPos = event.pageY;
-                curXPos = event.pageX;
-              });
-
-              $("#fullpage").mouseup(function(){
-                curDown = false;
-              });
-            /*var clicked = false, clickY;
-            $(document).on({
-                'mousemove': function(e) {
-                    clicked && updateScrollPos(e);
-                },
-                'mousedown': function(e) {
-                    clicked = true;
-                    clickY = e.pageY;
-                },
-                'mouseup': function() {
-                    clicked = false;
-                    $('html').css('cursor', 'auto');
                 }
             });
 
-            var updateScrollPos = function(e) {
-                $('html').css('cursor', 'row-resize');
-                $(window).scrollTop($(window).scrollTop() + (clickY - e.pageY));
-            }*/
+            $("#fullpage").mousedown(function(event){
+                curDown = true;
+                curYPos = event.pageY;
+                curXPos = event.pageX;
+            });
+
+            $("#fullpage").mouseup(function(){
+                curDown = false;
+            });*/
+            
+            
+            $("#fullpage").on("swipeleft",function(){
+              alert("You swiped left!");
+            });
+            
+            $("#fullpage").on("swiperight",function(){
+                
+            });  
         }
+        
+        $(document).on('pageinit', '#fullpage' , function(event){
+           console.log('pageinit')
+           movePage()
+        });
         
         $(document).ready(function(){
             
