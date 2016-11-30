@@ -1374,6 +1374,27 @@ ol div li { display: block; }
         overflow-x: hidden !important;
         overflow-y: scroll !important;
     }
+    
+    .telephone > .btn_installation,
+    .telephone > .fp-tableCell > .btn_installation{
+      width : 70vw;
+      height: 70px;
+      
+    }
+
+    .wifi > .btn_connection,
+    .wifi > .fp-tableCell > .btn_connection{
+      width : 70vw;
+      height: 70px;
+    }
+
+    .oiplay > .btn_oiplay ,
+    .recharge > .btn_recharge,
+    .oiplay > .fp-tableCell > .btn_oiplay ,
+    .recharge > .fp-tableCell > .btn_recharge{
+      width : 70vw;
+      height: 70px;
+    }
 }
 
 /* to manage the checkbox position */
