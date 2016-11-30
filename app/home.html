@@ -434,11 +434,11 @@
             
             
             $("#fullpage").on("swipeleft",function(){
-              alert("You swiped left!");
+              $("#fullpage").scrollTo('help')
             });
             
             $("#fullpage").on("swiperight",function(){
-                
+                $("#fullpage").scrollTo('start')
             });  
         }
         
