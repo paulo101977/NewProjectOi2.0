@@ -1,3 +1,5 @@
+/* TODO: remove all display: flex and replace by table and table-row, etc. */
+
 @font-face {
     font-family: 'SimplonBP-Light';
     src : url("../fonts/Simplon BP/OTF/SimplonBP-Light.otf");
@@ -888,7 +890,15 @@ ol div li { display: block; }
 
 
 /* home screen */
-@media (max-width: 1200px){
+/* I had to modify this to resize on table size */
+/* before the max-width was 1200px */
+/* FIXME low screen size */
+@media (max-width: 767px){
+    
+    /* FIXME low screen size */
+    .sidebar-home{
+        height: 30vh !important;
+    }
     
     .scrollable-menu{
         overflow-x: scroll !important;
@@ -904,7 +914,7 @@ ol div li { display: block; }
         width: auto !important;
         max-height: 15vh !important;
         max-width: 100vw !important;
-        display: flex; /* to align item side by side */
+        display: flex;
     }
     
     .menu-item{
@@ -920,12 +930,11 @@ ol div li { display: block; }
         display: table-cell;
         vertical-align: middle;
         height: 15vh !important;
-        /* width: 100% !important; */
         min-width: 25vw !important;
         max-width: 25vw !important;
         margin-left: auto !important;
         margin-right: auto !important;
-        flex-grow: 1 !important; /* to align side by side item */
+        flex-grow: 1 !important;
     }
     
     #navbar-dashboard > ul > .section > li{
@@ -935,7 +944,6 @@ ol div li { display: block; }
         float: left;
     }
     
-    /* selected item */
     .selected{
         position: absolute;
         top: calc(100% - 6px) !important;
@@ -952,15 +960,13 @@ ol div li { display: block; }
         background-color: transparent;
     }
     
-    /* home */
+    
     #fullpage{
-        /* overflow-y: hidden !important;
-        overflow-x: scroll !important;*/
-        overflow: scroll !important;
+        overflow-x: scroll !important;
         float: left !important;
         height: 70vh !important;
         width: 100vw;
-        display: flex; /* to align item side by side */
+        display: flex;
         margin-left: 0px !important;
         padding-left:  0px !important;
     }
@@ -968,14 +974,9 @@ ol div li { display: block; }
     #fullpage > .section {
         height: 70vh !important;
         min-width: 100vw !important;
-        /* float: left !important; */
-        flex-grow: 1 !important; /* to align side by side item */
-        padding-left:  98px !important;
+        flex-grow: 1 !important;
     }
     
-    .logo-container{
-        
-    }
     
     .exit_text{
         position: relative !important;
@@ -1005,6 +1006,7 @@ ol div li { display: block; }
         min-height: 10vw !important;
     }
      /* end home */
+    
 
 }
 
@@ -1016,6 +1018,12 @@ ol div li { display: block; }
         text-align: -webkit-auto;
         padding-right: 25px;
         height: 15vh !important;
+    }
+    
+    /* //NOTE fix menu size in tablet */
+    .sidebar-home{
+        height: 100vh !important;
+        width : 15vw !important;
     }
     
     
@@ -1048,7 +1056,8 @@ ol div li { display: block; }
     }
     
     
-    .selected{
+    
+    /*.selected{
         min-width: 25vw !important;
         max-width: 25vw !important;
         height: 6px !important;
@@ -1057,9 +1066,38 @@ ol div li { display: block; }
         background-size: 100% 6px !important; 
     }
     
+     #fullpage{
+        overflow: scroll !important;
+        float: left !important;
+        height: 70vh !important;
+        width: 100vw;
+        display: flex;
+        margin-left: 0px !important;
+        padding-left:  0px !important;
+        overflow: hidden !important;
+    }
+    
+    #fullpage > .section {
+        height: 70vh !important;
+        min-width: 100vw !important;
+        flex-grow: 1 !important;
+        padding-left:  98px !important;
+        overflow: hidden !important;
+    }
+    
+    .fp-tableCell{
+        height: 70vh !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 15vw !important;
+        overflow: hidden !important;
+    }*/
+    
 }
 
 /* Responsive: Portrait tablets and up */
+/* this is the same that col-md on bootstrap */
 @media screen and (max-width: 767px) {
     
     
@@ -1069,6 +1107,11 @@ ol div li { display: block; }
         align-items: center;
         height: 7vh;
         max-height: 7vh !important;
+    }
+    
+    /* fix menu size in tablet */
+    .sidebar-home{
+        /* height: 7vh !important; */
     }
     
     /* the logo img */
@@ -1426,11 +1469,24 @@ ol div li { display: block; }
         width : 5vw !important;
         margin-right: 70px !important;
     }
+    
+    /* NOTE: Test try fix the width on tablet */
+    #fullpage{
+        width: 70vw !important;
+        float: left;
+        clear: both;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 999px){
     .margin-right{
         margin-right: 70px !important;
+    }
+    
+    #fullpage{
+        width: 70vw;
+        left: 30vw;
+        top: -100vh;
     }
 }
 

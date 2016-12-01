@@ -5,6 +5,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -32,18 +33,18 @@
     <div class="container-fluid">
         <div class="row"> 
             <!-- side bar -->
-            <div class="col-xs-12 col-md-12 col-lg-2 sidebar sidebar-home">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 sidebar sidebar-home">
                 <!-- oi logo -->
-                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-1 logo-container">
+                <div class="col-xs-9 col-sm-9 col-md-1 col-lg-1 logo-container">
                     <img class="home_logo" src="svg/oi_logo.svg" />
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-1 exit_text">
+                <div class="col-xs-3 col-sm-3 col-md-1 col-lg-1 exit_text">
                     Sair
                 </div>
             </div>
             
             <!-- menu scrollable -->
-            <div class="col-xs-12 col-md-12 col-lg-2 sidebar sidebar-home sidebar-menu scrollable-menu">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 sidebar sidebar-home sidebar-menu scrollable-menu">
                 <!-- oi logo -->
                 <div id="navbar-dashboard" class="col-xs-6 col-sm-12 col-md-12">
                     <ul class="nav nav-tabs nav-stacked">
@@ -131,7 +132,7 @@
             <!-- end menu -->
             
             <!-- content -->
-            <div class="col-xs-12 col-md-12 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <div id="fullpage">
                     <!-- start -->
                     <div class="section start">
@@ -141,6 +142,15 @@
 
                             <p>Em breve, você terá acesso online a todos os serviços e facilidades da Minha Oi. Aproveite enquanto isso pra tirar suas dúvidas e descubra como a Oi pode te deixar mais conectado.</p> 
                         </div>
+                        <!-- //NOTE: slide test -->
+                        <!-- div class="slide">
+                            <div class="title">Oi, Washington</div>
+                            <div class="content">
+                                <p>Seu novo serviço ainda não está cadastrado no sistema.</p>
+
+                                <p>Em breve, você terá acesso online a todos os serviços e facilidades da Minha Oi. Aproveite enquanto isso pra tirar suas dúvidas e descubra como a Oi pode te deixar mais conectado.</p> 
+                            </div>
+                        </div -->
                     </div>
                     
                     <!-- oi fixo -->
@@ -367,10 +377,9 @@
     <script>
         
         //todo: remove all display: flex
-        //todo: test bootstrap carousel
         //todo: try use jquery swipe to slide the page
         //todo: try other approachs
-        //todo: test if mobile and if it is not mobile dont swipe to left or right
+        //todo: test if is mobile and if it is not mobile dont swipe to left or right
         //todo: on resize or page reload, change the position to selected item
         
         //test if mobile device
@@ -382,6 +391,11 @@
             
             return false;
         }
+        
+        //NOTE just one test
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
         
         /*
         Focus on the position of marker accordily scroll direction
@@ -459,30 +473,39 @@
         /* change the position of marker */
         var changeMarkerPosition = function(direction , elName){
             var el = $('li.' + elName)
+            var position = $(el).position()
             
-            
-            //horizontal scroll
-            if(direction === 'horizontal'){
-                $('.selected')
-                    .animate({
-                        left: $(el).position().left
-                    } 
-                , 100)  
-            } 
-            else { //vertical scroll
-                $('.selected')
-                    .animate({
-                        top: $(el).position().top
-                    } 
-                , 100)
+            if(position){
+                //horizontal scroll
+                if(direction === 'horizontal'){
+                    $('.selected')
+                        .stop()
+                        .animate({
+                            left: position.left
+                        } 
+                    , 100)  
+                } 
+                else { //vertical scroll
+                    $('.selected')
+                        .stop()
+                        .animate({
+                            top: position.top
+                        } 
+                    , 100)
+                }
             }
         }
         
-        /* test drag and move events */
-        function movePage(){
+        /* drag and move events, uses a polyfill */
+        function moveAndDragPage(){
             if(isMobile()){
-                console.log(`is mobile`);
+                console.log(`is mobile, so append event`);
             }
+            
+            var xDown = null;                                                        
+            var yDown = null;
+            //get the screensize
+            var containerWidth = $(window).width();
             
             //FIXME: try swipe to next page
             //FIXME: dont work in mobile
@@ -491,10 +514,106 @@
             //the element class list
             var elementList = ['.start' , '.telephone' , '.wifi' , '.oiplay' , '.recharge', '.help' ]
             
+            
+            /* test swipe event in android and other mobile devices */
+            $(getStringQueryToSwipe()).on('touchstart', function(evt){
+                xDown = evt.originalEvent.touches[0].pageX;                                    
+                yDown = evt.originalEvent.touches[0].pageY;
+            })  
+            
+            //document.addEventListener('touchmove', function(){console.log('touch move')}, false);
+            
+            
+            //search inside path per the correct target
+            //path is a array of node elements
+            findInsidePath = function(path){
+                return $(path).find('.section.active');
+            }
+            
+            removeActive = function(path){
+                $(path).find('.section.active').removeClass('active');
+            }
+            
+            setActive = function(el){
+                $(el).addClass('active');
+            }
+            
+            document.addEventListener('touchmove', function(evt){
+                //console.dir('inside touchmove')
+                if ( ! xDown || ! yDown ) {
+                    return;
+                }
+
+                var xUp = evt.touches[0].clientX;                                    
+                var yUp = evt.touches[0].clientY;
+
+                var xDiff = xDown - xUp;
+                var yDiff = yDown - yUp;
+
+                if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+                    if ( xDiff > 0 ) {
+                        /* left swipe */
+                        console.log('swipe left')
+                        
+                        if(containerWidth < 768){
+                            //get target index
+                            var index = getIndex(findInsidePath($(evt.path)))
+
+                            //scroll to next target
+                            if(index < 5){
+                                var nextEl = elementList[index + 1];
+                                $("#fullpage").scrollTo(nextEl , 300)
+
+                                //NOTE: Test horizontal slider
+                                //$.fn.fullpage.moveSlideLeft();
+                                focusMarkerPosition('horizontal' , nextEl.substring(1))
+                                changeMarkerPosition('horizontal' , nextEl.substring(1))
+                                removeActive($(evt.path));
+                                setActive($('.section.' +  nextEl.substring(1)));
+                            }
+                        }
+                    } else {
+                        /* right swipe */
+                        console.log('swipe right')
+                        if(containerWidth < 768){
+                            //get target index
+                            var index = getIndex(findInsidePath($(evt.path)))
+
+                            //scroll to next target
+                            if(index > 0){
+                                var nextEl = elementList[index - 1];
+                                $("#fullpage").scrollTo(nextEl , 300)
+
+                                //NOTE: Test horizontal slider
+                                //$.fn.fullpage.moveSlideRight();
+                                focusMarkerPosition('horizontal' , nextEl.substring(1))
+                                changeMarkerPosition('horizontal' , nextEl.substring(1))
+                                removeActive($(evt.path));
+                                setActive($('.section.' +  nextEl.substring(1)));
+                            }
+                        }
+                    }                       
+                } else {
+                    if ( yDiff > 0 ) {
+                        /* up swipe */ 
+                    } else { 
+                        /* down swipe */
+                    }                                                                 
+                }
+                /* reset values */
+                xDown = null;
+                yDown = null; 
+            }, false);                                   
+            /* end test */
+  
+            
+            
             //move to next item
-            $(getStringQueryToSwipe()).on("swipeleft",function(event){
+            /*$(getStringQueryToSwipe()).on("swipeleft",function(event){
                 
-                //if(isMobile()){
+                console.log('swipe left')
+                
+                if(containerWidth < 768){
                     //get target index
                     var index = getIndex($(event.currentTarget))
 
@@ -502,16 +621,21 @@
                     if(index < 5){
                         var nextEl = elementList[index + 1];
                         $("#fullpage").scrollTo(nextEl , 300)
+                        
+                        //NOTE: Test horizontal slider
+                        //$.fn.fullpage.moveSlideLeft();
                         focusMarkerPosition('horizontal' , nextEl.substring(1))
                         changeMarkerPosition('horizontal' , nextEl.substring(1))
                     }
-                //}
+                }
             });
             
             ///move to previus item
             $(getStringQueryToSwipe()).on("swiperight",function(event){
                 
-                //if(isMobile()){
+                console.log('swipe right')
+                
+                if(containerWidth < 768){
                     //get target index
                     var index = getIndex($(event.currentTarget))
 
@@ -519,22 +643,108 @@
                     if(index > 0){
                         var nextEl = elementList[index - 1];
                         $("#fullpage").scrollTo(nextEl , 300)
+                        
+                        //NOTE: Test horizontal slider
+                        //$.fn.fullpage.moveSlideRight();
                         focusMarkerPosition('horizontal' , nextEl.substring(1))
                         changeMarkerPosition('horizontal' , nextEl.substring(1))
                     }
-                //}
-            });  
+                }
+            });  */
         }
+        
+        //move to current path after redraw or reload page
+        moveToCurrentPath = function(){
+             //get the current location
+            var path = $(location).attr('href') , orientation = '';
+
+            
+            //get the direction
+            var containerWidth = $(window).width();
+            
+            //NOTE: changed to 768, before 1200
+            if(containerWidth >= 768){
+                orientation = 'vertical'
+            }
+            else {
+                orientation = 'horizontal'
+            }
+            
+            //.start, .telephone, .wifi, .oiplay, .recharge, .help
+            if(path.indexOf('#start') !== -1){
+                focusMarkerPosition(orientation , 'start')
+                changeMarkerPosition(orientation , 'start')
+                if(orientation == 'horizontal') $('#fullpage').scrollTo('.start', 0 , {axis : 'x'} )
+            }
+            else if(path.indexOf('#telephone') !== -1){
+                focusMarkerPosition(orientation , 'telephone')
+                changeMarkerPosition(orientation , 'telephone')
+                if(orientation == 'horizontal') $('#fullpage').scrollTo('.telephone', 0 , {axis : 'x'} )
+            }
+            else if(path.indexOf('#wifi') !== -1){
+                focusMarkerPosition(orientation , 'wifi')
+                changeMarkerPosition(orientation , 'wifi')
+                if(orientation == 'horizontal') $('#fullpage').scrollTo('.wifi', 0 , {axis : 'x'} )
+            }
+            else if(path.indexOf('#oiplay') !== -1){
+               focusMarkerPosition(orientation , 'oiplay')
+               changeMarkerPosition(orientation , 'oiplay')
+               if(orientation == 'horizontal') $('#fullpage').scrollTo('.oiplay', 0 , {axis : 'x'} )
+            }
+            else if(path.indexOf('#recharge') !== -1){
+                focusMarkerPosition(orientation , 'recharge')
+                changeMarkerPosition(orientation , 'recharge')
+                if(orientation == 'horizontal') $('#fullpage').scrollTo('.recharge', 0 , {axis : 'x'} )
+            }
+            else if(path.indexOf('#help') !== -1 ){
+                focusMarkerPosition(orientation , 'help')
+                changeMarkerPosition(orientation , 'help')
+                if(orientation == 'horizontal') $('#fullpage').scrollTo('.help', 0 , {axis : 'x'} )
+            }
+            else { //the path is default page
+                focusMarkerPosition(orientation , 'start')
+                changeMarkerPosition(orientation , 'start')
+                if(orientation == 'horizontal') $('#fullpage').scrollTo('.start', 0 , {axis : 'x'} )
+            }
+        }
+        
+        
+        //TODO: bind mobile event in page load
+        $(document).on('pageinit', function(event){
+           /*$("#listitem").swiperight(function() {
+                $.mobile.changePage("#page1");
+            });*/
+            
+            console.log('bind event test');
+            
+            window.getSelection().removeAllRanges(); 
+            
+            $.event.special.swipe.durationThreshold = 100;
+            
+            //bind swipe event
+            moveAndDragPage()
+        });
         
 
         $(document).ready(function(){
+            
+            //window.getSelection().removeAllRanges(); 
+            
+            //$.event.special.swipe.durationThreshold = 100;
             
             curDown = false,
             curYPos = 0,
             curXPos = 0;
             
-            movePage()
+            //start swipe events
+            //moveAndDragPage()
             
+            //move to current path after redraw or reload page
+            moveToCurrentPath()
+            
+        
+            
+            //NOTE: Test
             function  scrollEnd(callback){
                 clearTimeout($.data(this, 'scrollTimer'));
                 $.data(this, 'scrollTimer', setTimeout(function() {
@@ -566,34 +776,22 @@
                     
                     var containerWidth = $(window).width();
                     
-                    //NOTE: Test
-                    /* var el = $('.section-menu').children('li').find('.' + anchorLink) */
                     
                     //small screens
-                    if(containerWidth < 1200){
-                        //scroll selected
-                        
-                        //NOTE: Test
-                        /*$('.selected')
-                            .animate({
-                                left: $(el).position().left
-                            } 
-                        , 100)*/
+                    //changed to 768, before 1200
+                    if(containerWidth < 768){
                         changeMarkerPosition('horizontal' , anchorLink)
                         focusMarkerPosition('horizontal' , anchorLink);
                     } else {
-                        //NOTE: Test
-                        /*$('.selected')
-                            .animate({
-                                top: $(el).position().top
-                            } 
-                        , 100)*/
                         changeMarkerPosition('vertical' , anchorLink);
                         focusMarkerPosition('vertical' , anchorLink);
                     }
                     
                 }
             });
+            
+            //FIXME : Try disable responsive
+            //$.fn.fullpage.setResponsive(true);
             
             //the scroll spy
             //$('body').scrollspy({ target: '#navbar-dashboard' })
@@ -608,12 +806,16 @@
                 //current size of window
                 var containerWidth = $(window).width();
                 
+                
+                //move to current path after redraw or reload page
+                moveToCurrentPath()
+                
                 //change the position of the element "selected"
                 $('.selected')
                                 .css({position : 'absolute'})
                 
-                
-                if(containerWidth < 1200){
+                //changed to 768, before is 1200
+                if(containerWidth < 768){
                     //FIXME:
                     //$.fn.fullpage.destroy();
                     $('.active').ready(function(){
@@ -680,43 +882,32 @@
                     //windows size
                     var el = $('#fullpage >.section.' + name);
                     
-                    if(containerWidth > 1200){
+                    //if containerWidth > 1200 scroll is vertical, otherwise, is horizontal
+                    //changed to 768, before is 1200
+                    if(containerWidth > 768){
                         
-                        //$('#fullpage').scrollTo('.' + name , 300);
+                        /* change position of marker */
+                        changeMarkerPosition('vertical' , name);
                         
-                        //scroll selected
-                        
-                        //NOTE: Test
-                        /*$('.selected')
-                            .animate({
-                                top: $(self).position().top
-                            } 
-                        , 100)*/
-                        
-                        /* */
-                        changeMarkerPosition('horizontal' , name);
-                        
-                        /* change position scroll and focus on the marker */
-                        focusMarkerPosition('horizontal' , name);
+                        /* change position scroll  */
+                        focusMarkerPosition('vertical' , name);
                         
                         event.preventDefault();
-                    } else {
+                    } else { 
 
                         //change position of selected
                         $('.selected').css({position : 'absolute'})
                         
-                        //NOTE: Test
-                        /*$('.selected')
-                            .animate({
-                                left: $(self).position().left
-                            } 
-                        , 100)*/
                         
-                        //scroll to element on page
+                        //NOTE: The fullpage.js dont work in horizontal navigation drag and move
+                        //scroll to element on page 
                         $('#fullpage').scrollTo('.' + name , 300 , {axis : 'x'} );
                         
-                        changeMarkerPosition('vertical' , name);
-                        focusMarkerPosition('vertical' , name);
+                        /* change position of marker */
+                        changeMarkerPosition('horizontal' , name);
+                        
+                        /* change position scroll  */
+                        focusMarkerPosition('horizontal' , name);
                         
                         event.preventDefault();
                     }
