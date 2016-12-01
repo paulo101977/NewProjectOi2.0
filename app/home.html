@@ -366,14 +366,27 @@
       
     <script>
         
+        //todo: remove all display: flex
         //todo: test bootstrap carousel
         //todo: try use jquery swipe to slide the page
         //todo: try other approachs
+        //todo: test if mobile and if it is not mobile dont swipe to left or right
+        //todo: on resize or page reload, change the position to selected item
+        
+        //test if mobile device
+        isMobile = function(){
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+               .test(navigator.userAgent) ) {
+                return true;
+            }
+            
+            return false;
+        }
         
         /*
-        Change the position of marker accordily scroll direction
+        Focus on the position of marker accordily scroll direction
         */
-        function changeMarkerPosition(direction , elName){
+        function focusMarkerPosition(direction , elName){
             
             var value = (direction === 'horizontal') ? 
                 $(window).width() : $(window).height();
@@ -391,7 +404,6 @@
             }
             
             var axis = (direction === 'horizontal') ? 'x' : 'y';
-            
             
             //.start, .telephone, .wifi, .oiplay, .recharge, .help
             if(elName.indexOf('start') !== -1 || elName.indexOf('help') !== -1){
@@ -444,34 +456,33 @@
                     '#fullpage > .help';
         }
         
+        /* change the position of marker */
+        var changeMarkerPosition = function(direction , elName){
+            var el = $('li.' + elName)
+            
+            
+            //horizontal scroll
+            if(direction === 'horizontal'){
+                $('.selected')
+                    .animate({
+                        left: $(el).position().left
+                    } 
+                , 100)  
+            } 
+            else { //vertical scroll
+                $('.selected')
+                    .animate({
+                        top: $(el).position().top
+                    } 
+                , 100)
+            }
+        }
+        
         /* test drag and move events */
         function movePage(){
-            
-            /*
-            
-            var curDown, curYPos,curXPos;
-            
-            $("#fullpage").mousemove(function(event){
-                if(curDown === true){
-                 //console.log("mouse move")
-                 //$("#fullpage").scrollTop($("#fullpage").scrollTop() + (curYPos - m.pageY)); 
-                 $("#fullpage").stop().animate({
-                     scrollLeft : $("#fullpage").scrollLeft() + (curXPos - event.pageX)
-                 }, 100)
-
-                 //scrollLeft($("#fullpage").scrollLeft() + (curXPos - m.pageX));
-                }
-            });
-
-            $("#fullpage").mousedown(function(event){
-                curDown = true;
-                curYPos = event.pageY;
-                curXPos = event.pageX;
-            });
-
-            $("#fullpage").mouseup(function(){
-                curDown = false;
-            });*/
+            if(isMobile()){
+                console.log(`is mobile`);
+            }
             
             //FIXME: try swipe to next page
             //FIXME: dont work in mobile
@@ -482,28 +493,36 @@
             
             //move to next item
             $(getStringQueryToSwipe()).on("swipeleft",function(event){
-                //get target index
-                var index = getIndex($(event.currentTarget))
+                
+                //if(isMobile()){
+                    //get target index
+                    var index = getIndex($(event.currentTarget))
 
-                //scroll to next target
-                if(index < 5){
-                    var nextEl = elementList[index + 1];
-                    $("#fullpage").scrollTo(nextEl , 300)
-                    changeMarkerPosition('horizontal' , nextEl.substring(1))
-                }
+                    //scroll to next target
+                    if(index < 5){
+                        var nextEl = elementList[index + 1];
+                        $("#fullpage").scrollTo(nextEl , 300)
+                        focusMarkerPosition('horizontal' , nextEl.substring(1))
+                        changeMarkerPosition('horizontal' , nextEl.substring(1))
+                    }
+                //}
             });
             
             ///move to previus item
             $(getStringQueryToSwipe()).on("swiperight",function(event){
-                //get target index
-                var index = getIndex($(event.currentTarget))
+                
+                //if(isMobile()){
+                    //get target index
+                    var index = getIndex($(event.currentTarget))
 
-                //scroll to next target
-                if(index > 0){
-                    var nextEl = elementList[index - 1];
-                    $("#fullpage").scrollTo(nextEl , 300)
-                    changeMarkerPosition('horizontal' , nextEl.substring(1))
-                }
+                    //scroll to next target
+                    if(index > 0){
+                        var nextEl = elementList[index - 1];
+                        $("#fullpage").scrollTo(nextEl , 300)
+                        focusMarkerPosition('horizontal' , nextEl.substring(1))
+                        changeMarkerPosition('horizontal' , nextEl.substring(1))
+                    }
+                //}
             });  
         }
         
@@ -545,30 +564,32 @@
                 //using anchorLink to scroll to new position
                 afterLoad: function(anchorLink, index){
                     
-                    console.log('after load');
-                    
                     var containerWidth = $(window).width();
                     
-                    var el = $('.section-menu').children('li').find('.' + anchorLink)
+                    //NOTE: Test
+                    /* var el = $('.section-menu').children('li').find('.' + anchorLink) */
                     
                     //small screens
                     if(containerWidth < 1200){
                         //scroll selected
-                        $('.selected')
+                        
+                        //NOTE: Test
+                        /*$('.selected')
                             .animate({
                                 left: $(el).position().left
                             } 
-                        , 100)
-                        
-                        changeMarkerPosition('horizontal' , anchorLink);
+                        , 100)*/
+                        changeMarkerPosition('horizontal' , anchorLink)
+                        focusMarkerPosition('horizontal' , anchorLink);
                     } else {
-                        $('.selected')
+                        //NOTE: Test
+                        /*$('.selected')
                             .animate({
                                 top: $(el).position().top
                             } 
-                        , 100)
-                        
+                        , 100)*/
                         changeMarkerPosition('vertical' , anchorLink);
+                        focusMarkerPosition('vertical' , anchorLink);
                     }
                     
                 }
@@ -664,30 +685,38 @@
                         //$('#fullpage').scrollTo('.' + name , 300);
                         
                         //scroll selected
-                        $('.selected')
+                        
+                        //NOTE: Test
+                        /*$('.selected')
                             .animate({
                                 top: $(self).position().top
                             } 
-                        , 100)
+                        , 100)*/
+                        
+                        /* */
+                        changeMarkerPosition('horizontal' , name);
                         
                         /* change position scroll and focus on the marker */
-                        changeMarkerPosition('horizontal' , name);
+                        focusMarkerPosition('horizontal' , name);
                         
                         event.preventDefault();
                     } else {
 
                         //change position of selected
                         $('.selected').css({position : 'absolute'})
-                        $('.selected')
+                        
+                        //NOTE: Test
+                        /*$('.selected')
                             .animate({
                                 left: $(self).position().left
                             } 
-                        , 100)
+                        , 100)*/
                         
                         //scroll to element on page
                         $('#fullpage').scrollTo('.' + name , 300 , {axis : 'x'} );
                         
                         changeMarkerPosition('vertical' , name);
+                        focusMarkerPosition('vertical' , name);
                         
                         event.preventDefault();
                     }
