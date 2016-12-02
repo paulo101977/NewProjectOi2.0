@@ -392,10 +392,6 @@
             return false;
         }
         
-        //NOTE just one test
-        $.mobile.changePage.defaults.changeHash = false;
-        $.mobile.hashListeningEnabled = false;
-        $.mobile.pushStateEnabled = false;
         
         /*
         Focus on the position of marker accordily scroll direction
@@ -496,6 +492,20 @@
             }
         }
         
+        //search inside path per the correct target
+        //path is a array of node elements
+        findInsidePath = function(path){
+            return $(path).find('.section.active');
+        }
+
+        removeActive = function(path){
+            $(path).find('.section.active').removeClass('active');
+        }
+
+        setActive = function(el){
+            $(el).addClass('active');
+        }
+        
         /* drag and move events, uses a polyfill */
         function moveAndDragPage(){
             if(isMobile()){
@@ -523,21 +533,6 @@
             
             //document.addEventListener('touchmove', function(){console.log('touch move')}, false);
             
-            
-            //search inside path per the correct target
-            //path is a array of node elements
-            findInsidePath = function(path){
-                return $(path).find('.section.active');
-            }
-            
-            removeActive = function(path){
-                $(path).find('.section.active').removeClass('active');
-            }
-            
-            setActive = function(el){
-                $(el).addClass('active');
-            }
-            
             document.addEventListener('touchmove', function(evt){
                 //console.dir('inside touchmove')
                 if ( ! xDown || ! yDown ) {
@@ -553,8 +548,6 @@
                 if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
                     if ( xDiff > 0 ) {
                         /* left swipe */
-                        console.log('swipe left')
-                        
                         if(containerWidth < 768){
                             //get target index
                             var index = getIndex(findInsidePath($(evt.path)))
@@ -574,7 +567,6 @@
                         }
                     } else {
                         /* right swipe */
-                        console.log('swipe right')
                         if(containerWidth < 768){
                             //get target index
                             var index = getIndex(findInsidePath($(evt.path)))
@@ -740,7 +732,7 @@
             //moveAndDragPage()
             
             //move to current path after redraw or reload page
-            moveToCurrentPath()
+            //moveToCurrentPath()
             
         
             
@@ -912,6 +904,12 @@
                         event.preventDefault();
                     }
                 })
+            })
+            
+            //FIXME: Try stop scroll propagation
+            $('#fullpage').scroll(function(event){
+                //try fix scroll on menu
+                event.stopPropagation();
             })
             
             $('.scrollable-menu').scroll(function(event){
