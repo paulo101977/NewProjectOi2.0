@@ -1145,6 +1145,10 @@ to implements the scroll vertical */
         width: auto;
         font-size: 14px !important;
     }
+    
+    #fullpage{
+        padding-left: 10vw !important;
+    }
 
     
     /*.selected{
