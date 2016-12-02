@@ -590,7 +590,8 @@ input[type="checkbox"].eye_style:hover{
 
 .start > .content,
 .start > .fp-tableCell > .content{
-    width: 640px;
+    width: 60vw;
+    padding-right: 4vw;
     margin-top: 38px;
     font-size: 28px;
     line-height: 1.5;
@@ -614,7 +615,8 @@ input[type="checkbox"].eye_style:hover{
 
 .telephone > .content,
 .telephone > .fp-tableCell > .content{
-  width: 640px !important;
+  width: 60vw !important;
+  padding-right: 4vw;
   font-size: 28px;
   font-weight: 300;
   line-height: 1.25;
@@ -651,7 +653,8 @@ input[type="checkbox"].eye_style:hover{
 
 .wifi > .content,
 .wifi > .fp-tableCell > .content{
-  width: 640px !important;
+  width: 60vw !important;
+  padding-right: 4vw;
   font-size: 28px;
   line-height: 1.25;
   letter-spacing: -0.5px;
@@ -674,11 +677,12 @@ input[type="checkbox"].eye_style:hover{
 
 .wifi > .footer,
 .wifi > .fp-tableCell > .footer{
-  width : 518px;
+  width : 60vw;
   font-size: 21px;
   line-height: 1.43;
   letter-spacing: -0.8px;
   color: #222222;
+  padding-right: 4vw;
 }
 
 #recharge{
@@ -703,7 +707,8 @@ input[type="checkbox"].eye_style:hover{
 .oiplay > .fp-tableCell > .content , 
 .recharge > .content ,
 .recharge > .fp-tableCell > .content{
-  width: 640px;
+  width: 60vw;
+  padding-right: 4vw;
   font-size: 28px;
   font-style: normal;
   font-stretch: normal;
@@ -729,28 +734,33 @@ input[type="checkbox"].eye_style:hover{
 }
 
 .oiplay > .footer ,
-.recharge > .footer
-.oiplay > .fp-tableCell > .footer ,
+.recharge > .footer ,
+.oiplay > .fp-tableCell > .footer  ,
 .recharge > .fp-tableCell > .footer{
-  font-size: 21px;
+  font-size: 21px !important;
   line-height: 1.43;
   letter-spacing: -0.8px;
   color: #222222;
+  padding-right: 4vw;
 }
 
 /* faq */
+/* //NOTE: test if scroll is enable in y direction */
 #help{ /* enable scroll */
-    overflow-x: scroll !important;
-}
-
-.help > .fp-tableCell{
     height: 100vh !important;
     max-height: 100vh !important;
-    overflow-x: scroll !important;
+    overflow-y: scroll !important;
 }
 
+/* NOTE: moved to below */
+/*.help > .fp-tableCell{
+    height: 100vh !important;
+    max-height: 100vh !important;
+}*/
+
 .help > .title,
-.help > .fp-tableCell > .title{
+.help > .fp-tableCell > .title,
+.help > .fp-tableCell > .wrap > .title{
   margin-top: 76px;
   font-size: 42px;
   letter-spacing: -1.5px;
@@ -760,7 +770,8 @@ input[type="checkbox"].eye_style:hover{
 
 /* custom li */
 .help > .content > ol ,
-.help > .fp-tableCell > .content > ol{ 
+.help > .fp-tableCell > .content > ol,
+.help > .fp-tableCell > .wrap > .content > ol{ 
     counter-reset: item;
     padding-left: 0px;
 }
@@ -788,7 +799,8 @@ ol div li { display: block; }
 
 /* item */
 .help > .content > ol > .item,
-.help > .fp-tableCell > .content > ol > .item{
+.help > .fp-tableCell > .content > ol > .item,
+.help > .fp-tableCell > .wrap > .content > ol > .item{
     border-top: solid 1px #dddddd;
     border-bottom: solid 1px #dddddd;
     padding-top: 33px;
@@ -797,11 +809,29 @@ ol div li { display: block; }
 }
 
 /* add overflow and scroll to help */
-.help > .fp-tableCell > .content{
-    height: 100vh !important;
-    max-height: 60vh !important;
-    overflow: scroll !important;
+.help > .fp-tableCell > .content,
+help > .fp-tableCell > .wrap > .content{
+    /* height: 100vh !important; 
+    overflow-y: scroll !important; */
+    /* NOTE: Change this for the full container of class .help */
+    /* max-height: 60vh !important; */
+    /* overflow-y: scroll !important; */ 
 }
+
+/* FIXME : needs create a wrap for the content 
+for setting the max height to the content 
+to implements the scroll vertical */
+/* make the content completaly scrollable in y direction */
+.help > .fp-tableCell{
+    
+}
+
+.help > .fp-tableCell > .wrap{
+    height: 100vh ;
+    max-height: 100vh !important;
+    overflow-y: scroll !important;
+}
+
 
 
 /* internal intent content, inside collapse */
@@ -811,8 +841,12 @@ ol div li { display: block; }
 .help > .fp-tableCell > .content > ol > .item > .collapse,
 .help > .fp-tableCell > .content > ol > .item > .collapsing,
 .help > .fp-tableCell > .content > ol > .item > .collapse.in
+.help > .fp-tableCell > .wrap > .content > ol > .item > .collapse,
+.help > .fp-tableCell > .wrap > .content > ol > .item > .collapsing,
+.help > .fp-tableCell > .wrap > .content > ol > .item > .collapse.in
 {
-    width: 640px;
+    width: 60vw;
+    padding-right: 4vw;
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: -0.2px;
@@ -823,17 +857,20 @@ ol div li { display: block; }
 }
 
 .help > .footer,
-.help > .fp-tableCell > .footer{
+.help > .fp-tableCell > .footer,
+.help > .fp-tableCell > .wrap > .footer{
   font-size: 28px;
   line-height: 1.25;
   letter-spacing: -1.1px;
   color: #222222;
   margin-top: 67px;
   margin-bottom: 99px !important;
+  padding-right: 4vw;
 }
 
 .help > .footer > span,
-.help > .fp-tableCell > .footer > span{
+.help > .fp-tableCell > .footer > span,
+.help > .fp-tableCell > .wrap > .footer > span{
     color: #e03d6f;
 }
 
@@ -1347,6 +1384,7 @@ ol div li { display: block; }
     .recharge > .fp-tableCell > .title ,
     .help > .title,
     .help > .fp-tableCell > .title
+    .help > .fp-tableCell > .wrap > .title
     {
         margin-top : 0 !important;
         font-size: 21px !important;
@@ -1366,6 +1404,7 @@ ol div li { display: block; }
     .recharge > .fp-tableCell > .content ,
     .help > .content,
     .help > .fp-tableCell > .content,
+    .help > .fp-tableCell > .wrap > .content,
     .wifi > .footer,
     .wifi > .fp-tableCell > .footer,
     .recharge > .footer,
@@ -1407,7 +1446,11 @@ ol div li { display: block; }
     .help > .content > ol > .item > .collapse.in,
     .help > .fp-tableCell > .content > ol > .item > .collapse,
     .help > .fp-tableCell > .content > ol > .item > .collapsing,
-    .help > .fp-tableCell > .content > ol > .item > .collapse.in{
+    .help > .fp-tableCell > .content > ol > .item > .collapse.in,
+    .help > .fp-tableCell > .wrap > .content > ol > .item > .collapse,
+    .help > .fp-tableCell > .wrap> .content > ol > .item > .collapsing,
+    .help > .fp-tableCell > .wrap> .content > ol > .item > .collapse.in
+    {
         width: 50vw;
         font-size: 12px;
     }
@@ -1415,7 +1458,8 @@ ol div li { display: block; }
     /* active scroll vertical */
     #help, 
     .help > .fp-tableCell, 
-    .help > .fp-tableCell > .content {
+    .help > .fp-tableCell > .content ,
+    .help > .fp-tableCell > .wrap >  .content{
         height : auto !important;
         overflow-x: auto !important;
         overflow-y: hidden !important;
@@ -1491,6 +1535,10 @@ ol div li { display: block; }
         left: 30vw;
         top: -100vh;
     }
+    
+    /*.exit_text{
+        font-size: 10px;
+    }*/
 }
 
 
