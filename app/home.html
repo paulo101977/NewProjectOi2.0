@@ -58,7 +58,10 @@
                                     <div class="start">
                                         <div class="slide menu-item">
                                             <div class="menu-item-align">
-                                                <img class="menu-img" src="svg/home.svg" />
+                                                <div class="img_container">
+                                                    <img class="menu-img" src="svg/home.svg" />
+                                                    <div class="exclamation">!</div>
+                                                </div>
                                                 <div class="menu-item-text">INICÍO</div>
                                             </div>
                                         </div>
@@ -166,15 +169,17 @@
                     
                     <!-- wifi -->
                     <div class="section wifi">
-                        <div class="title">Oi WiFi</div>
-                        <div class="content">
-                            <p>Busque o hotspot mais perto de você pra se conectar em alta velocidade gratuitamente, sem consumir sua franquia de internet móvel ou celular.</p>
+                        <div class="wrap">
+                            <div class="title">Oi WiFi</div>
+                            <div class="content">
+                                <p>Busque o hotspot mais perto de você pra se conectar em alta velocidade gratuitamente, sem consumir sua franquia de internet móvel ou celular.</p>
 
-                            <p>São mais de 2 milhões de pontos de acesso em todo o Brasil, entre aeroportos, hotéis, restaurantes, shoppings, cafés e outros locais. É só se cadastrar e aproveitar.</p>
-                        </div>
-                        <button class="btn_connection btn_hover_dash">Conectar-se</button>
-                        <div class="footer">
-                            <p>Pra acessar do seu tablet ou smartphone, você pode também baixar o aplicativo mobile nos sistemas Android e iOS.</p>
+                                <p>São mais de 2 milhões de pontos de acesso em todo o Brasil, entre aeroportos, hotéis, restaurantes, shoppings, cafés e outros locais. É só se cadastrar e aproveitar.</p>
+                            </div>
+                            <button class="btn_connection btn_hover_dash">Conectar-se</button>
+                            <div class="footer">
+                                <p>Pra acessar do seu tablet ou smartphone, você pode também baixar o aplicativo mobile nos sistemas Android e iOS.</p>
+                            </div>
                         </div>
                     </div>
                     
@@ -550,6 +555,7 @@
                 if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
                     if ( xDiff > 0 ) {
                         /* left swipe */
+                        
                         if(containerWidth < 768){
                             //get target index
                             var index = getIndex(findInsidePath($(evt.path)))
@@ -569,6 +575,7 @@
                         }
                     } else {
                         /* right swipe */
+                        
                         if(containerWidth < 768){
                             //get target index
                             var index = getIndex(findInsidePath($(evt.path)))
@@ -797,6 +804,9 @@
             
             $(window).resize(function(){
                 
+                //try clear any animation;
+                $(window).clearQueue().finish();
+                
                 //current size of window
                 var containerWidth = $(window).width();
                 
@@ -878,7 +888,7 @@
                     
                     //if containerWidth > 1200 scroll is vertical, otherwise, is horizontal
                     //changed to 768, before is 1200
-                    if(containerWidth > 768){
+                    if(containerWidth >= 768){
                         
                         /* change position of marker */
                         changeMarkerPosition('vertical' , name);

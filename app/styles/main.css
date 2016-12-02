@@ -458,7 +458,6 @@ input[type="checkbox"].eye_style:hover{
 
 #help{
     height : auto !important;
-    /* overflow-y: hidden!important; */
 }
 
 
@@ -467,6 +466,26 @@ input[type="checkbox"].eye_style:hover{
     margin-top: 60px;
     max-width: 10vw !important;
     min-width: 10vw !important;
+}
+
+.img_container{
+    position: relative;
+}
+
+.exclamation{
+    position: absolute;
+    top: 30%;
+    left: 55%;
+    width: 22px;
+    height: 22px;
+    background-color: #ec307b;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    color: #ffffff;
+    border-radius: 50%;
+    padding-top: 2px;
 }
 
 .sidebar-menu{
@@ -501,9 +520,14 @@ input[type="checkbox"].eye_style:hover{
     display: none; 
 }
 
+.section-menu{
+   height: 100vh;
+}
+
 .menu-item{
     border-bottom: solid 2px #dddddd;
     min-height: 25vh;
+    position: relative !important;
     /* display: flex; */
     /*align-items: center;*/
     background-color: white !important;
@@ -523,6 +547,7 @@ input[type="checkbox"].eye_style:hover{
     background-repeat: no-repeat; 
     min-width: 6px ;
     background-color: transparent;
+    z-index: 1000;
 }
 
 .menu-item-align{
@@ -642,8 +667,10 @@ input[type="checkbox"].eye_style:hover{
 
 
 /* wifi */
+/* TODO : needs create a wrapper to fix scrolling */
 .wifi > .title,
-.wifi > .fp-tableCell > .title{
+.wifi > .fp-tableCell > .title,
+.wifi > .fp-tableCell > .wrap > .title{
   font-size: 42px;
   letter-spacing: -1.5px;
   color: #222222;
@@ -652,7 +679,8 @@ input[type="checkbox"].eye_style:hover{
 
 
 .wifi > .content,
-.wifi > .fp-tableCell > .content{
+.wifi > .fp-tableCell > .content,
+.wifi > .fp-tableCell > .wrap > .content{
   width: 60vw !important;
   padding-right: 4vw;
   font-size: 28px;
@@ -662,7 +690,8 @@ input[type="checkbox"].eye_style:hover{
 }
 
 .wifi > .btn_connection,
-.wifi > .fp-tableCell > .btn_connection{
+.wifi > .fp-tableCell > .btn_connection,
+.wifi > .fp-tableCell > .wrap > .btn_connection{
   width: 270px;
   height: 70px;
   border-radius: 3px;
@@ -676,7 +705,9 @@ input[type="checkbox"].eye_style:hover{
 }
 
 .wifi > .footer,
-.wifi > .fp-tableCell > .footer{
+.wifi > .fp-tableCell > .footer,
+.wifi > .fp-tableCell > .wrap > .footer
+{
   width : 60vw;
   font-size: 21px;
   line-height: 1.43;
@@ -745,18 +776,14 @@ input[type="checkbox"].eye_style:hover{
 }
 
 /* faq */
-/* //NOTE: test if scroll is enable in y direction */
-#help{ /* enable scroll */
+#help,
+#wifi
+{ /* enable scroll */
     height: 100vh !important;
     max-height: 100vh !important;
     overflow-y: scroll !important;
 }
 
-/* NOTE: moved to below */
-/*.help > .fp-tableCell{
-    height: 100vh !important;
-    max-height: 100vh !important;
-}*/
 
 .help > .title,
 .help > .fp-tableCell > .title,
@@ -808,28 +835,16 @@ ol div li { display: block; }
     margin-right: 70px;
 }
 
-/* add overflow and scroll to help */
-.help > .fp-tableCell > .content,
-help > .fp-tableCell > .wrap > .content{
-    /* height: 100vh !important; 
-    overflow-y: scroll !important; */
-    /* NOTE: Change this for the full container of class .help */
-    /* max-height: 60vh !important; */
-    /* overflow-y: scroll !important; */ 
-}
 
-/* FIXME : needs create a wrap for the content 
+/* create a wrap for the content 
 for setting the max height to the content 
 to implements the scroll vertical */
 /* make the content completaly scrollable in y direction */
-.help > .fp-tableCell{
-    
-}
-
 .help > .fp-tableCell > .wrap{
     height: 100vh ;
     max-height: 100vh !important;
     overflow-y: scroll !important;
+    width: 60vw;
 }
 
 
@@ -916,11 +931,11 @@ to implements the scroll vertical */
 .btn_hover_dash:focus,
 .btn_hover_dash:active
 {
-    border-radius: 3px;
-    background-color: #e03d6f;
-    border: solid 1px #ffffff;
-    color: white;
-    outline: 0;
+    border-radius: 3px !important;
+    background-color: #e03d6f !important;
+    border: solid 1px #ffffff !important;
+    color: white !important;
+    outline: 0 !important;
 }
 
 
@@ -929,10 +944,8 @@ to implements the scroll vertical */
 /* home screen */
 /* I had to modify this to resize on table size */
 /* before the max-width was 1200px */
-/* FIXME low screen size */
 @media (max-width: 767px){
     
-    /* FIXME low screen size */
     .sidebar-home{
         height: 30vh !important;
     }
@@ -1019,10 +1032,14 @@ to implements the scroll vertical */
     
     
     .exit_text{
-        position: relative !important;
+        position: absolute !important;
         text-align: right;
-        top: 0;
+        top: 50%;
+        left: 68%;
+        transform: translate(0 , -75%);
+        /* margin-right: 10vw; */
         margin: 0;
+        float: right;
     }
 }
 
@@ -1066,6 +1083,14 @@ to implements the scroll vertical */
         width : 15vw !important;
     }
     
+    .section > li > a > div,
+    .selected,
+    .slide.menu-item,
+    .menu-item-align{
+        height:  16.666vh !important;
+        min-height:  16.666vh !important;
+    }
+    
     
     .sidebar_text, .in-cpf-page-text{
         width: auto !important;
@@ -1095,7 +1120,32 @@ to implements the scroll vertical */
       margin-top: 5vh;
     }
     
+    .menu-item-text{
+        font-size: 10px;
+    }
     
+    
+    .custom-li,
+    .custom-li:before
+    {
+        font-size: 15px !important;
+        font-weight: 900;
+    }
+    
+    .help > .content > ol > .item > .collapse,
+    .help > .content > ol > .item > .collapsing,
+    .help > .content > ol > .item > .collapse.in,
+    .help > .fp-tableCell > .content > ol > .item > .collapse,
+    .help > .fp-tableCell > .content > ol > .item > .collapsing,
+    .help > .fp-tableCell > .content > ol > .item > .collapse.in
+    .help > .fp-tableCell > .wrap > .content > ol > .item > .collapse,
+    .help > .fp-tableCell > .wrap > .content > ol > .item > .collapsing,
+    .help > .fp-tableCell > .wrap > .content > ol > .item > .collapse.in
+    {
+        width: auto;
+        font-size: 14px !important;
+    }
+
     
     /*.selected{
         min-width: 25vw !important;
@@ -1149,7 +1199,7 @@ to implements the scroll vertical */
         max-height: 7vh !important;
     }
     
-    /* fix menu size in tablet */
+    /* fix the menu size in tablet */
     .sidebar-home{
         /* height: 7vh !important; */
     }
@@ -1362,7 +1412,7 @@ to implements the scroll vertical */
     }
     
     .exit_text{
-        font-size: 10px;
+        font-size: 5vw;
     }
     
     /* each page */
@@ -1373,17 +1423,21 @@ to implements the scroll vertical */
         font-weight: bold !important;
     }
 
+    .help > .fp-tableCell > .wrap{
+        width: 100vw;
+    }
 
     .telephone > .title,
     .telephone > .fp-tableCell > .title,
     .wifi > .title,
     .wifi > .fp-tableCell > .title,
+    .wifi > .fp-tableCell > .wrap > .title,
     .oiplay > .title , 
     .recharge > .title ,
     .oiplay > .fp-tableCell > .title , 
     .recharge > .fp-tableCell > .title ,
     .help > .title,
-    .help > .fp-tableCell > .title
+    .help > .fp-tableCell > .title,
     .help > .fp-tableCell > .wrap > .title
     {
         margin-top : 0 !important;
@@ -1392,12 +1446,20 @@ to implements the scroll vertical */
         letter-spacing: -0.1px;
     }
     
+    .help > .title,
+    .help > .fp-tableCell > .title,
+    .help > .fp-tableCell > .wrap > .title
+    {
+        margin-top: 39px !important;
+    }
+    
     .start > .content,
     .start > .fp-tableCell > .content,
     .telephone > .content,
     .telephone > .fp-tableCell > .content,
     .wifi > .content,
     .wifi > .fp-tableCell > .content,
+    .wifi > .fp-tableCell > .wrap > .content,
     .oiplay > .content , 
     .recharge > .content ,
     .oiplay > .fp-tableCell > .content , 
@@ -1407,13 +1469,22 @@ to implements the scroll vertical */
     .help > .fp-tableCell > .wrap > .content,
     .wifi > .footer,
     .wifi > .fp-tableCell > .footer,
+    .wifi > .fp-tableCell > .wrap > .footer ,
     .recharge > .footer,
-    .recharge > .fp-tableCell > .footer
+    .recharge > .fp-tableCell > .footer,
+    .help > .footer, 
+    .help > .fp-tableCell > .footer ,
+    .help > .fp-tableCell > .wrap >  .footer
     {
         font-size: 14px !important;
         margin: 13px 0px 0 0px !important;
         line-height: 20px !important;
-        width: 70vw !important;
+        width: 80vw !important;
+    }
+    
+    /* Fix the mobile content size */
+    .help > .fp-tableCell > .wrap > .content{
+        height: 100% !important;
     }
     
     .custom-li:before{
@@ -1432,12 +1503,14 @@ to implements the scroll vertical */
 
     /* item */
     .help > .content > ol > .item,
-    .help > .fp-tableCell > .content > ol > .item{
+    .help > .fp-tableCell > .content > ol > .item,
+    .help > .fp-tableCell > .wrap > .content > ol > .item{
         border-top: solid 1px #dddddd;
         border-bottom: solid 1px #dddddd;
         padding-top: 33px;
         padding-bottom: 33px;
         margin-right: 0px;
+        width: 70vw !important;
     }
     
     /* internal intent content, inside collapse */
@@ -1456,15 +1529,24 @@ to implements the scroll vertical */
     }
     
     /* active scroll vertical */
-    #help, 
-    .help > .fp-tableCell, 
+    .help > .fp-tableCell > .title ,
+    .help > .fp-tableCell > .wrap >  .title{
+        height : auto !important;
+        display: inline-block;
+    }
+    
     .help > .fp-tableCell > .content ,
     .help > .fp-tableCell > .wrap >  .content{
         height : auto !important;
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
-        float: left;
-        clear:both;
+        display: inline-block;
+    }
+    
+    .help > .footer, 
+    .help > .fp-tableCell > .footer ,
+    .help > .fp-tableCell > .wrap >  .footer{
+        height: auto !important;
+        display: inline-block;
+        width: 70vw !important;
     }
     
     .telephone > .btn_installation,
@@ -1475,7 +1557,8 @@ to implements the scroll vertical */
     }
 
     .wifi > .btn_connection,
-    .wifi > .fp-tableCell > .btn_connection{
+    .wifi > .fp-tableCell > .btn_connection,
+    .wifi > .fp-tableCell > .wrap > .btn_connection{
       width : 70vw;
       height: 70px;
     }
@@ -1486,6 +1569,12 @@ to implements the scroll vertical */
     .recharge > .fp-tableCell > .btn_recharge{
       width : 70vw;
       height: 70px;
+    }
+    
+    .help > .footer,
+    .help > .fp-tableCell > .footer,
+    .help > .fp-tableCell > .wrap > .footer{
+        margin-bottom: 300px !important;
     }
 }
 
@@ -1517,7 +1606,7 @@ to implements the scroll vertical */
         margin-right: 70px !important;
     }
     
-    /* NOTE: Test try fix the width on tablet */
+    /* fix the width on tablet */
     #fullpage{
         width: 70vw !important;
         float: left;
