@@ -72,6 +72,8 @@ body, html {
     height: 50vh !important;
     margin-left: 0px !important;
     border: solid 1px #dddddd;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -279,9 +281,10 @@ input:focus {
 }
 
 /* text on cpf page */
-.know_cpf , .sucess_text , .error_text{
+.know_cpf , 
+.sucess_text , 
+.error_text{
   font-family: 'SimplonBP-Light';
-  margin-left: 15px !important;
   padding-left: 0px !important;
   font-size: 21px;
   font-style: normal;
@@ -289,6 +292,12 @@ input:focus {
   line-height: 1.33;
   letter-spacing: -0.7px;
   color: #4a4a4a;
+}
+
+.sucess_text , 
+.error_text,
+.know_cpf.visible{ /* fix the margin error */ 
+   margin-left: 15px !important; 
 }
 
 .know_cpf,

@@ -43,7 +43,7 @@
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                     <!-- cpf -->
                     <div class="col-sm-12 col-sm-12 col-md-12 item-row-cpf">
-                        <input id="cpf" class="password vertical-align-items" 
+                        <input id="cpf" class="password" 
                                placeholder="CPF" type="text" name="cpf" onBlur="ValidarCPF(formcpf.cpf);" 
                                onKeyPress="MascaraCPF(formcpf.cpf);" maxlength="14" />
                         
@@ -125,7 +125,7 @@
                 'content' : "Digite o CPF do titular da conta. Apenas números."
             })
             
-            $("#cpf").click(function(event){
+            /*$("#cpf").click(function(event){
                 $('.popover').ready(function(){
                     var top = $('#cpf').position().top
                     var left = $('#cpf').position().left
@@ -134,7 +134,7 @@
                     $('.popover').css('top', (top + height/2 +  parseInt($('.popover').css('height'))/2) + "px")
                     //$('.popover').css('left', margin + "px")
                 })
-            })
+            })*/
             
             $('#cpf').on('input',function(event){
                 if(event && event.target && event.target.value){
@@ -190,7 +190,7 @@
                     $('.error_cpf').addClass('visible');
                     
                     setTimeout(function(){
-                        window.location.replace("home.html")
+                        //window.location.replace("home.html")
                     }
                     ,1000)
                 },1000);
