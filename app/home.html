@@ -145,15 +145,6 @@
 
                             <p>Em breve, você terá acesso online a todos os serviços e facilidades da Minha Oi. Aproveite enquanto isso pra tirar suas dúvidas e descubra como a Oi pode te deixar mais conectado.</p> 
                         </div>
-                        <!-- //NOTE: slide test -->
-                        <!-- div class="slide">
-                            <div class="title">Oi, Washington</div>
-                            <div class="content">
-                                <p>Seu novo serviço ainda não está cadastrado no sistema.</p>
-
-                                <p>Em breve, você terá acesso online a todos os serviços e facilidades da Minha Oi. Aproveite enquanto isso pra tirar suas dúvidas e descubra como a Oi pode te deixar mais conectado.</p> 
-                            </div>
-                        </div -->
                     </div>
                     
                     <!-- oi fixo -->
@@ -384,8 +375,6 @@
     <script>
         
         //todo: remove all display: flex
-        //todo: try use jquery swipe to slide the page
-        //todo: try other approachs
         //todo: test if is mobile and if it is not mobile dont swipe to left or right
         //todo: on resize or page reload, change the position to selected item
         
@@ -521,13 +510,11 @@
             
             var xDown = null;                                                        
             var yDown = null;
+            
             //get the screensize
             var containerWidth = $(window).width();
             
-            //FIXME: try swipe to next page
-            //FIXME: dont work in mobile
-            //TODO: get the parent and your class, eg: start, help, etc.
-            
+
             //the element class list
             var elementList = ['.start' , '.telephone' , '.wifi' , '.oiplay' , '.recharge', '.help' ]
             
@@ -617,10 +604,12 @@
             var containerWidth = $(window).width();
             
             //On mobile there is no path, return
-            if(containerWidth < 768) return;
+            if(containerWidth <= 768) {
+                setActive($('#fullpage > .start'));
+                return;
+            }
             
-            //NOTE: changed to 768, before 1200
-            if(containerWidth >= 768){
+            if(containerWidth > 768){
                 orientation = 'vertical'
             }
             /*else {
@@ -681,10 +670,6 @@
             
             console.log('bind event test');
             
-            window.getSelection().removeAllRanges(); 
-            
-            $.event.special.swipe.durationThreshold = 100;
-            
             //bind swipe event
             moveAndDragPage()
         });
@@ -741,17 +726,6 @@
                     
                 }
             });
-            
-            //FIXME : Try disable responsive
-            //$.fn.fullpage.setResponsive(true);
-            
-            //the scroll spy
-            //$('body').scrollspy({ target: '#navbar-dashboard' })
-            //disabling scrolling
-            //$.fn.fullpage.setAllowScrolling(false);
-            //$.fn.fullpage.setFitToSection(true);
-            //$.fn.fullpage.setAutoScrolling(false);
-            //console.dir($)
             
             $(window).resize(function(){
                 
