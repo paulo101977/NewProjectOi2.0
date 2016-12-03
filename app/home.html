@@ -563,10 +563,8 @@
                             //scroll to next target
                             if(index < 5){
                                 var nextEl = elementList[index + 1];
-                                $("#fullpage").scrollTo(nextEl , 300)
+                                $("#fullpage").stop().scrollTo(nextEl , 300)
 
-                                //NOTE: Test horizontal slider
-                                //$.fn.fullpage.moveSlideLeft();
                                 focusMarkerPosition('horizontal' , nextEl.substring(1))
                                 changeMarkerPosition('horizontal' , nextEl.substring(1))
                                 removeActive($(evt.path));
@@ -583,10 +581,8 @@
                             //scroll to next target
                             if(index > 0){
                                 var nextEl = elementList[index - 1];
-                                $("#fullpage").scrollTo(nextEl , 300)
+                                $("#fullpage").stop().scrollTo(nextEl , 300)
 
-                                //NOTE: Test horizontal slider
-                                //$.fn.fullpage.moveSlideRight();
                                 focusMarkerPosition('horizontal' , nextEl.substring(1))
                                 changeMarkerPosition('horizontal' , nextEl.substring(1))
                                 removeActive($(evt.path));
@@ -607,51 +603,6 @@
             }, false);                                   
             /* end test */
   
-            
-            
-            //move to next item
-            /*$(getStringQueryToSwipe()).on("swipeleft",function(event){
-                
-                console.log('swipe left')
-                
-                if(containerWidth < 768){
-                    //get target index
-                    var index = getIndex($(event.currentTarget))
-
-                    //scroll to next target
-                    if(index < 5){
-                        var nextEl = elementList[index + 1];
-                        $("#fullpage").scrollTo(nextEl , 300)
-                        
-                        //NOTE: Test horizontal slider
-                        //$.fn.fullpage.moveSlideLeft();
-                        focusMarkerPosition('horizontal' , nextEl.substring(1))
-                        changeMarkerPosition('horizontal' , nextEl.substring(1))
-                    }
-                }
-            });
-            
-            ///move to previus item
-            $(getStringQueryToSwipe()).on("swiperight",function(event){
-                
-                console.log('swipe right')
-                
-                if(containerWidth < 768){
-                    //get target index
-                    var index = getIndex($(event.currentTarget))
-
-                    //scroll to next target
-                    if(index > 0){
-                        var nextEl = elementList[index - 1];
-                        $("#fullpage").scrollTo(nextEl , 300)
-                        
-                        //NOTE: Test horizontal slider
-                        //$.fn.fullpage.moveSlideRight();
-                        focusMarkerPosition('horizontal' , nextEl.substring(1))
-                        changeMarkerPosition('horizontal' , nextEl.substring(1))
-                    }
-                }
-            });  */
         }
         
         //move to current path after redraw or reload page
@@ -659,6 +610,8 @@
              //get the current location
             var path = $(location).attr('href') , orientation = '';
 
+            //remove active class
+            removeActive(document);
             
             //get the direction
             var containerWidth = $(window).width();
@@ -673,39 +626,46 @@
             
             //.start, .telephone, .wifi, .oiplay, .recharge, .help
             if(path.indexOf('#start') !== -1){
+                setActive($('#fullpage > .start'));
                 focusMarkerPosition(orientation , 'start')
                 changeMarkerPosition(orientation , 'start')
-                if(orientation == 'horizontal') $('#fullpage').scrollTo('.start', 0 , {axis : 'x'} )
+                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.start', 0 , {axis : 'x'} )
             }
             else if(path.indexOf('#telephone') !== -1){
+                setActive($('#fullpage > .telephone'));
                 focusMarkerPosition(orientation , 'telephone')
                 changeMarkerPosition(orientation , 'telephone')
-                if(orientation == 'horizontal') $('#fullpage').scrollTo('.telephone', 0 , {axis : 'x'} )
+                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.telephone', 0 , {axis : 'x'} )
             }
             else if(path.indexOf('#wifi') !== -1){
+                setActive($('#fullpage > .wifi'));
                 focusMarkerPosition(orientation , 'wifi')
                 changeMarkerPosition(orientation , 'wifi')
-                if(orientation == 'horizontal') $('#fullpage').scrollTo('.wifi', 0 , {axis : 'x'} )
+                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.wifi', 0 , {axis : 'x'} )
             }
             else if(path.indexOf('#oiplay') !== -1){
+               setActive($('#fullpage > .oiplay'));
                focusMarkerPosition(orientation , 'oiplay')
                changeMarkerPosition(orientation , 'oiplay')
-               if(orientation == 'horizontal') $('#fullpage').scrollTo('.oiplay', 0 , {axis : 'x'} )
+               if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.oiplay', 0 , {axis : 'x'} )
             }
             else if(path.indexOf('#recharge') !== -1){
+                setActive($('#fullpage > .recharge'));
                 focusMarkerPosition(orientation , 'recharge')
                 changeMarkerPosition(orientation , 'recharge')
-                if(orientation == 'horizontal') $('#fullpage').scrollTo('.recharge', 0 , {axis : 'x'} )
+                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.recharge', 0 , {axis : 'x'} )
             }
             else if(path.indexOf('#help') !== -1 ){
+                setActive($('#fullpage > .help'));
                 focusMarkerPosition(orientation , 'help')
                 changeMarkerPosition(orientation , 'help')
-                if(orientation == 'horizontal') $('#fullpage').scrollTo('.help', 0 , {axis : 'x'} )
+                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.help', 0 , {axis : 'x'} )
             }
             else { //the path is default page
+                setActive($('#fullpage > .start'));
                 focusMarkerPosition(orientation , 'start')
                 changeMarkerPosition(orientation , 'start')
-                if(orientation == 'horizontal') $('#fullpage').scrollTo('.start', 0 , {axis : 'x'} )
+                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.start', 0 , {axis : 'x'} )
             }
         }
         
@@ -740,21 +700,9 @@
             //start swipe events
             //moveAndDragPage()
             
-            //move to current path after redraw or reload page
-            //moveToCurrentPath()
+            //move to current path after reload page
+            moveToCurrentPath()
             
-        
-            
-            //NOTE: Test
-            function  scrollEnd(callback){
-                clearTimeout($.data(this, 'scrollTimer'));
-                $.data(this, 'scrollTimer', setTimeout(function() {
-                    // do something
-                    //console.log("Haven't scrolled in 250ms!");
-                    
-                    if(callback) callback();
-                }, 250));
-            }
             
             //starts fullpage plugin
             $('#fullpage').fullpage({
@@ -820,8 +768,6 @@
                 
                 //changed to 768, before is 1200
                 if(containerWidth < 768){
-                    //FIXME:
-                    //$.fn.fullpage.destroy();
                     $('.active').ready(function(){
                         var el = $('.active')
                         
@@ -835,8 +781,6 @@
                         }
                     })
                 } else {
-                    //FIXME
-                    //$.fn.fullpage.reBuild();
                     $('.active').ready(function(){
                         var el = $('.active')
                         
@@ -859,9 +803,6 @@
             
             $('.section-menu').children('li').each(function(index, el){
 
-                //$(el).off('click'); //remove listener after resize
-
-
                 //bind click
                 $(el).click(function(event){
                     
@@ -869,10 +810,9 @@
                     var self = this , containerWidth;
                     
                     containerWidth = $(window).width();
-
-                    console.log(name);
                     
-                    $.fn.fullpage.moveTo(name);
+                    //NOTE: moved to if/else block
+                    //$.fn.fullpage.moveTo(name);
 
                     //unselect all li
                     $('.section-menu')
@@ -890,6 +830,9 @@
                     //changed to 768, before is 1200
                     if(containerWidth >= 768){
                         
+                        //move to selected page
+                        $.fn.fullpage.moveTo(name);
+                        
                         /* change position of marker */
                         changeMarkerPosition('vertical' , name);
                         
@@ -905,7 +848,7 @@
                         
                         //NOTE: The fullpage.js dont work in horizontal navigation drag and move
                         //scroll to element on page 
-                        $('#fullpage').scrollTo('.' + name , 300 , {axis : 'x'} );
+                        $('#fullpage').stop().scrollTo('.' + name , 300 , {axis : 'x'} );
                         
                         /* change position of marker */
                         changeMarkerPosition('horizontal' , name);
@@ -922,31 +865,13 @@
             $('#fullpage').scroll(function(event){
                 //try fix scroll on menu
                 event.stopPropagation();
+                event.preventDefault();
             })
             
             $('.scrollable-menu').scroll(function(event){
                 event.stopPropagation();
                 event.preventDefault();
-                
-                //disable scroll
-                //$.fn.fullpage.setAutoScrolling(false);
-                //$.fn.fullpage.setAllowScrolling(false);
-                
-                
-                //console.log("scroll")
-                //disable scroll on fullpage
-                /*$('#fullpage').css({
-                    overflow: 'hidden !important',
-                    height: '100%'
-                });*/
-                
-                //detect scroll stop and enable scroll
-                scrollEnd(
-                    function(){ 
-                        //$.fn.fullpage.setAutoScrolling(true);
-                        //$.fn.fullpage.setAllowScrolling(true); 
-                    }
-                )//end scrollEnd
+                     
                 
             })
              
