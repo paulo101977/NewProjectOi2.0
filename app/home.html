@@ -616,13 +616,16 @@
             //get the direction
             var containerWidth = $(window).width();
             
+            //On mobile there is no path, return
+            if(containerWidth < 768) return;
+            
             //NOTE: changed to 768, before 1200
             if(containerWidth >= 768){
                 orientation = 'vertical'
             }
-            else {
+            /*else {
                 orientation = 'horizontal'
-            }
+            }*/
             
             //.start, .telephone, .wifi, .oiplay, .recharge, .help
             if(path.indexOf('#start') !== -1){
