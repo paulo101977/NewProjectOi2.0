@@ -1070,14 +1070,14 @@ to implements the scroll vertical */
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) and (max-width: 1199px){
      
-    .sidebar {
+    
+    /* //NOTE fix menu size in tablet */
+    /*.sidebar {
         font-size: 4.375rem;
         text-align: -webkit-auto;
         padding-right: 25px;
         height: 15vh !important;
-    }
-    
-    /* //NOTE fix menu size in tablet */
+    }*/
     .sidebar-home{
         height: 100vh !important;
         width : 15vw !important;
@@ -1091,18 +1091,21 @@ to implements the scroll vertical */
         min-height:  16.666vh !important;
     }
     
-    
+    /* NOTE: fix to tablet size */
     .sidebar_text, .in-cpf-page-text{
-        width: auto !important;
-        float: right;
-        text-align: right;
-        margin-top: -60px;
-        margin-right: 50px;
+       font-size: 6vw;
+       margin-top:  43px !important
+    }
+    
+    #password ,
+    .email,
+    .btn-continue{
+	   font-size: 4vw;
     }
     
     .item-row{
-        height: 26.66vh !important;
-        max-height: 26.66vh !important;
+        /*height: 26.66vh !important;
+        max-height: 26.66vh !important;*/
         background-color: white !important;
     }
     
@@ -1111,8 +1114,8 @@ to implements the scroll vertical */
     }
     
     .item-row-cpf{
-        height: 40vh !important;
-        max-height: 40vh !important;
+        /* height: 40vh !important;
+        max-height: 40vh !important;*/
     }
     
     .email-name{

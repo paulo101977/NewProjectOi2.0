@@ -26,14 +26,14 @@
         <div class="row">
             
             <!-- side bar -->
-            <div class="col-xs-12 col-md-12 col-lg-4 sidebar">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
                 <!-- logo -->
-                <div class="col-xs-6 col-sm-12 col-md-12">
+                <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
                     <img class="img-mask" src="svg/oi_logo.svg" />
                 </div>
                 
                 <!-- text -->
-                <div class="col-xs-6 col-sm-12 col-md-12">
+                <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
                     <div class="sidebar_text">
                         CRIE SUA SENHA
                     </div>
@@ -42,7 +42,7 @@
             <!-- end side bar -->
             
             <!-- content -->
-            <div class="col-xs-12 col-md-12 col-lg-8">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                 <form name="form_login">
                     <!-- Email -->
                     <div class="col-md-12 item-row">
@@ -54,7 +54,9 @@
                     <!-- password -->
                     <div class="col-sm-12 col-md-12 item-row">
                         <div class="col-xs-8 col-md-8 col-lg-8 vertical-align-items inline">
-                            <input id="password" name="password" class="password vertical-align-items" maxlength="10" type="password" placeholder="Senha" />
+                            <!-- input id="password" name="password" class="password vertical-align-items" maxlength="10" type="password" placeholder="Senha" / -->
+                            <!-- NOTE: vertical align without change the height -->
+                            <input id="password" name="password" class="password" maxlength="10" type="password" placeholder="Senha" />
                         </div>
                         <div class="col-xs-4 col-md-8 col-lg-4 vertical-align-items checkbox-container inline margin-right">
                             <div class="float-right">
@@ -124,21 +126,6 @@
                 'content' : "Deve ter entre 6 e 10 caracteres, com letras e números"
             })
             
-            // TODO: migrate the code to css
-            // FIXME: migrate the code to css
-            $("#password").click(function(event){
-                $('.popover').ready(function(){
-                    var top = $('#password').position().top
-                    var left = $('#password').position().left
-                    var height = $('#password').height()
-                    var margin = $(window).width() > 768 ? 87 : 31 
-                    
-                    
-                    $('.popover').css('top', (top + height/2 +  parseInt($('.popover').css('height'))/2) + "px")
-                })
-                
-                $('#password').popover('toggle')
-            })
             
             $('#password').on('input',function(event){
                 console.dir(event);
@@ -169,7 +156,7 @@
 
             
             $(".item-last").click(function(){
-                window.location.replace("cpf.html");
+                //window.location.replace("cpf.html");
             })
         })  
     </script>
