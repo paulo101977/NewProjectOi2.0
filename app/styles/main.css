@@ -21,6 +21,31 @@ body, html {
     font-weight: 100 !important;
 }
 
+/* NOTE: Test for animation in cpf/home */
+.content-home{
+    top: 0px;
+    z-index: 1000 !important;
+    position: absolute !important;
+    left: 70vh;
+}
+
+.ui-input-btn > input,
+.ui-input-btn > div
+{
+    visibility: visible;
+}
+
+/* hidden the mobile plain text button */
+.ui-input-btn{
+    visibility: hidden;
+}
+
+/*.side-bar-after-effect{
+    max-width: 15vh !important;
+}*/
+
+/* END Test */
+
 
 .container-fluid{
     position: fixed !important;
