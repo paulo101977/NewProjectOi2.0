@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    
+    <!-- link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.min.css" -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    
+    <!-- fullPage.js plugin -->
+    <!-- link rel="stylesheet" type="text/css" href="js/fullPage.js/jquery.fullPage.css" / -->
+      
+    <!-- endbuild -->
+  </head>
+  <body ng-app="projetoOiApp" 
+        data-spy="scroll" 
+        data-target="#navbar-dashboard">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar confirmation_bg">
+                <!-- logo -->
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 confirmation">
+                    <!-- oi logo -->
+                    <img class="confirmation_logo" src="svg/oi_logo.svg" />
+                </div>
+                
+                <!-- message -->
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 confirmation confirmation_container">
+                    <!-- oi logo -->
+                    <div class="title">
+                        Oi, Washington
+                    </div>
+                    <div class="content">
+                        O seu serviço contratado já está ativado na Minha Oi. Agora você tem acesso a todas as facilidades do atendimento online da Oi. Aproveite!
+                    </div>
+                    <div class="btn_container">
+                        <button class="btn_confirmation">
+                            <div class="confirmation_txt">Continuar</div>
+                            <div class="confirmation_img_container">
+                                <!-- <img class="confirmation_img" src="svg/confirmation_active.svg"/> -->
+                                <img class="confirmation_img" src="data:image/gif;base64,R0lGODlhAQABAPcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAABAAEAAAgEAP8FBAA7"/>
+                            </div>
+                        </button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    
+    </div><!-- end container -->
+
+
+    
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- script src="js/jquery-3.1.1.min.js"></script -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script -->
+        
+      
+    <script> 
+        var startAnimation = function(){
+            $('.confirmation_container').stop().animate(
+                {opacity : 0} 
+                , 300
+                ,''
+                ,function(){
+                    //$('.confirmation').css('custom', 'height : 10vh !important')
+                    
+                    var height = $(window).height()/10; //10vh
+                    var imgHeight = $(window).height()/12; //1/12 height
+                    
+                    $('.confirmation').stop()
+                        .animate({height : height } , 300)
+                    $('.sidebar').stop()
+                        .animate({height : height } , 300)
+                    $('.confirmation_logo').stop()
+                        .animate({height : imgHeight } , 300)
+                }
+            )
+        }
+        
+
+        $(document).ready(function(){
+            $('.btn_confirmation').click(function(){
+                startAnimation();
+            })
+        })  //end jquery ready method
+    </script>
+    <!-- endbuild -->
+</body>
+</html>

@@ -26,7 +26,7 @@ body, html {
     top: 0px;
     z-index: 1000 !important;
     position: absolute !important;
-    left: 70vh;
+    left: 40vw;
 }
 
 .ui-input-btn > input,
@@ -57,7 +57,7 @@ body, html {
 }
 
 .sidebar {
-  height: 100vh !important;
+  height: 100vh;
   background-image: linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
 }
 
@@ -973,7 +973,110 @@ to implements the scroll vertical */
 }
 
 
+/* confirmation screen */
+.btn_confirmation{
+  width: 270px;
+  height: 70px;
+  border-radius: 3px;
+  border: solid 3px #ffffff !important;
+  background-color: #ffffff !important;
+  border-style: solid !important;
+  border-width: 1px;
+  border-image-source: linear-gradient(to right, #ea288c, #ff6d00 90%, #ffff00);
+  border-image-slice: 1;
+  font-size: 21px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  color: #e03d6f;
+}
 
+.confirmation_logo{
+    width: 205px;
+    height: 83px;
+    text-align: center;
+    display:block;
+    margin:auto;
+}
+
+
+.btn_confirmation:hover,
+.btn_confirmation:focus,
+.btn_confirmation:active
+{
+    border-radius: 3px !important;
+    background-color: #e03d6f !important;
+    border: solid 1px #ffffff !important;
+    color: white !important;
+    outline: 0 !important;
+}
+
+.confirmation{
+    display: flex;
+    -webkit-flex-direction: column; /* Safari */
+    flex-direction:         column;
+    flex-wrap: nowrap;
+    text-align: left;
+    justify-content: center;
+    height: 100vh;
+}
+
+.confirmation > .title{
+  font-size: 63px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: #ffffff;
+}
+
+.confirmation > .content{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  max-width: 40vw;
+  font-size: 28px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+
+.confirmation_txt{
+    float: left;
+    clear: left;
+    margin-left: 30px;
+}
+
+.confirmation_img{
+    width: 5px;
+    height: 14px;
+    border-width: 0;
+    border: 0;
+    background-color: transparent;
+    background-image: url(../svg/confirmation.svg) !important;
+    background-repeat: no-repeat;
+}
+
+.btn_confirmation:hover .confirmation_img   ,
+.btn_confirmation:focus  .confirmation_img,
+.btn_confirmation:active  .confirmation_img
+{
+    background-image: url(../svg/confirmation_active.svg) !important;
+    color: #ffffff
+}
+
+.confirmation_img_container{
+    float: right;
+    clear: right;
+    background-color: transparent;
+    border-width: 0;
+    border: 0;
+}
+
+.confirmation_img{
+    margin-right: 30px;
+}
 
 /* home screen */
 /* I had to modify this to resize on table size */
@@ -1080,7 +1183,7 @@ to implements the scroll vertical */
 /* simple max-width query */
 @media ( min-width: 1200px ){
     .sidebar{
-        height: 100vh !important; 
+        height: 100vh; 
     }
     
     /* home */
