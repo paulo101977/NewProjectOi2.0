@@ -14,7 +14,10 @@
     <!-- build:css(.tmp) styles/main.css -->
     
     <!-- link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.min.css" -->
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- link rel="stylesheet" href="styles/main.css" -->
+      
+    <!-- just for tests -->
+    <link rel="stylesheet" href="styles/main1.2.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     
@@ -61,6 +64,13 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="external-content hide">
+                
+                </div>
+            </div>
+        </div>
     
     </div><!-- end container -->
 
@@ -98,7 +108,11 @@
                     $('.sidebar').stop()
                         .animate({height : height } , 300)
                     $('.confirmation_logo').stop()
-                        .animate({height : imgHeight } , 300)
+                        .animate({height : imgHeight } 
+                        , 300 
+                        , '', function(){
+                            
+                        })
                 }
             )
         }
@@ -106,7 +120,10 @@
 
         $(document).ready(function(){
             $('.btn_confirmation').click(function(){
-                startAnimation();
+                $( document ).load( "http://api.jquery.com/load/ .external-content", function() {
+                    startAnimation();
+                });
+                //startAnimation();
             })
         })  //end jquery ready method
     </script>
