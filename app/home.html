@@ -14,7 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     
     <!-- link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.min.css" -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main_prehome.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     
@@ -375,7 +375,6 @@
     <script>
         
         //todo: remove all display: flex
-        //todo: test if is mobile and if it is not mobile dont swipe to left or right
         //todo: on resize or page reload, change the position to selected item
         
         //test if mobile device
@@ -427,6 +426,7 @@
             else if(elName.indexOf('recharge') !== -1){
                 $('.scrollable-menu').scrollTo(value, 300 , {axis : axis});
             }
+            
         }
         
         //get a index of element based on your classList
@@ -468,6 +468,22 @@
             var position = $(el).position()
             
             if(position){
+                
+                //unselect all li
+                $('.section-menu')
+                    .children('li')
+                    .removeClass('active');
+
+                //set this el as active
+                $('.section-menu')
+                    .children('li.' + elName)
+                    .addClass('active');
+                
+                $('#fullpage >.section').removeClass('active');
+                setActive($('ul > .section > li.' +  elName ));
+                setActive($('#fullpage >.section.' + elName));
+                
+                
                 //horizontal scroll
                 if(direction === 'horizontal'){
                     $('.selected')
@@ -556,6 +572,7 @@
                                 changeMarkerPosition('horizontal' , nextEl.substring(1))
                                 removeActive($(evt.path));
                                 setActive($('.section.' +  nextEl.substring(1)));
+                                setActive($('ul > .section > li.' +  nextEl.substring(1)));
                             }
                         }
                     } else {
@@ -574,6 +591,7 @@
                                 changeMarkerPosition('horizontal' , nextEl.substring(1))
                                 removeActive($(evt.path));
                                 setActive($('.section.' +  nextEl.substring(1)));
+                                setActive($('ul > .section > li.' +  nextEl.substring(1)));
                             }
                         }
                     }                       
@@ -604,60 +622,50 @@
             var containerWidth = $(window).width();
             
             //On mobile there is no path, return
-            if(containerWidth <= 768) {
+            /*if(containerWidth <= 768) {
                 setActive($('#fullpage > .start'));
                 return;
-            }
+            }*/
             
             if(containerWidth > 768){
                 orientation = 'vertical'
             }
-            /*else {
+            else {
                 orientation = 'horizontal'
-            }*/
+            }
+            
+            var moveTo = function(name , orientation ){
+                setActive($('#fullpage > .' + name));
+                focusMarkerPosition(orientation , name)
+                changeMarkerPosition(orientation , name)
+                if(orientation == 'horizontal') {
+                    setTimeout(function(){
+                        $('#fullpage').stop().scrollTo('.' + name, 100 , {axis : 'x'} )
+                    } , 100)
+                }
+            }
             
             //.start, .telephone, .wifi, .oiplay, .recharge, .help
             if(path.indexOf('#start') !== -1){
-                setActive($('#fullpage > .start'));
-                focusMarkerPosition(orientation , 'start')
-                changeMarkerPosition(orientation , 'start')
-                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.start', 0 , {axis : 'x'} )
+                moveTo ('start' , orientation );
             }
             else if(path.indexOf('#telephone') !== -1){
-                setActive($('#fullpage > .telephone'));
-                focusMarkerPosition(orientation , 'telephone')
-                changeMarkerPosition(orientation , 'telephone')
-                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.telephone', 0 , {axis : 'x'} )
+                moveTo(orientation , 'telephone');
             }
             else if(path.indexOf('#wifi') !== -1){
-                setActive($('#fullpage > .wifi'));
-                focusMarkerPosition(orientation , 'wifi')
-                changeMarkerPosition(orientation , 'wifi')
-                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.wifi', 0 , {axis : 'x'} )
+                 moveTo('wifi',orientation);
             }
             else if(path.indexOf('#oiplay') !== -1){
-               setActive($('#fullpage > .oiplay'));
-               focusMarkerPosition(orientation , 'oiplay')
-               changeMarkerPosition(orientation , 'oiplay')
-               if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.oiplay', 0 , {axis : 'x'} )
+               moveTo('oiplay' ,orientation);
             }
             else if(path.indexOf('#recharge') !== -1){
-                setActive($('#fullpage > .recharge'));
-                focusMarkerPosition(orientation , 'recharge')
-                changeMarkerPosition(orientation , 'recharge')
-                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.recharge', 0 , {axis : 'x'} )
+                moveTo('recharge' ,orientation);
             }
             else if(path.indexOf('#help') !== -1 ){
-                setActive($('#fullpage > .help'));
-                focusMarkerPosition(orientation , 'help')
-                changeMarkerPosition(orientation , 'help')
-                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.help', 0 , {axis : 'x'} )
+                moveTo('help' ,orientation);
             }
             else { //the path is default page
-                setActive($('#fullpage > .start'));
-                focusMarkerPosition(orientation , 'start')
-                changeMarkerPosition(orientation , 'start')
-                if(orientation == 'horizontal') $('#fullpage').stop().scrollTo('.start', 0 , {axis : 'x'} )
+                moveTo('start' ,orientation);
             }
         }
         
@@ -788,16 +796,20 @@
                     
                     containerWidth = $(window).width();
                     
+                    //TODO: remove all class active and set this element with it class
+                    
                     //NOTE: moved to if/else block
                     //$.fn.fullpage.moveTo(name);
 
                     //unselect all li
-                    $('.section-menu')
+                    /*$('.section-menu')
                         .children('li')
                         .removeClass('active');
 
                     //set this el as active
-                    $(self).addClass('active');
+                    $(self).addClass('active');*/
+                    
+                    
 
 
                     //windows size
@@ -827,11 +839,13 @@
                         //scroll to element on page 
                         $('#fullpage').stop().scrollTo('.' + name , 300 , {axis : 'x'} );
                         
+                        
                         /* change position of marker */
                         changeMarkerPosition('horizontal' , name);
                         
                         /* change position scroll  */
                         focusMarkerPosition('horizontal' , name);
+                        
                         
                         event.preventDefault();
                     }
