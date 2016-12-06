@@ -29,22 +29,6 @@ body, html {
     left: 40vw;
 }
 
-.ui-input-btn > input,
-.ui-input-btn > div
-{
-    visibility: visible;
-}
-
-/* hidden the mobile plain text button */
-.ui-input-btn{
-    visibility: hidden;
-}
-
-/*.side-bar-after-effect{
-    max-width: 15vh !important;
-}*/
-
-/* END Test */
 
 
 .container-fluid{
@@ -66,363 +50,14 @@ body, html {
     margin-top: 60px
 }
 
-/* text on side bar */
-.sidebar_text {
-  margin-left: 50px;
-  width: 266px;
-  height: 126px;
-  font-family: 'SimplonOi-Headline';
-  font-size: 70px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 0.9;
-  letter-spacing: -4px;
-  color: #ffffff;
-}
-
-.item-row{
-    height: 33.33vh !important;
-    margin-left: 0px !important;
-    border: solid 1px #dddddd;
-    background-color: white !important;
-}
-
-.item-last{
-  background-color: #f5f5f5 !important;
-}
-
-/* items on cpf page */
-.item-row-cpf{
-    height: 50vh !important;
-    margin-left: 0px !important;
-    border: solid 1px #dddddd;
-    display: flex;
-    align-items: center;
-}
 
 
-
-/* remove the border */
-input {
-  border-width:0px !important;
-  border:none !important;
-}
-
-
-/* below customize checkbox */
-.checkbox-container{
-    vertical-align: middle;
-}
-
-/* align label to checkbox */
-label {
-  display: block;
-  padding-left: 15px;
-  line-height: 19px;
-  text-indent: 15px;
-  margin-right: 70px !important;
-}
-
-
-input[type="checkbox"].without-eye{
-    opacity: 0;
-}
-
-input[type="checkbox"] + label
-{
-    background-color: #fff;
-    border: 0.08rem solid #999999;
-    width: 21px  !important;
-    height: 21px;
-    float: right;
-    display: block;
-    margin-right: 70px !important;
-    background: none;
-}
-
-input[type="checkbox"]:checked + label {
-    content: ' ';
-    width: 21px;
-    height: 21px;
-    background: url(../svg/checkbox_on.svg);
-    background-repeat: no-repeat;
-    border: none;
-    *overflow: hidden;
-    color : #C72177;
-}
-
-
-input[type="checkbox"]:hover + label{
-    border: 0.08rem solid #C72177;
-    display: block;
-}
-
-input[type="checkbox"]:checked:hover + label{
-    border: none;
-}
-
-
-
-
-/* remove outline border */
-input:focus {
-    outline-width: 0;
-}
-
-/* the above email input text */
-.email-name{
-  position: absolute !important;
-  margin-top: 10vh;
-  margin-left: 87px !important;
-  font-family: SimplonBP-Regular;
-  font-size: 14px;
-  font-weight: normal !important;
-  font-style: normal !important;
-  font-stretch: normal !important;
-  letter-spacing: -0.5px;
-  color: #777777;
-}
-
-/* email input */
-/* the password input */
-/* the cpf input */
-.password , .cpf, .email{
-  font-family: 'SimplonBP-Light';
-  font-size: 42px;
-  font-weight: 300;
-  margin-left: 87px !important;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: -2px;
-  width: 100%;
-  background-color: white !important;
-}
-
-.email{
-    color: #777777;
-}
-
-.password , .cpf {
-    color: #222222;
-}
-
-.in-cpf-page-text{
-    width: 204px !important;
-}
-/* end */
-
-/* placeholder password after */
-.password-after, .cpf-after{
-    font-family: 'SimplonBP-Light';
-    position: absolute;
-    margin-top: 7vh;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    letter-spacing: -0.5px;
-    color: #777777;
-    margin-left: 87px !important;
-}
-
-/* placeholder password after */
-.cpf-after{
-    margin-top: -35vh !important;
-    margin-left: 87px !important;
-    z-index: 100;
-}
-
-/* error message */
-.error-message{
-    position: absolute;
-    margin-top: 7vh;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    letter-spacing: -0.5px;
-    color: #ff0000;
-    margin-left: 87px !important;
-}
-
-.float-right{
-    text-align: right;
-    display: block;
-    float: right !important;
-    clear: right !important;
-    width: 100%;
-}
-
-.margin-right{
-    margin-right: 76px !important;
-    width: 4vw !important;
-    float: right !important;
-    clear: right !important;
-}
-
-/* the button continue */
-.btn-continue, .loading{
-  margin-left: 87px !important;
-  font-family: SimplonBP-Light;
-  font-size: 42px;
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: -2px;
-  color: #cccccc;
-}
-
-/* cpf img */
-.loading, .sucess_img , .error_img{
-    background-repeat: no-repeat;
-    margin: 0px !important;
-}
-
-.error_cpf{
-    display: none;
-}
-
-/*.sucess_cpf, .error_cpf{
-    display: flex;
-    align-items: center;
-}*/
-
-.sucess_text, .error_txt{
-    margin-right: 14px;
-    font-family: 'SimplonBP-Light' !important;
-    font-size: 21px;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.33;
-    letter-spacing: -0.7px;
-    color: #4a4a4a;
-}
-
-
-/* container to img loading */
-.loading-container{
-    margin-left: 87px !important;
-}
-
-/* text on cpf page */
-.know_cpf , 
-.sucess_text , 
-.error_text{
-  font-family: 'SimplonBP-Light';
-  padding-left: 0px !important;
-  font-size: 21px;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: -0.7px;
-  color: #4a4a4a;
-}
-
-.sucess_text , 
-.error_text,
-.know_cpf.visible{ /* fix the margin error */ 
-   margin-left: 15px !important; 
-}
-
-.know_cpf,
-.sucess_cpf,
-.error_cpf,
-.loading-container{
-   display: none;
-}
-
-.visible{
-   display: flex !important;
-   align-items: center; 
-   margin-left: 87px !important;
-}
-
-.invisible{
-    display: none !important;
-}
-
-.btn-continue:active{
-  color: #e03d6f;
-}
-
-
-/* eye input checkbox */
-input[type="checkbox"].eye_style{
-    display: none;
-    border: none;
-    border-width: 0px;
-}
-
-input[type="checkbox"].eye_style + label{
-    display: none;
-    width: 26px !important;
-    height: 26px;
-    background-image: url(../svg/eye_unchecked.svg);
-    background-repeat: no-repeat;
-    border: none;
-    border-width: 0px;
-    margin: 0px !important;
-}
-
-input[type="checkbox"].eye_style:active + label, 
-input[type="checkbox"].eye_style:checked + label{
-    display: none;
-    width: 26px !important;
-    opacity: 1;
-    background-image: url(../svg/eye_svg.svg);
-    background-repeat: no-repeat;
-}
-
-input[type="checkbox"].eye_style:hover{
-    display: none;
-    width: 26px !important;
-    opacity: 1;
-    border: none;
-    border-width: 0px;
-    background-image: url(../svg/eye_svg.svg) !important;
-    background-repeat: no-repeat !important;;
-}
 
 /* center child items on screen */
 .vertical-align-items{
     height: 100% !important;
 }
 
-
-/* arrow "Entrar" button */
-.arrow-continue{
-    float: right;
-    vertical-align: middle;
-    background: url(../svg/next.svg);
-    background-repeat: no-repeat;
-    width: 10px;
-    height: 23px;
-    border: 0 !important;
-    border-width: 0px !important;
-    outline: none !important;
-}
-
-
-.img-container{
-    display: inline-block !important;;
-    float: right !important;
-    clear: right !important;;
-    width: 100%;
-    margin-right: 70px;
-}
-
-
-.text-show{
-  font-family: SimplonBP-Light;
-  font-size: 21px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: -0.6px;
-  color: #dddddd;
-  margin-right: 76px !important;
-}
 
 
 
@@ -438,34 +73,6 @@ input[type="checkbox"].eye_style:hover{
     padding-left: 0px !important;
 }
 
-/* popover */
-.popover{
-    background-color: white !important;
-    width: 364px !important;
-    max-width: 364px !important;
-    height: 50px !important;
-    color: #222222 !important;
-    font-size: 14px !important;
-    padding-left 7px !important;
-    font-family: 'SimplonBP-Regular' !important;
-    border: #dbdbdb solid 2px !important;
-    border-radius: 2px !important;
-    -webkit-box-shadow: 0 0 0 white !important;
-    box-shadow: 0 0 0 white !important;
-    left: 87px !important;
-}
-
-.popover-content{
-    width: 364px !important;
-    max-width: 364px !important;
-    height: 50px !important;
-}
-
-.popover > .arrow {
-    top: -21px !important;
-    left: 11% !important;
-    border-width: 10px !important;
-}
 
 
 
@@ -1063,7 +670,7 @@ to implements the scroll vertical */
 .btn_confirmation:active  .confirmation_img
 {
     background-image: url(../svg/confirmation_active.svg) !important;
-    color: #ffffff
+    color: #ffffff;
 }
 
 .confirmation_img_container{
@@ -1076,6 +683,15 @@ to implements the scroll vertical */
 
 .confirmation_img{
     margin-right: 30px;
+}
+
+/* the external content */
+.external-content{
+    height: 90vh;
+    min-height: 90vh;
+    max-height: 90vh;
+    width: 100vw;
+    overflow-y: scroll;
 }
 
 /* home screen */
@@ -1187,14 +803,6 @@ to implements the scroll vertical */
     }
     
     /* home */
-    /*.sidebar-home{
-        max-width: 10vw !important;
-        min-width: 10vw !important;
-    }*/
-    
-    /* home */
-   
-    
     .home_logo{
         max-height: 10vw !important;
         min-height: 10vw !important;
@@ -1234,27 +842,6 @@ to implements the scroll vertical */
        margin-top:  43px !important
     }
     
-    #password ,
-    .email,
-    .btn-continue{
-	   font-size: 4vw;
-    }
-    
-    .item-row{
-        /*height: 26.66vh !important;
-        max-height: 26.66vh !important;*/
-        background-color: white !important;
-    }
-    
-    .item-last{
-        background-color: #f5f5f5 !important;
-    }
-
-    
-    .email-name{
-      position: absolute !important;
-      margin-top: 5vh;
-    }
     
     .menu-item-text{
         font-size: 10px;
@@ -1285,44 +872,6 @@ to implements the scroll vertical */
     #fullpage{
         padding-left: 7vw !important;
     }
-
-    
-    /*.selected{
-        min-width: 25vw !important;
-        max-width: 25vw !important;
-        height: 6px !important;
-        min-height: 6px !important;
-        max-height: 6px !important;
-        background-size: 100% 6px !important; 
-    }
-    
-     #fullpage{
-        overflow: scroll !important;
-        float: left !important;
-        height: 70vh !important;
-        width: 100vw;
-        display: flex;
-        margin-left: 0px !important;
-        padding-left:  0px !important;
-        overflow: hidden !important;
-    }
-    
-    #fullpage > .section {
-        height: 70vh !important;
-        min-width: 100vw !important;
-        flex-grow: 1 !important;
-        padding-left:  98px !important;
-        overflow: hidden !important;
-    }
-    
-    .fp-tableCell{
-        height: 70vh !important;
-        width: 100% !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
-        padding-right: 15vw !important;
-        overflow: hidden !important;
-    }*/
     
 }
 
@@ -1335,9 +884,8 @@ to implements the scroll vertical */
     .sidebar{
         display: flex;
         align-items: center;
-        height: 70px; /* fix size refactory in mobile device */
-        min-height: 70px;
-        max-height: 70px !important;
+        height: 7vh;
+        max-height: 7vh !important;
     }
     
     /* fix the menu size in tablet */
@@ -1347,9 +895,7 @@ to implements the scroll vertical */
     
     /* the logo img */
     .img-mask{
-        width: 90px;
-        height: 41.1px;
-        object-fit: contain;
+        height: 5vh;
         margin: 0 0 0 1.25rem !important;
     }
     
@@ -1361,28 +907,17 @@ to implements the scroll vertical */
         width: auto !important;
         float: right;
         text-align: right;
-        font-size: 14px;
+        font-size: 2vh;
         letter-spacing: -0.5px;
         margin-right: 1.3125rem !important;
         box-sizing: border-box;
         line-height: normal;
     }
     
-    /* fix size refactory in mobile device */
-    form[name="form_login"],
-    .cpf_content{
-        height: calc(100vh - 70px)
-    }
-    
-    .item-row-cpf{
-        height: 50%; /* fix size refactory in mobile device */
-        max-height: 50%; /* fix size refactory in mobile device */
-    }
-    
     /* each line */
     .item-row{
-        height: 33.3%; /* fix size refactory in mobile device */
-        max-height: 33.3%; /* fix size refactory in mobile device */
+        height: 31vh;
+        max-height: 31vh;
         background-color: white !important;
     }
     
@@ -1472,30 +1007,6 @@ to implements the scroll vertical */
         float: right !important;
         clear: right !important;
         margin-right: 0px;
-    }
-    
-    /* popover */
-    .popover{
-        background-color: white !important;
-        width: 85vw !important;
-        max-width: 85vw !important;
-        height: 32px !important;
-        font-size: 12px !important;
-        padding-left 0px !important;
-        border-left-width: 0px !important;
-        border-right-width: 0px !important;
-        border-bottom-width: 0px !important;
-        left: 31px !important;
-    }
-
-    .popover-content{
-        width: 85vw !important;
-        max-width: 85vw !important;
-        height: 32px !important;
-    }
-
-    .popover > .arrow {
-        border-width: 0px !important;
     }
     
     /* home */

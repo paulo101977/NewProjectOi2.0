@@ -446,7 +446,7 @@ input[type="checkbox"].eye_style:hover{
     height: 50px !important;
     color: #222222 !important;
     font-size: 14px !important;
-    padding-left 7px !important;
+    padding-left: 7px !important;
     font-family: 'SimplonBP-Regular' !important;
     border: #dbdbdb solid 2px !important;
     border-radius: 2px !important;
@@ -1063,7 +1063,7 @@ to implements the scroll vertical */
 .btn_confirmation:active  .confirmation_img
 {
     background-image: url(../svg/confirmation_active.svg) !important;
-    color: #ffffff
+    color: #ffffff;
 }
 
 .confirmation_img_container{
@@ -1076,6 +1076,15 @@ to implements the scroll vertical */
 
 .confirmation_img{
     margin-right: 30px;
+}
+
+/* the external content */
+.external-content{
+    height: 90vh;
+    min-height: 90vh;
+    max-height: 90vh;
+    width: 100vw;
+    overflow-y: scroll;
 }
 
 /* home screen */
@@ -1249,7 +1258,11 @@ to implements the scroll vertical */
     .item-last{
         background-color: #f5f5f5 !important;
     }
-
+    
+    .item-row-cpf{
+        /* height: 40vh !important;
+        max-height: 40vh !important;*/
+    }
     
     .email-name{
       position: absolute !important;
@@ -1335,9 +1348,8 @@ to implements the scroll vertical */
     .sidebar{
         display: flex;
         align-items: center;
-        height: 70px; /* fix size refactory in mobile device */
-        min-height: 70px;
-        max-height: 70px !important;
+        height: 7vh;
+        max-height: 7vh !important;
     }
     
     /* fix the menu size in tablet */
@@ -1347,9 +1359,7 @@ to implements the scroll vertical */
     
     /* the logo img */
     .img-mask{
-        width: 90px;
-        height: 41.1px;
-        object-fit: contain;
+        height: 5vh;
         margin: 0 0 0 1.25rem !important;
     }
     
@@ -1361,28 +1371,17 @@ to implements the scroll vertical */
         width: auto !important;
         float: right;
         text-align: right;
-        font-size: 14px;
+        font-size: 2vh;
         letter-spacing: -0.5px;
         margin-right: 1.3125rem !important;
         box-sizing: border-box;
         line-height: normal;
     }
     
-    /* fix size refactory in mobile device */
-    form[name="form_login"],
-    .cpf_content{
-        height: calc(100vh - 70px)
-    }
-    
-    .item-row-cpf{
-        height: 50%; /* fix size refactory in mobile device */
-        max-height: 50%; /* fix size refactory in mobile device */
-    }
-    
     /* each line */
     .item-row{
-        height: 33.3%; /* fix size refactory in mobile device */
-        max-height: 33.3%; /* fix size refactory in mobile device */
+        height: 31vh;
+        max-height: 31vh;
         background-color: white !important;
     }
     
@@ -1481,7 +1480,7 @@ to implements the scroll vertical */
         max-width: 85vw !important;
         height: 32px !important;
         font-size: 12px !important;
-        padding-left 0px !important;
+        padding-left: 0px !important;
         border-left-width: 0px !important;
         border-right-width: 0px !important;
         border-bottom-width: 0px !important;
