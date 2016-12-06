@@ -144,7 +144,7 @@ body, html {
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.75px;
   color: #ffffff;
   margin-left: 31px;
   margin-bottom: 60px !important;
@@ -212,7 +212,7 @@ body, html {
     font-style: normal;
     font-stretch: normal;
     line-height: 1.5;
-    letter-spacing: -0.6px;
+    letter-spacing: -0.75px;
     text-align: center;
     color: #999999;
 }
@@ -248,20 +248,21 @@ body, html {
 /* start */                  
 .start > .title,
 .start > .fp-tableCell > .title{
+    font-family: 'SimplonBP-Regular';
     font-size: 63px;
     font-weight: 300;
     line-height: 1.11;
-    letter-spacing: -2.2px;
+    letter-spacing: -0.75px;
 }
 
 .start > .content,
 .start > .fp-tableCell > .content{
-    width: 60vw;
+    width: 700px;
     padding-right: 4vw;
     margin-top: 38px;
     font-size: 28px;
     line-height: 1.5;
-    letter-spacing: -0.6px;
+    letter-spacing: -0.75px;
 }
 
 /* phone */
@@ -272,8 +273,10 @@ body, html {
 
 .telephone > .title,
 .telephone > .fp-tableCell > .title{
+  font-family: 'SimplonBP-Regular';
+  font-weight: 300;
   font-size: 42px;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.75px;
   color: #222222; 
   margin-bottom: 32px;
 }
@@ -281,12 +284,12 @@ body, html {
 
 .telephone > .content,
 .telephone > .fp-tableCell > .content{
-  width: 60vw !important;
+  width: 700px !important;
   padding-right: 4vw;
   font-size: 28px;
   font-weight: 300;
   line-height: 1.25;
-  letter-spacing: -1.1px;
+  letter-spacing: -0.75px;
   color: #222222;
 }
 
@@ -301,7 +304,7 @@ body, html {
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.75px;
   text-align: center;
   color: #e03d6f;
 }
@@ -312,8 +315,10 @@ body, html {
 .wifi > .title,
 .wifi > .fp-tableCell > .title,
 .wifi > .fp-tableCell > .wrap > .title{
+  font-family: 'SimplonBP-Regular';
+  font-weight: 300;
   font-size: 42px;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.75px;
   color: #222222;
   margin-bottom: 36px;
 }
@@ -322,11 +327,11 @@ body, html {
 .wifi > .content,
 .wifi > .fp-tableCell > .content,
 .wifi > .fp-tableCell > .wrap > .content{
-  width: 60vw !important;
+  width: 700px !important;
   padding-right: 4vw;
   font-size: 28px;
   line-height: 1.25;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.75px;
   color: #222222;
 }
 
@@ -339,7 +344,7 @@ body, html {
   background-color: #ffffff;
   border: solid 1px #e03d6f;
   font-size: 21px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.75px;
   text-align: center;
   color: #e03d6f;
   margin-bottom: 20px;
@@ -347,12 +352,13 @@ body, html {
 
 .wifi > .footer,
 .wifi > .fp-tableCell > .footer,
-.wifi > .fp-tableCell > .wrap > .footer
+.wifi > .fp-tableCell > .wrap > .footer,
+.wifi > .fp-tableCell > .wrap > .footer > p
 {
-  width : 60vw;
+  width : 700px;
   font-size: 21px;
   line-height: 1.43;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.75px;
   color: #222222;
   padding-right: 4vw;
 }
@@ -368,8 +374,10 @@ body, html {
 .oiplay > .fp-tableCell > .title , 
 .recharge > .fp-tableCell > .title 
 {
+  font-family: 'SimplonBP-Regular';
+  font-weight: 300;
   font-size: 42px;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.75px;
   color: #222222;
   margin-bottom: 36px;
   max-height: 100vh !important;
@@ -379,13 +387,13 @@ body, html {
 .oiplay > .fp-tableCell > .content , 
 .recharge > .content ,
 .recharge > .fp-tableCell > .content{
-  width: 60vw;
+  width: 700px;
   padding-right: 4vw;
   font-size: 28px;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.25;
-  letter-spacing: -1.1px;
+  letter-spacing: -0.75px;
   color: #222222;
 }
 
@@ -397,7 +405,7 @@ body, html {
   height: 70px;
   border-radius: 3px;
   font-size: 21px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.75px;
   background-color: #ffffff;
   border: solid 1px #e03d6f;
   text-align: center;
@@ -411,7 +419,7 @@ body, html {
 .recharge > .fp-tableCell > .footer{
   font-size: 21px !important;
   line-height: 1.43;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.75px;
   color: #222222;
   padding-right: 4vw;
 }
@@ -429,9 +437,11 @@ body, html {
 .help > .title,
 .help > .fp-tableCell > .title,
 .help > .fp-tableCell > .wrap > .title{
+  font-family: 'SimplonBP-Regular';
+  font-weight: 300;
   margin-top: 76px;
   font-size: 42px;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.75px;
   color: #222222;
   margin-bottom: 42px;
 }
@@ -449,7 +459,7 @@ ol div li { display: block; }
 .custom-li:before{
     font-size: 28px;
     line-height: 1.25;
-    letter-spacing: -1.1px;
+    letter-spacing: -0.75px;
     color: #777777;
     content: counter(item) ". ";
     counter-increment: item;
@@ -459,10 +469,40 @@ ol div li { display: block; }
 .custom-li {
     font-size: 28px;
     line-height: 1.25;
-    letter-spacing: -1.1px;
+    letter-spacing: -0.75px;
     color: #222222;
     margin-left: 0px !important;
     padding-left: 0px !important;
+}
+
+.collapse,
+.collapsing,
+.collapse.in
+{
+    padding-left: 14px !important;
+}
+
+ul > li{
+  width: 640px;
+  font-family: 'SimplonBP-Light';
+  font-size: 18px;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: -0.75px;
+  color: #222222;
+}
+
+.item > div > ul {
+    padding-left: 0px !important;
+    margin-bottom: 14px;
+    margin-top: 14px;
+}
+
+ul > li:before{
+    content : '•' !important;
+    padding-right: 12px;
 }
 
 /* item */
@@ -501,15 +541,22 @@ to implements the scroll vertical */
 .help > .fp-tableCell > .wrap > .content > ol > .item > .collapsing,
 .help > .fp-tableCell > .wrap > .content > ol > .item > .collapse.in
 {
-    width: 60vw;
+    width: 700px;
     padding-right: 4vw;
     font-size: 18px;
     line-height: 1.33;
-    letter-spacing: -0.2px;
+    letter-spacing: -0.75px;
     color: #222222;
     margin-left: 38px;
     margin-top: 14px;
     margin-bottom: 42px;
+}
+
+/* change the cursor to pointer or hand */
+.help > .fp-tableCell > .wrap > .content > ol > .item > li
+{
+    cursor: hand;
+    cursor: pointer;
 }
 
 .help > .footer,
@@ -517,17 +564,27 @@ to implements the scroll vertical */
 .help > .fp-tableCell > .wrap > .footer{
   font-size: 28px;
   line-height: 1.25;
-  letter-spacing: -1.1px;
+  letter-spacing: -0.75px;
   color: #222222;
   margin-top: 67px;
   margin-bottom: 99px !important;
   padding-right: 4vw;
 }
 
+i{
+    font-weight: 300;
+}
+
+span ,
+a,
 .help > .footer > span,
 .help > .fp-tableCell > .footer > span,
 .help > .fp-tableCell > .wrap > .footer > span{
-    color: #e03d6f;
+    color: #e03d6f !important;
+}
+
+a{
+    text-decoration: underline !important;
 }
 
 .help_item_center,
@@ -629,6 +686,8 @@ to implements the scroll vertical */
 }
 
 .confirmation > .title{
+  font-family: 'SimplonBP-Regular';
+  font-weight: 300;
   font-size: 63px;
   font-weight: normal;
   font-style: normal;
@@ -901,7 +960,7 @@ to implements the scroll vertical */
         float: right;
         text-align: right;
         font-size: 2vh;
-        letter-spacing: -0.5px;
+        letter-spacing: -0.75px;
         margin-right: 1.3125rem !important;
         box-sizing: border-box;
         line-height: normal;
@@ -1013,7 +1072,7 @@ to implements the scroll vertical */
         margin-top : 0 !important;
         font-size: 21px !important;
         font-weight: bold !important;
-        letter-spacing: -0.1px;
+        letter-spacing: -0.75px;
     }
     
     .help > .title,
@@ -1060,14 +1119,14 @@ to implements the scroll vertical */
     .custom-li:before{
         font-size: 16px;
         line-height: 18px;
-        letter-spacing: -0.5;
+        letter-spacing: -0.75px;
         margin-right: 9px;
         margin-left: 0px;
     }
     .custom-li {
         font-size: 16px;
         line-height: 18px;
-        letter-spacing: -0.5;
+        letter-spacing: -0.75px;
         width : 50vw;
     }
 
@@ -1211,7 +1270,7 @@ to implements the scroll vertical */
   font-style: normal;
   font-stretch: normal;
   line-height: 5.36;
-  letter-spacing: -2px;
+  letter-spacing: -0.75px;
   color: #dddddd;   
   font-weight: 100 !important;
 }

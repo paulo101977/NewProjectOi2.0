@@ -144,20 +144,29 @@
                        if(event.target.value.length >= 14){
                            $('.arrow-continue').attr('src' , 'svg/next_active.svg');
                            $('.btn-continue').css('color' , '#e03d6f');
+                           $('.item-last').addClass('click_button')
+                           $('.btn-continue').addClass('click_button')
+                           
                        } else {
                            $('.arrow-continue').attr('src' , 'svg/next.svg');
                            $('.btn-continue').css('color' , '#cccccc');
+                           $('.item-last').removeClass('click_button')
+                           $('.btn-continue').removeClass('click_button')
                        }
                        
                    } else {
                        $('.cpf-after').hide();
                        $('.arrow-continue').attr('src' , 'svg/next.svg');
                        $('.btn-continue').css('color' , '#cccccc');
+                       $('.item-last').removeClass('click_button')
+                       $('.btn-continue').removeClass('click_button')
                    }
                 } else {
                     $('.cpf-after').hide();
                     $('.arrow-continue').attr('src' , 'svg/next.svg');
                     $('.btn-continue').css('color' , '#cccccc');
+                    $('.item-last').removeClass('click_button')
+                    $('.btn-continue').removeClass('click_button')
                 }
             });
             
