@@ -101,12 +101,16 @@ body, html {
     height : auto !important;
 }
 
+.sidebar-home{
+    text-align: left;
+}
+
 
 .home_logo{
     margin-left: 36px;
-    margin-top: 60px;
-    max-width: 10vw;
-    min-width: 10vw;
+    margin-top: 75px;
+    max-height: 62.5px;
+    min-height: 62.5px;
 }
 
 .img_container{
@@ -146,7 +150,7 @@ body, html {
   font-stretch: normal;
   letter-spacing: -0.75px;
   color: #ffffff;
-  margin-left: 31px;
+  /* margin-left: 31px; */
   margin-bottom: 60px !important;
 }
 
@@ -168,6 +172,7 @@ body, html {
 .menu-item{
     border-bottom: solid 2px #dddddd;
     min-height: 25vh;
+    min-height: 210px;
     position: relative !important;
     /* display: flex; */
     /*align-items: center;*/
@@ -180,7 +185,7 @@ body, html {
     position: absolute;
     top: 0;
     left: calc(100% - 6px);
-    min-height: 25vh;
+    min-height: 210px;
     background-image:
       linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%);
     background-size: 6px 100% !important;
@@ -194,7 +199,7 @@ body, html {
 .menu-item-align{
     display: table-cell;
     vertical-align: middle;
-    height: 25vh;
+    height: 210px;
     /* width: 100% !important; */
     min-width: 17vw !important;
     margin-left: auto !important;
@@ -525,7 +530,6 @@ to implements the scroll vertical */
     height: 100vh ;
     max-height: 100vh !important;
     overflow-y: scroll !important;
-    width: 60vw;
 }
 
 
@@ -799,6 +803,11 @@ a{
         flex-grow: 1 !important;
     }
     
+    #fullpage > .section ,
+    #fullpage > .section > .fp-tableCell{
+        display: block !important;
+    }
+    
     #navbar-dashboard > ul > .section > li{
         font-size: 10px;
         min-height: 72px !important;
@@ -825,6 +834,7 @@ a{
     
     
     #fullpage{
+        display: block;
         float: left !important;
         height: calc(100vh - 142px) !important;
         width: 100vw;
@@ -840,7 +850,7 @@ a{
         min-width: 100vw !important;
         flex-grow: 1 !important;
         overflow-x: hidden !important;
-        overflow-y: hidden !important;
+        overflow-y: scroll !important;
     }
     
     
@@ -869,8 +879,8 @@ a{
     
     /* home */
     .home_logo{
-        max-height: 10vw !important;
-        min-height: 10vw !important;
+        max-height: 62.5px !important;
+        min-height: 62.5px !important;
     }
      /* end home */
     
@@ -930,7 +940,7 @@ a{
     .help > .fp-tableCell > .wrap > .content > ol > .item > .collapsing,
     .help > .fp-tableCell > .wrap > .content > ol > .item > .collapse.in
     {
-        width: auto;
+        width: auto !important;
         font-size: 14px !important;
     }
     
@@ -1007,8 +1017,9 @@ a{
         max-width: 100% !important;
         /* float: left !important; */
         flex-grow: 1 !important; /* to align side by side item */
-        padding-left:  15vw !important;
-        margin-right: 15vw !important;
+        padding-top: 39px;
+        padding-left:  40px !important;
+        padding-right: 40px !important;
         table-layout: auto;
     }
     
@@ -1017,7 +1028,7 @@ a{
         width: 100% !important;
         min-width: 100% !important;
         max-width: 100% !important;
-        padding-right: 15vw !important;
+        /* padding-right: 15vw !important; */
     }
     
     .section-menu , 
@@ -1053,7 +1064,7 @@ a{
     }
 
     .help > .fp-tableCell > .wrap{
-        width: 100vw;
+        overflow-y: scroll !important;
     }
 
     .telephone > .title,
@@ -1075,12 +1086,6 @@ a{
         letter-spacing: -0.75px;
     }
     
-    .help > .title,
-    .help > .fp-tableCell > .title,
-    .help > .fp-tableCell > .wrap > .title
-    {
-        margin-top: 39px !important;
-    }
     
     .start > .content,
     .start > .fp-tableCell > .content,
@@ -1103,17 +1108,27 @@ a{
     .recharge > .fp-tableCell > .footer,
     .help > .footer, 
     .help > .fp-tableCell > .footer ,
-    .help > .fp-tableCell > .wrap >  .footer
+    .help > .fp-tableCell > .wrap >  .footer,
+    .wifi > .footer, 
+    .wifi > .fp-tableCell > .footer, 
+    .wifi > .fp-tableCell > .wrap > .footer, 
+    .wifi > .fp-tableCell > .wrap > .footer > p,
+    .oiplay > .footer, .recharge > .footer,
+    .oiplay > .fp-tableCell > .footer,
+    .recharge > .fp-tableCell > .footer
     {
         font-size: 14px !important;
         margin: 13px 0px 0 0px !important;
         line-height: 20px !important;
-        width: 80vw !important;
+        width: inherit!important;
+        word-wrap: break-word;
+        padding-right: 0px;
     }
     
     /* Fix the mobile content size */
     .help > .fp-tableCell > .wrap > .content{
         height: 100% !important;
+        width: 100%;
     }
     
     .custom-li:before{
@@ -1127,7 +1142,6 @@ a{
         font-size: 16px;
         line-height: 18px;
         letter-spacing: -0.75px;
-        width : 50vw;
     }
 
     /* item */
@@ -1139,10 +1153,21 @@ a{
         padding-top: 33px;
         padding-bottom: 33px;
         margin-right: 0px;
-        width: 70vw !important;
+        /* width: 70vw !important; */
     }
     
+    /* ul content */
+    ul > li{
+        font-size: 12px;
+    }
+    
+    .item > div > p{
+        padding-right: 22.5px;
+    }
+    
+    
     /* internal intent content, inside collapse */
+    .help > .content > ol > .item,
     .help > .content > ol > .item > .collapse,
     .help > .content > ol > .item > .collapsing,
     .help > .content > ol > .item > .collapse.in,
@@ -1153,8 +1178,19 @@ a{
     .help > .fp-tableCell > .wrap> .content > ol > .item > .collapsing,
     .help > .fp-tableCell > .wrap> .content > ol > .item > .collapse.in
     {
-        width: 50vw;
+        width: 100%;
         font-size: 12px;
+        margin-left: 10px;
+        padding-right: 0px;
+    }
+    
+    /* the arrow */
+    .arrow_item_help.collapsed + .img_container_help,
+    .arrow_item_help + .img_container_help
+    {
+        width: 7px;
+        height: 12px;
+        background-size: 7px 12px;
     }
     
     /* active scroll vertical */
@@ -1175,12 +1211,12 @@ a{
     .help > .fp-tableCell > .wrap >  .footer{
         height: auto !important;
         display: inline-block;
-        width: 70vw !important;
+        word-wrap: break-word;
     }
     
     .telephone > .btn_installation,
     .telephone > .fp-tableCell > .btn_installation{
-      width : 70vw;
+      width : 240px;
       height: 70px;
       
     }
@@ -1188,7 +1224,7 @@ a{
     .wifi > .btn_connection,
     .wifi > .fp-tableCell > .btn_connection,
     .wifi > .fp-tableCell > .wrap > .btn_connection{
-      width : 70vw;
+      width : 240px;
       height: 70px;
     }
 
@@ -1196,15 +1232,15 @@ a{
     .recharge > .btn_recharge,
     .oiplay > .fp-tableCell > .btn_oiplay ,
     .recharge > .fp-tableCell > .btn_recharge{
-      width : 70vw;
+      width : 240px;
       height: 70px;
     }
     
-    .help > .footer,
+    /*.help > .footer,
     .help > .fp-tableCell > .footer,
     .help > .fp-tableCell > .wrap > .footer{
         margin-bottom: 300px !important;
-    }
+    }*/
 }
 
 /* to manage the checkbox position */
@@ -1243,7 +1279,7 @@ a{
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 999px){
+@media screen and (min-width: 768px) and (max-width: 990px){
     .margin-right{
         margin-right: 70px !important;
     }
@@ -1253,10 +1289,6 @@ a{
         left: 30vw;
         top: -100vh;
     }
-    
-    /*.exit_text{
-        font-size: 10px;
-    }*/
 }
 
 
