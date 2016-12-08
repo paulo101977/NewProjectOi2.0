@@ -770,7 +770,7 @@ a{
 /* home screen */
 /* I had to modify this to resize on table size */
 /* before the max-width was 1200px */
-
+/* before it is 768px */
 /* @media (max-width: 767px){ */
 @media (max-width: 413px){
     
@@ -801,7 +801,11 @@ a{
         max-width: 89px !important;
         float: left;
         border-bottom: none;
-        border-left: solid 2px #dddddd;
+        border-right: solid 2px #dddddd;
+    }
+    
+    .help > .menu-item{
+        border-right: none;
     }
     
     .menu-item-align{
@@ -886,6 +890,10 @@ a{
 
 @media screen and (min-width: 414px) and (max-width: 767px){
     
+    .row{
+        background-color: white;
+    }
+    
     .sidebar-home{
         height: 81px ; /* fix auto resize mobile */
     }
@@ -918,7 +926,8 @@ a{
         max-width: 20vw !important;
         float: left;
         border-bottom: none;
-        border-left: solid 2px #dddddd;
+        border-right: solid 2px #dddddd;
+        border-left: none;
     }
     
     .menu-item-align{

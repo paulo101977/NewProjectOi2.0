@@ -574,10 +574,8 @@
                 yDown = evt.originalEvent.touches[0].pageY;
             })  
             
-            //document.addEventListener('touchmove', function(){console.log('touch move')}, false);
             
             document.addEventListener('touchmove', function(evt){
-                //console.dir('inside touchmove')
                 if ( ! xDown || ! yDown ) {
                     return;
                 }
@@ -709,7 +707,7 @@
                 $.mobile.changePage("#page1");
             });*/
             
-            console.log('bind event test');
+            console.log('bind event on mobile device');
             
             //bind swipe event
             moveAndDragPage()
@@ -780,8 +778,16 @@
                 var containerWidth = $(window).width();
                 
                 
-                //move to current path after redraw or reload page
-                moveToCurrentPath()
+                //move to current path after redraw or reload page stop
+                $(window).resize(function() {
+                    clearTimeout(window.resizedFinished);
+                    window.resizedFinished = setTimeout(function(){
+                        console.log('Resized finished.');
+                        
+                        moveToCurrentPath()
+                    }, 250);
+                });
+                
                 
                 //change the position of the element "selected"
                 $('.selected')
@@ -812,7 +818,6 @@
                             $('.selected')
                                 .css('cssText', 'left: calc(100% - 6px) !important');
 
-                            console.log(top)
                             $('.selected').css({
                                 top: top
                             });
