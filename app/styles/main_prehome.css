@@ -124,7 +124,7 @@ body, html {
 
 .home_logo{
     margin-left: 36px;
-    margin-top: 75px;
+    margin-top: 70px;
     max-height: 62.5px;
     min-height: 62.5px;
 }
@@ -262,7 +262,7 @@ body, html {
 
 #fullpage > .section > .content > p ,
 #fullpage > .section > .fp-tableCell > .content > p{
-    margin-bottom: 5vh !important;
+    margin-bottom: 5vh;
 }
 
 
@@ -1091,6 +1091,10 @@ p >  a{
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) and (max-width: 1199px){
+    
+    .home_logo {
+        margin-top: calc(16.66vh/2 - 50px * 3/4);
+    }
      
     
     /* //NOTE fix menu size in tablet */
@@ -1192,7 +1196,7 @@ p >  a{
     #fullpage > .section > .content > p ,
     #fullpage > .section > .fp-tableCell > .content > p{
         line-height: 21px !important;
-        margin-bottom: 21px !important;
+        margin-bottom: 21px;
     }
     
     /* the sidebar menu */
@@ -1295,7 +1299,7 @@ p >  a{
     }
     
     .exit_text{
-        font-size:12px;
+        font-size:14px;
     }
     
     /* each page */
@@ -1355,13 +1359,20 @@ p >  a{
     .wifi > .footer, 
     .wifi > .fp-tableCell > .footer, 
     .wifi > .fp-tableCell > .wrap > .footer, 
-    .wifi > .fp-tableCell > .wrap > .footer > p,
     .oiplay > .footer, .recharge > .footer,
     .oiplay > .fp-tableCell > .footer,
     .recharge > .fp-tableCell > .footer
     {
         font-size: 14px;
-        margin: 14px 0px 0 0px !important;
+        margin: 14px 0px 14px 0px !important;
+        line-height: 20px !important;
+        width: inherit !important;
+        word-wrap: break-word;
+        padding-right: 0px;
+    }
+    
+    .wifi > .fp-tableCell > .wrap > .footer > p{
+        font-size: 14px;
         line-height: 20px !important;
         width: inherit !important;
         word-wrap: break-word;
@@ -1397,15 +1408,15 @@ p >  a{
     .help > .fp-tableCell > .wrap > .content > ol > .item{
         border-top: solid 1px #dddddd;
         border-bottom: solid 1px #dddddd;
-        padding-top: 33px;
-        padding-bottom: 33px;
+        padding-top: 14px;
+        padding-bottom: 14px;
         margin-right: 0px;
         /* width: 70vw !important; */
     }
     
     /* ul content */
     ul > li{
-        font-size: 12px;
+        font-size: 14px;
     }
     
     .item > div > p{
@@ -1425,20 +1436,22 @@ p >  a{
     .help > .fp-tableCell > .wrap> .content > ol > .item > .collapsing,
     .help > .fp-tableCell > .wrap> .content > ol > .item > .collapse.in
     {
-        width: 196px;
-        font-size: 12px;
-        margin-left: 10px;
+        width: 70vw;
+        font-size: 14px;
+        margin-left: 5px;
         padding-right: 0px;
+        letter-spacing: -0.3px;
     }
     
     /* the arrow */
     .img_container_help,
     .img_container_help_down
     {
-        width: 3vw;
-        height: 6vh;
-        background-size: 3vw;
+        /* width: 3vw;
+        height: 6vh;*/
+        background-size: 3.7vw;
         background-repeat: no-repeat;
+        background-position: -0.3vw 0px;
     }
     
     /* active scroll vertical */
@@ -1464,7 +1477,7 @@ p >  a{
     
     .telephone > .btn_installation,
     .telephone > .fp-tableCell > .btn_installation{
-      width : 240px;
+      width : inherit;
       height: 70px;
       
     }
@@ -1479,29 +1492,36 @@ p >  a{
     .wifi > .btn_connection,
     .wifi > .fp-tableCell > .btn_connection,
     .wifi > .fp-tableCell > .wrap > .btn_connection{
-      width : 240px;
+      width : 100%;
       height: 70px;
+      margin-bottom: 0px;
     }
 
     .oiplay > .btn_oiplay ,
     .recharge > .btn_recharge,
     .oiplay > .fp-tableCell > .btn_oiplay ,
     .recharge > .fp-tableCell > .btn_recharge{
-      width : 240px;
+      width : inherit;
       height: 70px;
+      margin-bottom: 0px;
     }
     
     .collapse > p,
     .collapse.in,
     .collapsing > p,
     .collapse.in > p{
-        width: 196px;
+        letter-spacing: -0.3px;
+        width: 70vw;
     }
     
     .text_container_help{
-        width : 190px;
+        width : 65vw;
         float: right;
         clear: right;
+    }
+    
+    .space-bottom{
+        margin-bottom: 14px !important;
     }
     
 }
