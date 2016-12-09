@@ -57,8 +57,7 @@ body, html {
 
 .sidebar {
   height: 100vh;
-  /* background-image: linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%) !important; */
-  background-color: transparent;
+  background-image: linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
 }
 
 .img-mask{

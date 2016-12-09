@@ -11,6 +11,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    
     <link rel="stylesheet" href="styles/main_prehome.css">
     <link rel="stylesheet" href="styles/cadastro.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
@@ -997,18 +998,6 @@
                         
                     })
                     
-                    //ensure that sidebar has absolute position
-                    $('.sidebar').css('custom' , 'position: absolute !important;')
-                    
-                    //start the animation after a delay
-                    setTimeout(function(){
-                        $('.sidebar-home').stop().animate(
-                            {
-                                opacity: 1
-                            },
-                            700
-                        )
-                    } , 100)
 
                     //sidebar resize width
                     var sidebarWidth = $('.sidebar').width();
@@ -1019,18 +1008,35 @@
                         } , 700 , ''
                         , function(){ 
                             
-                            //ensure that width of element is always 15vh
-                            $('.sidebar').removeClass('col-sm-4 col-md-4 col-lg-4');
-                            $('.sidebar').addClass('col-sm-2 col-md-2 col-lg-2');
+                            //ensure that sidebar has absolute position
+                            $('.sidebar').css('custom' , 'position: absolute !important;')
+
+                            //start the animation after a delay
+                            setTimeout(function(){
+                                $('.sidebar-home').stop().animate(
+                                    {
+                                        opacity: 1
+                                    },
+                                    700,
+                                    '',
+                                    function(){
+                                        //ensure that width of element is always 15vh
+                                        $('.sidebar').removeClass('col-sm-4 col-md-4 col-lg-4');
+                                        $('.sidebar').addClass('col-sm-2 col-md-2 col-lg-2');
+
+                                        //after complete, here load the pre-home content
+                                        $('.content-home').removeClass('hide')
+                                        $('.content-home').animate({
+                                            opacity: 1
+                                        } , 700)
+
+                                        //bind the full page
+                                        bindFullPage();
+                                    }
+                                )
+                            } , 100)
                             
-                            //after complete, here load the pre-home content
-                            $('.content-home').removeClass('hide')
-                            $('.content-home').animate({
-                                opacity: 1
-                            } , 700)
                             
-                            //bind the full page
-                            bindFullPage();
                         }
                     )
                 }
