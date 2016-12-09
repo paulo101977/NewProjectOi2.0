@@ -793,6 +793,10 @@ p >  a{
     clear: right;
 }
 
+.break_line{
+    display: none;
+}
+
 /* home screen */
 /* I had to modify this to resize on table size */
 /* before the max-width was 1200px */
@@ -1092,6 +1096,10 @@ p >  a{
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) and (max-width: 1199px){
     
+    .break_line{
+        display: block;
+    }
+    
     .home_logo {
         margin-top: calc(16.66vh/2 - 50px * 3/4);
     }
@@ -1124,7 +1132,7 @@ p >  a{
     
     
     .menu-item-text{
-        font-size: 10px;
+        /* font-size: 10px; */
     }
     
     
@@ -1171,6 +1179,10 @@ p >  a{
 /* Responsive: Portrait tablets and up */
 /* this is the same that col-md on bootstrap */
 @media screen and (max-width: 767px) {
+    
+    .break_line{
+        display: none;
+    }
     
     .exit_text{
         position: relative !important;

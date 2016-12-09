@@ -11,6 +11,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main_prehome.css">
     <link rel="stylesheet" href="styles/cadastro.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -25,380 +26,382 @@
     <div class="container-fluid">
         <div class="row">
             <!-- form name="formcpf" -->
-                
-                <!-- side bar -->
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
-                    <!-- oi logo -->
-                    <div class="col-xs-6 col-sm-12 col-md-12">
-                        <img class="img-mask" src="svg/oi_logo.svg" />
-                    </div>
-                    <div class="col-xs-6 col-sm-12 col-md-12">
-                        <div class="sidebar_text in-cpf-page-text">
-                            DIGITE O CPF
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- menu scrollable -->
-                <!-- NOTE: inserted after to create the animation -->
-                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 sidebar sidebar-home sidebar-menu scrollable-menu hide">
-                    <!-- oi logo -->
-                    <div id="navbar-dashboard" class="col-xs-6 col-sm-12 col-md-12">
-                        <ul class="nav nav-tabs nav-stacked">
-                            <div class="section section-menu">
-                                <!-- selected item -->
-                                <div class="selected"></div>
-
-                                <!-- start  item -->
-                                <li class="start" role="presentation">
-                                    <a href="#start">
-                                        <div class="start">
-                                            <div class="slide menu-item">
-                                                <div class="menu-item-align">
-                                                    <div class="img_container">
-                                                        <img class="menu-img" src="svg/home.svg" />
-                                                        <div class="exclamation">!</div>
-                                                    </div>
-                                                    <div class="menu-item-text">INICÍO</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="telephone" role="presentation">
-                                    <a href="#telephone">
-                                        <div class="telephone">
-                                            <div class="slide menu-item">
-                                                <div class="menu-item-align">
-                                                    <img class="menu-img" src="svg/telephone.svg" />
-                                                    <div class="menu-item-text">FIXO</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="wifi" role="presentation">
-                                    <a href="#wifi">
-                                        <div class="wifi">
-                                            <div class="slide menu-item">
-                                                <div class="menu-item-align">
-                                                    <img class="menu-img" src="svg/wifi.svg" />
-                                                    <div class="menu-item-text">OI WIFI</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="oiplay" role="presentation">
-                                    <a href="#oiplay">
-                                        <div class="oiplay">
-                                            <div class="slide menu-item">
-                                                <div class="menu-item-align">
-                                                    <img class="menu-img" src="svg/oiplay.svg" />
-                                                    <div class="menu-item-text">OI PLAY</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="recharge" role="presentation">
-                                    <a href="#recharge">
-                                        <div class="recharge">
-                                            <div class="slide menu-item">
-                                                <div class="menu-item-align">
-                                                    <img class="menu-img" src="svg/recharge.svg" />
-                                                    <div class="menu-item-text">RECARGA</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="help" role="presentation">
-                                    <a href="#help">
-                                        <div class="help">
-                                            <div class="slide menu-item">
-                                                <div class="menu-item-align">
-                                                    <img class="menu-img" src="svg/asks.svg" />
-                                                    <div class="menu-item-text">DÚVIDAS FREQUENTES</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </div>
-                        </ul>
-                    </div><!-- end oi logo -->
-                </div>
-                <!-- end menu -->
-
-                <!-- content cpf -->
-                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 content-to-fadeout">
-                    <!-- cpf -->
-                    <div class="col-sm-12 col-sm-12 col-md-12 item-row-cpf">
-                        <input id="cpf" class="password" 
-                               placeholder="CPF" type="text" name="cpf" onBlur="ValidarCPF(formcpf.cpf);" 
-                               onKeyPress="MascaraCPF(formcpf.cpf);" maxlength="14" />
-                        
-                        <!-- placeholder after -->
-                        <div class="cpf-after">
-                            CPF
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <!-- footer button -->
-                    <div class="col-xs-12 col-md-12 item-row-cpf item-last">
-                        <div class="col-xs-10  col-sm-10 col-md-10 col-lg-11 vertical-align-items inline">
-                            <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
-                            
-                            <!-- loading with message -->
-                            <div class="loading-container">
-                                <img class="loading" src="svg/loading.svg"/>
-                            </div>
-                            <div class="know_cpf">
-                                Reconhecendo CPF...
-                            </div>
-                            
-                            <!-- sucess message -->
-                            <div class="sucess_cpf">
-                                <img class="sucess_img" src="svg/ok.svg"/>
-                                <div class="sucess_text">
-                                    Tudo certo!
-                                </div>
-                            </div>
-                            
-                            <!-- error message -->
-                            <div class="error_cpf">
-                                <img class="error_img" src="svg/fail.svg"/>
-                                <div class="error_text">
-                                    Mensagem de erro
-                                    <br>em duas linhas
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-1 vertical-align-items inline">
-                            <div class="img-container">
-                                <img class="arrow-continue" src="svg/next.svg"/>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end first content -->
             
-                <!-- content home, first this is hide content -->
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 content-home hide">
-                    <div id="fullpage">
-                        <!-- start -->
-                        <div class="section start">
-                            <div class="title">Oi, Washington</div>
-                            <div class="content">
-                                <p>Seu novo serviço ainda não está cadastrado no sistema.</p>
-
-                                <p>Em breve, você terá acesso online a todos os serviços e facilidades da Minha Oi. Aproveite enquanto isso pra tirar suas dúvidas e descubra como a Oi pode te deixar mais conectado.</p> 
-                            </div>
-                        </div>
-
-                        <!-- oi fixo -->
-                        <div class="section telephone">
-                            <div class="title">Fixo</div>
-                            <div class="content">
-                                <p>Contratou um novo Fixo da Oi?  Então agora é só aguardar a sua instalação.</p>
-
-                                <p>Siga o passo a passo da sua visita técnica pra começar a falar ilimitado com qualquer Oi.</p>
-                            </div>
-                            <button class="btn_installation btn_hover_dash">Acompanhe a Instalação</button>
-                        </div>
-
-                        <!-- wifi -->
-                        <div class="section wifi">
-                            <div class="wrap">
-                                <div class="title">Oi WiFi</div>
-                                <div class="content">
-                                    <p>Busque o hotspot mais perto de você pra se conectar em alta velocidade gratuitamente, sem consumir sua franquia de internet móvel ou celular.</p>
-
-                                    <p>São mais de 2 milhões de pontos de acesso em todo o Brasil, entre aeroportos, hotéis, restaurantes, shoppings, cafés e outros locais. É só se cadastrar e aproveitar.</p>
-                                </div>
-                                <button class="btn_connection btn_hover_dash">Conectar-se</button>
-                                <div class="footer">
-                                    <p>Pra acessar do seu tablet ou smartphone, você pode também baixar o aplicativo mobile nos sistemas Android e iOS.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- oiplay -->
-                        <div class="section oiplay">
-                            <div class="title">Oi Play</div>
-                            <div class="content">
-                                <p>Clientes TV HD podem assistir ao melhor do nosso conteúdo no Oi Play.</p>
-
-                                <p>Quando e onde quiser, direto do seu computador, tablet ou smartphone, podendo acessar de mais de um dispositivo ao mesmo tempo. Divirta-se!</p>
-                            </div>
-                            <button class="btn_oiplay btn_hover_dash">Conheça o Oi Play</button>
-                            <div class="footer">
-                                <p>Entre com seu login da Minha Oi.</p>
-                            </div>
-
-                        </div>
-
-                        <!-- recharge -->
-                        <div class="section recharge">
-                            <div class="title">Recarga</div>
-                            <div class="content">
-                                <p>Recarregue qualquer celular Pré, Controle ou Oi Galera em instantes. Os valores são a partir de R$ 12 e você pode ganhar até 1 GB pra navegar à vontade.</p>
-
-                                <p>É rápido, fácil e seguro. 
-                                Aproveite também para programar próximas recargas.</p>
-                            </div>
-                            <button class="btn_recharge btn_hover_dash">Recarregue agora</button>
-                            <div class="footer">
-                                <p>Pague com cartão de crédito Visa, Mastercard, Hipercard, Elo ou Diners.</p>
-                            </div>
-
-                        </div>
-
-                        <!-- faq -->
-                        <div class="section help">
-                            <div class="wrap">
-                                <div class="title">Dúvidas frequentes</div>
-
-                                <div class=content>
-                                    <ol type="1">
-
-                                        <!-- each item on ol list -->
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item1">O que é a Minha Oi? 
-                                            </li>
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item1" class="collapse">
-                                                É a área de atendimento online da Oi. Nela, você consegue visualizar os seus produtos e se relacionar com a Oi pela internet de forma simples e fácil.
-                                                Na Minha Oi, você acessa seu saldo, retira a 2ª via da conta, aproveita para se cadastrar na Conta Online ou no Débito Automático e encontrar todos os serviços da Oi em um só lugar.
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item2">Quais são os principais serviços da Minha Oi?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item2" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item3">Posso acessar a Minha Oi através do celular?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item3" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item4">Consigo usar a Minha Oi em qualquer navegador?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item4" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item5">O que devo fazer se eu esquecer a minha senha?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item5" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item6">
-                                                O que é a Minha Oi?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item6" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item7">Adquiri um novo produto Oi, como o incluo na Minha Oi?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item7" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item8">Como falo com a Oi?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item8" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item9">Como encontro o endereço de uma Loja Oi?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item9" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item10">Pessoa Jurídica também pode se cadastrar na Minha Oi?</li>
-
-                                            <div class="arrow_item_help help_item_center img_container_help">
-                                                <!-- img src="svg/arrow_down.svg"  / -->
-                                            </div>
-
-                                            <div id="item10" class="collapse">
-                                                Lorem ipsum dolor text....
-                                            </div>
-                                        </div>
-                                    </ol>
-                                </div>
-
-
-                                <div class="footer">
-                                    Não encontrou a sua dúvida? Acesse a página de <span>FAQ</span> da Minha Oi.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end faq -->
+            <div class="background-white"></div>
+                
+            <!-- side bar -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
+                <!-- oi logo -->
+                <div class="col-xs-6 col-sm-12 col-md-12">
+                    <img class="img-mask" src="svg/oi_logo.svg" />
+                </div>
+                <div class="col-xs-6 col-sm-12 col-md-12">
+                    <div class="sidebar_text in-cpf-page-text">
+                        DIGITE O CPF
                     </div>
-                </div><!-- end of content -->
+                </div>
+            </div>
+                
+            <!-- menu scrollable -->
+            <!-- NOTE: inserted after to create the animation -->
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 sidebar sidebar-home sidebar-menu scrollable-menu hide">
+                <!-- oi logo -->
+                <div id="navbar-dashboard" class="col-xs-6 col-sm-12 col-md-12">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <div class="section section-menu">
+                            <!-- selected item -->
+                            <div class="selected"></div>
+
+                            <!-- start  item -->
+                            <li class="start" role="presentation">
+                                <a href="#start">
+                                    <div class="start">
+                                        <div class="slide menu-item">
+                                            <div class="menu-item-align">
+                                                <div class="img_container">
+                                                    <img class="menu-img" src="svg/home.svg" />
+                                                    <div class="exclamation">!</div>
+                                                </div>
+                                                <div class="menu-item-text">INICÍO</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="telephone" role="presentation">
+                                <a href="#telephone">
+                                    <div class="telephone">
+                                        <div class="slide menu-item">
+                                            <div class="menu-item-align">
+                                                <img class="menu-img" src="svg/telephone.svg" />
+                                                <div class="menu-item-text">FIXO</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="wifi" role="presentation">
+                                <a href="#wifi">
+                                    <div class="wifi">
+                                        <div class="slide menu-item">
+                                            <div class="menu-item-align">
+                                                <img class="menu-img" src="svg/wifi.svg" />
+                                                <div class="menu-item-text">OI WIFI</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="oiplay" role="presentation">
+                                <a href="#oiplay">
+                                    <div class="oiplay">
+                                        <div class="slide menu-item">
+                                            <div class="menu-item-align">
+                                                <img class="menu-img" src="svg/oiplay.svg" />
+                                                <div class="menu-item-text">OI PLAY</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="recharge" role="presentation">
+                                <a href="#recharge">
+                                    <div class="recharge">
+                                        <div class="slide menu-item">
+                                            <div class="menu-item-align">
+                                                <img class="menu-img" src="svg/recharge.svg" />
+                                                <div class="menu-item-text">RECARGA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="help" role="presentation">
+                                <a href="#help">
+                                    <div class="help">
+                                        <div class="slide menu-item">
+                                            <div class="menu-item-align">
+                                                <img class="menu-img" src="svg/asks.svg" />
+                                                <div class="menu-item-text">DÚVIDAS FREQUENTES</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div><!-- end oi logo -->
+            </div>
+            <!-- end menu -->
+
+            <!-- content cpf -->
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 content-to-fadeout">
+                <!-- cpf -->
+                <div class="col-sm-12 col-sm-12 col-md-12 item-row-cpf">
+                    <input id="cpf" class="password" 
+                           placeholder="CPF" type="text" name="cpf" onBlur="ValidarCPF(formcpf.cpf);" 
+                           onKeyPress="MascaraCPF(formcpf.cpf);" maxlength="14" />
+
+                    <!-- placeholder after -->
+                    <div class="cpf-after">
+                        CPF
+                    </div>
+
+                </div>
+                    
+                    
+                <!-- footer button -->
+                <div class="col-xs-12 col-md-12 item-row-cpf item-last">
+                    <div class="col-xs-10  col-sm-10 col-md-10 col-lg-11 vertical-align-items inline">
+                        <input class="btn-continue item-last vertical-align-items" type="button" value="Entrar"/>
+
+                        <!-- loading with message -->
+                        <div class="loading-container">
+                            <img class="loading" src="svg/loading.svg"/>
+                        </div>
+                        <div class="know_cpf">
+                            Reconhecendo CPF...
+                        </div>
+
+                        <!-- sucess message -->
+                        <div class="sucess_cpf">
+                            <img class="sucess_img" src="svg/ok.svg"/>
+                            <div class="sucess_text">
+                                Tudo certo!
+                            </div>
+                        </div>
+
+                        <!-- error message -->
+                        <div class="error_cpf">
+                            <img class="error_img" src="svg/fail.svg"/>
+                            <div class="error_text">
+                                Mensagem de erro
+                                <br>em duas linhas
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-1 vertical-align-items inline">
+                        <div class="img-container">
+                            <img class="arrow-continue" src="svg/next.svg"/>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end first content -->
+            
+            <!-- content home, first this is hide content -->
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 content-home hide content-opacity">
+                <div id="fullpage">
+                    <!-- start -->
+                    <div class="section start">
+                        <div class="title">Oi, Washington</div>
+                        <div class="content">
+                            <p>Seu novo serviço ainda não está cadastrado no sistema.</p>
+
+                            <p>Em breve, você terá acesso online a todos os serviços e facilidades da Minha Oi. Aproveite enquanto isso pra tirar suas dúvidas e descubra como a Oi pode te deixar mais conectado.</p> 
+                        </div>
+                    </div>
+
+                    <!-- oi fixo -->
+                    <div class="section telephone">
+                        <div class="title">Fixo</div>
+                        <div class="content">
+                            <p>Contratou um novo Fixo da Oi?  Então agora é só aguardar a sua instalação.</p>
+
+                            <p>Siga o passo a passo da sua visita técnica pra começar a falar ilimitado com qualquer Oi.</p>
+                        </div>
+                        <button class="btn_installation btn_hover_dash">Acompanhe a Instalação</button>
+                    </div>
+
+                    <!-- wifi -->
+                    <div class="section wifi">
+                        <div class="wrap">
+                            <div class="title">Oi WiFi</div>
+                            <div class="content">
+                                <p>Busque o hotspot mais perto de você pra se conectar em alta velocidade gratuitamente, sem consumir sua franquia de internet móvel ou celular.</p>
+
+                                <p>São mais de 2 milhões de pontos de acesso em todo o Brasil, entre aeroportos, hotéis, restaurantes, shoppings, cafés e outros locais. É só se cadastrar e aproveitar.</p>
+                            </div>
+                            <button class="btn_connection btn_hover_dash">Conectar-se</button>
+                            <div class="footer">
+                                <p>Pra acessar do seu tablet ou smartphone, você pode também baixar o aplicativo mobile nos sistemas Android e iOS.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- oiplay -->
+                    <div class="section oiplay">
+                        <div class="title">Oi Play</div>
+                        <div class="content">
+                            <p>Clientes TV HD podem assistir ao melhor do nosso conteúdo no Oi Play.</p>
+
+                            <p>Quando e onde quiser, direto do seu computador, tablet ou smartphone, podendo acessar de mais de um dispositivo ao mesmo tempo. Divirta-se!</p>
+                        </div>
+                        <button class="btn_oiplay btn_hover_dash">Conheça o Oi Play</button>
+                        <div class="footer">
+                            <p>Entre com seu login da Minha Oi.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- recharge -->
+                    <div class="section recharge">
+                        <div class="title">Recarga</div>
+                        <div class="content">
+                            <p>Recarregue qualquer celular Pré, Controle ou Oi Galera em instantes. Os valores são a partir de R$ 12 e você pode ganhar até 1 GB pra navegar à vontade.</p>
+
+                            <p>É rápido, fácil e seguro. 
+                            Aproveite também para programar próximas recargas.</p>
+                        </div>
+                        <button class="btn_recharge btn_hover_dash">Recarregue agora</button>
+                        <div class="footer">
+                            <p>Pague com cartão de crédito Visa, Mastercard, Hipercard, Elo ou Diners.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- faq -->
+                    <div class="section help">
+                        <div class="wrap">
+                            <div class="title">Dúvidas frequentes</div>
+
+                            <div class=content>
+                                <ol type="1">
+
+                                    <!-- each item on ol list -->
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item1">O que é a Minha Oi? 
+                                        </li>
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item1" class="collapse">
+                                            É a área de atendimento online da Oi. Nela, você consegue visualizar os seus produtos e se relacionar com a Oi pela internet de forma simples e fácil.
+                                            Na Minha Oi, você acessa seu saldo, retira a 2ª via da conta, aproveita para se cadastrar na Conta Online ou no Débito Automático e encontrar todos os serviços da Oi em um só lugar.
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item2">Quais são os principais serviços da Minha Oi?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item2" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item3">Posso acessar a Minha Oi através do celular?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item3" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item4">Consigo usar a Minha Oi em qualquer navegador?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item4" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item5">O que devo fazer se eu esquecer a minha senha?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item5" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item6">
+                                            O que é a Minha Oi?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item6" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item7">Adquiri um novo produto Oi, como o incluo na Minha Oi?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item7" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item8">Como falo com a Oi?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item8" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item9">Como encontro o endereço de uma Loja Oi?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item9" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <li class="arrow_item_help custom-li help_item_center collapsed" data-toggle="collapse" data-target="#item10">Pessoa Jurídica também pode se cadastrar na Minha Oi?</li>
+
+                                        <div class="arrow_item_help help_item_center img_container_help">
+                                            <!-- img src="svg/arrow_down.svg"  / -->
+                                        </div>
+
+                                        <div id="item10" class="collapse">
+                                            Lorem ipsum dolor text....
+                                        </div>
+                                    </div>
+                                </ol>
+                            </div>
+
+
+                            <div class="footer">
+                                Não encontrou a sua dúvida? Acesse a página de <span>FAQ</span> da Minha Oi.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end faq -->
+                </div>
+            </div><!-- end of content -->
             <!-- /form --> <!-- end form -->
         </div>
     
@@ -988,7 +991,11 @@
                     //fadeout the sidebar cpf text
                     $('.sidebar_text').stop().animate({
                         opacity : 0
-                    } , 300)
+                    } , 300 
+                    , '' //easy
+                    , function(){ //on end the animation
+                        
+                    })
                     
                     //ensure that sidebar has absolute position
                     $('.sidebar').css('custom' , 'position: absolute !important;')
@@ -999,7 +1006,7 @@
                             {
                                 opacity: 1
                             },
-                            200
+                            700
                         )
                     } , 100)
 
@@ -1007,8 +1014,9 @@
                     var sidebarWidth = $('.sidebar').width();
                     $('.sidebar').stop().animate(
                         {
-                            width : parseInt(sidebarWidth)/2
-                        } , 300 , ''
+                            //width : parseInt(sidebarWidth)/2
+                            width : '20vw'
+                        } , 700 , ''
                         , function(){ 
                             
                             //ensure that width of element is always 15vh
@@ -1016,8 +1024,10 @@
                             $('.sidebar').addClass('col-sm-2 col-md-2 col-lg-2');
                             
                             //after complete, here load the pre-home content
-                            //$('.sidebar-home').removeClass('hide')
                             $('.content-home').removeClass('hide')
+                            $('.content-home').animate({
+                                opacity: 1
+                            } , 700)
                             
                             //bind the full page
                             bindFullPage();

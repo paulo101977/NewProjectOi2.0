@@ -43,7 +43,7 @@ body, html {
 
 .sidebar {
   height: 100vh;
-  background-image: linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
+  background-image: linear-gradient(135deg, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
 }
 
 .img-mask{
@@ -81,7 +81,6 @@ body, html {
 }
 
 .confirmation_logo{
-    width: 205px;
     height: 83px;
     text-align: center;
     display:block;
@@ -119,6 +118,7 @@ body, html {
 }
 
 .confirmation > .content{
+  font-family: 'SimplonBP-Light';
   margin-top: 5vh;
   margin-bottom: 5vh;
   max-width: 40vw;
@@ -202,7 +202,52 @@ body, html {
 /* Responsive: Portrait tablets and up */
 /* this is the same that col-md on bootstrap */
 @media screen and (max-width: 767px) {
+    .confirmation_container_logo{
+        max-height: 10vh;
+    }
     
-   
+    .confirmation_logo{
+        width: 89.4px;
+        height: 40.5px;
+        margin-left: 10vw;
+        margin-top: 15vh;
+    }
+    
+    .confirmation {
+        height: auto;
+    }
+    
+    .title{
+        margin-left: 10vw;
+        margin-top: 15vh;
+        font-family: 'SimplonBP-Light';
+        font-size: 28px !important;
+        letter-spacing: -1px;
+        color: #ffffff;
+    }
+    
+    .content{
+        font-family: 'SimplonBP-Light' !important;
+        font-size: 21px !important;
+        line-height: 1.43;
+        letter-spacing: -0.5px;
+        color: #ffffff;
+        margin-left: 10vw;
+        margin-top: 5vh;
+        max-width: 80vw !important;
+    }
+    
+    .btn_confirmation{
+        border-image-slice: 1;
+        font-size: 21px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: -0.4px;
+        color: #e03d6f;
+        margin-left: 10vw;
+        margin-top: 5vh;
+        width: 80vw !important;
+    }
 }
 

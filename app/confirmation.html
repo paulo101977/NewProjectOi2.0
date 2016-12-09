@@ -37,7 +37,7 @@
         <div class="row">
             <div class="sidebar confirmation_bg">
                 <!-- logo -->
-                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 confirmation">
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 confirmation confirmation_container_logo">
                     <!-- oi logo -->
                     <img class="confirmation_logo" src="svg/oi_logo.svg" />
                 </div>
@@ -92,27 +92,44 @@
         
       
     <script> 
+        
+        //test if mobile device
+        isMobile = function(){
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+               .test(navigator.userAgent) ) {
+                return true;
+            }
+            
+            return false;
+        }
+        
         var startAnimation = function(){
             $('.confirmation_container').stop().animate(
                 {opacity : 0} 
-                , 300
+                , 500
                 ,''
                 ,function(){
                     //$('.confirmation').css('custom', 'height : 10vh !important')
                     
                     var height = $(window).height()/10; //10vh
-                    var imgHeight = $(window).height()/12; //1/12 height
+                    var imgHeight = $(window).height()/12; // 1/12 height
+                    var logoHeight = $('.confirmation_logo').height()*(2/3);
                     
-                    $('.confirmation').stop()
-                        .animate({height : height } , 300)
-                    $('.sidebar').stop()
-                        .animate({height : height } , 300)
-                    $('.confirmation_logo').stop()
-                        .animate({height : imgHeight } 
-                        , 300 
-                        , '', function(){
-                            
+                    setTimeout(function(){
+                        $('.confirmation').stop()
+                        .animate({height : height } , 700)
+                        $('.sidebar').stop()
+                            .animate({height : height } , 700)
+                        $('.confirmation_logo').stop()
+                            .animate({height : logoHeight } 
+                            , 700 
+                            , '', function(){
+
                         })
+                        $('.confirmation_img').animate({height : logoHeight} , 700)
+                        
+                    } , 200)
+                     
                 }
             )
         }
@@ -120,7 +137,17 @@
 
         $(document).ready(function(){
             $('.btn_confirmation').click(function(){
-                startAnimation();
+                
+                var windowWidth = $(window).width();
+                
+                console.log(windowWidth)
+                
+                if(isMobile() && windowWidth < 768){
+                    //do nothing
+                } else {
+                    startAnimation();
+                }
+               
                 //startAnimation();
             })
         })  //end jquery ready method

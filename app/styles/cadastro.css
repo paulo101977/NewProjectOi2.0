@@ -29,6 +29,10 @@ body, html {
     left: 40vw;
 }
 
+.content-opacity{
+    opacity: 0;
+}
+
 .ui-input-btn > input,
 .ui-input-btn > div
 {
@@ -46,6 +50,17 @@ body, html {
 
 /* END Test */
 
+.sidebar-home{
+    background-color: white;
+}
+
+.background-white{
+    position: absolute;
+    left: 20vw;
+    width: 80vw;
+    height: 100vh;
+    background-color: white;
+}
 
 .container-fluid{
     position: fixed !important;
@@ -99,6 +114,7 @@ body, html {
     border: solid 1px #dddddd;
     display: flex;
     align-items: center;
+    background-color: white;
 }
 
 
@@ -547,6 +563,8 @@ input[type="checkbox"].eye_style:hover{
     height: auto;
     max-height: 100vh !important;
     overflow-x: hidden;
+    min-width: 20vw !important;
+    background-color: white;
 }
 
 /* hide the scroll bar */
@@ -589,7 +607,7 @@ input[type="checkbox"].eye_style:hover{
     vertical-align: middle;
     height: 25vh;
     /* width: 100% !important; */
-    min-width: 17vw !important;
+    min-width: 20vw !important;
     margin-left: auto !important;
     margin-right: auto !important;
 }
