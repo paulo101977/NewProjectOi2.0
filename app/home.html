@@ -794,6 +794,17 @@
                 }
             });
             
+            
+            containerWidth = $(window).width();
+            
+            if(containerWidth < 768){
+                //disable auto scroll on mobile device
+                $.fn.fullpage.setAutoScrolling(false);
+            } else {
+                //enable auto scroll on desktop device
+                $.fn.fullpage.setAutoScrolling(true);
+            }
+            
             $(window).resize(function(){
                 
                 //try clear any animation;
@@ -806,15 +817,14 @@
                 var containerWidth = $(window).width();
                 
                 
-                //move to current path after redraw or reload page stop
-                $(window).resize(function() {
-                    clearTimeout(window.resizedFinished);
-                    window.resizedFinished = setTimeout(function(){
-                        console.log('Resized finished.');
-                        
-                        moveToCurrentPath()
-                    }, 250);
-                });
+                //move to current path after resizea or reload page stop
+                clearTimeout(window.resizedFinished);
+                window.resizedFinished = setTimeout(function(){
+                    console.log('Resized finished.');
+
+                    moveToCurrentPath()
+                }, 250);
+                
                 
                 
                 //change the position of the element "selected"
@@ -823,6 +833,10 @@
                 
                 //changed to 768, before is 1200
                 if(containerWidth < 768){
+                    
+                    //disable auto scroll on mobile device
+                    $.fn.fullpage.setAutoScrolling(false);
+                    
                     $('.active').ready(function(){
                         var el = $('.active')
                         
@@ -836,6 +850,10 @@
                         }
                     })
                 } else {
+                    
+                    //enable auto scroll on desktop device
+                    $.fn.fullpage.setAutoScrolling(true);
+                    
                     $('.active').ready(function(){
                         var el = $('.active')
                         
@@ -860,15 +878,14 @@
                 //bind click
                 $(el).click(function(event){
                     
+                    event.preventDefault();
+                    
                     var name = this.className;
                     var self = this , containerWidth;
                     
                     containerWidth = $(window).width();
                     
                     //TODO: remove all class active and set this element with it class
-                    
-                    //NOTE: moved to if/else block
-                    //$.fn.fullpage.moveTo(name);
 
                     //unselect all li
                     /*$('.section-menu')
@@ -918,6 +935,8 @@
                         
                         event.preventDefault();
                     }
+                    
+                    return false; //prevent default
                 })
             })
             
