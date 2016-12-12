@@ -120,6 +120,15 @@ body, html {
     text-align: left;
 }
 
+.background-white{
+    position: absolute;
+    left: 16.6666vw;
+    width: calc(100vw - 16.6666vw);
+    height: 100vh;
+    background-color: white;
+    z-index : 0;
+}
+
 
 .home_logo{
     margin-left: 36px;

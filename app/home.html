@@ -31,6 +31,9 @@
     <![endif]-->
     
     <div class="container-fluid">
+        
+        <div class="background-white"></div>
+        
         <div class="row"> 
             <!-- side bar -->
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 sidebar sidebar-home">
@@ -48,7 +51,7 @@
                 <!-- oi logo -->
                 <div id="navbar-dashboard" class="col-xs-6 col-sm-12 col-md-12">
                     <ul class="nav nav-tabs nav-stacked">
-                        <div class="section section-menu">
+                        <div class="section section-menu hide">
                             <!-- selected item -->
                             <div class="selected"></div>
                             
@@ -135,7 +138,7 @@
             <!-- end menu -->
             
             <!-- content -->
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hide">
                 <div id="fullpage">
                     <!-- start -->
                     <div class="section start">
@@ -419,10 +422,6 @@
         
       
     <script>
-        
-        //todo: remove all display: flex
-        //todo: on resize or page reload, change the position to selected item
-        
         //test if mobile device
         isMobile = function(){
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
@@ -714,11 +713,8 @@
         }
         
         
-        //TODO: bind mobile event in page load
+        //NOTE: bind mobile event in page load
         $(document).on('pageinit', function(event){
-           /*$("#listitem").swiperight(function() {
-                $.mobile.changePage("#page1");
-            });*/
             
             console.log('bind event on mobile device');
             
@@ -884,19 +880,6 @@
                     var self = this , containerWidth;
                     
                     containerWidth = $(window).width();
-                    
-                    //TODO: remove all class active and set this element with it class
-
-                    //unselect all li
-                    /*$('.section-menu')
-                        .children('li')
-                        .removeClass('active');
-
-                    //set this el as active
-                    $(self).addClass('active');*/
-                    
-                    
-
 
                     //windows size
                     var el = $('#fullpage >.section.' + name);
@@ -940,7 +923,7 @@
                 })
             })
             
-            //FIXME: Try stop scroll propagation
+            //NOTE: stop scroll propagation
             $('#fullpage').scroll(function(event){
                 //try fix scroll on menu
                 event.stopPropagation();
