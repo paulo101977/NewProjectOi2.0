@@ -138,11 +138,17 @@
             <!-- end menu -->
             
             <!-- content -->
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hide">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 content-home hide">
                 <div id="fullpage">
                     <!-- start -->
                     <div class="section start">
-                        <div class="title">Oi, Washington</div>
+                        <div class="title" data-toggle="popover" data-placement="top" data-content="Nova mensagem">
+                            <div class="popover">
+                                <div class="arrow"></div>
+                                <div class="popover-content">Nova mensagem</div>
+                            </div>
+                            Oi, Washington
+                        </div>
                         <div class="content">
                             <p>O seu novo serviço ainda está sendo cadastrado na Minha Oi.</p>
 
@@ -722,8 +728,40 @@
             moveAndDragPage()
         });
         
+        
+        //initial animation on enter this page
+        var animationOnStart = function(){
+            setTimeout(function(){
+                
+                $('.section-menu').css('opacity', 0)
+                $('.section-menu').removeClass('hide')
+                
+                $('.section-menu').stop().animate(
+                    {
+                        opacity: 1
+                    },
+                    700,
+                    '',
+                    function(){
+                        //after complete, here load the pre-home content
+                        $('.content-home').removeClass('hide')
+                        $('.content-home').css('opacity' , 0)
+                        $('.content-home').stop().animate({
+                            opacity: 1
+                        } , 800 , '', function(){
+                            
+                        })
+
+                    }
+                )
+            } , 100)
+        }
+        
 
         $(document).ready(function(){
+            
+            
+            var hasAnimation = false;
             
             //window.getSelection().removeAllRanges(); 
             
@@ -789,6 +827,14 @@
                     
                 }
             });
+            
+            if(hasAnimation){
+                 animationOnStart();
+            }
+            else {
+                $('.section-menu').removeClass('hide')
+                $('.content-home').removeClass('hide')
+            }
             
             
             containerWidth = $(window).width();
