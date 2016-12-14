@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/css/main.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/css/style.css">
+
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- endbuild -->
+</head>
+<body>
+  <!--[if lte IE 8]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div class="container-fluid" id="layout_positivacao">
+    <div class="row">
+
+      <!-- side bar -->
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
+        <!-- logo -->
+        <div class="col-xs-6 col-sm-12 col-md-12">
+          <img class="img-mask" src="./svg/oi_logo.svg" />
+        </div>
+
+        <!-- text -->
+        <!-- div class="col-xs-6 col-sm-12 col-md-12">
+          <div class="sidebar_text">
+            SERVIÇO ATIVO
+          </div>
+        </div -->
+      </div>
+      <!-- end side bar -->
+
+      <!-- content -->
+      <div class='col-xs-12 col-sm-8 col-md-8 col-lg-8 page-content'>
+        <div class="vertical-align-wrapper page-content-wrapper">
+          <div class="vertical-aligner">
+            
+            <!-- inject layout below here -->
+            <div class="section start">
+              <div class="title">Digite o código</div>
+              <div class="content">
+                <div class='text'>
+                  <p>
+                    <!-- Valor padrão de número de telefone. Apenas para a validação das telas -->
+                    Acabamos de enviar um código de validação pro número
+                    (21)...3818.
+                  </p>
+                </div>
+
+                <div class='col-lg-6 col-md-6 col-sm-12'>
+
+                  <div class="activation-code-input">
+                    <div class='custom-input-group'>
+                      <div class='input-wrapper vertical-align-wrapper'>
+                        <div class='vertical-aligner'>
+                          <span class='error-text hidden activation-error'>Código inválido. Digite novamente</span>
+                          <input oninput="countActivationCode(this)" maxlength="6" type="text" placeholder="Informe o código">
+                        </div>
+                      </div>
+                      <div class="counter-wrapper">
+                        <div class="loading-container hidden">
+                          <img class="loading spinning" src="./svg/loading.svg">
+                        </div>
+                        <div class='remaining-characters'>6</div>
+                      </div>
+                    </div>
+
+                    <footer>
+                      <a class="resend resource-link" href="positivacao2.html">Enviar novamente</a>
+                      <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
+                      <span class='separator'>|</span>
+                      <a class="change-number resource-link" href="positivacao2.html">Alterar número</a>
+                    </footer>
+                  </div>
+
+                  <div class="default-success success hidden">
+                    <img class="sucess_img" src="./svg/ok.svg">
+                    <div class="sucess_text">
+                      Tudo certo!
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+            <!-- end inject -->
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<!-- script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script -->
+<script>
+$(document).ready(function(){
+  $('.password-after').hide();
+
+  $('[data-toggle="popover"]').popover()
+
+  $("#password").popover({
+    'trigger':'click' ,
+    'placement' : 'bottom',
+    'target' : '#password',
+    'content' : "Deve ter entre 6 e 10 caracteres, com letras e números"
+  })
+
+  $("#password").click(function(event){
+    $('.popover').ready(function(){
+      var top = $('#password').position().top
+      var left = $('#password').position().left
+      var height = $('#password').height()
+      var margin = $(window).width() > 768 ? 87 : 31
+
+
+      $('.popover').css('top', (top + height/2 +  parseInt($('.popover').css('height'))/2) + "px")
+    })
+
+    $('#password').popover('toggle')
+  })
+
+  $('#password').on('input',function(event){
+    console.dir(event);
+    if(event && event.target && event.target.value){
+      if(event.target.value.length > 0){
+        $('.password-after').show();
+        $('.error-message').hide();
+
+        if(event.target.value.length >= 6){
+          $('.arrow-continue').attr('src' , 'svg/next_active.svg');
+          $('.btn-continue').css('color' , '#e03d6f');
+        } else {
+          $('.arrow-continue').attr('src' , 'svg/next.svg');
+          $('.btn-continue').css('color' , '#cccccc');
+        }
+      } else {
+        $('.password-after').hide();
+        $('.arrow-continue').attr('src' , 'svg/next.svg');
+        $('.btn-continue').css('color' , '#cccccc');
+      }
+    } else {
+      $('.password-after').hide();
+      $('.arrow-continue').attr('src' , 'svg/next.svg');
+      $('.btn-continue').css('color' , '#cccccc');
+      $('.error-message').show();
+    }
+  });
+
+
+  $(".item-last").click(function(){
+    window.location.replace("cpf.html");
+  })
+})
+</script>
+
+<script src='js/script.js'></script>
+<!-- endbuild -->
+</body>
+</html>

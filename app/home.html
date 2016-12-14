@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/main_prehome.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/homeanimation.css">
     
     <!-- fullPage.js plugin -->
     <!-- link rel="stylesheet" type="text/css" href="js/fullPage.js/jquery.fullPage.css" / -->
@@ -36,7 +37,7 @@
         
         <div class="row"> 
             <!-- side bar -->
-            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 sidebar sidebar-home">
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 sidebar sidebar-home sidebar_before_animation">
                 <!-- oi logo -->
                 <div class="col-xs-9 col-sm-1 col-md-1 col-lg-1 logo-container">
                     <img class="home_logo" src="svg/oi_logo.svg" />
@@ -154,6 +155,12 @@
 
                             <p>Em breve, você terá acesso online a todos os serviços e facilidades da Minha Oi. Aproveite enquanto isso pra tirar suas dúvidas e descubra como a Oi pode te deixar mais conectado.</p>
                             
+                        </div>
+                        <div class="footer">
+                            <button class="btn_start">Receber código no celular</button>
+                            <div class="link_after">
+                                <a href="#">Quero fazer depois</a>
+                            </div>
                         </div>
                     </div>
                     
@@ -757,11 +764,36 @@
             } , 100)
         }
         
+        
+        function animatePage(path){
+            var hasAnimation = path.indexOf('#positive') !== -1,
+                positiveAnimation = path.indexOf('#after') !== -1;
+            if(positiveAnimation){
+                console.log('positiveAnimation');
+               $('.sidebar').removeClass('sidebar_before_animation')
+                
+                 animationOnStart();
+            }
+            else if(hasAnimation){
+                console.log('hasAnimation');
+                $('.section-menu').removeClass('hide')
+                $('.content-home').removeClass('hide')
+                
+            }
+            else {
+                console.log('common page');
+                $('.sidebar').removeClass('sidebar_before_animation')
+                $('.section-menu').removeClass('hide')
+                $('.content-home').removeClass('hide')
+            }
+        }
+        
 
         $(document).ready(function(){
             
+            //get the current path
+            var path = $(location).attr('href')
             
-            var hasAnimation = false;
             
             //window.getSelection().removeAllRanges(); 
             
@@ -828,13 +860,17 @@
                 }
             });
             
+            
+            /*var hasAnimation = false;
             if(hasAnimation){
                  animationOnStart();
             }
             else {
                 $('.section-menu').removeClass('hide')
                 $('.content-home').removeClass('hide')
-            }
+            }*/
+            
+           animatePage(path);
             
             
             containerWidth = $(window).width();

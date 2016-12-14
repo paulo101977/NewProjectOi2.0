@@ -1,0 +1,15 @@
+.sidebar_before_animation {
+    position: absolute !important;
+    width: 33.333vw !important;
+    z-index: 3000;
+}
+
+.sidebar-menu {
+    background-color: white;
+    background: white;
+    left: 16.666vw;
+}
+
+.content-home {
+    left: 16.666vw;
+}

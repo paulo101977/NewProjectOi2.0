@@ -1,0 +1,289 @@
+/* TODO: remove all display: flex and replace by table and table-row, etc. */
+
+@font-face {
+    font-family: 'SimplonBP-Light';
+    src : url("../fonts/Simplon BP/OTF/SimplonBP-Light.otf");
+}
+
+@font-face {
+    font-family: 'SimplonBP-Regular';
+    src : url("../fonts/Simplon BP/OTF/SimplonBP-Regular.otf")
+}
+
+@font-face {
+    font-family: 'SimplonOi-Headline';
+    src : url("../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf")
+}
+
+body, html {
+    height: 100%;
+    font-family: 'SimplonBP-Regular' !important;
+    font-weight: 100 !important;
+}
+
+/* NOTE: Test for animation in cpf/home */
+.content-home{
+    top: 0px;
+    z-index: 1000 !important;
+    position: absolute !important;
+    left: 40vw;
+}
+
+.row{
+    overflow-y: scroll !important;
+}
+
+
+.container-fluid{
+    position: fixed !important;
+    margin: 0vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.sidebar {
+  height: 100vh;
+  background-image: linear-gradient(135deg, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
+}
+
+.img-mask{
+    margin-left: 50px;
+    margin-top: 60px
+}
+
+
+
+
+/* remove default padding in bootstrap */
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+
+
+/* confirmation screen */
+.btn_confirmation{
+    width: 270px;
+    height: 70px;
+    border-radius: 3px;
+    border: solid 3px #ffffff !important;
+    background-color: #ffffff !important;
+    border-style: solid !important;
+    border-width: 1px;
+    border-image-source: linear-gradient(to right, #ea288c, #ff6d00 90%, #ffff00);
+    border-image-slice: 1;
+    font-family: "SimplonBP-Regular";
+    padding-left: 30px;
+    font-size: 21px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: -0.4px;
+    color: #e03d6f;
+}
+
+.confirmation_logo{
+    height: 83px;
+    text-align: center;
+    display:block;
+    margin:auto;
+}
+
+
+.btn_confirmation:hover,
+.btn_confirmation:focus,
+.btn_confirmation:active
+{
+    border-radius: 3px !important;
+    background-color: #e03d6f !important;
+    border: solid 1px #ffffff !important;
+    color: white !important;
+    outline: 0 !important;
+}
+
+.confirmation{
+    display: flex;
+    -webkit-flex-direction: column; /* Safari */
+    flex-direction:         column;
+    flex-wrap: nowrap;
+    text-align: left;
+    justify-content: center;
+    height: 100vh;
+}
+
+.confirmation > .title{
+  font-family: 'SimplonOi-Headline';
+  font-size: 63px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -2.2px;
+  color: #ffffff;
+  width: 540px;
+  line-height: 1 !important;
+}
+
+
+p{
+    line-height: 1 !important;
+}
+
+
+.confirmation_txt{
+    float: left;
+    clear: left;
+    margin-right: 32px;
+}
+
+.confirmation_img{
+    width: 5px;
+    height: 14px;
+    border-width: 0;
+    border: 0;
+    background-color: transparent;
+    background-image: url(../svg/confirmation.svg) !important;
+    background-repeat: no-repeat;
+}
+
+.btn_confirmation:hover .confirmation_img   ,
+.btn_confirmation:focus  .confirmation_img,
+.btn_confirmation:active  .confirmation_img
+{
+    background-image: url(../svg/confirmation_active.svg) !important;
+    color: #ffffff;
+}
+
+.btn_container{
+    margin-top: 38px;
+}
+ 
+
+.confirmation_img_container{
+    float: right;
+    clear: right;
+    background-color: transparent;
+    border-width: 0;
+    border: 0;
+}
+
+.confirmation_img{
+    margin-right: 30px;
+}
+
+/* the external content */
+.external-content{
+    height: 90vh;
+    min-height: 90vh;
+    max-height: 90vh;
+    width: 100vw;
+    overflow-y: scroll;
+}
+
+a{
+    display: flex;
+    align-items: center;
+}
+
+a:hover,
+a:active,
+a:focus{
+    text-decoration: none !important;
+}
+
+/* home screen */
+/* I had to modify this to resize on table size */
+/* before the max-width was 1200px */
+@media (max-width: 767px){
+    
+    
+}
+
+/* simple max-width query */
+@media ( min-width: 1200px ){
+    
+    
+
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) and (max-width: 1199px){
+    .title{
+        width: auto !important;
+    }
+}
+
+/* Responsive: Portrait tablets and up */
+/* this is the same that col-md on bootstrap */
+@media screen and (max-width: 767px) {
+    .confirmation_container_logo{
+        max-height: 10vh;
+    }
+    
+    .confirmation_logo{
+        width: 89.4px;
+        height: 40.5px;
+        margin-left: 10vw;
+        margin-top: 12vh;
+    }
+    
+    .confirmation {
+        height: auto;
+    }
+    
+    .title{
+        margin-left: 10vw;
+        margin-top: 15vh;
+        font-family: 'SimplonBP-Light';
+        font-size: 37px !important;
+        letter-spacing: -0.75px !important;
+        color: #ffffff;
+        line-height: 1 !important;
+        width: 80vw !important;
+    }
+    
+    
+    .btn_confirmation{
+        border-image-slice: 1;
+        font-size: 21px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: -0.4px;
+        color: #e03d6f;
+        margin-left: 10vw;
+        margin-top: 5vh;
+        width: 80vw !important;
+    }
+    
+    .btn_container{
+        margin-top: 5vh;
+    }
+    
+    .row {
+        overflow-y: scroll !important;
+        max-height: 100%;
+        height: 100vh;
+        position: relative;
+    }
+    
+    .sidebar {
+        position: absolute;
+        height: 110vh;
+        /* top: 0px; */
+        /* left: 0px; */
+    }   
+    
+    .confirmation_txt{
+        margin-right: 0px;
+    }
+    
+    .confirmation_img_container{
+        position: absolute;
+        left: calc(77%);
+        transform: translate(0px, -4px)
+    }
+}
+

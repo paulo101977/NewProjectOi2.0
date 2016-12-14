@@ -1,0 +1,6 @@
+/* todo: make one class on positivation page */
+.positivacao #fullpage{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
