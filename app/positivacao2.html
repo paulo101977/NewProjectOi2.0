@@ -11,10 +11,11 @@
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/css/main.css">
+  <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles/css/style.css">
+  <!-- link rel="stylesheet" href="styles/css/style.css" -->
+  <link rel="stylesheet" href="styles/positivacao_test.css">
 
 
   <script src="js/jquery-3.1.1.min.js"></script>
@@ -26,14 +27,16 @@
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div class="container-fluid" id="layout_positivacao">
+  <div class="container-fluid prehome positivacao" id="layout_positivacao">
     <div class="row">
+        
+      <div class="background-white"></div>
 
       <!-- side bar -->
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 sidebar">
         <!-- logo -->
-        <div class="col-xs-6 col-sm-12 col-md-12">
-          <img class="img-mask" src="./svg/oi_logo.svg" />
+        <div class="col-xs-9 col-sm-1 col-md-1 col-lg-1 logo-container">
+          <img class="home_logo" src="./svg/oi_logo.svg" />
         </div>
 
         <!-- text -->
@@ -46,56 +49,54 @@
       <!-- end side bar -->
 
       <!-- content -->
-      <div class='col-xs-12 col-sm-8 col-md-8 col-lg-8 page-content'>
-        <div class="vertical-align-wrapper page-content-wrapper">
-          <div class="vertical-aligner">
-            
-            <!-- inject layout below here -->
-            <div class="section start">
-              <div class="title">Digite o código</div>
+      <div class='col-xs-12 col-sm-10 col-md-10 col-lg-10 content-home'>
+          <div id="fullpage">
+                <!-- inject layout below here -->
+                <div class="start other-section">
+                  <div class="title">Digite o código</div>
 
-              <div class="content">
-                <p class='subtitle'>Em qual número deseja receber o código de validação?</p>
-              </div>
+                  <div class="content">
+                    <p class='subtitle'>Em qual número deseja receber o código de validação?</p>
+                  </div>
 
-              <div class="list-container col-xs-12 col-sm-10 col-md-6">
-                <div id="phoneList" class="list-group">
-                  <div class="list-group-item radio">
-                    <label>
-                      <!-- Deixa o primeiro marcado por padrão -->
-                      <input type="radio" CHECKED name="telefones" value="0">
-                      <p>Enviar para (21)...9082</p>
-                    </label>
-                  </div>
-                  <div class="list-group-item radio">
-                    <label>
-                      <!-- Deixa o primeiro marcado por padrão -->
-                      <input type="radio" name="telefones" value="1">
-                      <p>Enviar para (21)...9083</p>
-                    </label>
-                  </div>
-                  <div class="list-group-item radio">
-                    <label>
-                      <!-- Deixa o primeiro marcado por padrão -->
-                      <input type="radio" name="telefones" value="2">
-                      <p>Enviar para (21)...9084</p>
-                    </label>
-                  </div>
-                  <div class="list-group-item radio">
-                    <label>
-                      <!-- Deixa o primeiro marcado por padrão -->
-                      <input type="radio" name="telefones" value="3">
-                      <p>Enviar para (21)...9085</p>
-                    </label>
+                  <div class="list-container col-xs-12 col-sm-10 col-md-6">
+                    <div id="phoneList" class="list-group">
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" CHECKED name="telefones" value="0">
+                          <p>Enviar para (21)...9082</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="telefones" value="1">
+                          <p>Enviar para (21)...9083</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="telefones" value="2">
+                          <p>Enviar para (21)...9084</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="telefones" value="3">
+                          <p>Enviar para (21)...9085</p>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-outline">Gerar código de acesso</button>
                   </div>
                 </div>
-                <button class="btn btn-outline">Gerar código de acesso</button>
-              </div>
-            </div>
 
-            <!-- end inject -->
+                <!-- end inject -->
+                 
           </div>
-        </div>
     </div>
 
   </div>

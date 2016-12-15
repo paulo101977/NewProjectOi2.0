@@ -1,0 +1,1084 @@
+/* TODO: remove all display: flex and replace by table and table-row, etc. */
+
+@font-face {
+    font-family: 'SimplonBP-Light';
+    src : url("../fonts/Simplon BP/OTF/SimplonBP-Light.otf");
+}
+
+@font-face {
+    font-family: 'SimplonBP-Regular';
+    src : url("../fonts/Simplon BP/OTF/SimplonBP-Regular.otf")
+}
+
+@font-face {
+    font-family: 'SimplonOi-Headline';
+    src : url("../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf")
+}
+
+body, html {
+    height: 100%;
+    font-family: 'SimplonBP-Regular' !important;
+    font-weight: 100 !important;
+}
+
+.row{
+    /* background-color: #f5f5f5; */
+    
+}
+
+.background-white{
+    position: absolute;
+    left: 20vw;
+    width: 80vw;
+    height: 100vh;
+    background-color: white;
+    z-index : 0;
+}
+
+.home_logo{
+    margin-left: 36px;
+    margin-top: 70px;
+    max-height: 62.5px;
+    min-height: 62.5px;
+}
+
+
+/* NOTE: Test for animation in cpf/home */
+.content-home{
+    top: 0px;
+    z-index: 1000 !important;
+    position: absolute !important;
+    left: 40vw;
+}
+
+.ui-input-btn > input,
+.ui-input-btn > div
+{
+    visibility: visible;
+}
+
+/* hidden the mobile plain text button */
+.ui-input-btn{
+    visibility: hidden;
+}
+
+/*.side-bar-after-effect{
+    max-width: 15vh !important;
+}*/
+
+/* END Test */
+
+
+.container-fluid{
+    position: fixed !important;
+    margin: 0vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.sidebar {
+  height: 100vh;
+  background-image: linear-gradient(-180deg, #EA288C 0%, #FF6D00 70%);
+  background-image: linear-gradient(to bottom, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.img-mask{
+    
+}
+
+/* text on side bar */
+.sidebar_text {
+  margin-left: 50px;
+  width: 266px;
+  height: 126px;
+  font-family: 'SimplonOi-Headline';
+  font-size: 70px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  color: #ffffff;
+}
+
+.item-row{
+    position: relative;
+    height: 33.33vh !important;
+    margin-left: 0px !important;
+    border-top: solid 1px #dddddd;
+    background-color: white !important;
+}
+
+.item-last{
+  background-color: #f5f5f5 !important;
+  border-width: 0px;
+}
+
+.click_button > .vertical-align-items,
+.click_button > .vertical-align-items > .item-last{
+    cursor: pointer !important;
+}
+
+/* items on cpf page */
+.item-row-cpf{
+    height: 50vh !important;
+    margin-left: 0px !important;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* remove the border */
+input {
+  border-width:0px !important;
+  border:none !important;
+}
+
+
+/* below customize checkbox */
+.checkbox-container{
+    vertical-align: middle;
+}
+
+/* align label to checkbox */
+label {
+  display: block;
+  padding-left: 15px;
+  line-height: 19px;
+  text-indent: 15px;
+  margin-right: 70px !important;
+}
+
+/* change the input text style */
+input[type="text"],
+input[type="password"]{
+    font-family: 'SimplonBP-Light';
+    font-size: 42px;
+      font-weight: 100;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 5.36;
+      letter-spacing: -0.3px;
+      color: #777777;
+      height: 50px;
+}
+
+input[type="checkbox"].without-eye{
+    opacity: 0;
+}
+
+input[type="checkbox"] + label
+{
+    background-color: #fff;
+    border: 0.08rem solid #999999;
+    width: 21px  !important;
+    height: 21px;
+    float: right;
+    display: block;
+    margin-right: 70px !important;
+    background: none;
+}
+
+input[type="checkbox"]:checked + label {
+    content: ' ';
+    width: 21px;
+    height: 21px;
+    background: url(../svg/checkbox_on.svg);
+    background-repeat: no-repeat;
+    border: none;
+    *overflow: hidden;
+    color : #C72177;
+}
+
+
+input[type="checkbox"]:hover + label{
+    border: 0.08rem solid #C72177;
+    display: block;
+}
+
+input[type="checkbox"]:checked:hover + label{
+    border: none;
+}
+
+
+
+
+/* remove outline border */
+input:focus {
+    outline-width: 0;
+}
+
+/* the above email input text */
+.email-name{
+  position: absolute !important;
+  margin-top: auto;
+  top: calc(50% - 40px);
+  margin-left: 87px !important;
+  font-family: SimplonBP-Regular;
+  font-size: 14px;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  letter-spacing: -0.3px;
+  color: #777777;
+  
+}
+
+/* email input */
+/* the password input */
+/* the cpf input */
+.password , .cpf, .email{
+  font-family: 'SimplonBP-Light';
+  font-size: 42px;
+  font-weight: 300;
+  margin-left: 87px !important;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.3px;
+  width: 100%;
+  background-color: white !important;
+}
+
+.email{
+    color: #777777;
+}
+
+.password , .cpf {
+    color: #222222;
+}
+
+.in-cpf-page-text{
+    width: 204px !important;
+}
+/* end */
+
+/* placeholder password after */
+.password-after, .cpf-after{
+    font-family: 'SimplonBP-Light';
+    position: absolute;
+    top: calc(50% - 50px);
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: -0.3px;
+    color: #777777;
+    margin-left: 87px !important;
+}
+
+/* placeholder password after */
+.cpf-after{
+    margin-left: 87px !important;
+    z-index: 100;
+}
+
+/* error message */
+.error-message{
+    position: absolute;
+    margin-top: auto;
+    top: calc(50% - 50px);
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: -0.3px;
+    color: #ff0000;
+    margin-left: 87px !important;
+}
+
+.float-right{
+    text-align: right;
+    display: block;
+    float: right !important;
+    clear: right !important;
+    width: 100%;
+}
+
+.margin-right{
+    margin-right: 76px !important;
+    width: 4vw !important;
+    float: right !important;
+    clear: right !important;
+}
+
+/* the button continue */
+.btn-continue, .loading{
+  margin-left: 87px !important;
+  font-family: SimplonBP-Light;
+  font-size: 42px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.3px;
+  color: #cccccc;
+  cursor: default !important;
+}
+
+/* cpf img */
+.loading, .sucess_img , .error_img{
+    background-repeat: no-repeat;
+    margin: 0px !important;
+}
+
+.error_cpf{
+    display: none;
+}
+
+/*.sucess_cpf, .error_cpf{
+    display: flex;
+    align-items: center;
+}*/
+
+.sucess_text, .error_txt{
+    margin-right: 14px;
+    font-family: 'SimplonBP-Light' !important;
+    font-size: 21px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: -0.7px;
+    color: #4a4a4a;
+}
+
+
+/* container to img loading */
+.loading-container{
+    margin-left: 87px !important;
+}
+
+/* text on cpf page */
+.know_cpf , 
+.sucess_text , 
+.error_text{
+  font-family: 'SimplonBP-Light';
+  padding-left: 0px !important;
+  font-size: 21px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: -0.7px;
+  color: #4a4a4a;
+}
+
+.sucess_text , 
+.error_text,
+.know_cpf.visible{ /* fix the margin error */ 
+   margin-left: 15px !important; 
+}
+
+.know_cpf,
+.sucess_cpf,
+.error_cpf,
+.loading-container{
+   display: none;
+}
+
+.visible{
+   display: flex !important;
+   align-items: center; 
+   margin-left: 87px !important;
+}
+
+.invisible{
+    display: none !important;
+}
+
+.btn-continue:active{
+  /*color: #e03d6f;*/
+}
+
+
+/* eye input checkbox */
+input[type="checkbox"].eye_style{
+    display: none;
+    border: none;
+    border-width: 0px;
+}
+
+input[type="checkbox"].eye_style + label{
+    display: none;
+    width: 26px !important;
+    height: 26px;
+    background-image: url(../svg/eye_unchecked.svg);
+    background-repeat: no-repeat;
+    border: none;
+    border-width: 0px;
+    margin: 0px !important;
+}
+
+input[type="checkbox"].eye_style:active + label, 
+input[type="checkbox"].eye_style:checked + label{
+    display: none;
+    width: 26px !important;
+    opacity: 1;
+    background-image: url(../svg/eye_svg.svg);
+    background-repeat: no-repeat;
+}
+
+input[type="checkbox"].eye_style:hover{
+    display: none;
+    width: 26px !important;
+    opacity: 1;
+    border: none;
+    border-width: 0px;
+    background-image: url(../svg/eye_svg.svg) !important;
+    background-repeat: no-repeat !important;;
+}
+
+/* center child items on screen */
+.vertical-align-items{
+    height: 100% !important;
+}
+
+
+/* arrow "Entrar" button */
+.arrow-continue{
+    float: right;
+    vertical-align: middle;
+    background: url(../svg/next.svg);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 23px;
+    border: 0 !important;
+    border-width: 0px !important;
+    outline: none !important;
+}
+
+
+.img-container{
+    display: inline-block !important;;
+    float: right !important;
+    clear: right !important;;
+    width: 100%;
+    margin-right: 70px;
+}
+
+
+.text-show{
+  font-family: SimplonBP-Light;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.6px;
+  color: #777777;
+  margin-right: 76px !important;
+}
+
+
+
+/* align div in vertical center */
+.inline{
+    display: flex;
+    align-items: center;
+}
+
+/* remove default padding in bootstrap */
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+/* popover */
+.popover{
+    background-color: white !important;
+    width: 364px !important;
+    max-width: 364px !important;
+    height: 50px !important;
+    color: #222222 !important;
+    font-size: 14px !important;
+    padding-left 7px !important;
+    font-family: 'SimplonBP-Regular' !important;
+    border: #dbdbdb solid 2px !important;
+    border-radius: 2px !important;
+    -webkit-box-shadow: 0 0 0 white !important;
+    box-shadow: 0 0 0 white !important;
+    left: 87px !important;
+}
+
+.popover-content{
+    width: 364px !important;
+    max-width: 364px !important;
+    height: 50px !important;
+}
+
+.popover > .arrow {
+    top: -21px !important;
+    left: 11% !important;
+    border-width: 10px !important;
+}
+
+.item-row-cpf{
+    background-color: white;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) and (max-width: 1199px){
+     
+    
+    /* //NOTE fix menu size in tablet */
+    /*.sidebar {
+        font-size: 4.375rem;
+        text-align: -webkit-auto;
+        padding-right: 25px;
+        height: 15vh !important;
+    }*/
+    .sidebar-home{
+        height: 100vh !important;
+        width : 15vw !important;
+    }
+    
+    .section > li > a > div,
+    .selected,
+    .slide.menu-item,
+    .menu-item-align{
+        height:  16.666vh !important;
+        min-height:  16.666vh !important;
+    }
+    
+    /* NOTE: fix to tablet size */
+    .sidebar_text, .in-cpf-page-text{
+       font-size: 6vw;
+       margin-top:  43px !important;
+    }
+    
+    #password ,
+    .email,
+    .btn-continue{
+	   font-size: 4vw;
+    }
+    
+    .item-row{
+        /*height: 26.66vh !important;
+        max-height: 26.66vh !important;*/
+        background-color: white !important;
+    }
+    
+    .item-last{
+        background-color: #f5f5f5 !important;
+    }
+
+    
+    .email-name{
+      position: absolute !important;
+      /* margin-top: 5vh; */
+    }
+    
+    .menu-item-text{
+        font-size: 10px;
+    }
+    
+    
+    .custom-li,
+    .custom-li:before
+    {
+        font-size: 15px !important;
+        font-weight: 900;
+    }
+
+
+    
+}
+
+/* Responsive: Portrait tablets and up */
+/* this is the same that col-md on bootstrap */
+@media screen and (max-width: 767px) {
+    
+    .collapse > p,
+    .collapse.in,
+    .collapsing > p,
+    .collapse.in > p{
+        width: none !important;
+    }
+    
+    /* change the input text style */
+    input[type="text"],
+    input[type="password"]{
+          font-size: 21px;
+          font-weight: 100;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 5.36;
+          letter-spacing: -0.3px;
+          color: #777777;
+          height: 30px;
+    }
+    
+    
+    /* the sidebar menu */
+    .sidebar{
+        display: flex;
+        align-items: center;
+        height: 70px; /* fix size refactory in mobile device */
+        min-height: 70px;
+        max-height: 70px !important;
+    }
+    
+    /* fix the menu size in tablet */
+    .sidebar-home{
+        /* height: 7vh !important; */
+    }
+    
+    /* the logo img */
+    .img-mask{
+        width: 90px;
+        height: 41.1px;
+        object-fit: contain;
+        margin: 0 0 0 1.25rem !important;
+    }
+    
+    
+     /* text in sidebar */
+    .sidebar_text , .in-cpf-page-text{
+        display: flex;
+        align-items: center;
+        width: auto !important;
+        float: right;
+        text-align: right;
+        font-size: 14px;
+        letter-spacing: -0.3px;
+        margin-right: 1.3125rem !important;
+        box-sizing: border-box;
+        line-height: normal;
+        font-family: 'SimplonBP-Light';
+    }
+    
+    /* fix size refactory in mobile device */
+    form[name="form_login"],
+    .cpf_content{
+        height: calc(100vh - 68px)
+    }
+    
+    .item-row-cpf{
+        height: 50%; /* fix size refactory in mobile device */
+        max-height: 50%; /* fix size refactory in mobile device */
+    }
+    
+    /* each line */
+    .item-row{
+        height: 33.3%; /* fix size refactory in mobile device */
+        max-height: 33.3%; /* fix size refactory in mobile device */
+        background-color: white !important;
+    }
+    
+    .item-last{
+        background-color: #f5f5f5 !important;
+    }
+    
+    .email-name{
+      position: absolute !important;
+      /* margin-top: 5vh; */
+      margin-left: 31px !important;
+    }
+    
+    
+    /* the email input */
+    .email{
+        font-size: 18px;
+        letter-spacing: -0.9px;
+        margin-left: 31px !important;
+    }
+    
+    /* the password input and the button continue*/
+    .password, .btn-continue{
+      font-size: 21px;
+      letter-spacing: -1px;
+      margin-left: 31px !important;
+    }
+    
+    /* change placeholder for input */
+    ::-webkit-input-placeholder,
+    :-moz-placeholder, /* Firefox 18- */
+    ::-moz-placeholder,  /* Firefox 19+ */
+    :-ms-input-placeholder
+    {
+      font-size: 21px !important;
+    }
+
+    
+    .password-after , .error-message , .cpf-after{
+        font-size: 12px;
+        margin-left: 31px !important;
+        /* margin-top: 5vh !important; */
+    }
+    
+    .cpf-after{
+        /* margin-top: -40vh !important; */
+    }
+    
+    .loading-container, .visible{
+        margin-left: 31px !important;
+    }
+    
+    
+    /* eye checkbox */
+    label{
+        font-size: 14px !important;
+    }
+    
+    .eye_style{
+        display: block;
+    }
+    
+    input[type="checkbox"] + label {
+        display: none;
+    }
+    
+    input[type="checkbox"]:hover + label {
+        display: none !important;
+    }
+    
+    label{
+        display: none;
+    }
+    
+    /* show eye input check box */
+    input[type="checkbox"].eye_style + label,
+    input[type="checkbox"].eye_style:active + label ,
+    input[type="checkbox"].eye_style:checked + label,
+    input[type="checkbox"].eye_style:hover + label
+    {
+        display: block !important;
+    }
+    
+    /* fix margin issue */
+    .margin-right{
+        /* padding-right : 30px; */
+        float: right !important;
+        clear: right !important;
+        margin-right: 0px;
+    }
+    
+    /* popover */
+    .popover{
+        background-color: white !important;
+        width: 85vw !important;
+        max-width: 85vw !important;
+        height: 32px !important;
+        font-size: 12px !important;
+        padding-left 0px !important;
+        border-left-width: 0px !important;
+        border-right-width: 0px !important;
+        border-bottom-width: 0px !important;
+        left: 31px !important;
+    }
+
+    .popover-content{
+        width: 85vw !important;
+        max-width: 85vw !important;
+        height: 32px !important;
+        text-align: left;
+        padding-left: 0px !important;
+    }
+
+    .popover > .arrow {
+        border-width: 0px !important;
+    }
+    
+    /* home */
+    .menu-item-text{
+        font-size: 10px;
+    }
+    
+    .menu-img{
+        width: 10vw;
+        height: 10vh;    
+    }
+    
+    .sidebar-home{
+        height: 15vh;
+        max-height: 15vh !important;
+        display: flex;
+        align-items: center;
+    }
+    
+    .home_logo{
+        margin: 2% auto auto 10% !important;
+        max-height: 15vw !important;
+        min-height: 15vw !important;
+        max-width: 30vw !important;
+        min-width: auto !important;
+        width: auto !important;
+    }
+    
+    #fullpage > .section {
+        height: 70vh !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        /* float: left !important; */
+        flex-grow: 1 !important; /* to align side by side item */
+        padding-left:  15vw !important;
+        margin-right: 15vw !important;
+        table-layout: auto;
+    }
+    
+    .fp-tableCell{
+        height: 70vh !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 15vw !important;
+    }
+    
+    .section-menu , 
+    .item-align, 
+    .menu-item, 
+    .menu-item-align,
+    .section-menu > li {
+        height: 15vh !important;
+        max-height: 15vh !important;
+        min-width:  30vw !important;
+        max-width:  30vw !important;
+    }
+    
+    .selected{
+        width: 25vw;
+        min-width: 30vw !important;
+        max-width: 30vw !important;
+        height: 6px !important;
+        min-height: 6px !important;
+        max-height: 6px !important;
+        background-size: 30vw 6px !important; 
+    }
+    
+    .exit_text{
+        font-size: 5vw;
+    }
+    
+    /* each page */
+    .start > .title,
+    .start > .fp-tableCell > .title{
+        margin-top : 0 !important;
+        font-size: 28px !important;
+        font-weight: bold !important;
+    }
+
+    .help > .fp-tableCell > .wrap{
+        width: 100vw;
+    }
+
+    .telephone > .title,
+    .telephone > .fp-tableCell > .title,
+    .wifi > .title,
+    .wifi > .fp-tableCell > .title,
+    .wifi > .fp-tableCell > .wrap > .title,
+    .oiplay > .title , 
+    .recharge > .title ,
+    .oiplay > .fp-tableCell > .title , 
+    .recharge > .fp-tableCell > .title ,
+    .help > .title,
+    .help > .fp-tableCell > .title,
+    .help > .fp-tableCell > .wrap > .title
+    {
+        margin-top : 0 !important;
+        font-size: 21px !important;
+        font-weight: bold !important;
+        letter-spacing: -0.1px;
+    }
+    
+    .help > .title,
+    .help > .fp-tableCell > .title,
+    .help > .fp-tableCell > .wrap > .title
+    {
+        margin-top: 39px !important;
+    }
+    
+    .start > .content,
+    .start > .fp-tableCell > .content,
+    .telephone > .content,
+    .telephone > .fp-tableCell > .content,
+    .wifi > .content,
+    .wifi > .fp-tableCell > .content,
+    .wifi > .fp-tableCell > .wrap > .content,
+    .oiplay > .content , 
+    .recharge > .content ,
+    .oiplay > .fp-tableCell > .content , 
+    .recharge > .fp-tableCell > .content ,
+    .help > .content,
+    .help > .fp-tableCell > .content,
+    .help > .fp-tableCell > .wrap > .content,
+    .wifi > .footer,
+    .wifi > .fp-tableCell > .footer,
+    .wifi > .fp-tableCell > .wrap > .footer ,
+    .recharge > .footer,
+    .recharge > .fp-tableCell > .footer,
+    .help > .footer, 
+    .help > .fp-tableCell > .footer ,
+    .help > .fp-tableCell > .wrap >  .footer
+    {
+        font-size: 14px !important;
+        margin: 13px 0px 0 0px !important;
+        line-height: 20px !important;
+        width: 80vw !important;
+    }
+    
+    /* Fix the mobile content size */
+    .help > .fp-tableCell > .wrap > .content{
+        height: 100% !important;
+    }
+    
+    .custom-li:before{
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: -0.3px;
+        margin-right: 9px;
+        margin-left: 0px;
+    }
+    .custom-li {
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: -0.3px;
+        width : 50vw;
+    }
+
+    /* item */
+    .help > .content > ol > .item,
+    .help > .fp-tableCell > .content > ol > .item,
+    .help > .fp-tableCell > .wrap > .content > ol > .item{
+        border-top: solid 1px #dddddd;
+        border-bottom: solid 1px #dddddd;
+        padding-top: 33px;
+        padding-bottom: 33px;
+        margin-right: 0px;
+        width: 70vw !important;
+    }
+    
+    /* internal intent content, inside collapse */
+    .help > .content > ol > .item > .collapse,
+    .help > .content > ol > .item > .collapsing,
+    .help > .content > ol > .item > .collapse.in,
+    .help > .fp-tableCell > .content > ol > .item > .collapse,
+    .help > .fp-tableCell > .content > ol > .item > .collapsing,
+    .help > .fp-tableCell > .content > ol > .item > .collapse.in,
+    .help > .fp-tableCell > .wrap > .content > ol > .item > .collapse,
+    .help > .fp-tableCell > .wrap> .content > ol > .item > .collapsing,
+    .help > .fp-tableCell > .wrap> .content > ol > .item > .collapse.in
+    {
+        width: 50vw;
+        font-size: 12px;
+    }
+    
+    /* active scroll vertical */
+    .help > .fp-tableCell > .title ,
+    .help > .fp-tableCell > .wrap >  .title{
+        height : auto !important;
+        display: inline-block;
+    }
+    
+    .help > .fp-tableCell > .content ,
+    .help > .fp-tableCell > .wrap >  .content{
+        height : auto !important;
+        display: inline-block;
+    }
+    
+    .help > .footer, 
+    .help > .fp-tableCell > .footer ,
+    .help > .fp-tableCell > .wrap >  .footer{
+        height: auto !important;
+        display: inline-block;
+        width: 70vw !important;
+    }
+    
+    .telephone > .btn_installation,
+    .telephone > .fp-tableCell > .btn_installation{
+      width : 70vw;
+      height: 70px;
+      
+    }
+
+    .wifi > .btn_connection,
+    .wifi > .fp-tableCell > .btn_connection,
+    .wifi > .fp-tableCell > .wrap > .btn_connection{
+      width : 70vw;
+      height: 70px;
+    }
+
+    .oiplay > .btn_oiplay ,
+    .recharge > .btn_recharge,
+    .oiplay > .fp-tableCell > .btn_oiplay ,
+    .recharge > .fp-tableCell > .btn_recharge{
+      width : 70vw;
+      height: 70px;
+    }
+    
+    .help > .footer,
+    .help > .fp-tableCell > .footer,
+    .help > .fp-tableCell > .wrap > .footer{
+        margin-bottom: 300px !important;
+    }
+}
+
+/* to manage the checkbox position */
+@media screen and (min-width: 1500px){
+    .padding-right{
+        width : 6vw !important;
+    }
+    
+    .sidebar_text{
+        margin-top: 43px !important;
+    }
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1499px){
+    .margin-right{
+        width : 4vw !important;
+    }
+    
+    .sidebar_text{
+        margin-top: 43px !important;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1199px){
+    .margin-right{
+        width : 5vw !important;
+        margin-right: 70px !important;
+    }
+    
+    /* fix the width on tablet */
+    #fullpage{
+        width: 70vw !important;
+        float: left;
+        clear: both;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 999px){
+    .margin-right{
+        margin-right: 70px !important;
+    }
+    
+    #fullpage{
+        width: 70vw;
+        left: 30vw;
+        top: -100vh;
+    }
+    
+    /*.exit_text{
+        font-size: 10px;
+    }*/
+}
+
+
+/* change placeholder for input */
+::-webkit-input-placeholder ,
+:-moz-placeholder , /* Firefox 18- */
+::-moz-placeholder, /* Firefox 19+ */
+:-ms-input-placeholder {  
+  font-family: 'SimplonBP-Light';
+  font-size: 42px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 5.36;
+  letter-spacing: -0.3px;
+  color: #dddddd;   
+  font-weight: 100 !important;
+}
+

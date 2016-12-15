@@ -1,0 +1,41 @@
+.sidebar_animation {
+    position: absolute !important;
+    width: 16.666vw !important;
+    z-index: 3000;
+}
+
+.sidebar-menu-animation {
+    background-color: white;
+    background: white;
+    left: 16.666vw;
+}
+
+.content-home {
+    /* left: 33.333vw; */
+}
+
+.animate_bar{
+   animation: animate_bar 0.7s;
+   -webkit-animation: animate_bar 0.7s;
+}
+
+@keyframes animate_bar{
+    0%   {width: 33.333vw !important;}
+    100%   {width: 16.666vw !important;}
+}
+
+/*@media screen and (min-width: 768px) and (max-width: 1199px){
+    #fullpage{
+        position: inherit !important;
+    }
+}*/
+
+@media screen and (max-width: 767px) {
+    .content-home {
+        left: 0px !important;
+    }   
+    
+    .content-home > #fullpage{
+        height: calc(100vh - 142px) !important;
+    }
+}

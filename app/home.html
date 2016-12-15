@@ -14,10 +14,10 @@
     <!-- build:css(.tmp) styles/main.css -->
     
     <!-- link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.min.css" -->
-    <link rel="stylesheet" href="styles/main_prehome.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/homeanimation.css">
+    <!-- link rel="stylesheet" href="styles/homeanimation.css" -->
     
     <!-- fullPage.js plugin -->
     <!-- link rel="stylesheet" type="text/css" href="js/fullPage.js/jquery.fullPage.css" / -->
@@ -31,13 +31,13 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <div class="container-fluid">
+    <div class="container-fluid prehome homeanimation">
         
         <div class="background-white"></div>
         
         <div class="row"> 
             <!-- side bar -->
-            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 sidebar sidebar-home sidebar_before_animation">
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 sidebar sidebar-home sidebar_animation">
                 <!-- oi logo -->
                 <div class="col-xs-9 col-sm-1 col-md-1 col-lg-1 logo-container">
                     <img class="home_logo" src="svg/oi_logo.svg" />
@@ -48,7 +48,7 @@
             </div>
             
             <!-- menu scrollable -->
-            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2  sidebar-home sidebar-menu scrollable-menu">
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2  sidebar-home sidebar-menu scrollable-menu sidebar-menu-animation">
                 <!-- oi logo -->
                 <div id="navbar-dashboard" class="col-xs-6 col-sm-12 col-md-12">
                     <ul class="nav nav-tabs nav-stacked">
@@ -766,23 +766,27 @@
         
         
         function animatePage(path){
-            var hasAnimation = path.indexOf('#positive') !== -1,
-                positiveAnimation = path.indexOf('#after') !== -1;
-            if(positiveAnimation){
+            var positive = path.indexOf('#positive') !== -1 ? true : false,
+                barAnimation = path.indexOf('#baranimation') !== -1 ? true : false;
+            if(positive){
                 console.log('positiveAnimation');
-               $('.sidebar').removeClass('sidebar_before_animation')
+                $('.sidebar').removeClass('sidebar_animation')
+                $('.scrollable-menu').removeClass('sidebar-menu-animation');
                 
                  animationOnStart();
             }
-            else if(hasAnimation){
+            else if(barAnimation){
                 console.log('hasAnimation');
                 $('.section-menu').removeClass('hide')
                 $('.content-home').removeClass('hide')
                 
+                $('.sidebar-home').addClass('animate_bar')
+                
             }
             else {
                 console.log('common page');
-                $('.sidebar').removeClass('sidebar_before_animation')
+                $('.sidebar').removeClass('sidebar_animation')
+                $('.scrollable-menu').removeClass('sidebar-menu-animation');
                 $('.section-menu').removeClass('hide')
                 $('.content-home').removeClass('hide')
             }

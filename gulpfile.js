@@ -8,6 +8,7 @@ var lazypipe = require('lazypipe');
 var rimraf = require('rimraf');
 var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
+var sass = require('gulp-sass');
 
 var yeoman = {
   app: require('./bower.json').appPath || 'app',
@@ -181,6 +182,12 @@ gulp.task('images', function () {
         interlaced: true
     })))
     .pipe(gulp.dest(yeoman.dist + '/images'));
+});
+
+gulp.task('sass', function () {
+  return gulp.src('./app/styles/main.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./app/styles/'));
 });
 
 gulp.task('copy:extras', function () {
