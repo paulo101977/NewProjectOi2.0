@@ -55,9 +55,15 @@ body, html {
   background-color: transparent;
   z-index: 1000; }
 
+.img-mask {
+  margin-left: 36px;
+  margin-top: 70px;
+  max-height: 62.5px;
+  min-height: 62.5px; }
+
 /* text on side bar */
 .sidebar_text {
-  margin-left: 50px;
+  margin-left: 36px;
   width: 266px;
   height: 126px;
   font-family: 'SimplonOi-Headline';
