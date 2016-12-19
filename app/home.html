@@ -776,12 +776,22 @@
                  animationOnStart();
             }
             else if(barAnimation){
-                console.log('hasAnimation');
                 $('.section-menu').removeClass('hide')
                 $('.content-home').removeClass('hide')
                 
-                $('.sidebar-home').addClass('animate_bar')
                 
+                $('#fullpage').css('width','85vw');
+                //$('.sidebar-home').addClass('animate_bar')
+                setTimeout(function(){
+                    $('#fullpage')
+                        .animate(
+                            {
+                                left: '16.666vw',
+                                width: '70vw'
+                            } 
+                            , 700
+                    )
+                } , 700)
             }
             else {
                 console.log('common page');
