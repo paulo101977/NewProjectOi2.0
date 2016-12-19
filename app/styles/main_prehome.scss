@@ -1138,7 +1138,7 @@ p >  a{
     }
     
     #fullpage > .section {
-        height: calc(100vh - 142px) !important;
+        height: calc(100vh - 142px);
         min-width: 100vw !important;
         flex-grow: 1 !important;
         overflow-x: hidden !important;

@@ -678,10 +678,11 @@
             var containerWidth = $(window).width();
             
             //On mobile there is no path, return
-            /*if(containerWidth <= 768) {
+            if(containerWidth < 768) {
+                console.log('skip');
                 setActive($('#fullpage > .start'));
                 return;
-            }*/
+            }
             
             if(containerWidth > 768){
                 orientation = 'vertical'
@@ -764,37 +765,73 @@
             } , 100)
         }
         
-        
+        //create any animation on start page
         function animatePage(path){
             var positive = path.indexOf('#positive') !== -1 ? true : false,
                 barAnimation = path.indexOf('#baranimation') !== -1 ? true : false;
+            
+            
+            //animation from cpf page
             if(positive){
-                console.log('positiveAnimation');
                 $('.sidebar').removeClass('sidebar_animation')
                 $('.scrollable-menu').removeClass('sidebar-menu-animation');
                 
                  animationOnStart();
             }
+            //animation from confirmation page
             else if(barAnimation){
+                
+                var width = $(window).width();
+                
+                
                 $('.section-menu').removeClass('hide')
                 $('.content-home').removeClass('hide')
                 
+                if(width > 767){ //desktop and mobile tablet load
+                    $('#fullpage').css('width','85vw');
+                    //$('.sidebar-home').addClass('animate_bar')
+                    setTimeout(function(){
+                        $('#fullpage')
+                            .animate(
+                                {
+                                    left: '16.666vw',
+                                    width: '70vw'
+                                } 
+                                , 700
+                        )
+                    } , 700)
+                } else { //mobile small device
+                    $('.sidebar').removeClass('sidebar_animation')
+                    $('.scrollable-menu').removeClass('sidebar-menu-animation');
+                    
+                    //disabling scrolling
+                    console.log('disable scrolling and others');
+                    $('#fullpage >.section').removeClass('active');
+                    setActive($('ul > .section > li.start'));
+                    setActive($('#fullpage >.section.start'));
+                    if($.fn.fullpage) $.fn.fullpage.setAllowScrolling(false);
+                    $('#fullpage').stop().scrollTo('.start' , 300 , {axis : 'x'} );
+                    
+                    $('#fullpage').css('height','calc(100vh - 70px)');
+                    $('#fullpage').css('position','absolute');
+                    $('#fullpage').css('top','-70px');
+                    
+                    setTimeout(function(){
+                        $('#fullpage')
+                            .animate(
+                                {
+                                    left: '16.666vw',
+                                    width: '70vw'
+                                } 
+                                , 700
+                        )
+                    } , 700)
+                }
                 
-                $('#fullpage').css('width','85vw');
-                //$('.sidebar-home').addClass('animate_bar')
-                setTimeout(function(){
-                    $('#fullpage')
-                        .animate(
-                            {
-                                left: '16.666vw',
-                                width: '70vw'
-                            } 
-                            , 700
-                    )
-                } , 700)
             }
+            
+            //common load page
             else {
-                console.log('common page');
                 $('.sidebar').removeClass('sidebar_animation')
                 $('.scrollable-menu').removeClass('sidebar-menu-animation');
                 $('.section-menu').removeClass('hide')
@@ -864,8 +901,10 @@
                     //small screens
                     //changed to 768, before 1200
                     if(containerWidth < 768){
-                        changeMarkerPosition('horizontal' , anchorLink)
-                        focusMarkerPosition('horizontal' , anchorLink);
+                        //FIX: the main error is change the mark down on start any path to the end path
+                        //Ex: initial page is #start, but the markdown move to #help
+                        //changeMarkerPosition('horizontal' , anchorLink)
+                        //focusMarkerPosition('horizontal' , anchorLink);
                     } else {
                         changeMarkerPosition('vertical' , anchorLink);
                         focusMarkerPosition('vertical' , anchorLink);

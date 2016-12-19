@@ -1524,7 +1524,7 @@ to implements the scroll vertical */
       overflow-x: hidden !important;
       overflow-y: hidden !important; }
     .prehome #fullpage > .section {
-      height: calc(100vh - 142px) !important;
+      height: calc(100vh - 142px);
       min-width: 100vw !important;
       flex-grow: 1 !important;
       overflow-x: hidden !important;
@@ -1913,7 +1913,7 @@ to implements the scroll vertical */
     .homeanimation .content-home {
       left: 0px !important; }
     .homeanimation .content-home > #fullpage {
-      height: calc(100vh - 142px) !important; } }
+      height: calc(100vh - 142px); } }
 
 .reset {
   /* TODO: remove all display: flex and replace by table and table-row, etc. */
