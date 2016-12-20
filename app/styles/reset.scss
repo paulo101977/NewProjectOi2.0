@@ -43,7 +43,7 @@ body, html {
     width: 100% !important;
 }
 
-.sidebar {
+.sidebar_reset {
   height: 100vh;
   background-image: linear-gradient(135deg, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
 }
@@ -104,7 +104,7 @@ body, html {
     outline: 0 !important;
 }
 
-.confirmation{
+.confirmation_reset{
     display: flex;
     -webkit-flex-direction: column; /* Safari */
     flex-direction:         column;
@@ -114,7 +114,7 @@ body, html {
     height: 100vh;
 }
 
-.confirmation > .title{
+.confirmation_reset > .title{
   font-family: 'SimplonOi-Headline';
   font-size: 63px;
   font-weight: normal;
@@ -229,7 +229,7 @@ a:focus{
         margin-top: 12vh;
     }
     
-    .confirmation {
+    .confirmation_reset {
         height: auto;
     }
     
@@ -269,7 +269,7 @@ a:focus{
         position: relative;
     }
     
-    .sidebar {
+    .sidebar_reset {
         position: absolute;
         height: 110vh;
         /* top: 0px; */

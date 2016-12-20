@@ -43,7 +43,7 @@ body, html {
     width: 100% !important;
 }
 
-.sidebar {
+.sidebar_confirmation {
   height: 100vh;
   background-image: linear-gradient(135deg, #EB2D82, #EF3A67 50%, #F4484C 100%) !important;
 }
@@ -259,7 +259,7 @@ body, html {
         position: relative;
     }
     
-    .sidebar {
+    .sidebar_confirmation {
         position: absolute;
         height: 110vh;
         /* top: 0px; */

@@ -661,7 +661,8 @@ input[type="checkbox"].eye_style:hover {
       height: calc(100vh - 70px) !important;
       vertical-align: top;
       align-items: flex-start;
-      width: 100vw !important; }
+      width: 100vw !important;
+      overflow-y: scroll !important; }
     .positivacao #fullpage > .section {
       padding-top: 7vh !important; }
     .positivacao .other-section {
@@ -1433,7 +1434,7 @@ to implements the scroll vertical */
       margin-left: 0px !important;
       padding-left: 0px !important;
       overflow-x: hidden !important;
-      overflow-y: hidden !important; }
+      overflow-y: hidden; }
     .prehome #fullpage > .section {
       height: calc(100vh - 142px) !important;
       min-width: 100vw !important;
@@ -1573,6 +1574,8 @@ to implements the scroll vertical */
       .prehome .sidebar_text, .prehome .in-cpf-page-text {
         font-size: 6vw;
         margin-top: 43px !important; }
+      .prehome .selected {
+        left: calc(100% - 6px) !important; }
       .prehome .menu-item-text {
         /* font-size: 10px; */ }
       .prehome .custom-li,
@@ -1900,6 +1903,8 @@ to implements the scroll vertical */
     left: 16.666vw; }
   .homeanimation .content-home {
     /* left: 33.333vw; */ }
+  .homeanimation .scrollbar_z_index {
+    z-index: 4000; }
   .homeanimation .animate_bar {
     animation: animate_bar 0.7s;
     -webkit-animation: animate_bar 0.7s; }
@@ -1913,7 +1918,9 @@ to implements the scroll vertical */
     .homeanimation .content-home {
       left: 0px !important; }
     .homeanimation .content-home > #fullpage {
-      height: calc(100vh - 142px); } }
+      height: calc(100vh - 142px); }
+    .homeanimation .section.start {
+      padding-top: calc(8vh + 39px) !important; } }
 
 .reset {
   /* TODO: remove all display: flex and replace by table and table-row, etc. */
@@ -1961,7 +1968,7 @@ to implements the scroll vertical */
     left: 0 !important;
     height: 100% !important;
     width: 100% !important; }
-  .reset .sidebar {
+  .reset .sidebar_reset {
     height: 100vh;
     background-image: linear-gradient(135deg, #EB2D82, #EF3A67 50%, #F4484C 100%) !important; }
   .reset .img-mask {
@@ -2001,7 +2008,7 @@ to implements the scroll vertical */
     border: solid 1px #ffffff !important;
     color: white !important;
     outline: 0 !important; }
-  .reset .confirmation {
+  .reset .confirmation_reset {
     display: flex;
     -webkit-flex-direction: column;
     /* Safari */
@@ -2010,7 +2017,7 @@ to implements the scroll vertical */
     text-align: left;
     justify-content: center;
     height: 100vh; }
-  .reset .confirmation > .title {
+  .reset .confirmation_reset > .title {
     font-family: 'SimplonOi-Headline';
     font-size: 63px;
     font-weight: normal;
@@ -2073,7 +2080,7 @@ to implements the scroll vertical */
       height: 40.5px;
       margin-left: 10vw;
       margin-top: 12vh; }
-    .reset .confirmation {
+    .reset .confirmation_reset {
       height: auto; }
     .reset .title {
       margin-left: 10vw;
@@ -2102,7 +2109,7 @@ to implements the scroll vertical */
       max-height: 100%;
       height: 100vh;
       position: relative; }
-    .reset .sidebar {
+    .reset .sidebar_reset {
       position: absolute;
       height: 110vh;
       /* top: 0px; */
@@ -2113,3 +2120,191 @@ to implements the scroll vertical */
       position: absolute;
       left: calc(77%);
       transform: translate(0px, -4px); } }
+
+.confirmation {
+  /* TODO: remove all display: flex and replace by table and table-row, etc. */
+  /* NOTE: Test for animation in cpf/home */
+  /* remove default padding in bootstrap */
+  /* confirmation screen */
+  /* the external content */
+  /* home screen */
+  /* I had to modify this to resize on table size */
+  /* before the max-width was 1200px */
+  /* simple max-width query */
+  /* Responsive: Portrait tablets and up */
+  /* Responsive: Portrait tablets and up */
+  /* this is the same that col-md on bootstrap */ }
+
+@font-face {
+  .confirmation {
+    font-family: 'SimplonBP-Light';
+    src: url("../fonts/Simplon BP/OTF/SimplonBP-Light.otf"); } }
+
+@font-face {
+  .confirmation {
+    font-family: 'SimplonBP-Regular';
+    src: url("../fonts/Simplon BP/OTF/SimplonBP-Regular.otf"); } }
+
+@font-face {
+  .confirmation {
+    font-family: 'SimplonOi-Headline';
+    src: url("../fonts/Simplon Oi Headline/OTF/SimplonOi-Headline.otf"); } }
+  .confirmation body, .confirmation html {
+    height: 100%;
+    font-family: 'SimplonBP-Regular' !important;
+    font-weight: 100 !important; }
+  .confirmation .content-home {
+    top: 0px;
+    z-index: 1000 !important;
+    position: absolute !important;
+    left: 40vw; }
+  .confirmation .row {
+    overflow-y: scroll !important; }
+  .confirmation .container-fluid {
+    position: fixed !important;
+    margin: 0vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: 100% !important; }
+  .confirmation .sidebar_confirmation {
+    height: 100vh;
+    background-image: linear-gradient(135deg, #EB2D82, #EF3A67 50%, #F4484C 100%) !important; }
+  .confirmation .img-mask {
+    margin-left: 50px;
+    margin-top: 60px; }
+  .confirmation .col-lg-1, .confirmation .col-lg-10, .confirmation .col-lg-11, .confirmation .col-lg-12, .confirmation .col-lg-2, .confirmation .col-lg-3, .confirmation .col-lg-4, .confirmation .col-lg-5, .confirmation .col-lg-6, .confirmation .col-lg-7, .confirmation .col-lg-8, .confirmation .col-lg-9, .confirmation .col-md-1, .confirmation .col-md-10, .confirmation .col-md-11, .confirmation .col-md-12, .confirmation .col-md-2, .confirmation .col-md-3, .confirmation .col-md-4, .confirmation .col-md-5, .confirmation .col-md-6, .confirmation .col-md-7, .confirmation .col-md-8, .confirmation .col-md-9, .confirmation .col-sm-1, .confirmation .col-sm-10, .confirmation .col-sm-11, .confirmation .col-sm-12, .confirmation .col-sm-2, .confirmation .col-sm-3, .confirmation .col-sm-4, .confirmation .col-sm-5, .confirmation .col-sm-6, .confirmation .col-sm-7, .confirmation .col-sm-8, .confirmation .col-sm-9, .confirmation .col-xs-1, .confirmation .col-xs-10, .confirmation .col-xs-11, .confirmation .col-xs-12, .confirmation .col-xs-2, .confirmation .col-xs-3, .confirmation .col-xs-4, .confirmation .col-xs-5, .confirmation .col-xs-6, .confirmation .col-xs-7, .confirmation .col-xs-8, .confirmation .col-xs-9 {
+    padding-right: 0px !important;
+    padding-left: 0px !important; }
+  .confirmation .btn_confirmation {
+    width: 270px;
+    height: 70px;
+    border-radius: 3px;
+    border: solid 3px #ffffff !important;
+    background-color: #ffffff !important;
+    border-style: solid !important;
+    border-width: 1px;
+    border-image-source: linear-gradient(to right, #ea288c, #ff6d00 90%, #ffff00);
+    border-image-slice: 1;
+    font-size: 21px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    color: #e03d6f; }
+  .confirmation .confirmation_logo {
+    height: 83px;
+    text-align: center;
+    display: block;
+    margin: auto; }
+  .confirmation .btn_confirmation:hover,
+  .confirmation .btn_confirmation:focus,
+  .confirmation .btn_confirmation:active {
+    border-radius: 3px !important;
+    background-color: #e03d6f !important;
+    border: solid 1px #ffffff !important;
+    color: white !important;
+    outline: 0 !important; }
+  .confirmation .confirmation {
+    display: flex;
+    -webkit-flex-direction: column;
+    /* Safari */
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: left;
+    justify-content: center;
+    height: 100vh; }
+  .confirmation .confirmation > .title {
+    font-size: 63px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: #ffffff; }
+  .confirmation .confirmation > .content {
+    font-family: 'SimplonBP-Light';
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    max-width: 40vw;
+    font-size: 28px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    color: #ffffff; }
+  .confirmation .confirmation_txt {
+    float: left;
+    clear: left;
+    margin-left: 30px; }
+  .confirmation .confirmation_img {
+    width: 5px;
+    height: 14px;
+    border-width: 0;
+    border: 0;
+    background-color: transparent;
+    background-image: url(../svg/confirmation.svg) !important;
+    background-repeat: no-repeat; }
+  .confirmation .btn_confirmation:hover .confirmation_img,
+  .confirmation .btn_confirmation:focus .confirmation_img,
+  .confirmation .btn_confirmation:active .confirmation_img {
+    background-image: url(../svg/confirmation_active.svg) !important;
+    color: #ffffff; }
+  .confirmation .confirmation_img_container {
+    float: right;
+    clear: right;
+    background-color: transparent;
+    border-width: 0;
+    border: 0; }
+  .confirmation .confirmation_img {
+    margin-right: 30px; }
+  .confirmation .external-content {
+    height: 90vh;
+    min-height: 90vh;
+    max-height: 90vh;
+    width: 100vw;
+    overflow-y: scroll; }
+  @media screen and (max-width: 767px) {
+    .confirmation .confirmation_container_logo {
+      max-height: 10vh; }
+    .confirmation .confirmation_logo {
+      width: 89.4px;
+      height: 40.5px;
+      margin-left: 10vw;
+      margin-top: 15vh; }
+    .confirmation .confirmation {
+      height: auto; }
+    .confirmation .title {
+      margin-left: 10vw;
+      margin-top: 15vh;
+      font-family: 'SimplonBP-Light';
+      font-size: 28px !important;
+      letter-spacing: -1px;
+      color: #ffffff; }
+    .confirmation .content {
+      font-family: 'SimplonBP-Light' !important;
+      font-size: 21px !important;
+      line-height: 1.43;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-left: 10vw;
+      margin-top: 5vh;
+      max-width: 80vw !important; }
+    .confirmation .btn_confirmation {
+      border-image-slice: 1;
+      font-size: 21px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: -0.4px;
+      color: #e03d6f;
+      margin-left: 10vw;
+      margin-top: 5vh;
+      width: 80vw !important; }
+    .confirmation .row {
+      overflow-y: scroll !important;
+      max-height: 100%;
+      height: 100vh;
+      position: relative; }
+    .confirmation .sidebar_confirmation {
+      position: absolute;
+      height: 110vh;
+      /* top: 0px; */
+      /* left: 0px; */ } }

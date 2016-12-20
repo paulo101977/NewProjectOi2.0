@@ -198,34 +198,39 @@
                     
                     hadAnimatedPage = true;
                     
-                    //set the hide class
-                    $('.cpf_content').addClass('hide')
+                    var width = $(window).width();
                     
-                    //fadeout the sidebar cpf text
-                    $('.sidebar_text').stop().animate({
-                        opacity : 0
-                    } , 300 
-                    , '' //easy
-                    , function(){ //on end the animation
-                        
-                    })
-                    
+                    if(width > 767){
+                        //set the hide class
+                        $('.cpf_content').addClass('hide')
 
-                    //sidebar resize width
-                    var sidebarWidth = $('.sidebar').width();
-                    $('.sidebar').stop().animate(
-                        {
-                            //width : parseInt(sidebarWidth)/2
-                            width : '16.66666%'
-                        } , 700 , ''
-                        , function(){ 
-                            
-                            //change the path
-                            window.location.replace("home.html#positive")
-                                           
-                            
-                        }
-                    )
+                        //fadeout the sidebar cpf text
+                        $('.sidebar_text').stop().animate({
+                            opacity : 0
+                        } , 300 
+                        , '' //easy
+                        , function(){ //on end the animation
+
+                        })
+
+
+                        //sidebar resize width
+                        var sidebarWidth = $('.sidebar').width();
+                        $('.sidebar').stop().animate(
+                            {
+                                //width : parseInt(sidebarWidth)/2
+                                width : '16.66666%'
+                            } , 700 , ''
+                            , function(){ 
+
+                                //change the path
+                                window.location.replace("home.html#positive")
+
+                            }
+                        )
+                    } else {
+                        window.location.replace("home.html#positive")
+                    }
                 }
             }
             

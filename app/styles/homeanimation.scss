@@ -14,6 +14,10 @@
     /* left: 33.333vw; */
 }
 
+.scrollbar_z_index{
+    z-index: 4000;
+}
+
 .animate_bar{
    animation: animate_bar 0.7s;
    -webkit-animation: animate_bar 0.7s;
@@ -38,4 +42,9 @@
     .content-home > #fullpage{
         height: calc(100vh - 142px);
     }
+    
+    .section.start{
+        padding-top: calc(8vh + 39px) !important;
+    }
 }
+

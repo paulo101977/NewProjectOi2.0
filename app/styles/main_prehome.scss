@@ -1004,7 +1004,7 @@ p >  a{
         margin-left: 0px !important;
         padding-left:  0px !important;
         overflow-x: hidden !important;
-        overflow-y: hidden !important;
+        overflow-y: hidden;
     }
     
     #fullpage > .section {
@@ -1219,6 +1219,10 @@ p >  a{
        margin-top:  43px !important
     }
     
+    .selected{
+        left: calc(100% - 6px) !important;
+    }
+    
     
     .menu-item-text{
         /* font-size: 10px; */
@@ -1268,6 +1272,7 @@ p >  a{
 /* Responsive: Portrait tablets and up */
 /* this is the same that col-md on bootstrap */
 @media screen and (max-width: 767px) {
+    
     
     .link_after > a{
         font-size: 16px;

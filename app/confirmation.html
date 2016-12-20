@@ -17,7 +17,7 @@
     <!-- link rel="stylesheet" href="styles/main.css" -->
       
     <!-- just for tests -->
-    <link rel="stylesheet" href="styles/confirmation.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     
@@ -26,16 +26,14 @@
       
     <!-- endbuild -->
   </head>
-  <body ng-app="projetoOiApp" 
-        data-spy="scroll" 
-        data-target="#navbar-dashboard">
+  <body>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <div class="container-fluid">
+    <div class="container-fluid confirmation">
         <div class="row">
-            <div class="sidebar confirmation_bg">
+            <div class="sidebar_confirmation confirmation_bg">
                 <!-- logo -->
                 <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 confirmation confirmation_container_logo">
                     <!-- oi logo -->
@@ -118,7 +116,7 @@
                     setTimeout(function(){
                         $('.confirmation').stop()
                         .animate({height : height } , 700)
-                        $('.sidebar').stop()
+                        $('.sidebar_confirmation').stop()
                             .animate({height : height } , 700)
                         $('.confirmation_logo').stop()
                             .animate({height : logoHeight } 
