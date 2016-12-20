@@ -904,11 +904,12 @@
                 normalScrollElements: '.menu-item, .help, .help > .fp-tableCell' , //exclude itens
                 bigSectionsDestination : '#fullpage',
                 onLeave: function(index, nextIndex, direction){
+
+                    var anchorLink = "";
                     
-                },
-                //add after load event
-                //using anchorLink to scroll to new position
-                afterLoad: function(anchorLink, index){
+                    var items = ['start', 'telephone', 'wifi', 'oiplay', 'recharge', 'help'];
+                    
+                    anchorLink = items[parseInt(nextIndex) - 1];
                     
                     var containerWidth = $(window).width();
                     
@@ -927,6 +928,28 @@
                         focusMarkerPosition('vertical' , anchorLink);
                         
                     }
+                },
+                //add after load event
+                //using anchorLink to scroll to new position
+                afterLoad: function(anchorLink, index){
+                    
+                    /*var containerWidth = $(window).width();
+                    
+                    
+                    //small screens
+                    //changed to 768, before 1200
+                    if(containerWidth < 768){
+                        //FIX: the main error is change the mark down on start any path to the end path
+                        //Ex: initial page is #start, but the markdown move to #help
+                        //changeMarkerPosition('horizontal' , anchorLink)
+                        //focusMarkerPosition('horizontal' , anchorLink);
+                        
+    
+                    } else {
+                        changeMarkerPosition('vertical' , anchorLink);
+                        focusMarkerPosition('vertical' , anchorLink);
+                        
+                    }*/
                     
                 }
             });
