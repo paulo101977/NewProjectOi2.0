@@ -38,7 +38,9 @@
         <div class="col-xs-9 col-sm-1 col-md-1 col-lg-1 logo-container">
           <img class="home_logo" src="./svg/oi_logo.svg" />
         </div>
-
+        <div class="col-xs-3 col-sm-1 col-md-1 col-lg-1 exit_text">
+            Sair
+        </div>
         <!-- text -->
         <!-- div class="col-xs-6 col-sm-12 col-md-12">
           <div class="sidebar_text">
@@ -49,18 +51,31 @@
       <!-- end side bar -->
 
       <!-- content -->
-      <div class='col-xs-12 col-sm-10 col-md-10 col-lg-10 content-home'>
+      <div class='col-xs-12 col-sm-10 col-md-10 col-lg-10 positivacao content-home'>
           <div id="fullpage">
                 <!-- inject layout below here -->
                 <div class="start other-section">
                   <div class="title">Digite o código</div>
 
-                  <div class="content">
+                  <!-- mobile -->
+                  <div class="content mobile hide">
                     <p class='subtitle'>Em qual número deseja receber o código de validação?</p>
+                  </div>
+                    
+                  <!-- tv -->
+                  <div class="content tv hide">
+                    <p class='subtitle'>Em qual TV deseja receber o código de validação?</p>
+                  </div>
+                    
+                  <!-- invoice text -->
+                  <div class="content invoice hide">
+                    <p class='subtitle'>Em qual fatura deseja consultar o código de validação?</p>
                   </div>
 
                   <div class="list-container col-xs-12 col-sm-10 col-md-6">
-                    <div id="phoneList" class="list-group">
+                      
+                    <!-- mobile -->
+                    <div id="phoneList" class="list-item list-group mobile hide">
                       <div class="list-group-item radio">
                         <label>
                           <!-- Deixa o primeiro marcado por padrão -->
@@ -90,6 +105,58 @@
                         </label>
                       </div>
                     </div>
+                      
+                    <!-- tv -->
+                    <div id="tvList" class="list-item list-group tv hide">
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" CHECKED name="tv" value="0">
+                          <p>Enviar para contrato XXX...X</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="tv" value="1">
+                          <p>Enviar para contrato XXX...X</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="tv" value="2">
+                          <p>Enviar para contrato XXX...X</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="tv" value="3">
+                          <p>Enviar para contrato XXX...X</p>
+                        </label>
+                      </div>
+                    </div>
+                      
+                    <!-- invoice -->
+                    <div id="invoiceList " class="list-item list-group invoice hide">
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" CHECKED name="invoice" value="0">
+                          <p>Fatura do seu celular</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="invoice" value="1">
+                          <p>Fatura da sua Oi TV</p>
+                        </label>
+                      </div>
+                    </div>
+                      
+                      
                     <button class="btn btn-outline">Gerar código de acesso</button>
                   </div>
                 </div>
@@ -116,7 +183,24 @@ $(document).ready(function(){
     $('.btn-outline').click(function(){
          window.location.replace("positivacao.html")
     })
+    
+    
+    //get current path
+    var path = $(location).attr('href');
+    
+    //test path segment
+    //mobile path origin
+    if(path.indexOf('#mobile') !== -1){
+       $('.mobile').removeClass('hide')
+    }
+    if(path.indexOf('#tv') !== -1){
+       $('.tv').removeClass('hide')
+    }
+    if(path.indexOf('#invoice') !== -1){
+       $('.invoice').removeClass('hide')
+    }
 })
+
 </script>
 
 <script src='js/script.js'></script>

@@ -19,6 +19,7 @@
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+    
   <!-- endbuild -->
 </head>
 <body>
@@ -37,7 +38,9 @@
         <div class="col-xs-9 col-sm-1 col-md-1 col-lg-1 logo-container">
           <img class="home_logo" src="./svg/oi_logo.svg" />
         </div>
-
+        <div class="col-xs-3 col-sm-1 col-md-1 col-lg-1 exit_text">
+            Sair
+        </div>
         <!-- text -->
         <!-- div class="col-xs-6 col-sm-12 col-md-12">
           <div class="sidebar_text">
@@ -50,73 +53,116 @@
       <!-- content -->
         
       <!-- content -->
-      <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 content-home">
+      <div class="col-xs-12 col-sm-10 positivacao content-home">
             <div id="fullpage">
                 <!-- start -->
-                <div class=" start other-section">
+                <div class="start with-image other-section"> <!-- start -->
                    <div class="title">Digite o código</div>
-                      <div class="content">
-                        <div class='text'>
-                          <p>
-                            <!-- Valor padrão de número de telefone. Apenas para a validação das telas -->
-                            Acabamos de enviar um código de validação pro número
-                            (21)...3818.
-                          </p>
-                        </div>
+                    
+                   <div class="start row-custom">
+                       <div class="content content-before col-md-6">
 
-                        <div class='col-lg-6 col-md-6 col-sm-12'>
-
-                          <div class="activation-code-input">
-                            <div class='custom-input-group'>
-                              <div class='input-wrapper vertical-align-wrapper'>
-                                <div class='vertical-aligner'>
-                                  <span class='error-text hidden activation-error'>Código inválido. Digite novamente</span>
-                                  <input oninput="countActivationCode(this)" maxlength="6" type="text" placeholder="Informe o código">
-                                </div>
-                              </div>
-                              <div class="counter-wrapper">
-                                <div class="loading-container hidden">
-                                  <img class="loading spinning" src="./svg/loading.svg">
-                                </div>
-                                <div class='remaining-characters'>6</div>
-                              </div>
+                            <!-- Phone validation text -->
+                            <div class='text mobile hide'>
+                              <p>
+                                <!-- Valor padrão de número de telefone. Apenas para a validação das telas -->
+                                Acabamos de enviar um código de validação pro número
+                                (21)...3818.
+                              </p>
                             </div>
 
-                            <footer>
-                              <a class="resend resource-link" href="positivacao2.html">Enviar novamente</a>
-                              <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
-                              <span class='separator'>|</span>
-                              <a class="change-number resource-link" href="positivacao2.html">Alterar número</a>
-                            </footer>
-                          </div>
-
-                          <div class="default-success success hidden">
-                            <img class="sucess_img" src="./svg/ok.svg">
-                            <div class="sucess_text">
-                              Tudo certo!
+                            <!-- TV validation text -->
+                            <div class='text tv hide'>
+                              <p>
+                                Acabamos de enviar um código de validação pra sua TV.
+                              </p>
                             </div>
-                          </div>
 
-                        </div>
-                      </div>
-                </div>
+                            <!-- Invoice validation text -->
+                            <div class='text invoice hide'>
+                              <p>
+                                Busque pelo código de validação que está na sua fatura.
+                              </p>
+                            </div>
+
+                            <div class='col-lg-6 col-md-6 col-sm-12'>
+
+                              <div class="activation-code-input">
+                                <div class='custom-input-group'>
+                                  <div class='input-wrapper vertical-align-wrapper'>
+                                    <div class='vertical-aligner'>
+                                      <span class='error-text hidden activation-error'>Código inválido. Digite novamente</span>
+                                      <input oninput="countActivationCode(this)" maxlength="6" type="text" placeholder="Informe o código">
+                                    </div>
+                                  </div>
+                                  <div class="counter-wrapper">
+                                    <div class="loading-container hidden">
+                                      <img class="loading spinning" src="./svg/loading.svg">
+                                    </div>
+                                    <div class='remaining-characters'>6</div>
+                                  </div>
+                                </div>
+
+                                <!-- mobile text -->
+                                <footer class="mobile hide">
+                                  <a class="resend resource-link" href="positivacao.html">Enviar novamente</a>
+                                  <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
+                                  <span class='separator'>|</span>
+                                  <a class="change-number resource-link" href="positivacao2.html#mobile">Alterar número</a>
+                                </footer>
+
+                                <!-- tv text -->
+                                <footer class="tv hide">
+                                  <a class="resend resource-link" href="positivacao.html">Enviar novamente</a>
+                                  <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
+                                  <span class='separator'>|</span>
+                                  <a class="change-number resource-link" href="positivacao2.html#tv">Alterar dispositivo</a>
+                                </footer>
+
+                                <!-- invoice text -->
+                                <footer class="invoice hide">
+                                  <a class="resend resource-link" href="positivacao2.html#invoice">Alterar dispositivo</a>
+                                </footer>
+
+                              </div>
+
+                              <div class="default-success success hidden">
+                                <img class="sucess_img" src="./svg/ok.svg">
+                                <div class="sucess_text">
+                                  Tudo certo!
+                                </div>
+                              </div>
+
+                            </div>
+                       </div> <!-- end content -->
+                       <div class="content content-img tv hide col-md-6">
+                           <div class="content-inside">
+                                <h2>DICA:</h2>
+                                <p>Pra acessar seu código pela TV,
+                                    aperte o botão “Menu” do seu controle remoto.
+                                    Em seguida, procure por  “Mensagens” e,
+                                    logo depois, a opção “Lidas e não lidas”.
+                               </p>
+                               <img src="./svg/imagem-tv.svg" />
+                           </div>
+                       </div>
+                       <div class="content  content-img invoice hide col-md-6">
+                           <div class="content-inside">
+                                <h2>DICA:</h2>
+                                <p>Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit,
+                                    sed do eiusmod tempor incididunt ut labore et.
+                               </p>
+                               <img src="./images/Fatura@2x.png" />
+                           </div>
+                       </div>
+                   </div>
+                </div> <!-- end start class -->
+                
             </div>
         </div>    
         
         
-      <div class='col-xs-12 col-sm-8 col-md-8 col-lg-8 page-content'>
-        <div class="vertical-align-wrapper page-content-wrapper">
-          <div class="vertical-aligner">
-            
-            <!-- inject layout below here -->
-            <div class="section start">
-              
-
-            </div>
-            <!-- end inject -->
-          </div>
-        </div>
-    </div>
 
   </div>
 
@@ -132,66 +178,70 @@
 <script src="scripts/controllers/about.js"></script -->
 <script>
 $(document).ready(function(){
-  $('.password-after').hide();
-
-  $('[data-toggle="popover"]').popover()
-
-  $("#password").popover({
-    'trigger':'click' ,
-    'placement' : 'bottom',
-    'target' : '#password',
-    'content' : "Deve ter entre 6 e 10 caracteres, com letras e números"
-  })
-
-  $("#password").click(function(event){
-    $('.popover').ready(function(){
-      var top = $('#password').position().top
-      var left = $('#password').position().left
-      var height = $('#password').height()
-      var margin = $(window).width() > 768 ? 87 : 31
-
-
-      $('.popover').css('top', (top + height/2 +  parseInt($('.popover').css('height'))/2) + "px")
-    })
-
-    $('#password').popover('toggle')
-  })
-
-  $('#password').on('input',function(event){
-    console.dir(event);
-    if(event && event.target && event.target.value){
-      if(event.target.value.length > 0){
-        $('.password-after').show();
-        $('.error-message').hide();
-
-        if(event.target.value.length >= 6){
-          $('.arrow-continue').attr('src' , 'svg/next_active.svg');
-          $('.btn-continue').css('color' , '#e03d6f');
-        } else {
-          $('.arrow-continue').attr('src' , 'svg/next.svg');
-          $('.btn-continue').css('color' , '#cccccc');
-        }
-      } else {
-        $('.password-after').hide();
-        $('.arrow-continue').attr('src' , 'svg/next.svg');
-        $('.btn-continue').css('color' , '#cccccc');
-      }
-    } else {
-      $('.password-after').hide();
-      $('.arrow-continue').attr('src' , 'svg/next.svg');
-      $('.btn-continue').css('color' , '#cccccc');
-      $('.error-message').show();
+  
+    //get current path
+    var path = $(location).attr('href');
+    
+    //test path segment
+    //mobile path origin
+    if(path.indexOf('#mobile') !== -1){
+       $('.mobile').removeClass('hide');
+       
+       $('.content-before').width(700);
     }
-  });
+    if(path.indexOf('#tv') !== -1){
+        $('.tv').removeClass('hide');
+        
+        $('.content-before, .content-img').addClass('middle');
+    }
+    if(path.indexOf('#invoice') !== -1){
+        $('.invoice').removeClass('hide');
+        
+        $('.content-before, .content-img').addClass('middle');
+    }
+    
 
-
-  $(".item-last").click(function(){
-    window.location.replace("cpf.html");
-  })
 })
+
+function countActivationCode(element){
+  var chars = element.value.split('');
+  element.value = chars.filter(function(input){
+    return input.match(/[0-9]/);
+  }).join('');
+
+  var length = 6 - element.value.length;
+  $('.remaining-characters').html(length);
+
+  if(!parseInt(length)){
+    element.setAttribute('DISABLED',true);
+    $('.loading-container').removeClass('hidden');
+    $('.remaining-characters').addClass('hidden');
+
+    setTimeout(function(){
+      showActivationCodeError();
+      setTimeout(function(){
+        showActivationCodeSuccess();
+      },2000);
+    },2000);
+  }
+}
+
+function showActivationCodeError(){
+  var element = $('.activation-code-input input');
+  element[0].removeAttribute('DISABLED');
+
+  $('.default-success').addClass('hidden');
+  $('.activation-error').removeClass('hidden');
+}
+
+function showActivationCodeSuccess(){
+  $('.activation-code-input').addClass('hidden');
+  $('.content-img').addClass('hide');
+  $('.default-success').removeClass('hidden');
+}
 </script>
 
-<script src='js/script.js'></script>
+
 <!-- endbuild -->
 </body>
 </html>

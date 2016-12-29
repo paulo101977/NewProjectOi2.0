@@ -120,21 +120,21 @@ a:hover, a:focus{
     width: 100%; 
 }
 
-#phoneList.list-group {
+.list-item.list-group {
     margin-bottom: 1.25rem; 
 }
 
-#phoneList.list-group .list-group-item {
+.list-item.list-group .list-group-item {
       padding: 22px 15px;
       font-size: 21px; 
 }
 
 
-#phoneList.list-group .list-group-item:first-child {
+.list-item.list-group .list-group-item:first-child {
     margin-top: 0; 
 }
 
-#phoneList.list-group .list-group-item p {
+.list-item.list-group .list-group-item p {
     color: #222222;
     letter-spacing: -0.7px;
     margin: 0; 
@@ -285,9 +285,9 @@ footer {
   #layout_positivacao .page-content .section .content {
     width: 100% !important;
     margin: 0px !important; }
-  #layout_positivacao .page-content .section #phoneList {
+  #layout_positivacao .page-content .section .list-item {
     margin-bottom: 1.875rem; }
-    #layout_positivacao .page-content .section #phoneList p {
+    #layout_positivacao .page-content .section .list-item p {
       font-size: 16px;
       letter-spacing: -0.6px; }
   #layout_positivacao .page-content .section .activation-code-input {
