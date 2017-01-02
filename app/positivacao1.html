@@ -70,7 +70,14 @@
                                 (21)...3818.
                               </p>
                             </div>
-
+                           
+                           <!-- telephone -->
+                           <div class='text telephone hide'>
+                              <p>
+                                Acabamos de fornecer um código de validação via ligação pro fixo (21)…3790.
+                                </p>
+                            </div>
+                           
                             <!-- TV validation text -->
                             <div class='text tv hide'>
                               <p>
@@ -85,7 +92,7 @@
                               </p>
                             </div>
 
-                            <div class='col-lg-6 col-md-6 col-sm-12'>
+                            <div class='col-sm-12 col-lg-6'>
 
                               <div class="activation-code-input">
                                 <div class='custom-input-group'>
@@ -110,6 +117,14 @@
                                   <span class='separator'>|</span>
                                   <a class="change-number resource-link" href="positivacao2.html#mobile">Alterar número</a>
                                 </footer>
+                                  
+                                <!-- telephone text -->
+                                <footer class="telephone hide">
+                                  <a class="resend resource-link" href="positivacao.html">Enviar novamente</a>
+                                  <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
+                                  <span class='separator'>|</span>
+                                  <a class="change-number resource-link" href="positivacao2.html#telephone">Alterar número</a>
+                                </footer>
 
                                 <!-- tv text -->
                                 <footer class="tv hide">
@@ -124,7 +139,7 @@
                                   <a class="resend resource-link" href="positivacao2.html#invoice">Alterar dispositivo</a>
                                 </footer>
 
-                              </div>
+                              </div> <!-- activation-code-input -->
 
                               <div class="default-success success hidden">
                                 <img class="sucess_img" src="./svg/ok.svg">
@@ -135,7 +150,7 @@
 
                             </div>
                        </div> <!-- end content -->
-                       <div class="content content-img tv hide col-md-6">
+                       <div class="tv hide col-md-6 content-img">
                            <div class="content-inside">
                                 <h2>DICA:</h2>
                                 <p>Pra acessar seu código pela TV,
@@ -146,7 +161,7 @@
                                <img src="./svg/imagem-tv.svg" />
                            </div>
                        </div>
-                       <div class="content  content-img invoice hide col-md-6">
+                       <div class="invoice hide col-md-6 content-img">
                            <div class="content-inside">
                                 <h2>DICA:</h2>
                                 <p>Lorem ipsum dolor sit amet,
@@ -181,13 +196,32 @@ $(document).ready(function(){
   
     //get current path
     var path = $(location).attr('href');
+    var width = $(window).width();
+    var id;
     
     //test path segment
     //mobile path origin
     if(path.indexOf('#mobile') !== -1){
        $('.mobile').removeClass('hide');
        
-       $('.content-before').width(700);
+       //$('.content-before, .content-before p').width(700);
+        
+        if(width > 768) {
+            $('.content-before, .content-before p').width(700);
+        }
+        else {
+            $('.content-before, .content-before p').css('width','inherit');
+        }
+    }
+    if(path.indexOf('#telephone') !== -1){
+       $('.telephone').removeClass('hide');
+       
+        if(width > 768) {
+            $('.content-before, .content-before p').width(700);
+        }
+        else {
+            $('.content-before, .content-before p').css('width','inherit');
+        }
     }
     if(path.indexOf('#tv') !== -1){
         $('.tv').removeClass('hide');
@@ -200,6 +234,40 @@ $(document).ready(function(){
         $('.content-before, .content-img').addClass('middle');
     }
     
+    //change the size on resize screen
+    $(window).resize(function(){
+        
+        clearTimeout(id);
+        
+        //stop resize
+        setTimeout(function(){
+            var width = $(window).width();
+        
+            if(path.indexOf('#mobile') !== -1){
+               $('.mobile').removeClass('hide');
+
+               //$('.content-before, .content-before p').width(700);
+
+                if(width > 768) {
+                    $('.content-before, .content-before p').width(700);
+                }
+                else {
+                    $('.content-before, .content-before p').css('width','inherit');
+                }
+            }
+            if(path.indexOf('#telephone') !== -1){
+               $('.telephone').removeClass('hide');
+
+                if(width > 768) {
+                    $('.content-before, .content-before p').width(700);
+                }
+                else {
+                    $('.content-before, .content-before p').css('width','inherit');
+                }
+            }
+        } , 200)
+    
+    })
 
 })
 

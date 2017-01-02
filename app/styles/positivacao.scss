@@ -36,7 +36,7 @@
   width: 300px;
   height: 60px;
   border-radius: 3px;
-  background-color: white;
+  background-color: transparent;
   text-align: left;
   margin-left: 16px;
   padding-left: 23px;
@@ -71,15 +71,59 @@
     background-image: url(../svg/arrow_up.svg);
 }
 
-.collapse-container .collapse, 
-.collapse-container .collapsing, 
-.collapse-container .collapse.in {
-   padding-left: 0px !important;
+.collapsing,
+.collapse.in{
+    /* height: 180px;
+    max-height: 180px;
+    overflow-y: scroll; */
+}
+
+/*::-webkit-scrollbar
+{
+    display: block !important;
+    height: 100px;
+    width: 5px;
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d2d2d;
+    background-image: url(../svg/scroll-img.svg);
+    background-repeat: no-repeat;
+}*/
+
+/* custom scrollbar plugin */
+.mCSB_dragger_bar{ 
+    background-color: #2d2d2d !important;
+    width: 5px !important;
+    height: 50px !important;
+}
+
+.mCSB_dragger{
+    height: 50px !important;
+}
+
+.mCSB_draggerRail {
+    background-color: transparent !important;
+}
+
+.internal-content{
+    /* width: 325px;*/
+    width: 330px;
+    height: 180px;
+    max-height: 180px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+    color: #2d2d2d;
+}
+
+.collapse-container{
+    padding-left: 0px !important;
     background-color: white;
     z-index: 4000;
     position: relative;
+    top: -1px;
     left: -1px;
-    top: -2px;
     width: calc(100% + 2px);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -89,6 +133,27 @@
     border-top-width: 0px;
     border-style: solid;
     border-color: #dbdbdb;
+}
+
+
+.collapse-container .collapse, 
+.collapse-container .collapsing, 
+.collapse-container .collapse.in {
+    /*padding-left: 0px !important;
+    background-color: white;
+    z-index: 4000;
+    position: relative;
+    top: -3px;
+    left: -2px;
+    width: calc(100% + 4px);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 0px;
+    border-style: solid;
+    border-color: #dbdbdb;*/
 }
 
 /* remove blue border */
@@ -102,7 +167,7 @@ button:focus {outline:0;}
     /* left: 16.666vw; */
 }
 
-footer{
+.section footer{
     margin-top: 2vh;
 }
 
@@ -144,15 +209,6 @@ footer{
     height: 196px;
 }
 
-@media screen and (min-width: 768px){
-    .hidden-small{
-        display: block;
-    }
-    
-    .visible-small{
-        display: none
-    }
-}
 
 .modal{
     width: 100%;
@@ -226,26 +282,55 @@ footer{
 }
 
 .separator{
-    margin: 0px 16px 0px 16px;
+    margin: 0px 0.5vw 0px 0.5vw;
 }
 
 .content-before p{
     width: 28vw;
 }
 
+
+footer.telephone{
+    display: block;
+}
+
+.content-img{
+    margin-top: 38px;
+}
+
+
+
 @media screen and (min-width:1200px){
     .with-image .content{
         /* width: 50% !important; */
         /* width: inherit; */
     }
+    
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1199px){
+    
+    /*.collapse-container{
+        z-index: 4000;
+        position: relative;
+        top: -1px;
+        left: -1px;
+        width: calc(100% + 2px);
+        border-bottom-width: 2px;
+        border-left-width: 2px;
+        border-right-width: 2px;
+    }*/
+    
+    .row-custom{
+        display: flex !important;
+    }
+    
     .content-inside ,
     .content-inside img{
         padding-right: 0px;
         padding-left: 0px;
         width: inherit;
+        height: auto;
     }
     
     .content-inside img{
@@ -274,7 +359,37 @@ footer{
     
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px){
+    .content-img{
+        width: 60vw !important;
+        margin-top: 38px;
+        font-size: 28px;
+        line-height: 1.5;
+        letter-spacing: -0.75px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .hidden-small{
+        display: block;
+    }
+    
+    .visible-small{
+        display: none
+    }
+}
+
 @media screen and (max-width: 767px) {
+    
+    .content-img{
+        font-size: 14px;
+        line-height: 20px !important;
+        width: inherit !important;
+        word-wrap: break-word;
+        padding-right: 0px;
+        margin: 0px 0px 5vh 0px !important;
+    }
+    
     .button-inside{
         width: 90%;
         margin-left: 10px;

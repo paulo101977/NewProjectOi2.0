@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1156px" height="676px" viewBox="0 0 1156 676" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>8D0EDDC1-4ED5-4480-AC7A-735D1CAEC2AB</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="89" y="423" width="370" height="77"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="370" height="77" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Positivação-Fixo---desktop-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pre-home-1d" transform="translate(-210.000000, 0.000000)">
+            <g id="Group-4" transform="translate(210.000000, -1.000000)">
+                <rect id="Rectangle-202-Copy-2" fill="#F5F5F5" x="1.13686838e-13" y="0" width="1158" height="679"></rect>
+                <g id="Group-3" transform="translate(89.000000, 70.000000)">
+                    <g id="Group-2" transform="translate(3.000000, 0.000000)" fill="#E03D6F">
+                        <rect id="tooltip-/-rules-2" x="0" y="0" width="124" height="30" rx="2"></rect>
+                        <rect id="Rectangle" x="4.47929747" y="13.3295425" width="19.7024524" height="18.0019624" rx="1"></rect>
+                    </g>
+                    <text id="Oi,-Washington" font-family="SimplonBP-Regular, Simplon BP" font-size="63" font-weight="normal" letter-spacing="-2.25" fill="#222222">
+                        <tspan x="0" y="112">Oi, Washington </tspan>
+                    </text>
+                    <text id="O-seu-serviço-já-est" font-family="SimplonBP-Light, Simplon BP" font-size="28" font-weight="300" line-spacing="35" letter-spacing="-1.07500005" fill="#222222">
+                        <tspan x="0" y="159">O seu serviço já está ativo na Minha Oi. Agora você já pode </tspan>
+                        <tspan x="0" y="194">ter acesso a todos os serviços e facilidades online.</tspan>
+                        <tspan x="0" y="229"></tspan>
+                        <tspan x="0" y="264">Vamos precisar apenas de uma validação. Podemos te </tspan>
+                        <tspan x="0" y="299">enviar um código ou você pode consultar na sua fatura.</tspan>
+                    </text>
+                </g>
+                <use id="Rectangle" stroke="#DBDBDB" mask="url(#mask-2)" stroke-width="2" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <text id="Quero-fazer-depois" font-family="SimplonBP-Light, Simplon BP" font-size="21" font-weight="300" letter-spacing="-0.806250036" text-decoration="underline" fill="#4A4A4A">
+                    <tspan x="89" y="565">Quero fazer depois</tspan>
+                </text>
+                <g id="Seta" transform="translate(405.000000, 458.000000)" stroke="#D82482" stroke-width="3" stroke-linecap="round">
+                    <path d="M5.86590226,3.5 L11.8659023,3.5" id="Line" transform="translate(8.865902, 3.500000) rotate(-210.000000) translate(-8.865902, -3.500000) "></path>
+                    <path d="M0.443192047,3.5 L6.44319205,3.5" id="Line" transform="translate(3.443192, 3.500000) scale(1, -1) rotate(-390.000000) translate(-3.443192, -3.500000) "></path>
+                </g>
+                <text id="Onde-quer-receber-o" font-family="SimplonBP-Light, Simplon BP" font-size="21" font-weight="300" letter-spacing="-0.75" fill="#909090">
+                    <tspan x="128" y="468">Onde quer receber o código?</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

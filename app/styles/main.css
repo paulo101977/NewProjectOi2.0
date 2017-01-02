@@ -645,6 +645,20 @@ input[type="checkbox"].eye_style:hover {
 /* page positivation */
 .positivacao {
   /* todo: make one class on positivation page */
+  /*::-webkit-scrollbar
+{
+    display: block !important;
+    height: 100px;
+    width: 5px;
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d2d2d;
+    background-image: url(../svg/scroll-img.svg);
+    background-repeat: no-repeat;
+}*/
+  /* custom scrollbar plugin */
   /* remove blue border */
   /*.modal.fade .modal-dialog {
   transform: translate3d(0, 0vh, 0);
@@ -684,7 +698,7 @@ input[type="checkbox"].eye_style:hover {
     width: 300px;
     height: 60px;
     border-radius: 3px;
-    background-color: white;
+    background-color: transparent;
     text-align: left;
     margin-left: 16px;
     padding-left: 23px;
@@ -709,15 +723,34 @@ input[type="checkbox"].eye_style:hover {
     background-image: url(../svg/arrow_down.svg); }
   .positivacao .arrow_up {
     background-image: url(../svg/arrow_up.svg); }
-  .positivacao .collapse-container .collapse,
-  .positivacao .collapse-container .collapsing,
-  .positivacao .collapse-container .collapse.in {
+  .positivacao .collapsing,
+  .positivacao .collapse.in {
+    /* height: 180px;
+    max-height: 180px;
+    overflow-y: scroll; */ }
+  .positivacao .mCSB_dragger_bar {
+    background-color: #2d2d2d !important;
+    width: 5px !important;
+    height: 50px !important; }
+  .positivacao .mCSB_dragger {
+    height: 50px !important; }
+  .positivacao .mCSB_draggerRail {
+    background-color: transparent !important; }
+  .positivacao .internal-content {
+    /* width: 325px;*/
+    width: 330px;
+    height: 180px;
+    max-height: 180px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: #2d2d2d; }
+  .positivacao .collapse-container {
     padding-left: 0px !important;
     background-color: white;
     z-index: 4000;
     position: relative;
+    top: -1px;
     left: -1px;
-    top: -2px;
     width: calc(100% + 2px);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -727,13 +760,31 @@ input[type="checkbox"].eye_style:hover {
     border-top-width: 0px;
     border-style: solid;
     border-color: #dbdbdb; }
+  .positivacao .collapse-container .collapse,
+  .positivacao .collapse-container .collapsing,
+  .positivacao .collapse-container .collapse.in {
+    /*padding-left: 0px !important;
+    background-color: white;
+    z-index: 4000;
+    position: relative;
+    top: -3px;
+    left: -2px;
+    width: calc(100% + 4px);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 0px;
+    border-style: solid;
+    border-color: #dbdbdb;*/ }
   .positivacao button:focus {
     outline: 0; }
   .positivacao .separator {
     font-size: 14px; }
   .positivacao .content-home {
     /* left: 16.666vw; */ }
-  .positivacao footer {
+  .positivacao .section footer {
     margin-top: 2vh; }
   .positivacao .row-custom {
     display: block !important; }
@@ -763,11 +814,6 @@ input[type="checkbox"].eye_style:hover {
     margin-top: 22px;
     width: 367px;
     height: 196px; }
-  @media screen and (min-width: 768px) {
-    .positivacao .hidden-small {
-      display: block; }
-    .positivacao .visible-small {
-      display: none; } }
   .positivacao .modal {
     width: 100%;
     margin-right: 10px;
@@ -811,33 +857,70 @@ input[type="checkbox"].eye_style:hover {
   .positivacao .content-small {
     width: inherit; }
   .positivacao .separator {
-    margin: 0px 16px 0px 16px; }
+    margin: 0px 0.5vw 0px 0.5vw; }
   .positivacao .content-before p {
     width: 28vw; }
+  .positivacao footer.telephone {
+    display: block; }
+  .positivacao .content-img {
+    margin-top: 38px; }
   @media screen and (min-width: 1200px) {
     .positivacao .with-image .content {
       /* width: 50% !important; */
       /* width: inherit; */ } }
-  @media screen and (max-width: 1200px) {
-    .positivacao .content-inside,
-    .positivacao .content-inside img {
-      padding-right: 0px;
-      padding-left: 0px;
-      width: inherit; }
-    .positivacao .content-inside img {
-      margin-top: 0px; }
-    .positivacao .content-inside > p {
-      font-family: 'SimplonBP-Regular';
-      width: 100%;
-      font-size: 14px;
-      font-weight: 100; }
-    .positivacao footer {
-      margin-top: 23px !important; }
-    .positivacao .start {
-      width: 100%; }
-    .positivacao .content-before p {
-      width: inherit; } }
+  @media screen and (max-width: 1199px) {
+    .positivacao {
+      /*.collapse-container{
+        z-index: 4000;
+        position: relative;
+        top: -1px;
+        left: -1px;
+        width: calc(100% + 2px);
+        border-bottom-width: 2px;
+        border-left-width: 2px;
+        border-right-width: 2px;
+    }*/ }
+      .positivacao .row-custom {
+        display: flex !important; }
+      .positivacao .content-inside,
+      .positivacao .content-inside img {
+        padding-right: 0px;
+        padding-left: 0px;
+        width: inherit;
+        height: auto; }
+      .positivacao .content-inside img {
+        margin-top: 0px; }
+      .positivacao .content-inside > p {
+        font-family: 'SimplonBP-Regular';
+        width: 100%;
+        font-size: 14px;
+        font-weight: 100; }
+      .positivacao footer {
+        margin-top: 23px !important; }
+      .positivacao .start {
+        width: 100%; }
+      .positivacao .content-before p {
+        width: inherit; } }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    .positivacao .content-img {
+      width: 60vw !important;
+      margin-top: 38px;
+      font-size: 28px;
+      line-height: 1.5;
+      letter-spacing: -0.75px; } }
+  @media screen and (min-width: 768px) {
+    .positivacao .hidden-small {
+      display: block; }
+    .positivacao .visible-small {
+      display: none; } }
   @media screen and (max-width: 767px) {
+    .positivacao .content-img {
+      font-size: 14px;
+      line-height: 20px !important;
+      width: inherit !important;
+      word-wrap: break-word;
+      padding-right: 0px;
+      margin: 0px 0px 5vh 0px !important; }
     .positivacao .button-inside {
       width: 90%;
       margin-left: 10px;

@@ -15,10 +15,12 @@
   <!-- link rel="stylesheet" href="styles/css/positivacao.css" -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="scrollbar/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
 
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="scrollbar/malihu-custom-scrollbar-plugin/js/minified/jquery.mCustomScrollbar.min.js"></script>
   <!-- endbuild -->
 </head>
 <body>
@@ -84,9 +86,12 @@
                                 </button>
                                 <div class="collapse-container">
                                     <div class="collapse" id="collapseOptions">
-                                        <button  class="button-inside mobile">Pelo seu celular</button>
-                                        <button  class="button-inside tv">Pela sua OI TV</button>
-                                        <button  class="button-inside invoice">Pela sua fatura</button>
+                                        <div class="internal-content">
+                                            <button  class="button-inside mobile">Pelo seu celular</button>
+                                            <button  class="button-inside telephone">Pelo fixo</button>
+                                            <button  class="button-inside tv">Pela sua OI TV</button>
+                                            <button  class="button-inside invoice">Pela sua fatura</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -112,6 +117,8 @@
                 <div class="modal-content-button">
                     <button  class="button-inside button-modal mobile">Pelo seu celular</button>
                     <div class="line"></div>
+                    <button  class="button-inside button-modal telephone">Pelo fixo</button>
+                    <div class="line"></div>
                     <button  class="button-inside button-modal tv">Pela sua OI TV</button>
                     <div class="line"></div>
                     <button  class="button-inside button-modal invoice">Pela sua fatura</button>
@@ -134,6 +141,12 @@
 <script src="scripts/controllers/about.js"></script -->
 <script>
 $(document).ready(function(){
+    
+   //test scrollbar custom css plugin
+   $(".internal-content").mCustomScrollbar({
+       setTop:0,
+       setHeight: 180
+   });
     
     var id = 0;
     
@@ -185,8 +198,10 @@ $(document).ready(function(){
                 .addClass("arrow_up");
 
             parent.find('.collapse-option').css('border-color' , '#ef3a67');
-            parent.find('.collapse-container .collapse.in').css('border-color' , '#ef3a67');
-            parent.find('.collapse-container .collapsing').css('border-color' , '#dbdbdb');
+            //parent.find('.collapse-container .collapse.in').css('border-color' , '#ef3a67');
+            //parent.find('.collapse-container .collapsing').css('border-color' , '#dbdbdb');
+            parent.find('.collapse-container').css('border-color' , '#ef3a67');
+            //parent.find('.collapse-container').css('border-color' , '#dbdbdb');
             
         }
     )
@@ -201,9 +216,11 @@ $(document).ready(function(){
                 .addClass("arrow_down");
 
             parent.find('.collapse-option').css('border-color' , '#dbdbdb');
-            parent.find('.collapse-container .collapse.in,' +
-                        '.collapse-container .collapse').css('border-color' , '#dbdbdb');
-            parent.find('.collapse-container .collapsing').css('border-color' , '#dbdbdb');
+            //parent.find('.collapse-container .collapse.in,' +
+                       // '.collapse-container .collapse').css('border-color' , '#dbdbdb');
+            //parent.find('.collapse-container .collapsing').css('border-color' , '#dbdbdb');
+            //parent.find('.collapse-container').css('border-color' , '#dbdbdb');
+            parent.find('.collapse-container').css('border-color' , '#dbdbdb');
         }
     );
     
@@ -212,6 +229,11 @@ $(document).ready(function(){
             console.log("mobile");
             
             window.location.replace("positivacao1.html#mobile")
+        }
+        else if($(this).hasClass( "telephone" )){
+            console.log("telephone");
+            
+            window.location.replace("positivacao1.html#telephone")
         }
         else if($(this).hasClass( "tv" )){
             console.log("tv");
