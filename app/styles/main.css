@@ -763,7 +763,8 @@ input[type="checkbox"].eye_style:hover {
   .positivacao .collapse-container .collapse,
   .positivacao .collapse-container .collapsing,
   .positivacao .collapse-container .collapse.in {
-    /*padding-left: 0px !important;
+    padding-left: 0px !important;
+    /*
     background-color: white;
     z-index: 4000;
     position: relative;
@@ -793,7 +794,7 @@ input[type="checkbox"].eye_style:hover {
     padding-left: 40px; }
   .positivacao .content-inside > h2 {
     font-family: 'SimplonBP-Regular';
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
@@ -889,12 +890,10 @@ input[type="checkbox"].eye_style:hover {
         width: inherit;
         height: auto; }
       .positivacao .content-inside img {
-        margin-top: 0px; }
+        margin-top: 5vh; }
       .positivacao .content-inside > p {
-        font-family: 'SimplonBP-Regular';
         width: 100%;
-        font-size: 14px;
-        font-weight: 100; }
+        font-size: 18px; }
       .positivacao footer {
         margin-top: 23px !important; }
       .positivacao .start {
@@ -914,6 +913,13 @@ input[type="checkbox"].eye_style:hover {
     .positivacao .visible-small {
       display: none; } }
   @media screen and (max-width: 767px) {
+    .positivacao .row-custom {
+      display: block !important; }
+    .positivacao .content-inside > p {
+      font-family: 'SimplonBP-Regular';
+      width: 100%;
+      font-size: 14px;
+      font-weight: 100; }
     .positivacao .content-img {
       font-size: 14px;
       line-height: 20px !important;
@@ -921,15 +927,24 @@ input[type="checkbox"].eye_style:hover {
       word-wrap: break-word;
       padding-right: 0px;
       margin: 0px 0px 5vh 0px !important; }
+    .positivacao footer {
+      margin-bottom: 8vh !important; }
+    .positivacao .content-inside img {
+      margin-top: 5vh; }
     .positivacao .button-inside {
-      width: 90%;
-      margin-left: 10px;
-      margin-right: 10px; }
+      width: 139px;
+      margin-left: calc(50% - 68.5px);
+      margin-right: auto;
+      text-align: left !important;
+      padding-left: 0px;
+      padding-right: 0px; }
     .positivacao .button-inside:hover,
     .positivacao .button-inside:active,
     .positivacao .button-inside:focus {
       background-color: white;
       color: #ef3a67; }
+    .positivacao .cancel {
+      text-align: center !important; }
     .positivacao .cancel:hover,
     .positivacao .cancel:active,
     .positivacao .cancele:focus {
