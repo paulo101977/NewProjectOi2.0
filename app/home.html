@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="scrollbar/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
     <!-- link rel="stylesheet" href="styles/homeanimation.css" -->
     
     <!-- fullPage.js plugin -->
@@ -165,12 +166,30 @@
                             <p>Vamos precisar apenas de uma validação, tudo bem?<br>
                                 É rapidinho e bem simples!  Vamos te enviar um código.</p>
                         </div>
-                        <div class="footer">
-                            <button class="btn_start">Receber código no celular</button>
-                            <div class="link_after">
+                        <div class="footer positivacao">
+                            <!-- button class="btn_start">Receber código no celular</button -->
+                            <div class="collapse-option">
+                                <button class="button-custom" 
+                                        data-toggle="collapse" data-target="#collapseOptions">
+                                    <span class="hidden-small">Como quer acessar o código?</span>
+                                    <span class="visible-small">Escolha</span>
+                                    <span class="arrow_item arrow_down"></span>
+                                </button>
+                                <div class="collapse-container">
+                                    <div class="collapse collapse-button" id="collapseOptions">
+                                        <div class="internal-content">
+                                            <button  class="button-inside mobile">Pelo seu celular</button>
+                                            <button  class="button-inside tele_phone">Pelo fixo</button>
+                                            <button  class="button-inside tv">Pela sua Oi TV</button>
+                                            <button  class="button-inside invoice">Pela sua fatura</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end collapse -->
+                            <div class="link_after" style="opacity:0">
                                 <a href="#">Quero fazer depois</a>
                             </div>
-                        </div>
+                        </div><!-- footer -->
                     </div>
                     
                     <!-- oi fixo -->
@@ -433,7 +452,28 @@
     
     </div>
 
-
+    <!-- modal content -->
+    <div class="positivacao">
+        <!-- div class="modal fade" id="modal" -->
+        <div class="modal fade-scale" id="modal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-content-button">
+                    <button  class="button-inside button-modal mobile">Pelo seu celular</button>
+                    <div class="line"></div>
+                    <button  class="button-inside button-modal tele_phone">Pelo fixo</button>
+                    <div class="line"></div>
+                    <button  class="button-inside button-modal tv">Pela sua Oi TV</button>
+                    <div class="line"></div>
+                    <button  class="button-inside button-modal invoice">Pela sua fatura</button>
+                </div>
+                <div class="modal-footer-button">
+                    <button  class="button-inside button-modal cancel">Cancelar</button>
+                </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
     
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -448,6 +488,7 @@
     <script src="js/jquery-scrollspy.js"></script>
     <script src="js/fullPage.js/jquery.fullPage.js"></script>
     <script src="js/jquery-mobile.js"></script>
+    <script src="scrollbar/malihu-custom-scrollbar-plugin/js/minified/jquery.mCustomScrollbar.min.js"></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!-- script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
@@ -463,6 +504,117 @@
             }
             
             return false;
+        }
+        
+        //make popover menu
+        function makePopover(){
+            //test scrollbar custom css plugin
+           $(".internal-content").mCustomScrollbar({
+               setTop:0,
+               setHeight: 180
+           });
+    
+            var id = 0;
+
+            //hide show modal
+            $('.button-custom').click(function(event){
+
+
+                var width = $(window).width();
+
+                if(width < 768){
+                    //stop collapsible
+                    event.stopPropagation();
+                    event.preventDefault();
+                    
+
+                    $('.collapse-button').collapse('hide')
+
+                    $('#modal').modal('show')
+                }
+            })
+
+            $('.cancel').click(function(){
+                $('#modal').modal('hide')
+            })
+
+            //on resize, hide modal on screen above of 768
+            $(window).resize(function(){
+                clearTimeout(id);
+                id = setTimeout(function(){
+                    var width = $(window).width();
+
+                    if(width < 768){
+                        //hide collapsible
+                        $('.collapse-button').collapse('hide')
+                    }
+                    else { //dismiss modal
+                        $('#modal').modal('hide')
+                    }
+                } , 200)
+
+            })
+
+            $('.collapse-button')
+            .on('shown.bs.collapse', 
+                function(){
+
+                    var parent = $(this).parent().parent().parent();
+
+                    parent
+                        .find(".arrow_item")
+                        .removeClass("arrow_down")
+                        .addClass("arrow_up");
+
+                    parent.find('.collapse-option').css('border-color' , '#ef3a67');
+                    //parent.find('.collapse-container .collapse.in').css('border-color' , '#ef3a67');
+                    //parent.find('.collapse-container .collapsing').css('border-color' , '#dbdbdb');
+                    parent.find('.collapse-container').css('border-color' , '#ef3a67');
+                    //parent.find('.collapse-container').css('border-color' , '#dbdbdb');
+
+                }
+            )
+            .on('hidden.bs.collapse', 
+                function(event){
+
+                    var parent = $(this).parent().parent().parent();
+
+                    parent
+                        .find(".arrow_item")
+                        .removeClass("arrow_up")
+                        .addClass("arrow_down");
+
+                    parent.find('.collapse-option').css('border-color' , '#dbdbdb');
+                    //parent.find('.collapse-container .collapse.in,' +
+                               // '.collapse-container .collapse').css('border-color' , '#dbdbdb');
+                    //parent.find('.collapse-container .collapsing').css('border-color' , '#dbdbdb');
+                    //parent.find('.collapse-container').css('border-color' , '#dbdbdb');
+                    parent.find('.collapse-container').css('border-color' , '#dbdbdb');
+                }
+            );
+
+            $('.button-inside').click(function(){
+                if($(this).hasClass( "mobile" )){
+                    console.log("mobile");
+
+                    window.location.replace("positivacao1.html#mobile")
+                }
+                else if($(this).hasClass( "tele_phone" )){
+                    console.log("telephone");
+
+                    window.location.replace("positivacao1.html#telephone")
+                }
+                else if($(this).hasClass( "tv" )){
+                    console.log("tv");
+
+                     window.location.replace("positivacao1.html#tv")
+                }
+                else if($(this).hasClass( "invoice" )){
+                    console.log("invoice");
+
+                     window.location.replace("positivacao1.html#invoice")
+                }
+            })
         }
         
         
@@ -880,7 +1032,8 @@
                 $('.positive').removeClass('hide');
                 $('.popover').addClass('hide');
                 $('.btn_start').addClass('hide');
-                $('.link_after').addClass('hide')
+                $('.link_after').addClass('hide');
+                $('.collapse-option').addClass('hide')
                 
                 //setup the fullpage height
                 $('#fullpage').css('height','calc(100vh - 70px)');
@@ -892,6 +1045,10 @@
             
             //get the current path
             var path = $(location).attr('href')
+            
+            
+            //make popover listener
+            makePopover();
             
             
             //window.getSelection().removeAllRanges(); 
@@ -937,6 +1094,9 @@
                 normalScrollElements: '.menu-item, .help, .help > .fp-tableCell' , //exclude itens
                 bigSectionsDestination : '#fullpage',
                 onLeave: function(index, nextIndex, direction){
+                    
+                    //hide collapse button
+                    $('.collapse-button').collapse('hide')
 
                     var anchorLink = "";
                     
