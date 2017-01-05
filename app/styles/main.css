@@ -1065,6 +1065,9 @@ input[type="checkbox"].eye_style:hover {
   .positivacao .vertical-align-wrapper .vertical-aligner {
     display: table-cell;
     vertical-align: middle; }
+  @media screen and (max-width: 360px) {
+    .positivacao .error-text {
+      font-size: 3.6vw; } }
   @media screen and (max-width: 767px) {
     .positivacao #layout_positivacao .sidebar {
       max-height: initial !important;
@@ -1078,7 +1081,7 @@ input[type="checkbox"].eye_style:hover {
       width: 100%;
       display: inline-block; }
     .positivacao .vertical-aligner {
-      width: 100%;
+      width: inherit;
       display: inline-block; }
     .positivacao #layout_positivacao .page-content .vertical-align-wrapper.page-content-wrapper .vertical-aligner .text p {
       font-size: 14px !important;
@@ -1156,7 +1159,7 @@ input[type="checkbox"].eye_style:hover {
     width: 77%;
     background-color: white; }
   .positivacao .vertical-aligner {
-    width: 100%;
+    width: inherit;
     background-color: white; }
   .positivacao .vertical-aligner .error-text {
     height: 20px;

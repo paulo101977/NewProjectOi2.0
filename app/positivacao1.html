@@ -14,12 +14,12 @@
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- link rel="stylesheet" href="styles/css/style.css" -->
   <!-- link rel="stylesheet" href="styles/positivacao_test.css" -->
 
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-    
   <!-- endbuild -->
 </head>
 <body>
@@ -51,133 +51,158 @@
       <!-- end side bar -->
 
       <!-- content -->
-        
-      <!-- content -->
-      <div class="col-xs-12 col-sm-10 positivacao content-home">
-            <div id="fullpage">
-                <!-- start -->
-                <div class="start with-image other-section"> <!-- start -->
-                   <div class="title">Digite o código</div>
+      <div class='col-xs-12 col-sm-10 col-md-10 col-lg-10 positivacao content-home'>
+          <div id="fullpage">
+                <!-- inject layout below here -->
+                <div class="start other-section">
+                  <div class="title">Digite o código</div>
+
+                  <!-- mobile -->
+                  <div class="content mobile hide">
+                    <p class='subtitle'>Em qual número deseja receber o código de validação?</p>
+                  </div>
                     
-                   <div class="start row-custom">
-                       <div class="content content-before col-md-6">
+                  <div class="content telephone hide">
+                    <p class='subtitle'>
+                        Por qual número deseja receber o código de validação?
+                    </p>
+                  </div>
+                    
+                  <!-- tv -->
+                  <div class="content tv hide">
+                    <p class='subtitle'>Em qual TV deseja receber o código de validação?</p>
+                  </div>
+                    
+                  <!-- invoice text -->
+                  <div class="content invoice hide">
+                    <p class='subtitle'>Em qual fatura deseja consultar o código de validação?</p>
+                  </div>
 
-                            <!-- Phone validation text -->
-                            <div class='text mobile hide'>
-                              <p>
-                                <!-- Valor padrão de número de telefone. Apenas para a validação das telas -->
-                                Acabamos de enviar um código de validação pro número
-                                (21)...3818.
-                              </p>
-                            </div>
-                           
-                           <!-- telephone -->
-                           <div class='text telephone hide'>
-                              <p>
-                                Acabamos de fornecer um código de validação via ligação pro fixo (21)…3790.
-                                </p>
-                            </div>
-                           
-                            <!-- TV validation text -->
-                            <div class='text tv hide'>
-                              <p>
-                                Acabamos de enviar um código de validação pra sua TV.
-                              </p>
-                            </div>
+                  <div class="list-container col-xs-12 col-sm-10 col-md-6">
+                      
+                    <!-- mobile -->
+                    <div id="phoneList" class="list-item list-group mobile hide">
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" CHECKED name="telefones" value="0">
+                          <p>Enviar para (21)...9082</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="telefones" value="1">
+                          <p>Enviar para (21)...9083</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="telefones" value="2">
+                          <p>Enviar para (21)...9084</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="telefones" value="3">
+                          <p>Enviar para (21)...9085</p>
+                        </label>
+                      </div>
+                    </div>
+                      
+                    <!-- mobile -->
+                    <div id="telephoneList" class="list-item list-group telephone hide">
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" CHECKED name="fixos" value="0">
+                          <p>Enviar para (21)...9082</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="fixos" value="1">
+                          <p>Enviar para (21)...9083</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="fixos" value="2">
+                          <p>Enviar para (21)...9084</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="fixos" value="3">
+                          <p>Enviar para (21)...9085</p>
+                        </label>
+                      </div>
+                    </div>
+                      
+                    <!-- tv -->
+                    <div id="tvList" class="list-item list-group tv hide">
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" CHECKED name="tv" value="0">
+                          <p>Enviar para contrato XXX...X</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="tv" value="1">
+                          <p>Enviar para contrato XXX...X</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="tv" value="2">
+                          <p>Enviar para contrato XXX...X</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="tv" value="3">
+                          <p>Enviar para contrato XXX...X</p>
+                        </label>
+                      </div>
+                    </div>
+                      
+                    <!-- invoice -->
+                    <div id="invoiceList " class="list-item list-group invoice hide">
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" CHECKED name="invoice" value="0">
+                          <p>Fatura do seu celular</p>
+                        </label>
+                      </div>
+                      <div class="list-group-item radio">
+                        <label>
+                          <!-- Deixa o primeiro marcado por padrão -->
+                          <input type="radio" name="invoice" value="1">
+                          <p>Fatura da sua Oi TV</p>
+                        </label>
+                      </div>
+                    </div>
+                      
+                      
+                    <button class="btn btn-outline">Gerar código de acesso</button>
+                  </div>
+                </div>
 
-                            <!-- Invoice validation text -->
-                            <div class='text invoice hide'>
-                              <p>
-                                Busque pelo código de validação que está na sua fatura.
-                              </p>
-                            </div>
-
-                            <div class='col-sm-12 col-lg-6'>
-
-                              <div class="activation-code-input">
-                                <div class='custom-input-group'>
-                                  <div class='input-wrapper vertical-align-wrapper'>
-                                    <div class='vertical-aligner'>
-                                      <span class='error-text hidden activation-error'>Código inválido. Digite novamente</span>
-                                      <input oninput="countActivationCode(this)" maxlength="6" type="text" placeholder="Informe o código">
-                                    </div>
-                                  </div>
-                                  <div class="counter-wrapper">
-                                    <div class="loading-container hidden">
-                                      <img class="loading spinning" src="./svg/loading.svg">
-                                    </div>
-                                    <div class='remaining-characters'>6</div>
-                                  </div>
-                                </div>
-
-                                <!-- mobile text -->
-                                <footer class="mobile hide">
-                                  <a class="resend resource-link" href="positivacao.html">Enviar novamente</a>
-                                  <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
-                                  <span class='separator'>|</span>
-                                  <a class="change-number resource-link" href="positivacao2.html#mobile">Alterar número</a>
-                                </footer>
-                                  
-                                <!-- telephone text -->
-                                <footer class="telephone hide">
-                                  <a class="resend resource-link" href="positivacao.html">Enviar novamente</a>
-                                  <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
-                                  <span class='separator'>|</span>
-                                  <a class="change-number resource-link" href="positivacao2.html#telephone">Alterar número</a>
-                                </footer>
-
-                                <!-- tv text -->
-                                <footer class="tv hide">
-                                  <a class="resend resource-link" href="positivacao.html">Enviar novamente</a>
-                                  <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
-                                  <span class='separator'>|</span>
-                                  <a class="change-number resource-link" href="positivacao2.html#tv">Alterar dispositivo</a>
-                                </footer>
-
-                                <!-- invoice text -->
-                                <footer class="invoice hide">
-                                  <a class="resend resource-link" href="positivacao2.html#invoice">Alterar dispositivo</a>
-                                </footer>
-
-                              </div> <!-- activation-code-input -->
-
-                              <div class="default-success success hidden">
-                                <img class="sucess_img" src="./svg/ok.svg">
-                                <div class="sucess_text">
-                                  Tudo certo!
-                                </div>
-                              </div>
-
-                            </div>
-                       </div> <!-- end content -->
-                       <div class="tv hide col-md-6 content-img">
-                           <div class="content-inside">
-                                <h2>DICA:</h2>
-                                <p>Pra acessar seu código pela TV,
-                                    aperte o botão “Menu” do seu controle remoto.
-                                    Em seguida, procure por  “Mensagens” e,
-                                    logo depois, a opção “Lidas e não lidas”.
-                               </p>
-                               <img src="./svg/imagem-tv.svg" />
-                           </div>
-                       </div>
-                       <div class="invoice hide col-md-6 content-img">
-                           <div class="content-inside">
-                                <h2>DICA:</h2>
-                                <p>Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et.
-                               </p>
-                               <img src="./images/Fatura@2x.png" />
-                           </div>
-                       </div>
-                   </div>
-                </div> <!-- end start class -->
-                
-            </div>
-        </div>    
-        
-        
+                <!-- end inject -->
+                 
+          </div>
+    </div>
 
   </div>
 
@@ -193,123 +218,51 @@
 <script src="scripts/controllers/about.js"></script -->
 <script>
 $(document).ready(function(){
-  
+    
     //get current path
     var path = $(location).attr('href');
-    var width = $(window).width();
-    var id;
     
     //test path segment
     //mobile path origin
     if(path.indexOf('#mobile') !== -1){
-       $('.mobile').removeClass('hide');
-       
-       //$('.content-before, .content-before p').width(700);
-        
-        if(width > 768) {
-            $('.content-before, .content-before p').width(700);
-        }
-        else {
-            $('.content-before, .content-before p').css('width','inherit');
-        }
+       $('.mobile').removeClass('hide')
     }
     if(path.indexOf('#telephone') !== -1){
-       $('.telephone').removeClass('hide');
-       
-        if(width > 768) {
-            $('.content-before, .content-before p').width(700);
-        }
-        else {
-            $('.content-before, .content-before p').css('width','inherit');
-        }
+       $('.telephone').removeClass('hide')
     }
     if(path.indexOf('#tv') !== -1){
-        $('.tv').removeClass('hide');
-        
-        $('.content-before, .content-img').addClass('middle');
+       $('.tv').removeClass('hide')
     }
     if(path.indexOf('#invoice') !== -1){
-        $('.invoice').removeClass('hide');
-        
-        $('.content-before, .content-img').addClass('middle');
+       $('.invoice').removeClass('hide')
     }
     
-    //change the size on resize screen
-    $(window).resize(function(){
+    $('.btn-outline').click(function(){
+         
+         //test path segment
+        //mobile path origin
+        if(path.indexOf('#mobile') !== -1){
+           window.location.replace("positivacao2.html#mobile")
+        }
+        if(path.indexOf('#telephone') !== -1){
+           window.location.replace("positivacao2.html#telephone")
+        }
+        if(path.indexOf('#tv') !== -1){
+           window.location.replace("positivacao2.html#tv")
+        }
         
-        clearTimeout(id);
-        
-        //stop resize
-        setTimeout(function(){
-            var width = $(window).width();
-        
-            if(path.indexOf('#mobile') !== -1){
-               $('.mobile').removeClass('hide');
-
-               //$('.content-before, .content-before p').width(700);
-
-                if(width > 768) {
-                    $('.content-before, .content-before p').width(700);
-                }
-                else {
-                    $('.content-before, .content-before p').css('width','inherit');
-                }
-            }
-            if(path.indexOf('#telephone') !== -1){
-               $('.telephone').removeClass('hide');
-
-                if(width > 768) {
-                    $('.content-before, .content-before p').width(700);
-                }
-                else {
-                    $('.content-before, .content-before p').css('width','inherit');
-                }
-            }
-        } , 200)
-    
+        if(path.indexOf('#invoice') !== -1){
+           window.location.replace("positivacao2.html#invoice")
+        }
     })
-
+    
+    
+    
 })
 
-function countActivationCode(element){
-  var chars = element.value.split('');
-  element.value = chars.filter(function(input){
-    return input.match(/[0-9]/);
-  }).join('');
-
-  var length = 6 - element.value.length;
-  $('.remaining-characters').html(length);
-
-  if(!parseInt(length)){
-    element.setAttribute('DISABLED',true);
-    $('.loading-container').removeClass('hidden');
-    $('.remaining-characters').addClass('hidden');
-
-    setTimeout(function(){
-      showActivationCodeError();
-      setTimeout(function(){
-        showActivationCodeSuccess();
-      },2000);
-    },2000);
-  }
-}
-
-function showActivationCodeError(){
-  var element = $('.activation-code-input input');
-  element[0].removeAttribute('DISABLED');
-
-  $('.default-success').addClass('hidden');
-  $('.activation-error').removeClass('hidden');
-}
-
-function showActivationCodeSuccess(){
-  $('.activation-code-input').addClass('hidden');
-  $('.content-img').addClass('hide');
-  $('.default-success').removeClass('hidden');
-}
 </script>
 
-
+<script src='js/script.js'></script>
 <!-- endbuild -->
 </body>
 </html>
