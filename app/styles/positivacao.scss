@@ -408,10 +408,11 @@ footer.telephone{
     }
     
     .button-inside{
-        width: 139px;
-        margin-left: calc(50% - 68.5px);
-        margin-right: auto;
-        text-align: left !important;
+        width: 100%;
+        /* margin-left: calc(50% - 68.5px); */
+        /* margin-right: auto; */
+        text-align: center !important;
+        margin-left: 0px;
         padding-left: 0px;
         padding-right: 0px;
     }
