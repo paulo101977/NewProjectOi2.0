@@ -1064,8 +1064,15 @@ input[type="checkbox"].eye_style:hover {
   .positivacao .vertical-align-wrapper {
     display: table; }
   .positivacao .vertical-align-wrapper .vertical-aligner {
-    display: table-cell;
-    vertical-align: middle; }
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: inherit;
+    width: 100%;
+    flex: 1; }
   @media screen and (max-width: 360px) {
     .positivacao .error-text {
       font-size: 3.6vw; } }
