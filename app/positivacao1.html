@@ -55,16 +55,17 @@
           <div id="fullpage">
                 <!-- inject layout below here -->
                 <div class="start other-section">
-                  <div class="title">Digite o código</div>
+                  <div class="title tv invoice mobile hide">Digite o código</div>
+                  <div class="title phone hide">Vamos te ligar</div>
 
                   <!-- mobile -->
                   <div class="content mobile hide">
                     <p class='subtitle'>Em qual número deseja receber o código de validação?</p>
                   </div>
                     
-                  <div class="content telephone hide">
+                  <div class="content phone hide">
                     <p class='subtitle'>
-                        Por qual número deseja receber o código de validação?
+                        Em qual número fixo deseja receber o código de validação?
                     </p>
                   </div>
                     
@@ -113,7 +114,7 @@
                     </div>
                       
                     <!-- telephone -->
-                    <div id="telephoneList" class="list-item list-group telephone hide">
+                    <div id="telephoneList" class="list-item list-group phone hide">
                       <div class="list-group-item radio">
                         <label>
                           <!-- Deixa o primeiro marcado por padrão -->
@@ -174,7 +175,8 @@
                     </div>
                       
                       
-                    <button class="btn btn-outline">Gerar código de acesso</button>
+                    <button class="btn btn-outline title tv invoice mobile hide">Gerar código de acesso</button>
+                    <button class="btn btn-outline title phone hide">Receber ligação agora</button>
                   </div>
                 </div>
 
@@ -207,7 +209,7 @@ $(document).ready(function(){
        $('.mobile').removeClass('hide')
     }
     if(path.indexOf('#telephone') !== -1){
-       $('.telephone').removeClass('hide')
+       $('.phone').removeClass('hide')
     }
     if(path.indexOf('#tv') !== -1){
        $('.tv').removeClass('hide')

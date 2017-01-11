@@ -57,13 +57,14 @@
             <div id="fullpage">
                 <!-- start -->
                 <div class="start with-image other-section"> <!-- start -->
-                   <div class="title">Digite o código</div>
+                   <div class="title mobile tv invoice hide">Digite o código</div>
+                   <div class="title phone hide">Vamos te ligar</div>
                     
                    <div class="start row-custom">
                        <div class="content content-before col-md-6">
 
                             <!-- Phone validation text -->
-                            <div class='text mobile hide'>
+                            <div class='col-sm-12 text mobile hide'>
                               <p>
                                 <!-- Valor padrão de número de telefone. Apenas para a validação das telas -->
                                 Acabamos de enviar um código de validação pro número
@@ -71,50 +72,77 @@
                               </p>
                             </div>
                            
-                           <!-- telephone -->
-                           <div class='text telephone hide'>
+                           <!-- phone -->
+                           <div class='col-sm-12 text phone hide'>
                               <p>
-                                Aguarde a nossa ligação. Em instantes, enviaremos o código pro fixo (21)…3790.
+                                Fique atento! Você receberá um chamada no seu telefone fixo (21)…3790 informando o código de validação.
                               </p>
                             </div>
                            
                             <!-- TV validation text -->
-                            <div class='text tv hide'>
+                            <div class='col-sm-12 text tv hide'>
                               <p>
                                 Acabamos de enviar um código de validação pra sua TV.
                               </p>
                             </div>
 
                             <!-- Invoice validation text -->
-                            <div class='text invoice hide'>
+                            <div class='col-sm-12 text invoice hide'>
                               <p>
                                 Busque pelo código de validação que está na sua fatura.
                               </p>
                             </div>
 
-                            <div class='col-sm-12 col-md-10 col-lg-8 col-xl-6'>
+                            <div class='col-sm-12 col-md-10 col-lg-10 col-xl-10'>
 
                               <div class="activation-code-input">
-                                <div class='custom-input-group'>
-                                  <div class='input-wrapper vertical-align-wrapper'>
-                                    <div class='vertical-aligner'>
-                                      <span class='error-text hidden activation-error'>Código inválido. Digite novamente</span>
-                                      <input oninput="countActivationCode(this)" maxlength="6" type="text" placeholder="Informe o código">
+                                
+                                <div class="phone hide">
+                                    <div class='col-xs-12 col-sm-6'>
+                                        <div class='custom-input-group'>
+                                          <div class='input-wrapper vertical-align-wrapper'>
+                                            <div class='vertical-aligner'>
+                                              <span class='error-text hidden activation-error'>Código inválido. Digite novamente</span>
+                                              <input oninput="countActivationCode(this)" maxlength="6" type="text" placeholder="Informe o código">
+                                            </div>
+                                          </div>
+                                          <div class="counter-wrapper">
+                                            <div class="loading-container hidden">
+                                              <img class="loading spinning" src="./svg/loading.svg">
+                                            </div>
+                                            <div class='remaining-characters'>6</div>
+                                          </div>
+                                        </div>
                                     </div>
-                                  </div>
-                                  <div class="counter-wrapper">
-                                    <div class="loading-container hidden">
-                                      <img class="loading spinning" src="./svg/loading.svg">
+                                    <div class='col-xs-12 col-sm-6'>
+                                        <button class="btn btn-outline title btn-phone">Receber ligação agora</button>
                                     </div>
-                                    <div class='remaining-characters'>6</div>
-                                  </div>
                                 </div>
-
+                                <div class="tv mobile invoice hide">
+                                    <div class='custom-input-group'>
+                                      <div class='input-wrapper vertical-align-wrapper'>
+                                        <div class='vertical-aligner'>
+                                          <span class='error-text hidden activation-error'>Código inválido. Digite novamente</span>
+                                          <input oninput="countActivationCode(this)" maxlength="6" type="text" placeholder="Informe o código">
+                                        </div>
+                                      </div>
+                                      <div class="counter-wrapper">
+                                        <div class="loading-container hidden">
+                                          <img class="loading spinning" src="./svg/loading.svg">
+                                        </div>
+                                        <div class='remaining-characters'>6</div>
+                                      </div>
+                                    </div>
+                                </div>
+                                  
                                 <!-- mobile text -->
-                                <footer>
+                                <footer class="mobile tv invoice hide">
                                   <a class="resend resource-link" href="#">Enviar novamente</a>
                                   <!-- Caso tenha mais de um telefone, oferece a opção de voltar para a lista -->
                                   <span class='separator'>|</span>
+                                  <a class="change-number resource-link" href="positivacao.html">Alterar dispositivo</a>
+                                </footer>
+                                <footer class="phone hide">
                                   <a class="change-number resource-link" href="positivacao.html">Alterar dispositivo</a>
                                 </footer>
                                   
@@ -192,24 +220,14 @@ $(document).ready(function(){
     if(path.indexOf('#mobile') !== -1){
        $('.mobile').removeClass('hide');
        
-       //$('.content-before, .content-before p').width(700);
-        
-        if(width > 768) {
-            $('.content-before, .content-before p').width(700);
-        }
-        else {
-            $('.content-before, .content-before p').css('width','inherit');
-        }
     }
     if(path.indexOf('#telephone') !== -1){
-       $('.telephone').removeClass('hide');
+       $('.phone').removeClass('hide');
        
-        if(width > 768) {
-            $('.content-before, .content-before p').width(700);
-        }
-        else {
-            $('.content-before, .content-before p').css('width','inherit');
-        }
+       $("input").prop('disabled', true);
+       $(".change-number").removeAttr('href');
+       $(".change-number").addClass('link-disabled');
+       $(".custom-input-group").addClass("item-disabled");
     }
     if(path.indexOf('#tv') !== -1){
         $('.tv').removeClass('hide');
@@ -222,39 +240,13 @@ $(document).ready(function(){
         $('.content-before, .content-img').addClass('middle');
     }
     
-    //change the size on resize screen
-    $(window).resize(function(){
-        
-        clearTimeout(id);
-        
-        //stop resize
-        setTimeout(function(){
-            var width = $(window).width();
-        
-            if(path.indexOf('#mobile') !== -1){
-               $('.mobile').removeClass('hide');
-
-               //$('.content-before, .content-before p').width(700);
-
-                if(width > 768) {
-                    $('.content-before, .content-before p').width(700);
-                }
-                else {
-                    $('.content-before, .content-before p').css('width','inherit');
-                }
-            }
-            if(path.indexOf('#telephone') !== -1){
-               $('.telephone').removeClass('hide');
-
-                if(width > 768) {
-                    $('.content-before, .content-before p').width(700);
-                }
-                else {
-                    $('.content-before, .content-before p').css('width','inherit');
-                }
-            }
-        } , 200)
-    
+    $('.btn-phone').click(function(event){
+        $("input").prop('disabled', false);
+        $(".change-number").attr('href', 'positivacao.html');
+        $(".change-number").removeClass('link-disabled');
+        $(".custom-input-group").removeClass("item-disabled");
+        $('.phone > p').html("Informe o código de validação que você ouviu no telefone fixo (21)…3790.")
+        $(".btn-phone").html("Ligar novamente");
     })
 
 })

@@ -708,6 +708,16 @@ input[type="checkbox"].eye_style:hover {
   .positivacao .button-inside:focus {
     background-color: #f5f5f5;
     color: #ef3a67; }
+  .positivacao .link-disabled,
+  .positivacao .link-disabled:hover,
+  .positivacao .link-disabled:active,
+  .positivacao .link-disabled:focus {
+    opacity: 0.4;
+    text-decoration: underline; }
+  .positivacao .item-disabled {
+    opacity: 0.4; }
+  .positivacao .btn-phone {
+    margin-left: 34px; }
   .positivacao .arrow_item {
     position: absolute;
     background-size: 14px;
@@ -860,7 +870,7 @@ input[type="checkbox"].eye_style:hover {
   .positivacao .separator {
     margin: 0px 0.5vw 0px 0.5vw; }
   .positivacao .content-before p {
-    width: 28vw; }
+    width: 100%; }
   .positivacao footer.telephone {
     display: block; }
   .positivacao .content-img {
@@ -899,7 +909,7 @@ input[type="checkbox"].eye_style:hover {
       .positivacao .start {
         width: 100%; }
       .positivacao .content-before p {
-        width: inherit; } }
+        width: 100%; } }
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     .positivacao .content-img {
       width: 60vw !important;
@@ -912,7 +922,15 @@ input[type="checkbox"].eye_style:hover {
       display: block; }
     .positivacao .visible-small {
       display: none; } }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    .positivacao {
+      /*.btn-phone{
+        margin-left:   0px;
+    }*/ } }
   @media screen and (max-width: 767px) {
+    .positivacao .btn-phone {
+      margin-left: 0px;
+      margin-top: 2.1875rem; }
     .positivacao .row-custom {
       display: block !important; }
     .positivacao .content-inside > p {
@@ -1163,7 +1181,7 @@ input[type="checkbox"].eye_style:hover {
     border-right: 0 none;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    height: 75px;
+    height: 68px;
     width: 77%;
     background-color: white; }
   .positivacao .vertical-aligner {
@@ -1200,8 +1218,8 @@ input[type="checkbox"].eye_style:hover {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     width: 23%;
-    height: 75px;
-    line-height: 75px; }
+    height: 70px;
+    line-height: 70px; }
   .positivacao .remaining-characters {
     text-align: center; }
   .positivacao .loading-container {
@@ -1210,7 +1228,9 @@ input[type="checkbox"].eye_style:hover {
   .positivacao .loading-container img {
     width: 25px; }
   .positivacao footer {
-    margin-top: 5px; }
+    margin-top: 5px;
+    float: left;
+    clear: both; }
   .positivacao #layout_positivacao .page-content .section .activation-code-input footer .separator {
     margin-top: 23px;
     font-size: 14px;

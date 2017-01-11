@@ -50,6 +50,22 @@
     color: #ef3a67;
 }
 
+.link-disabled,
+.link-disabled:hover,
+.link-disabled:active,
+.link-disabled:focus{
+    opacity: 0.4;
+    text-decoration: underline;
+}
+
+.item-disabled{
+    opacity: 0.4;
+}
+
+.btn-phone{
+    margin-left:  34px;
+}
+
 .arrow_item{
     position: absolute;
     background-size: 14px;
@@ -287,7 +303,7 @@ button:focus {outline:0;}
 }
 
 .content-before p{
-    width: 28vw;
+   width: 100%;
 }
 
 
@@ -352,7 +368,7 @@ footer.telephone{
     }
     
     .content-before p{
-        width: inherit;
+        width: 100%;
     }
     
 }
@@ -377,7 +393,19 @@ footer.telephone{
     }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px){
+    
+    /*.btn-phone{
+        margin-left:   0px;
+    }*/
+}
+
 @media screen and (max-width: 767px) {
+    
+    .btn-phone{
+        margin-left:   0px;
+        margin-top: 2.1875rem;
+    }
     
     .row-custom{
         display: block !important;
