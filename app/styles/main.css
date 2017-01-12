@@ -670,8 +670,9 @@ input[type="checkbox"].eye_style:hover {
   .positivacao .positivacao #fullpage {
     height: 100vh;
     display: flex;
-    align-items: center;
-    width: 83.3333vw !important; }
+    align-items: flex-start;
+    width: 83.3333vw !important;
+    padding-top: 11vh; }
   .positivacao .collapse-option {
     font-family: 'SimplonBP-Light';
     font-size: 21px;

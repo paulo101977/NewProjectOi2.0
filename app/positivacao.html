@@ -96,6 +96,22 @@
                                 </div>
                             </div>
                             
+                            <!-- 
+
+                                este trecho é somente para testes 
+                                a versão definitiva deverá prever se
+                                o usuário tem multiplos aparelhos
+                                ou somente um
+
+                            -->
+                            <div class="" style="position:absolute;top:65vh;left:50%">
+                                <div class="">
+                                    <a  style="display:block" href="positivacao2.html#mobileone" class="button-inside">único celular</a>
+                                    <a  href="positivacao2.html#telephoneone" class="button-inside">único fixo</a>
+                                </div>
+                            </div>
+                            <!-- end teste -->
+                            
                             <div class="link_after">
                                 <a href="home.html#baranimation">Quero fazer depois</a>
                             </div>
@@ -237,7 +253,7 @@ $(document).ready(function(){
         else if($(this).hasClass( "telephone" )){
             console.log("telephone");
             
-            window.location.replace("positivacao1.html#telephone")
+            window.location.replace("positivacao1.html#telephonemany")
         }
         else if($(this).hasClass( "tv" )){
             console.log("tv");

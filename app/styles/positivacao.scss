@@ -2,8 +2,9 @@
 .positivacao #fullpage{
     height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 83.3333vw !important;
+    padding-top: 11vh;
 }
 
 .collapse-option{

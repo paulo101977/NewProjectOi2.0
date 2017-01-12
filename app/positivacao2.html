@@ -221,14 +221,21 @@ $(document).ready(function(){
        $('.mobile').removeClass('hide');
        
     }
-    if(path.indexOf('#telephone') !== -1){
+    if(path.indexOf('#telephonemany') !== -1){
+        $('.phone').removeClass('hide');
+        $("input").prop('disabled', false);
+        $(".custom-input-group").removeClass("item-disabled");
+        $('.phone > p').html("Informe o código de validação que você ouviu no telefone fixo (21)…3790.")
+        $(".btn-phone").html("Ligar novamente");
+        $("div.title").html("Digite o código");
+    }
+    if(path.indexOf('#telephoneone') !== -1){
        $('.phone').removeClass('hide');
-       
        $("input").prop('disabled', true);
-       $(".change-number").removeAttr('href');
-       $(".change-number").addClass('link-disabled');
        $(".custom-input-group").addClass("item-disabled");
     }
+    
+    
     if(path.indexOf('#tv') !== -1){
         $('.tv').removeClass('hide');
         
@@ -242,11 +249,10 @@ $(document).ready(function(){
     
     $('.btn-phone').click(function(event){
         $("input").prop('disabled', false);
-        $(".change-number").attr('href', 'positivacao.html');
-        $(".change-number").removeClass('link-disabled');
         $(".custom-input-group").removeClass("item-disabled");
         $('.phone > p').html("Informe o código de validação que você ouviu no telefone fixo (21)…3790.")
         $(".btn-phone").html("Ligar novamente");
+        $("div.title").html("Digite o código");
     })
 
 })
